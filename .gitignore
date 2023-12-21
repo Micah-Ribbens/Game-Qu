@@ -1,0 +1,9 @@
+.idea
+test.py
+*__pycache__*
+TODO.md
+pong_reloaded_remastered
+.DS_Store
+docs/_build/
+docs/_static/
+docs/_templates
