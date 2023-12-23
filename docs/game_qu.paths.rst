@@ -1,45 +1,45 @@
-game\_qu.paths package
+paths package
 ======================
 
 Submodules
 ----------
 
-game\_qu.paths.action\_followable\_path module
+paths.action\_followable\_path module
 ----------------------------------------------
 
-.. automodule:: game_qu.paths.action_followable_path
+.. automodule:: paths.action_followable_path
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.paths.followable\_path module
+paths.followable\_path module
 --------------------------------------
 
-.. automodule:: game_qu.paths.followable_path
+.. automodule:: paths.followable_path
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.paths.physics\_followable\_path module
+paths.physics\_followable\_path module
 -----------------------------------------------
 
-.. automodule:: game_qu.paths.physics_followable_path
+.. automodule:: paths.physics_followable_path
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.paths.piecewise\_followable\_path module
+paths.piecewise\_followable\_path module
 -------------------------------------------------
 
-.. automodule:: game_qu.paths.piecewise_followable_path
+.. automodule:: paths.piecewise_followable_path
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.paths.velocity\_followable\_path module
+paths.velocity\_followable\_path module
 ------------------------------------------------
 
-.. automodule:: game_qu.paths.velocity_followable_path
+.. automodule:: paths.velocity_followable_path
    :members:
    :undoc-members:
    :show-inheritance:
@@ -47,7 +47,7 @@ game\_qu.paths.velocity\_followable\_path module
 Module contents
 ---------------
 
-.. automodule:: game_qu.paths
+.. automodule:: paths
    :members:
    :undoc-members:
    :show-inheritance:
