@@ -1,189 +1,189 @@
-game\_qu.base package
+base package
 =====================
 
 Submodules
 ----------
 
-game\_qu.base.colors module
+base.colors module
 ---------------------------
 
-.. automodule:: game_qu.base.colors
+.. automodule:: base.colors
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.count\_event module
+base.count\_event module
 ---------------------------------
 
-.. automodule:: game_qu.base.count_event
+.. automodule:: base.count_event
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.engines module
+base.engines module
 ----------------------------
 
-.. automodule:: game_qu.base.engines
+.. automodule:: base.engines
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.events module
+base.events module
 ---------------------------
 
-.. automodule:: game_qu.base.events
+.. automodule:: base.events
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.file\_reader module
+base.file\_reader module
 ---------------------------------
 
-.. automodule:: game_qu.base.file_reader
+.. automodule:: base.file_reader
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.fraction module
+base.fraction module
 -----------------------------
 
-.. automodule:: game_qu.base.fraction
+.. automodule:: base.fraction
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.game\_movement module
+base.game\_movement module
 -----------------------------------
 
-.. automodule:: game_qu.base.game_movement
+.. automodule:: base.game_movement
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.game\_runner\_function module
+base.game\_runner\_function module
 -------------------------------------------
 
-.. automodule:: game_qu.base.game_runner_function
+.. automodule:: base.game_runner_function
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.history\_keeper module
+base.history\_keeper module
 ------------------------------------
 
-.. automodule:: game_qu.base.history_keeper
+.. automodule:: base.history_keeper
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.id\_creator module
+base.id\_creator module
 --------------------------------
 
-.. automodule:: game_qu.base.id_creator
+.. automodule:: base.id_creator
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.important\_constants module
+base.important\_constants module
 -----------------------------------------
 
-.. automodule:: game_qu.base.important_constants
+.. automodule:: base.important_constants
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.important\_variables module
+base.important\_variables module
 -----------------------------------------
 
-.. automodule:: game_qu.base.important_variables
+.. automodule:: base.important_variables
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.keyboard module
+base.keyboard module
 -----------------------------
 
-.. automodule:: game_qu.base.keyboard
+.. automodule:: base.keyboard
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.library\_changer module
+base.library\_changer module
 -------------------------------------
 
-.. automodule:: game_qu.base.library_changer
+.. automodule:: base.library_changer
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.library\_independant\_utility\_functions module
+base.library\_independant\_utility\_functions module
 -------------------------------------------------------------
 
-.. automodule:: game_qu.base.library_independant_utility_functions
+.. automodule:: base.library_independant_utility_functions
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.lines module
+base.lines module
 --------------------------
 
-.. automodule:: game_qu.base.lines
+.. automodule:: base.lines
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.paths module
+base.paths module
 --------------------------
 
-.. automodule:: game_qu.base.paths
+.. automodule:: base.paths
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.quadratic\_equations module
+base.quadratic\_equations module
 -----------------------------------------
 
-.. automodule:: game_qu.base.quadratic_equations
+.. automodule:: base.quadratic_equations
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.range module
+base.range module
 --------------------------
 
-.. automodule:: game_qu.base.range
+.. automodule:: base.range
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.timed\_event module
+base.timed\_event module
 ---------------------------------
 
-.. automodule:: game_qu.base.timed_event
+.. automodule:: base.timed_event
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.unique\_ids\_list module
+base.unique\_ids\_list module
 --------------------------------------
 
-.. automodule:: game_qu.base.unique_ids_list
+.. automodule:: base.unique_ids_list
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.utility\_functions module
+base.utility\_functions module
 ---------------------------------------
 
-.. automodule:: game_qu.base.utility_functions
+.. automodule:: base.utility_functions
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.base.velocity\_calculator module
+base.velocity\_calculator module
 -----------------------------------------
 
-.. automodule:: game_qu.base.velocity_calculator
+.. automodule:: base.velocity_calculator
    :members:
    :undoc-members:
    :show-inheritance:
@@ -191,7 +191,7 @@ game\_qu.base.velocity\_calculator module
 Module contents
 ---------------
 
-.. automodule:: game_qu.base
+.. automodule:: base
    :members:
    :undoc-members:
    :show-inheritance:

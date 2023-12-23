@@ -1,29 +1,29 @@
-game\_qu.pygame\_abstraction package
+pygame\_abstraction package
 ====================================
 
 Submodules
 ----------
 
-game\_qu.pygame\_abstraction.keys module
+pygame\_abstraction.keys module
 ----------------------------------------
 
-.. automodule:: game_qu.pygame_abstraction.keys
+.. automodule:: pygame_abstraction.keys
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.pygame\_abstraction.utility\_functions module
+pygame\_abstraction.utility\_functions module
 ------------------------------------------------------
 
-.. automodule:: game_qu.pygame_abstraction.utility_functions
+.. automodule:: pygame_abstraction.utility_functions
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.pygame\_abstraction.variables module
+pygame\_abstraction.variables module
 ---------------------------------------------
 
-.. automodule:: game_qu.pygame_abstraction.variables
+.. automodule:: pygame_abstraction.variables
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ game\_qu.pygame\_abstraction.variables module
 Module contents
 ---------------
 
-.. automodule:: game_qu.pygame_abstraction
+.. automodule:: pygame_abstraction
    :members:
    :undoc-members:
    :show-inheritance:

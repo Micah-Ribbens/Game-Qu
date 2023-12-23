@@ -1,29 +1,29 @@
-game\_qu.pyglet\_abstraction package
+pyglet\_abstraction package
 ====================================
 
 Submodules
 ----------
 
-game\_qu.pyglet\_abstraction.keys module
+pyglet\_abstraction.keys module
 ----------------------------------------
 
-.. automodule:: game_qu.pyglet_abstraction.keys
+.. automodule:: pyglet_abstraction.keys
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.pyglet\_abstraction.utility\_functions module
+pyglet\_abstraction.utility\_functions module
 ------------------------------------------------------
 
-.. automodule:: game_qu.pyglet_abstraction.utility_functions
+.. automodule:: pyglet_abstraction.utility_functions
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.pyglet\_abstraction.variables module
+pyglet\_abstraction.variables module
 ---------------------------------------------
 
-.. automodule:: game_qu.pyglet_abstraction.variables
+.. automodule:: pyglet_abstraction.variables
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ game\_qu.pyglet\_abstraction.variables module
 Module contents
 ---------------
 
-.. automodule:: game_qu.pyglet_abstraction
+.. automodule:: pyglet_abstraction
    :members:
    :undoc-members:
    :show-inheritance:

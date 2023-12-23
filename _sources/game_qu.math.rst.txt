@@ -1,117 +1,117 @@
-game\_qu.math package
+math package
 =====================
 
 Submodules
 ----------
 
-game\_qu.math.bounded\_function module
+math.bounded\_function module
 --------------------------------------
 
-.. automodule:: game_qu.math.bounded_function
+.. automodule:: math.bounded_function
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.derivative module
+math.derivative module
 -------------------------------
 
-.. automodule:: game_qu.math.derivative
+.. automodule:: math.derivative
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.function module
+math.function module
 -----------------------------
 
-.. automodule:: game_qu.math.function
+.. automodule:: math.function
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.indefinite\_integral module
+math.indefinite\_integral module
 -----------------------------------------
 
-.. automodule:: game_qu.math.indefinite_integral
+.. automodule:: math.indefinite_integral
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.line\_segment module
+math.line\_segment module
 ----------------------------------
 
-.. automodule:: game_qu.math.line_segment
+.. automodule:: math.line_segment
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.linear\_interpolation module
+math.linear\_interpolation module
 ------------------------------------------
 
-.. automodule:: game_qu.math.linear_interpolation
+.. automodule:: math.linear_interpolation
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.matrix module
+math.matrix module
 ---------------------------
 
-.. automodule:: game_qu.math.matrix
+.. automodule:: math.matrix
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.physics\_function module
+math.physics\_function module
 --------------------------------------
 
-.. automodule:: game_qu.math.physics_function
+.. automodule:: math.physics_function
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.piecewise\_function module
+math.piecewise\_function module
 ----------------------------------------
 
-.. automodule:: game_qu.math.piecewise_function
+.. automodule:: math.piecewise_function
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.point module
+math.point module
 --------------------------
 
-.. automodule:: game_qu.math.point
+.. automodule:: math.point
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.polynomial module
+math.polynomial module
 -------------------------------
 
-.. automodule:: game_qu.math.polynomial
+.. automodule:: math.polynomial
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.quadratic\_function module
+math.quadratic\_function module
 ----------------------------------------
 
-.. automodule:: game_qu.math.quadratic_function
+.. automodule:: math.quadratic_function
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.range module
+math.range module
 --------------------------
 
-.. automodule:: game_qu.math.range
+.. automodule:: math.range
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.math.vector\_2d module
+math.vector\_2d module
 -------------------------------
 
-.. automodule:: game_qu.math.vector_2d
+.. automodule:: math.vector_2d
    :members:
    :undoc-members:
    :show-inheritance:
@@ -119,7 +119,7 @@ game\_qu.math.vector\_2d module
 Module contents
 ---------------
 
-.. automodule:: game_qu.math
+.. automodule:: math
    :members:
    :undoc-members:
    :show-inheritance:

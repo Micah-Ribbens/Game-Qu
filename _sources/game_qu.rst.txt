@@ -7,37 +7,37 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   game_qu.base
-   game_qu.gui_components
-   game_qu.math
-   game_qu.paths
-   game_qu.pong_reloaded_remastered
-   game_qu.pygame_abstraction
-   game_qu.pyglet_abstraction
+   base
+   gui_components
+   math
+   paths
+   pong_reloaded_remastered
+   pygame_abstraction
+   pyglet_abstraction
 
 Submodules
 ----------
 
-game\_qu.game\_runner module
+game\_runner module
 ----------------------------
 
-.. automodule:: game_qu.game_runner
+.. automodule:: game_runner
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.library\_abstraction module
+library\_abstraction module
 ------------------------------------
 
-.. automodule:: game_qu.library_abstraction
+.. automodule:: library_abstraction
    :members:
    :undoc-members:
    :show-inheritance:
 
-game\_qu.test module
+test module
 --------------------
 
-.. automodule:: game_qu.test
+.. automodule:: test
    :members:
    :undoc-members:
    :show-inheritance:
