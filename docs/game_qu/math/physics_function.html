@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>game_qu.math.physics_function API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>game_qu.math.physics_function</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import math
+
+from game_qu.base.utility_functions import get_kwarg_item, solve_quadratic
+from game_qu.math.quadratic_function import QuadraticFunction
+
+
+class PhysicsFunction:
+    &#34;&#34;&#34;A class that uses common physics equations for initial_velocity, acceleration, and initial_distance&#34;&#34;&#34;
+
+    acceleration = 0
+    initial_velocity = 0
+    initial_distance = 0
+
+    def get_time_to_vertex(self):
+        &#34;&#34;&#34; Gets the time it takes to reach the vertex knowing that the final initial_velocity is 0, so the time is -initial_velocity / acceleration
+
+            :returns: float; the time to reach the vertex
+        &#34;&#34;&#34;
+
+        return -self.initial_velocity / self.acceleration
+
+    def set_acceleration_with_displacement(self, time, displacement):
+        &#34;&#34;&#34; Sets the acceleration knowing that d = 1/2 * a * t^2 where d is displacement, a is acceleration, and t is time.
+            This is assuming initial_velocity is 0
+
+            :parameter time: float; the amount of time that it should take to go that amount (displacement)
+            :parameter displacement: float; the distance (up being positive and down being negative) that it should travel
+
+            :returns: None
+        &#34;&#34;&#34;
+
+        self.acceleration = (2 * displacement) / pow(time, 2)
+
+    def set_velocity_with_displacement(self, displacement):
+        &#34;&#34;&#34; Sets the initial velocity of the function knowing that vf^2 = vi^2 + 2ad and we know that vf is 0
+            a is acceleration, t is time, and v is initial_velocity
+
+            :parameter displacement: float; the distance (up being positive and down being negative) that it should travel
+
+            :returns: None
+        &#34;&#34;&#34;
+
+        # Solved for vi knowing vf = 0 in vf^2 = vi^2 + 2ad
+        self.initial_velocity = math.sqrt(2 * self.acceleration * displacement)
+
+
+    def set_acceleration_with_velocity(self, time, velocity_change):
+        &#34;&#34;&#34;Sets the acceleration knowing that vf = vi + at&#34;&#34;&#34;
+
+        self.acceleration = velocity_change / time
+
+    def set_all_variables(self, vertex, time, initial_distance):
+        &#34;&#34;&#34; Sets all the variables; calls set_velocity and set_gravity_acceleration
+
+            :parameter vertex: float; the highest/lowest point of the parabola
+            :parameter time: float; the time it takes to get to the vertex/go the acceleration_distance
+            :parameter acceleration_displacement: float; the distance (up being positive and down being negative) that the acceleration in that time
+            :parameter initial_distance: float; the initial distance
+
+            :returns: None
+        &#34;&#34;&#34;
+
+        self.initial_distance = initial_distance
+
+        # Gotten using math
+        self.initial_velocity = (-2 * initial_distance + 2 * vertex) / time
+        self.acceleration = 2 * (initial_distance - vertex) / pow(time, 2)
+
+    def set_variables(self, **kwargs):
+        &#34;&#34;&#34; Sets the variables to the number provided
+
+            possible parameters:
+                acceleration: float; the acceleration (can be positive or negative) | a in 1/2 * ax^2 + bx + c
+                initial_velocity: float; the initial_velocity (can be positive or negative) | b in 1/2 * ax^2 + bx + c
+                initial_distance: float; the starting point (can be positive or negative) | c in 1/2 * ax^2 + bx + c
+
+            :returns: None
+        &#34;&#34;&#34;
+
+        self.acceleration = get_kwarg_item(kwargs, &#34;acceleration&#34;, self.acceleration)
+        self.initial_velocity = get_kwarg_item(kwargs, &#34;initial_velocity&#34;, self.initial_velocity)
+        self.initial_distance = get_kwarg_item(kwargs, &#34;initial_distance&#34;, self.initial_distance)
+
+    def get_distance(self, time):
+        &#34;&#34;&#34; Finds the number by plugging x into the equation 1/2 * at^2 + vt + d
+            where a is acceleration, t is time, v is initial_velocity, and d is initial_distance
+
+            :parameter time: float; the amount of time that has passed
+
+            :returns: float; the number that is gotten when time is plugged into the equation
+        &#34;&#34;&#34;
+        return 1 / 2 * self.acceleration * pow(time, 2) + self.initial_velocity * time + self.initial_distance
+
+    def get_velocity_using_time(self, time):
+        &#34;&#34;&#34; Uses the fact that the initial_velocity is equal to vi - at^2 where vi is the initial initial_velocity, a is acceleration, and t is time
+            to find the initial_velocity
+
+            :parameter time: float; the amount of time that the initial_velocity has been affected by acceleration
+
+            :returns: float; the initial_velocity after affected by acceleration
+        &#34;&#34;&#34;
+
+        return self.initial_velocity + self.acceleration * time
+
+    def get_velocity_using_displacement(self, displacement):
+        &#34;&#34;&#34; Uses the formula vf^2 = vi^2 + 2ax to find the initial_velocity
+            where vf is final initial_velocity, vi is initial initial_velocity, a is acceleration, and x is displacement
+
+            :parameter displacement: float; the amount that the ball has traveled (upwards is positive and downwards is negative)
+
+            :returns: float; the final initial_velocity
+        &#34;&#34;&#34;
+
+        final_velocity_squared = pow(self.initial_velocity, 2) + 2 * self.acceleration * displacement
+        # Reduces the risk of a rounding error like -1*e^-15 would cause an imaginary number exception
+        return pow(int(final_velocity_squared), 1 / 2)
+
+    def get_vertex(self):
+        &#34;&#34;&#34;:returns: float; the vertex of this physics equation&#34;&#34;&#34;
+
+        return self.get_distance(self.get_time_to_vertex())
+
+    def get_times_to_point(self, distance):
+        &#34;&#34;&#34; Finds the number by plugging in &#39;distance&#39; into the equation 1/2 * at^2 + vt + d
+            where a is acceleration, t is time, v is initial_velocity, and d is initial_distance
+
+            :parameter distance: float; the distance that is wanted
+
+            :returns: float[]; the times that the parabola is at that y coordinate
+        &#34;&#34;&#34;
+        return solve_quadratic(1 / 2 * self.acceleration, self.initial_velocity, self.initial_distance - distance)
+
+    def get_full_cycle_time(self):
+        &#34;&#34;&#34;:returns: float; the amount of time it takes the parabola to go from start_location -&gt; start_location&#34;&#34;&#34;
+
+        return self.get_time_to_vertex() * 2
+
+    def get_indefinite_integral_of_position_equation(self):
+        &#34;&#34;&#34;:returns: Function; the indefinite integral of the position equation: x = 1/2at^2 + vt + xi&#34;&#34;&#34;
+
+        a, b, c = self.get_a_b_and_c()
+        return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
+
+    def get_a_b_and_c(self):
+        &#34;&#34;&#34;:returns: {a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c&#34;&#34;&#34;
+
+        a = 1/2 * self.acceleration
+        b = self.initial_velocity
+        c = self.initial_distance
+
+        return [a, b, c]
+
+    def get_displacement(self, start_time, end_time):
+        &#34;&#34;&#34;:returns: float; the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
+
+        indefinite_integral = self.get_indefinite_integral_of_position_equation()
+        return indefinite_integral.get_y_coordinate(end_time) - indefinite_integral.get_y_coordinate(start_time)
+
+    def get_indefinite_integral_of_velocity_equation(self):
+        &#34;&#34;&#34;:returns: Function; the indefinite integral of the velocity equation: vt -&gt; vt^2/2&#34;&#34;&#34;
+
+        return QuadraticFunction.get_indefinite_integral_using_quadratic_form(0, self.initial_velocity, 0)
+
+    def get_displacement_due_to_velocity(self, start_time, end_time):
+        &#34;&#34;&#34;:returns: float; the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
+
+        indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
+        return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
+
+    def get_indefinite_integral_of_acceleration_equation(self):
+        &#34;&#34;&#34;:returns; Function; the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3&#34;&#34;&#34;
+
+        return QuadraticFunction.get_indefinite_integral_using_quadratic_form(1/2 * self.acceleration, 0, 0)
+
+    def get_displacement_due_to_acceleration(self, start_time, end_time):
+        &#34;&#34;&#34;:returns&#34;&#34;&#34;
+
+
+    def __str__(self):
+        return f&#34;[{self.acceleration},{self.initial_velocity},{self.initial_distance},]&#34;
+
+    def __eq__(self, other):
+        return (self.acceleration == other.acceleration and self.initial_velocity == other.initial_velocity and
+                self.initial_distance == other.initial_distance)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="game_qu.math.physics_function.PhysicsFunction"><code class="flex name class">
+<span>class <span class="ident">PhysicsFunction</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that uses common physics equations for initial_velocity, acceleration, and initial_distance</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PhysicsFunction:
+    &#34;&#34;&#34;A class that uses common physics equations for initial_velocity, acceleration, and initial_distance&#34;&#34;&#34;
+
+    acceleration = 0
+    initial_velocity = 0
+    initial_distance = 0
+
+    def get_time_to_vertex(self):
+        &#34;&#34;&#34; Gets the time it takes to reach the vertex knowing that the final initial_velocity is 0, so the time is -initial_velocity / acceleration
+
+            :returns: float; the time to reach the vertex
+        &#34;&#34;&#34;
+
+        return -self.initial_velocity / self.acceleration
+
+    def set_acceleration_with_displacement(self, time, displacement):
+        &#34;&#34;&#34; Sets the acceleration knowing that d = 1/2 * a * t^2 where d is displacement, a is acceleration, and t is time.
+            This is assuming initial_velocity is 0
+
+            :parameter time: float; the amount of time that it should take to go that amount (displacement)
+            :parameter displacement: float; the distance (up being positive and down being negative) that it should travel
+
+            :returns: None
+        &#34;&#34;&#34;
+
+        self.acceleration = (2 * displacement) / pow(time, 2)
+
+    def set_velocity_with_displacement(self, displacement):
+        &#34;&#34;&#34; Sets the initial velocity of the function knowing that vf^2 = vi^2 + 2ad and we know that vf is 0
+            a is acceleration, t is time, and v is initial_velocity
+
+            :parameter displacement: float; the distance (up being positive and down being negative) that it should travel
+
+            :returns: None
+        &#34;&#34;&#34;
+
+        # Solved for vi knowing vf = 0 in vf^2 = vi^2 + 2ad
+        self.initial_velocity = math.sqrt(2 * self.acceleration * displacement)
+
+
+    def set_acceleration_with_velocity(self, time, velocity_change):
+        &#34;&#34;&#34;Sets the acceleration knowing that vf = vi + at&#34;&#34;&#34;
+
+        self.acceleration = velocity_change / time
+
+    def set_all_variables(self, vertex, time, initial_distance):
+        &#34;&#34;&#34; Sets all the variables; calls set_velocity and set_gravity_acceleration
+
+            :parameter vertex: float; the highest/lowest point of the parabola
+            :parameter time: float; the time it takes to get to the vertex/go the acceleration_distance
+            :parameter acceleration_displacement: float; the distance (up being positive and down being negative) that the acceleration in that time
+            :parameter initial_distance: float; the initial distance
+
+            :returns: None
+        &#34;&#34;&#34;
+
+        self.initial_distance = initial_distance
+
+        # Gotten using math
+        self.initial_velocity = (-2 * initial_distance + 2 * vertex) / time
+        self.acceleration = 2 * (initial_distance - vertex) / pow(time, 2)
+
+    def set_variables(self, **kwargs):
+        &#34;&#34;&#34; Sets the variables to the number provided
+
+            possible parameters:
+                acceleration: float; the acceleration (can be positive or negative) | a in 1/2 * ax^2 + bx + c
+                initial_velocity: float; the initial_velocity (can be positive or negative) | b in 1/2 * ax^2 + bx + c
+                initial_distance: float; the starting point (can be positive or negative) | c in 1/2 * ax^2 + bx + c
+
+            :returns: None
+        &#34;&#34;&#34;
+
+        self.acceleration = get_kwarg_item(kwargs, &#34;acceleration&#34;, self.acceleration)
+        self.initial_velocity = get_kwarg_item(kwargs, &#34;initial_velocity&#34;, self.initial_velocity)
+        self.initial_distance = get_kwarg_item(kwargs, &#34;initial_distance&#34;, self.initial_distance)
+
+    def get_distance(self, time):
+        &#34;&#34;&#34; Finds the number by plugging x into the equation 1/2 * at^2 + vt + d
+            where a is acceleration, t is time, v is initial_velocity, and d is initial_distance
+
+            :parameter time: float; the amount of time that has passed
+
+            :returns: float; the number that is gotten when time is plugged into the equation
+        &#34;&#34;&#34;
+        return 1 / 2 * self.acceleration * pow(time, 2) + self.initial_velocity * time + self.initial_distance
+
+    def get_velocity_using_time(self, time):
+        &#34;&#34;&#34; Uses the fact that the initial_velocity is equal to vi - at^2 where vi is the initial initial_velocity, a is acceleration, and t is time
+            to find the initial_velocity
+
+            :parameter time: float; the amount of time that the initial_velocity has been affected by acceleration
+
+            :returns: float; the initial_velocity after affected by acceleration
+        &#34;&#34;&#34;
+
+        return self.initial_velocity + self.acceleration * time
+
+    def get_velocity_using_displacement(self, displacement):
+        &#34;&#34;&#34; Uses the formula vf^2 = vi^2 + 2ax to find the initial_velocity
+            where vf is final initial_velocity, vi is initial initial_velocity, a is acceleration, and x is displacement
+
+            :parameter displacement: float; the amount that the ball has traveled (upwards is positive and downwards is negative)
+
+            :returns: float; the final initial_velocity
+        &#34;&#34;&#34;
+
+        final_velocity_squared = pow(self.initial_velocity, 2) + 2 * self.acceleration * displacement
+        # Reduces the risk of a rounding error like -1*e^-15 would cause an imaginary number exception
+        return pow(int(final_velocity_squared), 1 / 2)
+
+    def get_vertex(self):
+        &#34;&#34;&#34;:returns: float; the vertex of this physics equation&#34;&#34;&#34;
+
+        return self.get_distance(self.get_time_to_vertex())
+
+    def get_times_to_point(self, distance):
+        &#34;&#34;&#34; Finds the number by plugging in &#39;distance&#39; into the equation 1/2 * at^2 + vt + d
+            where a is acceleration, t is time, v is initial_velocity, and d is initial_distance
+
+            :parameter distance: float; the distance that is wanted
+
+            :returns: float[]; the times that the parabola is at that y coordinate
+        &#34;&#34;&#34;
+        return solve_quadratic(1 / 2 * self.acceleration, self.initial_velocity, self.initial_distance - distance)
+
+    def get_full_cycle_time(self):
+        &#34;&#34;&#34;:returns: float; the amount of time it takes the parabola to go from start_location -&gt; start_location&#34;&#34;&#34;
+
+        return self.get_time_to_vertex() * 2
+
+    def get_indefinite_integral_of_position_equation(self):
+        &#34;&#34;&#34;:returns: Function; the indefinite integral of the position equation: x = 1/2at^2 + vt + xi&#34;&#34;&#34;
+
+        a, b, c = self.get_a_b_and_c()
+        return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
+
+    def get_a_b_and_c(self):
+        &#34;&#34;&#34;:returns: {a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c&#34;&#34;&#34;
+
+        a = 1/2 * self.acceleration
+        b = self.initial_velocity
+        c = self.initial_distance
+
+        return [a, b, c]
+
+    def get_displacement(self, start_time, end_time):
+        &#34;&#34;&#34;:returns: float; the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
+
+        indefinite_integral = self.get_indefinite_integral_of_position_equation()
+        return indefinite_integral.get_y_coordinate(end_time) - indefinite_integral.get_y_coordinate(start_time)
+
+    def get_indefinite_integral_of_velocity_equation(self):
+        &#34;&#34;&#34;:returns: Function; the indefinite integral of the velocity equation: vt -&gt; vt^2/2&#34;&#34;&#34;
+
+        return QuadraticFunction.get_indefinite_integral_using_quadratic_form(0, self.initial_velocity, 0)
+
+    def get_displacement_due_to_velocity(self, start_time, end_time):
+        &#34;&#34;&#34;:returns: float; the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
+
+        indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
+        return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
+
+    def get_indefinite_integral_of_acceleration_equation(self):
+        &#34;&#34;&#34;:returns; Function; the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3&#34;&#34;&#34;
+
+        return QuadraticFunction.get_indefinite_integral_using_quadratic_form(1/2 * self.acceleration, 0, 0)
+
+    def get_displacement_due_to_acceleration(self, start_time, end_time):
+        &#34;&#34;&#34;:returns&#34;&#34;&#34;
+
+
+    def __str__(self):
+        return f&#34;[{self.acceleration},{self.initial_velocity},{self.initial_distance},]&#34;
+
+    def __eq__(self, other):
+        return (self.acceleration == other.acceleration and self.initial_velocity == other.initial_velocity and
+                self.initial_distance == other.initial_distance)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="game_qu.base.quadratic_equations.PhysicsEquation" href="../base/quadratic_equations.html#game_qu.base.quadratic_equations.PhysicsEquation">PhysicsEquation</a></li>
+<li><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath" href="../paths/physics_followable_path.html#game_qu.paths.physics_followable_path.PhysicsFollowablePath">PhysicsFollowablePath</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_qu.math.physics_function.PhysicsFunction.acceleration"><code class="name">var <span class="ident">acceleration</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.initial_distance"><code class="name">var <span class="ident">initial_distance</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.initial_velocity"><code class="name">var <span class="ident">initial_velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_a_b_and_c"><code class="name flex">
+<span>def <span class="ident">get_a_b_and_c</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: {a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_a_b_and_c(self):
+    &#34;&#34;&#34;:returns: {a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c&#34;&#34;&#34;
+
+    a = 1/2 * self.acceleration
+    b = self.initial_velocity
+    c = self.initial_distance
+
+    return [a, b, c]</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_displacement"><code class="name flex">
+<span>def <span class="ident">get_displacement</span></span>(<span>self, start_time, end_time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_displacement(self, start_time, end_time):
+    &#34;&#34;&#34;:returns: float; the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
+
+    indefinite_integral = self.get_indefinite_integral_of_position_equation()
+    return indefinite_integral.get_y_coordinate(end_time) - indefinite_integral.get_y_coordinate(start_time)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_acceleration"><code class="name flex">
+<span>def <span class="ident">get_displacement_due_to_acceleration</span></span>(<span>self, start_time, end_time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_displacement_due_to_acceleration(self, start_time, end_time):
+    &#34;&#34;&#34;:returns&#34;&#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_velocity"><code class="name flex">
+<span>def <span class="ident">get_displacement_due_to_velocity</span></span>(<span>self, start_time, end_time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_displacement_due_to_velocity(self, start_time, end_time):
+    &#34;&#34;&#34;:returns: float; the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
+
+    indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
+    return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_distance"><code class="name flex">
+<span>def <span class="ident">get_distance</span></span>(<span>self, time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds the number by plugging x into the equation 1/2 * at^2 + vt + d
+where a is acceleration, t is time, v is initial_velocity, and d is initial_distance</p>
+<p>:parameter time: float; the amount of time that has passed</p>
+<p>:returns: float; the number that is gotten when time is plugged into the equation</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_distance(self, time):
+    &#34;&#34;&#34; Finds the number by plugging x into the equation 1/2 * at^2 + vt + d
+        where a is acceleration, t is time, v is initial_velocity, and d is initial_distance
+
+        :parameter time: float; the amount of time that has passed
+
+        :returns: float; the number that is gotten when time is plugged into the equation
+    &#34;&#34;&#34;
+    return 1 / 2 * self.acceleration * pow(time, 2) + self.initial_velocity * time + self.initial_distance</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_full_cycle_time"><code class="name flex">
+<span>def <span class="ident">get_full_cycle_time</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the amount of time it takes the parabola to go from start_location -&gt; start_location</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_full_cycle_time(self):
+    &#34;&#34;&#34;:returns: float; the amount of time it takes the parabola to go from start_location -&gt; start_location&#34;&#34;&#34;
+
+    return self.get_time_to_vertex() * 2</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_acceleration_equation"><code class="name flex">
+<span>def <span class="ident">get_indefinite_integral_of_acceleration_equation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns; Function; the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_indefinite_integral_of_acceleration_equation(self):
+    &#34;&#34;&#34;:returns; Function; the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3&#34;&#34;&#34;
+
+    return QuadraticFunction.get_indefinite_integral_using_quadratic_form(1/2 * self.acceleration, 0, 0)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_position_equation"><code class="name flex">
+<span>def <span class="ident">get_indefinite_integral_of_position_equation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: Function; the indefinite integral of the position equation: x = 1/2at^2 + vt + xi</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_indefinite_integral_of_position_equation(self):
+    &#34;&#34;&#34;:returns: Function; the indefinite integral of the position equation: x = 1/2at^2 + vt + xi&#34;&#34;&#34;
+
+    a, b, c = self.get_a_b_and_c()
+    return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_velocity_equation"><code class="name flex">
+<span>def <span class="ident">get_indefinite_integral_of_velocity_equation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: Function; the indefinite integral of the velocity equation: vt -&gt; vt^2/2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_indefinite_integral_of_velocity_equation(self):
+    &#34;&#34;&#34;:returns: Function; the indefinite integral of the velocity equation: vt -&gt; vt^2/2&#34;&#34;&#34;
+
+    return QuadraticFunction.get_indefinite_integral_using_quadratic_form(0, self.initial_velocity, 0)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_time_to_vertex"><code class="name flex">
+<span>def <span class="ident">get_time_to_vertex</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the time it takes to reach the vertex knowing that the final initial_velocity is 0, so the time is -initial_velocity / acceleration</p>
+<p>:returns: float; the time to reach the vertex</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_time_to_vertex(self):
+    &#34;&#34;&#34; Gets the time it takes to reach the vertex knowing that the final initial_velocity is 0, so the time is -initial_velocity / acceleration
+
+        :returns: float; the time to reach the vertex
+    &#34;&#34;&#34;
+
+    return -self.initial_velocity / self.acceleration</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_times_to_point"><code class="name flex">
+<span>def <span class="ident">get_times_to_point</span></span>(<span>self, distance)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds the number by plugging in 'distance' into the equation 1/2 * at^2 + vt + d
+where a is acceleration, t is time, v is initial_velocity, and d is initial_distance</p>
+<p>:parameter distance: float; the distance that is wanted</p>
+<p>:returns: float[]; the times that the parabola is at that y coordinate</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_times_to_point(self, distance):
+    &#34;&#34;&#34; Finds the number by plugging in &#39;distance&#39; into the equation 1/2 * at^2 + vt + d
+        where a is acceleration, t is time, v is initial_velocity, and d is initial_distance
+
+        :parameter distance: float; the distance that is wanted
+
+        :returns: float[]; the times that the parabola is at that y coordinate
+    &#34;&#34;&#34;
+    return solve_quadratic(1 / 2 * self.acceleration, self.initial_velocity, self.initial_distance - distance)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_velocity_using_displacement"><code class="name flex">
+<span>def <span class="ident">get_velocity_using_displacement</span></span>(<span>self, displacement)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses the formula vf^2 = vi^2 + 2ax to find the initial_velocity
+where vf is final initial_velocity, vi is initial initial_velocity, a is acceleration, and x is displacement</p>
+<p>:parameter displacement: float; the amount that the ball has traveled (upwards is positive and downwards is negative)</p>
+<p>:returns: float; the final initial_velocity</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_velocity_using_displacement(self, displacement):
+    &#34;&#34;&#34; Uses the formula vf^2 = vi^2 + 2ax to find the initial_velocity
+        where vf is final initial_velocity, vi is initial initial_velocity, a is acceleration, and x is displacement
+
+        :parameter displacement: float; the amount that the ball has traveled (upwards is positive and downwards is negative)
+
+        :returns: float; the final initial_velocity
+    &#34;&#34;&#34;
+
+    final_velocity_squared = pow(self.initial_velocity, 2) + 2 * self.acceleration * displacement
+    # Reduces the risk of a rounding error like -1*e^-15 would cause an imaginary number exception
+    return pow(int(final_velocity_squared), 1 / 2)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_velocity_using_time"><code class="name flex">
+<span>def <span class="ident">get_velocity_using_time</span></span>(<span>self, time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses the fact that the initial_velocity is equal to vi - at^2 where vi is the initial initial_velocity, a is acceleration, and t is time
+to find the initial_velocity</p>
+<p>:parameter time: float; the amount of time that the initial_velocity has been affected by acceleration</p>
+<p>:returns: float; the initial_velocity after affected by acceleration</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_velocity_using_time(self, time):
+    &#34;&#34;&#34; Uses the fact that the initial_velocity is equal to vi - at^2 where vi is the initial initial_velocity, a is acceleration, and t is time
+        to find the initial_velocity
+
+        :parameter time: float; the amount of time that the initial_velocity has been affected by acceleration
+
+        :returns: float; the initial_velocity after affected by acceleration
+    &#34;&#34;&#34;
+
+    return self.initial_velocity + self.acceleration * time</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.get_vertex"><code class="name flex">
+<span>def <span class="ident">get_vertex</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the vertex of this physics equation</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_vertex(self):
+    &#34;&#34;&#34;:returns: float; the vertex of this physics equation&#34;&#34;&#34;
+
+    return self.get_distance(self.get_time_to_vertex())</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.set_acceleration_with_displacement"><code class="name flex">
+<span>def <span class="ident">set_acceleration_with_displacement</span></span>(<span>self, time, displacement)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the acceleration knowing that d = 1/2 * a * t^2 where d is displacement, a is acceleration, and t is time.
+This is assuming initial_velocity is 0</p>
+<p>:parameter time: float; the amount of time that it should take to go that amount (displacement)
+:parameter displacement: float; the distance (up being positive and down being negative) that it should travel</p>
+<p>:returns: None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_acceleration_with_displacement(self, time, displacement):
+    &#34;&#34;&#34; Sets the acceleration knowing that d = 1/2 * a * t^2 where d is displacement, a is acceleration, and t is time.
+        This is assuming initial_velocity is 0
+
+        :parameter time: float; the amount of time that it should take to go that amount (displacement)
+        :parameter displacement: float; the distance (up being positive and down being negative) that it should travel
+
+        :returns: None
+    &#34;&#34;&#34;
+
+    self.acceleration = (2 * displacement) / pow(time, 2)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.set_acceleration_with_velocity"><code class="name flex">
+<span>def <span class="ident">set_acceleration_with_velocity</span></span>(<span>self, time, velocity_change)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the acceleration knowing that vf = vi + at</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_acceleration_with_velocity(self, time, velocity_change):
+    &#34;&#34;&#34;Sets the acceleration knowing that vf = vi + at&#34;&#34;&#34;
+
+    self.acceleration = velocity_change / time</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.set_all_variables"><code class="name flex">
+<span>def <span class="ident">set_all_variables</span></span>(<span>self, vertex, time, initial_distance)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets all the variables; calls set_velocity and set_gravity_acceleration</p>
+<p>:parameter vertex: float; the highest/lowest point of the parabola
+:parameter time: float; the time it takes to get to the vertex/go the acceleration_distance
+:parameter acceleration_displacement: float; the distance (up being positive and down being negative) that the acceleration in that time
+:parameter initial_distance: float; the initial distance</p>
+<p>:returns: None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_all_variables(self, vertex, time, initial_distance):
+    &#34;&#34;&#34; Sets all the variables; calls set_velocity and set_gravity_acceleration
+
+        :parameter vertex: float; the highest/lowest point of the parabola
+        :parameter time: float; the time it takes to get to the vertex/go the acceleration_distance
+        :parameter acceleration_displacement: float; the distance (up being positive and down being negative) that the acceleration in that time
+        :parameter initial_distance: float; the initial distance
+
+        :returns: None
+    &#34;&#34;&#34;
+
+    self.initial_distance = initial_distance
+
+    # Gotten using math
+    self.initial_velocity = (-2 * initial_distance + 2 * vertex) / time
+    self.acceleration = 2 * (initial_distance - vertex) / pow(time, 2)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.set_variables"><code class="name flex">
+<span>def <span class="ident">set_variables</span></span>(<span>self, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the variables to the number provided</p>
+<p>possible parameters:
+acceleration: float; the acceleration (can be positive or negative) | a in 1/2 * ax^2 + bx + c
+initial_velocity: float; the initial_velocity (can be positive or negative) | b in 1/2 * ax^2 + bx + c
+initial_distance: float; the starting point (can be positive or negative) | c in 1/2 * ax^2 + bx + c</p>
+<p>:returns: None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_variables(self, **kwargs):
+    &#34;&#34;&#34; Sets the variables to the number provided
+
+        possible parameters:
+            acceleration: float; the acceleration (can be positive or negative) | a in 1/2 * ax^2 + bx + c
+            initial_velocity: float; the initial_velocity (can be positive or negative) | b in 1/2 * ax^2 + bx + c
+            initial_distance: float; the starting point (can be positive or negative) | c in 1/2 * ax^2 + bx + c
+
+        :returns: None
+    &#34;&#34;&#34;
+
+    self.acceleration = get_kwarg_item(kwargs, &#34;acceleration&#34;, self.acceleration)
+    self.initial_velocity = get_kwarg_item(kwargs, &#34;initial_velocity&#34;, self.initial_velocity)
+    self.initial_distance = get_kwarg_item(kwargs, &#34;initial_distance&#34;, self.initial_distance)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.physics_function.PhysicsFunction.set_velocity_with_displacement"><code class="name flex">
+<span>def <span class="ident">set_velocity_with_displacement</span></span>(<span>self, displacement)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the initial velocity of the function knowing that vf^2 = vi^2 + 2ad and we know that vf is 0
+a is acceleration, t is time, and v is initial_velocity</p>
+<p>:parameter displacement: float; the distance (up being positive and down being negative) that it should travel</p>
+<p>:returns: None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_velocity_with_displacement(self, displacement):
+    &#34;&#34;&#34; Sets the initial velocity of the function knowing that vf^2 = vi^2 + 2ad and we know that vf is 0
+        a is acceleration, t is time, and v is initial_velocity
+
+        :parameter displacement: float; the distance (up being positive and down being negative) that it should travel
+
+        :returns: None
+    &#34;&#34;&#34;
+
+    # Solved for vi knowing vf = 0 in vf^2 = vi^2 + 2ad
+    self.initial_velocity = math.sqrt(2 * self.acceleration * displacement)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="game_qu.math" href="index.html">game_qu.math</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="game_qu.math.physics_function.PhysicsFunction" href="#game_qu.math.physics_function.PhysicsFunction">PhysicsFunction</a></code></h4>
+<ul class="">
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.acceleration" href="#game_qu.math.physics_function.PhysicsFunction.acceleration">acceleration</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_a_b_and_c" href="#game_qu.math.physics_function.PhysicsFunction.get_a_b_and_c">get_a_b_and_c</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_displacement" href="#game_qu.math.physics_function.PhysicsFunction.get_displacement">get_displacement</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_acceleration" href="#game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_acceleration">get_displacement_due_to_acceleration</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_velocity" href="#game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_velocity">get_displacement_due_to_velocity</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_distance" href="#game_qu.math.physics_function.PhysicsFunction.get_distance">get_distance</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_full_cycle_time" href="#game_qu.math.physics_function.PhysicsFunction.get_full_cycle_time">get_full_cycle_time</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_acceleration_equation" href="#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_acceleration_equation">get_indefinite_integral_of_acceleration_equation</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_position_equation" href="#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_position_equation">get_indefinite_integral_of_position_equation</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_velocity_equation" href="#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_velocity_equation">get_indefinite_integral_of_velocity_equation</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_time_to_vertex" href="#game_qu.math.physics_function.PhysicsFunction.get_time_to_vertex">get_time_to_vertex</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_times_to_point" href="#game_qu.math.physics_function.PhysicsFunction.get_times_to_point">get_times_to_point</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_velocity_using_displacement" href="#game_qu.math.physics_function.PhysicsFunction.get_velocity_using_displacement">get_velocity_using_displacement</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_velocity_using_time" href="#game_qu.math.physics_function.PhysicsFunction.get_velocity_using_time">get_velocity_using_time</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_vertex" href="#game_qu.math.physics_function.PhysicsFunction.get_vertex">get_vertex</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.initial_distance" href="#game_qu.math.physics_function.PhysicsFunction.initial_distance">initial_distance</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.initial_velocity" href="#game_qu.math.physics_function.PhysicsFunction.initial_velocity">initial_velocity</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.set_acceleration_with_displacement" href="#game_qu.math.physics_function.PhysicsFunction.set_acceleration_with_displacement">set_acceleration_with_displacement</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.set_acceleration_with_velocity" href="#game_qu.math.physics_function.PhysicsFunction.set_acceleration_with_velocity">set_acceleration_with_velocity</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.set_all_variables" href="#game_qu.math.physics_function.PhysicsFunction.set_all_variables">set_all_variables</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.set_variables" href="#game_qu.math.physics_function.PhysicsFunction.set_variables">set_variables</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.set_velocity_with_displacement" href="#game_qu.math.physics_function.PhysicsFunction.set_velocity_with_displacement">set_velocity_with_displacement</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

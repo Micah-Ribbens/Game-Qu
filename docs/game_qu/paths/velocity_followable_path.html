@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>game_qu.paths.velocity_followable_path API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>game_qu.paths.velocity_followable_path</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from game_qu.base.utility_functions import max_value
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.math.line_segment import LineSegment
+from game_qu.math.point import Point
+from game_qu.paths.followable_path import FollowablePath
+
+
+class VelocityFollowablePath(FollowablePath):
+    &#34;&#34;&#34;A followable path that the user specifies the points to and this path does the rest of the calculations&#34;&#34;&#34;
+
+    velocity = 0
+    left_edge_lines = []
+    top_edge_lines = []
+    last_end_time = 0
+
+    times = []  # Stores the times that the get_coordinates() function was called
+    total_time = 0  # Points to the current time
+    last_point = None
+    is_unending = False
+    previous_time = 0  # Points to last end time
+
+    def __init__(self, start_point, other_points, velocity, **kwargs):
+        &#34;&#34;&#34; Initializes the object. Here are the kwargs options:
+
+            :parameter game_object: GameObject; the game object that is following this path
+            :parameter attribute_modifying: String; the name of the attribute this path is modifying&#34;&#34;&#34;
+
+        super().__init__(game_object=kwargs.get(&#34;game_object&#34;), attribute_modifying=kwargs.get(&#34;attribute_modifying&#34;))
+        self.velocity = velocity
+        self.path_lines = []
+        self.left_edge_lines = []
+        self.top_edge_lines = []
+        self.times = []
+
+        self.last_point = start_point
+
+        for point in other_points:
+            self.add_point(point)
+
+    def add_point(self, point):
+        &#34;&#34;&#34;Does some calculations to find the time from the start of the last point to the end of the parameter &#39;point&#39;
+        and then calls add_time_point() to add the point&#34;&#34;&#34;
+
+        x_distance = abs(self.last_point.x_coordinate - point.x_coordinate)
+        y_distance = abs(self.last_point.y_coordinate - point.y_coordinate)
+
+        x_time = x_distance / self.velocity
+        y_time = y_distance / self.velocity
+
+        # Whichever one is greater is how long the object will take to travel that distance because it...
+        # can&#39;t travel faster than one of its max velocities
+        time_to_travel_distance = max_value(x_time, y_time)
+
+        end_time = time_to_travel_distance + self.last_end_time
+
+        self.add_time_point(point, end_time)
+
+    def add_time_point(self, point, end_time):
+        &#34;&#34;&#34;Adds the point to the path using the end_time as the x_coordinate for the x and y coordinate lines&#34;&#34;&#34;
+
+        left_edge_line = LineSegment(Point(self.last_end_time, self.last_point.x_coordinate),
+                                     Point(end_time, point.x_coordinate))
+
+        top_edge_line = LineSegment(Point(self.last_end_time, self.last_point.y_coordinate),
+                                    Point(end_time, point.y_coordinate))
+
+        self.left_edge_lines.append(left_edge_line)
+        self.top_edge_lines.append(top_edge_line)
+        self.last_end_time = end_time
+
+        # The height for the path_line doesn&#39;t matter
+        self.last_point = point
+
+    def get_coordinates(self, should_increase_time=True):
+        &#34;&#34;&#34; :returns: float[2] {left_edge, top_edge}; the coordinates at the current time - also updates the current time
+            by calling &#39;self.update_time&#39; if &#39;should_increase_time&#39;&#34;&#34;&#34;
+
+        if should_increase_time:
+            self.update_time()
+
+        return self.get_coordinates_at_time(self.total_time)
+
+    def update_time(self):
+        &#34;&#34;&#34;Updates the time variables for this object by the time the last game tick took&#34;&#34;&#34;
+
+        # The time should only be increased if it was not called that cycle
+        if self.previous_time != VelocityCalculator.time:
+            self.total_time += VelocityCalculator.time
+            self.previous_time = VelocityCalculator.time
+
+        max_time = self.last_end_time
+
+        if self.total_time &gt; max_time and self.is_unending:
+            self.total_time %= max_time
+
+    def get_coordinates_at_time(self, time):
+        &#34;&#34;&#34;:returns: float[] {left_edge, top_edge}; the coordinates at that time&#34;&#34;&#34;
+
+        index = self.get_index_of_line(time)
+        left_edge_line = self.left_edge_lines[index]
+        top_edge_line = self.top_edge_lines[index]
+
+        return [left_edge_line.get_y_coordinate(time), top_edge_line.get_y_coordinate(time)]
+
+    def get_index_of_line(self, time):
+        &#34;&#34;&#34;:returns: int; the index of the line that the path is currently on&#34;&#34;&#34;
+
+        return_value = len(self.left_edge_lines) - 1
+
+        for x in range(len(self.top_edge_lines)):
+            top_edge_line: LineSegment = self.top_edge_lines[x]
+            start_point = top_edge_line.start_point
+            end_point = top_edge_line.end_point
+
+            if time &gt;= start_point.x_coordinate and time &lt;= end_point.x_coordinate:
+                return_value = x
+
+        return return_value
+
+    def set_time(self, time):
+        &#34;&#34;&#34;Sets the time to the provided &#39;time&#39;- if it is greater than the max time it is reduced to a smaller time&#34;&#34;&#34;
+
+        self.total_time = time % self.max_time
+
+    def get_value_at_time(self, time):
+        &#34;&#34;&#34;:returns: Object; the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
+
+        return self.get_coordinates_at_time(time)[1]  # To get the y coordinate
+
+
+    def get_delta_value(self, start_time, end_time):
+        &#34;&#34;&#34;:returns: Object; the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
+
+        return self.get_value_at_time(end_time) - self.get_value_at_time(start_time)
+
+    # TODO explain why I have to use this &#39;pointers.&#39; It is to make the library API the same across versions!
+    # @property
+    # def max_time(self):
+    #     return self.last_end_time
+    #
+    # @max_time.setter
+    # def max_time(self, value):
+    #     self.last_end_time = value
+    #
+    # @property
+    # def current_time(self):
+    #     return self.total_time
+    #
+    # @current_time.setter
+    # def current_time(self, value):
+    #     self.total_time = value
+    #
+    # @property
+    # def previous_time(self):
+    #     return self.last_time
+    #
+    # @previous_time.setter
+    # def previous_time(self, value):
+    #     self.last_time = value
+    #
+    # @property
+    # def has_max_time(self):
+    #     return self.is_unending
+    #
+    # @has_max_time.setter
+    # def previous_time(self, value):
+    #     self.is_unending = value
+
+    def __str__(self):
+        string = &#34;&#34;
+        for x in range(len(self.top_edge_lines)):
+            top_edge_line = self.top_edge_lines[x]
+            left_edge_line = self.left_edge_lines[x]
+
+            string += f&#34;x {left_edge_line}, y {top_edge_line}\n&#34;
+
+        return string</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath"><code class="flex name class">
+<span>class <span class="ident">VelocityFollowablePath</span></span>
+<span>(</span><span>start_point, other_points, velocity, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A followable path that the user specifies the points to and this path does the rest of the calculations</p>
+<p>Initializes the object. Here are the kwargs options:</p>
+<p>:parameter game_object: GameObject; the game object that is following this path
+:parameter attribute_modifying: String; the name of the attribute this path is modifying</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class VelocityFollowablePath(FollowablePath):
+    &#34;&#34;&#34;A followable path that the user specifies the points to and this path does the rest of the calculations&#34;&#34;&#34;
+
+    velocity = 0
+    left_edge_lines = []
+    top_edge_lines = []
+    last_end_time = 0
+
+    times = []  # Stores the times that the get_coordinates() function was called
+    total_time = 0  # Points to the current time
+    last_point = None
+    is_unending = False
+    previous_time = 0  # Points to last end time
+
+    def __init__(self, start_point, other_points, velocity, **kwargs):
+        &#34;&#34;&#34; Initializes the object. Here are the kwargs options:
+
+            :parameter game_object: GameObject; the game object that is following this path
+            :parameter attribute_modifying: String; the name of the attribute this path is modifying&#34;&#34;&#34;
+
+        super().__init__(game_object=kwargs.get(&#34;game_object&#34;), attribute_modifying=kwargs.get(&#34;attribute_modifying&#34;))
+        self.velocity = velocity
+        self.path_lines = []
+        self.left_edge_lines = []
+        self.top_edge_lines = []
+        self.times = []
+
+        self.last_point = start_point
+
+        for point in other_points:
+            self.add_point(point)
+
+    def add_point(self, point):
+        &#34;&#34;&#34;Does some calculations to find the time from the start of the last point to the end of the parameter &#39;point&#39;
+        and then calls add_time_point() to add the point&#34;&#34;&#34;
+
+        x_distance = abs(self.last_point.x_coordinate - point.x_coordinate)
+        y_distance = abs(self.last_point.y_coordinate - point.y_coordinate)
+
+        x_time = x_distance / self.velocity
+        y_time = y_distance / self.velocity
+
+        # Whichever one is greater is how long the object will take to travel that distance because it...
+        # can&#39;t travel faster than one of its max velocities
+        time_to_travel_distance = max_value(x_time, y_time)
+
+        end_time = time_to_travel_distance + self.last_end_time
+
+        self.add_time_point(point, end_time)
+
+    def add_time_point(self, point, end_time):
+        &#34;&#34;&#34;Adds the point to the path using the end_time as the x_coordinate for the x and y coordinate lines&#34;&#34;&#34;
+
+        left_edge_line = LineSegment(Point(self.last_end_time, self.last_point.x_coordinate),
+                                     Point(end_time, point.x_coordinate))
+
+        top_edge_line = LineSegment(Point(self.last_end_time, self.last_point.y_coordinate),
+                                    Point(end_time, point.y_coordinate))
+
+        self.left_edge_lines.append(left_edge_line)
+        self.top_edge_lines.append(top_edge_line)
+        self.last_end_time = end_time
+
+        # The height for the path_line doesn&#39;t matter
+        self.last_point = point
+
+    def get_coordinates(self, should_increase_time=True):
+        &#34;&#34;&#34; :returns: float[2] {left_edge, top_edge}; the coordinates at the current time - also updates the current time
+            by calling &#39;self.update_time&#39; if &#39;should_increase_time&#39;&#34;&#34;&#34;
+
+        if should_increase_time:
+            self.update_time()
+
+        return self.get_coordinates_at_time(self.total_time)
+
+    def update_time(self):
+        &#34;&#34;&#34;Updates the time variables for this object by the time the last game tick took&#34;&#34;&#34;
+
+        # The time should only be increased if it was not called that cycle
+        if self.previous_time != VelocityCalculator.time:
+            self.total_time += VelocityCalculator.time
+            self.previous_time = VelocityCalculator.time
+
+        max_time = self.last_end_time
+
+        if self.total_time &gt; max_time and self.is_unending:
+            self.total_time %= max_time
+
+    def get_coordinates_at_time(self, time):
+        &#34;&#34;&#34;:returns: float[] {left_edge, top_edge}; the coordinates at that time&#34;&#34;&#34;
+
+        index = self.get_index_of_line(time)
+        left_edge_line = self.left_edge_lines[index]
+        top_edge_line = self.top_edge_lines[index]
+
+        return [left_edge_line.get_y_coordinate(time), top_edge_line.get_y_coordinate(time)]
+
+    def get_index_of_line(self, time):
+        &#34;&#34;&#34;:returns: int; the index of the line that the path is currently on&#34;&#34;&#34;
+
+        return_value = len(self.left_edge_lines) - 1
+
+        for x in range(len(self.top_edge_lines)):
+            top_edge_line: LineSegment = self.top_edge_lines[x]
+            start_point = top_edge_line.start_point
+            end_point = top_edge_line.end_point
+
+            if time &gt;= start_point.x_coordinate and time &lt;= end_point.x_coordinate:
+                return_value = x
+
+        return return_value
+
+    def set_time(self, time):
+        &#34;&#34;&#34;Sets the time to the provided &#39;time&#39;- if it is greater than the max time it is reduced to a smaller time&#34;&#34;&#34;
+
+        self.total_time = time % self.max_time
+
+    def get_value_at_time(self, time):
+        &#34;&#34;&#34;:returns: Object; the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
+
+        return self.get_coordinates_at_time(time)[1]  # To get the y coordinate
+
+
+    def get_delta_value(self, start_time, end_time):
+        &#34;&#34;&#34;:returns: Object; the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
+
+        return self.get_value_at_time(end_time) - self.get_value_at_time(start_time)
+
+    # TODO explain why I have to use this &#39;pointers.&#39; It is to make the library API the same across versions!
+    # @property
+    # def max_time(self):
+    #     return self.last_end_time
+    #
+    # @max_time.setter
+    # def max_time(self, value):
+    #     self.last_end_time = value
+    #
+    # @property
+    # def current_time(self):
+    #     return self.total_time
+    #
+    # @current_time.setter
+    # def current_time(self, value):
+    #     self.total_time = value
+    #
+    # @property
+    # def previous_time(self):
+    #     return self.last_time
+    #
+    # @previous_time.setter
+    # def previous_time(self, value):
+    #     self.last_time = value
+    #
+    # @property
+    # def has_max_time(self):
+    #     return self.is_unending
+    #
+    # @has_max_time.setter
+    # def previous_time(self, value):
+    #     self.is_unending = value
+
+    def __str__(self):
+        string = &#34;&#34;
+        for x in range(len(self.top_edge_lines)):
+            top_edge_line = self.top_edge_lines[x]
+            left_edge_line = self.left_edge_lines[x]
+
+            string += f&#34;x {left_edge_line}, y {top_edge_line}\n&#34;
+
+        return string</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="game_qu.paths.followable_path.FollowablePath" href="followable_path.html#game_qu.paths.followable_path.FollowablePath">FollowablePath</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="game_qu.base.paths.VelocityPath" href="../base/paths.html#game_qu.base.paths.VelocityPath">VelocityPath</a></li>
+<li><a title="game_qu.paths.action_followable_path.ActionFollowablePath" href="action_followable_path.html#game_qu.paths.action_followable_path.ActionFollowablePath">ActionFollowablePath</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.is_unending"><code class="name">var <span class="ident">is_unending</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_end_time"><code class="name">var <span class="ident">last_end_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_point"><code class="name">var <span class="ident">last_point</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.left_edge_lines"><code class="name">var <span class="ident">left_edge_lines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.previous_time"><code class="name">var <span class="ident">previous_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.times"><code class="name">var <span class="ident">times</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.top_edge_lines"><code class="name">var <span class="ident">top_edge_lines</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.total_time"><code class="name">var <span class="ident">total_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.velocity"><code class="name">var <span class="ident">velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.add_point"><code class="name flex">
+<span>def <span class="ident">add_point</span></span>(<span>self, point)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Does some calculations to find the time from the start of the last point to the end of the parameter 'point'
+and then calls add_time_point() to add the point</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_point(self, point):
+    &#34;&#34;&#34;Does some calculations to find the time from the start of the last point to the end of the parameter &#39;point&#39;
+    and then calls add_time_point() to add the point&#34;&#34;&#34;
+
+    x_distance = abs(self.last_point.x_coordinate - point.x_coordinate)
+    y_distance = abs(self.last_point.y_coordinate - point.y_coordinate)
+
+    x_time = x_distance / self.velocity
+    y_time = y_distance / self.velocity
+
+    # Whichever one is greater is how long the object will take to travel that distance because it...
+    # can&#39;t travel faster than one of its max velocities
+    time_to_travel_distance = max_value(x_time, y_time)
+
+    end_time = time_to_travel_distance + self.last_end_time
+
+    self.add_time_point(point, end_time)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.add_time_point"><code class="name flex">
+<span>def <span class="ident">add_time_point</span></span>(<span>self, point, end_time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds the point to the path using the end_time as the x_coordinate for the x and y coordinate lines</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_time_point(self, point, end_time):
+    &#34;&#34;&#34;Adds the point to the path using the end_time as the x_coordinate for the x and y coordinate lines&#34;&#34;&#34;
+
+    left_edge_line = LineSegment(Point(self.last_end_time, self.last_point.x_coordinate),
+                                 Point(end_time, point.x_coordinate))
+
+    top_edge_line = LineSegment(Point(self.last_end_time, self.last_point.y_coordinate),
+                                Point(end_time, point.y_coordinate))
+
+    self.left_edge_lines.append(left_edge_line)
+    self.top_edge_lines.append(top_edge_line)
+    self.last_end_time = end_time
+
+    # The height for the path_line doesn&#39;t matter
+    self.last_point = point</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_coordinates"><code class="name flex">
+<span>def <span class="ident">get_coordinates</span></span>(<span>self, should_increase_time=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float[2] {left_edge, top_edge}; the coordinates at the current time - also updates the current time
+by calling 'self.update_time' if 'should_increase_time'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_coordinates(self, should_increase_time=True):
+    &#34;&#34;&#34; :returns: float[2] {left_edge, top_edge}; the coordinates at the current time - also updates the current time
+        by calling &#39;self.update_time&#39; if &#39;should_increase_time&#39;&#34;&#34;&#34;
+
+    if should_increase_time:
+        self.update_time()
+
+    return self.get_coordinates_at_time(self.total_time)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_coordinates_at_time"><code class="name flex">
+<span>def <span class="ident">get_coordinates_at_time</span></span>(<span>self, time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float[] {left_edge, top_edge}; the coordinates at that time</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_coordinates_at_time(self, time):
+    &#34;&#34;&#34;:returns: float[] {left_edge, top_edge}; the coordinates at that time&#34;&#34;&#34;
+
+    index = self.get_index_of_line(time)
+    left_edge_line = self.left_edge_lines[index]
+    top_edge_line = self.top_edge_lines[index]
+
+    return [left_edge_line.get_y_coordinate(time), top_edge_line.get_y_coordinate(time)]</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_index_of_line"><code class="name flex">
+<span>def <span class="ident">get_index_of_line</span></span>(<span>self, time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: int; the index of the line that the path is currently on</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_index_of_line(self, time):
+    &#34;&#34;&#34;:returns: int; the index of the line that the path is currently on&#34;&#34;&#34;
+
+    return_value = len(self.left_edge_lines) - 1
+
+    for x in range(len(self.top_edge_lines)):
+        top_edge_line: LineSegment = self.top_edge_lines[x]
+        start_point = top_edge_line.start_point
+        end_point = top_edge_line.end_point
+
+        if time &gt;= start_point.x_coordinate and time &lt;= end_point.x_coordinate:
+            return_value = x
+
+    return return_value</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.set_time"><code class="name flex">
+<span>def <span class="ident">set_time</span></span>(<span>self, time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the time to the provided 'time'- if it is greater than the max time it is reduced to a smaller time</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_time(self, time):
+    &#34;&#34;&#34;Sets the time to the provided &#39;time&#39;- if it is greater than the max time it is reduced to a smaller time&#34;&#34;&#34;
+
+    self.total_time = time % self.max_time</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.update_time"><code class="name flex">
+<span>def <span class="ident">update_time</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the time variables for this object by the time the last game tick took</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_time(self):
+    &#34;&#34;&#34;Updates the time variables for this object by the time the last game tick took&#34;&#34;&#34;
+
+    # The time should only be increased if it was not called that cycle
+    if self.previous_time != VelocityCalculator.time:
+        self.total_time += VelocityCalculator.time
+        self.previous_time = VelocityCalculator.time
+
+    max_time = self.last_end_time
+
+    if self.total_time &gt; max_time and self.is_unending:
+        self.total_time %= max_time</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="game_qu.paths.followable_path.FollowablePath" href="followable_path.html#game_qu.paths.followable_path.FollowablePath">FollowablePath</a></b></code>:
+<ul class="hlist">
+<li><code><a title="game_qu.paths.followable_path.FollowablePath.get_delta_value" href="followable_path.html#game_qu.paths.followable_path.FollowablePath.get_delta_value">get_delta_value</a></code></li>
+<li><code><a title="game_qu.paths.followable_path.FollowablePath.get_value_at_time" href="followable_path.html#game_qu.paths.followable_path.FollowablePath.get_value_at_time">get_value_at_time</a></code></li>
+<li><code><a title="game_qu.paths.followable_path.FollowablePath.has_finished" href="followable_path.html#game_qu.paths.followable_path.FollowablePath.has_finished">has_finished</a></code></li>
+<li><code><a title="game_qu.paths.followable_path.FollowablePath.is_done" href="followable_path.html#game_qu.paths.followable_path.FollowablePath.is_done">is_done</a></code></li>
+<li><code><a title="game_qu.paths.followable_path.FollowablePath.reset" href="followable_path.html#game_qu.paths.followable_path.FollowablePath.reset">reset</a></code></li>
+<li><code><a title="game_qu.paths.followable_path.FollowablePath.restart" href="followable_path.html#game_qu.paths.followable_path.FollowablePath.restart">restart</a></code></li>
+<li><code><a title="game_qu.paths.followable_path.FollowablePath.run" href="followable_path.html#game_qu.paths.followable_path.FollowablePath.run">run</a></code></li>
+<li><code><a title="game_qu.paths.followable_path.FollowablePath.start" href="followable_path.html#game_qu.paths.followable_path.FollowablePath.start">start</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="game_qu.paths" href="index.html">game_qu.paths</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath">VelocityFollowablePath</a></code></h4>
+<ul class="">
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.add_point" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.add_point">add_point</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.add_time_point" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.add_time_point">add_time_point</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_coordinates" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_coordinates">get_coordinates</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_coordinates_at_time" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_coordinates_at_time">get_coordinates_at_time</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_index_of_line" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_index_of_line">get_index_of_line</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.is_unending" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.is_unending">is_unending</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_end_time" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_end_time">last_end_time</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_point" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_point">last_point</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.left_edge_lines" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.left_edge_lines">left_edge_lines</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.previous_time" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.previous_time">previous_time</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.set_time" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.set_time">set_time</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.times" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.times">times</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.top_edge_lines" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.top_edge_lines">top_edge_lines</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.total_time" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.total_time">total_time</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.update_time" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.update_time">update_time</a></code></li>
+<li><code><a title="game_qu.paths.velocity_followable_path.VelocityFollowablePath.velocity" href="#game_qu.paths.velocity_followable_path.VelocityFollowablePath.velocity">velocity</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

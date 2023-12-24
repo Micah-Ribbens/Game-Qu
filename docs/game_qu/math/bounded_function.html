@@ -1,0 +1,1115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>game_qu.math.bounded_function API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>game_qu.math.bounded_function</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from game_qu.base.utility_functions import is_within_bounds
+from game_qu.math.function import Function
+from game_qu.math.piecewise_function import PiecewiseFunction
+
+
+class BoundedFunction(Function):
+    x_coordinates_can_be_less_than_min = False
+    is_repeating = False
+    min_x_coordinate = 0
+    max_x_coordinate = 0
+    unmodified_function = None
+    current_function = None
+
+    def __init__(self, function, min_x_coordinate, max_x_coordinate):
+        &#34;&#34;&#34;Initializes the object with the specified bounds&#34;&#34;&#34;
+
+        self.set_bounds(min_x_coordinate, max_x_coordinate)
+        self.set_function(function)
+
+    def get_min_x_coordinate(self) -&gt; float:
+        &#34;&#34;&#34;:returns: float; the minimum x coordinate&#34;&#34;&#34;
+
+        return self.min_x_coordinate
+
+    def get_max_x_coordinate(self) -&gt; float:
+        &#34;&#34;&#34;:returns: float; the maximum x coordinate&#34;&#34;&#34;
+
+        return self.max_x_coordinate
+
+    def set_min_x_coordinate(self, min_x_coordinate):
+        &#34;&#34;&#34;Sets the minimum x-coordinate to &#39;min_x_coordinate&#39;
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        self.min_x_coordinate = min_x_coordinate
+        return self
+
+    def get_bounded_function_with_min_x_coordinate(self, min_x_coordinate):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified min_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_min_x_coordinate(min_x_coordinate)
+
+    def set_max_x_coordinate(self, max_x_coordinate):
+        &#34;&#34;&#34;Sets the maximum x-coordinate to &#39;max_x_coordinate&#39;
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        self.max_x_coordinate = max_x_coordinate
+        return self
+
+    def get_bounded_function_with_max_x_coordinate(self, max_x_coordinate):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified max_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_max_x_coordinate(max_x_coordinate)
+
+    def set_bounds(self, min_x_coordinate, max_x_coordinate):
+        &#34;&#34;&#34;Sets both minimum and maximum x coordinates (bounds)
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        self.set_min_x_coordinate(min_x_coordinate)
+        self.set_max_x_coordinate(max_x_coordinate)
+        self.update_current_function()
+        return self
+
+    def get_bounded_function_with_bounds(self, min_x_coordinate, max_x_coordinate):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified bounds (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_bounds(min_x_coordinate, max_x_coordinate)
+
+    def get_coordinates(self) -&gt; tuple:
+        &#34;&#34;&#34;:returns: tuple; (min_x_coordinate, max_x_coordinate)&#34;&#34;&#34;
+
+        return self.min_x_coordinate, self.max_x_coordinate
+
+    def get_copy(self):
+        &#34;&#34;&#34;:returns: BoundedFunction; a copy of the bounded function&#34;&#34;&#34;
+
+        return BoundedFunction(self.min_x_coordinate, self.max_x_coordinate)
+
+    def get_function(self):
+        &#34;&#34;&#34;:returns: function; the stored function&#34;&#34;&#34;
+
+        return self.current_function
+
+    def set_function(self, function):
+        &#34;&#34;&#34; Sets the underlying function to &#39;function&#39;
+            returns: BoundedFunction; &#39;self&#34;&#34;&#34;
+
+        self.unmodified_function = function
+        self.update_current_function()
+        return self
+
+    def get_bounded_function_with_function(self, function):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the underlying function being &#39;function&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_function(function)
+
+    def get_is_repeating(self):
+        &#34;&#34;&#34;:returns: boolean; whether the function repeats&#34;&#34;&#34;
+
+        return self.is_repeating
+
+    def set_is_repeating(self, is_repeating):
+        &#34;&#34;&#34;Sets the is_repeating attribute to &#39;is_repeating&#39;
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        self.is_repeating = is_repeating
+        return self
+
+    def get_bounded_function_with_is_repeating(self, is_repeating):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the is repeating attribute set to &#39;is_repeating&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_is_repeating(is_repeating)
+
+    def get_x_coordinates_can_be_less_than_min(self):
+        &#34;&#34;&#34;:returns: bool; whether the x coordinates this function accepts can be less than the min x coordinate&#34;&#34;&#34;
+
+        return self.x_coordinates_can_be_less_than_min
+
+    def set_x_coordinates_can_be_less_than_min(self, x_coordinates_can_be_less_than_min):
+        &#34;&#34;&#34;:returns: bool; sets whether the x coordinates this function accepts can be less than the min x coordinate
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        value_has_changed = self.x_coordinates_can_be_less_than_min != x_coordinates_can_be_less_than_min
+        if value_has_changed and x_coordinates_can_be_less_than_min:
+            self.update_current_function()
+
+        if x_coordinates_can_be_less_than_min:
+            self.current_function = self.unmodified_function
+
+        self.x_coordinates_can_be_less_than_min = x_coordinates_can_be_less_than_min
+        return self
+
+    def get_full_function(self):
+        &#34;&#34;&#34; :returns: PiecewiseFunction; the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
+            x coordinate&#34;&#34;&#34;
+
+        start = self.get_min_x_coordinate() - self.bounds_size()
+        end = self.get_max_x_coordinate() - self.bounds_size()
+        bounds_size = self.bounds_size()  # This is the bounds size do not change if the original bounds size change!
+
+        before_function = self.get_bounded_function_with_bounds(start, end)
+        before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
+
+        return PiecewiseFunction([self.get_copy(), before_function])
+
+    def update_current_function(self):
+        &#34;&#34;&#34;Updates the current function after the bounded function is updated&#34;&#34;&#34;
+
+        if self.x_coordinates_can_be_less_than_min:
+            self.current_function = self.get_full_function()
+
+        else:
+            self.current_function = self.unmodified_function
+
+    def get_bounded_function_with_x_coordinates_less_than_min(self, x_coordinates_can_be_less_than_min):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the is repeating attribute set to &#39;x_coordinates_can_be_less_than_min&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)
+
+    def get_y_coordinate(self, x_coordinate):
+        &#34;&#34;&#34;:returns: float; the y_coordinate associated with that value&#34;&#34;&#34;
+
+        if not self.is_repeating and not is_within_bounds(x_coordinate, self.min_x_coordinate, self.max_x_coordinate):
+            raise ValueError(&#34;The x coordinate must be within the bounds specified because this function has strict bounds&#34;)
+
+        return self.current_function.get_y_coordinate(x_coordinate)
+
+    def get_x_coordinate(self, y_coordinate):
+        &#34;&#34;&#34; :returns: float; the x coordinate associated with that y coordinate (raises a ValueError if the function does
+            not implement the get_inverse_function() method&#34;&#34;&#34;
+
+        return self.current_function.get_x_coordinate(y_coordinate)
+
+    def get_bounds(self):
+        &#34;&#34;&#34;:returns: {min_x_coordinate, max_x_coordinate}; the bounds of the function&#34;&#34;&#34;
+
+        return [self.min_x_coordinate, self.max_x_coordinate]
+
+    def bounds_size(self):
+        &#34;&#34;&#34;:returns: float; the size of the bounds (max - min)&#34;&#34;&#34;
+
+        return self.max_x_coordinate - self.min_x_coordinate
+
+    def get_min(self):
+        &#34;&#34;&#34;:returns: float; the value of the function at the min x coordinate&#34;&#34;&#34;
+
+        return self.current_function.get_y_coordinate(self.min_x_coordinate)
+
+    def get_max(self):
+        &#34;&#34;&#34;:returns: float; the value of the function at the max x coordinate&#34;&#34;&#34;
+
+        return self.current_function.get_y_coordinate(self.max_x_coordinate)
+
+    def get_indefinite_integral(self):
+        &#34;&#34;&#34; Finds and returns the indefinite integral. Raises an AttributeError if the underlying function does not have the
+            method: &#39;get_indefinite_integral&#39;
+
+            :returns: IndefiniteIntegral; the indefinite integral of the polynomial&#34;&#34;&#34;
+
+        return self.current_function.get_indefinite_integral()
+
+    def evaluate_area(self, start, end):
+        &#34;&#34;&#34;:returns: float; the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
+
+        return self.get_indefinite_integral().evaluate(start, end)
+
+    def get_derivative(self):
+        &#34;&#34;&#34; Finds and returns the derivative. Raises an AttributeError if the underlying function do not have the
+            method: &#39;get_derivative&#39;
+
+            :returns: Derivative; the derivative of the polynomial&#34;&#34;&#34;
+
+        return self.current_function.get_derivative()
+
+    def evaluate_derivative_at_point(self, x_coordinate):
+        &#34;&#34;&#34;:returns: float; the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
+
+        return self.get_derivative().evaluate(x_coordinate)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="game_qu.math.bounded_function.BoundedFunction"><code class="flex name class">
+<span>class <span class="ident">BoundedFunction</span></span>
+<span>(</span><span>function, min_x_coordinate, max_x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Anything that maps an x value to a y value. This is an abstract class with two methods.
+Only 'get_y_coordinate' must be implemented</p>
+<p>Initializes the object with the specified bounds</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BoundedFunction(Function):
+    x_coordinates_can_be_less_than_min = False
+    is_repeating = False
+    min_x_coordinate = 0
+    max_x_coordinate = 0
+    unmodified_function = None
+    current_function = None
+
+    def __init__(self, function, min_x_coordinate, max_x_coordinate):
+        &#34;&#34;&#34;Initializes the object with the specified bounds&#34;&#34;&#34;
+
+        self.set_bounds(min_x_coordinate, max_x_coordinate)
+        self.set_function(function)
+
+    def get_min_x_coordinate(self) -&gt; float:
+        &#34;&#34;&#34;:returns: float; the minimum x coordinate&#34;&#34;&#34;
+
+        return self.min_x_coordinate
+
+    def get_max_x_coordinate(self) -&gt; float:
+        &#34;&#34;&#34;:returns: float; the maximum x coordinate&#34;&#34;&#34;
+
+        return self.max_x_coordinate
+
+    def set_min_x_coordinate(self, min_x_coordinate):
+        &#34;&#34;&#34;Sets the minimum x-coordinate to &#39;min_x_coordinate&#39;
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        self.min_x_coordinate = min_x_coordinate
+        return self
+
+    def get_bounded_function_with_min_x_coordinate(self, min_x_coordinate):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified min_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_min_x_coordinate(min_x_coordinate)
+
+    def set_max_x_coordinate(self, max_x_coordinate):
+        &#34;&#34;&#34;Sets the maximum x-coordinate to &#39;max_x_coordinate&#39;
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        self.max_x_coordinate = max_x_coordinate
+        return self
+
+    def get_bounded_function_with_max_x_coordinate(self, max_x_coordinate):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified max_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_max_x_coordinate(max_x_coordinate)
+
+    def set_bounds(self, min_x_coordinate, max_x_coordinate):
+        &#34;&#34;&#34;Sets both minimum and maximum x coordinates (bounds)
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        self.set_min_x_coordinate(min_x_coordinate)
+        self.set_max_x_coordinate(max_x_coordinate)
+        self.update_current_function()
+        return self
+
+    def get_bounded_function_with_bounds(self, min_x_coordinate, max_x_coordinate):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified bounds (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_bounds(min_x_coordinate, max_x_coordinate)
+
+    def get_coordinates(self) -&gt; tuple:
+        &#34;&#34;&#34;:returns: tuple; (min_x_coordinate, max_x_coordinate)&#34;&#34;&#34;
+
+        return self.min_x_coordinate, self.max_x_coordinate
+
+    def get_copy(self):
+        &#34;&#34;&#34;:returns: BoundedFunction; a copy of the bounded function&#34;&#34;&#34;
+
+        return BoundedFunction(self.min_x_coordinate, self.max_x_coordinate)
+
+    def get_function(self):
+        &#34;&#34;&#34;:returns: function; the stored function&#34;&#34;&#34;
+
+        return self.current_function
+
+    def set_function(self, function):
+        &#34;&#34;&#34; Sets the underlying function to &#39;function&#39;
+            returns: BoundedFunction; &#39;self&#34;&#34;&#34;
+
+        self.unmodified_function = function
+        self.update_current_function()
+        return self
+
+    def get_bounded_function_with_function(self, function):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the underlying function being &#39;function&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_function(function)
+
+    def get_is_repeating(self):
+        &#34;&#34;&#34;:returns: boolean; whether the function repeats&#34;&#34;&#34;
+
+        return self.is_repeating
+
+    def set_is_repeating(self, is_repeating):
+        &#34;&#34;&#34;Sets the is_repeating attribute to &#39;is_repeating&#39;
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        self.is_repeating = is_repeating
+        return self
+
+    def get_bounded_function_with_is_repeating(self, is_repeating):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the is repeating attribute set to &#39;is_repeating&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_is_repeating(is_repeating)
+
+    def get_x_coordinates_can_be_less_than_min(self):
+        &#34;&#34;&#34;:returns: bool; whether the x coordinates this function accepts can be less than the min x coordinate&#34;&#34;&#34;
+
+        return self.x_coordinates_can_be_less_than_min
+
+    def set_x_coordinates_can_be_less_than_min(self, x_coordinates_can_be_less_than_min):
+        &#34;&#34;&#34;:returns: bool; sets whether the x coordinates this function accepts can be less than the min x coordinate
+            returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+        value_has_changed = self.x_coordinates_can_be_less_than_min != x_coordinates_can_be_less_than_min
+        if value_has_changed and x_coordinates_can_be_less_than_min:
+            self.update_current_function()
+
+        if x_coordinates_can_be_less_than_min:
+            self.current_function = self.unmodified_function
+
+        self.x_coordinates_can_be_less_than_min = x_coordinates_can_be_less_than_min
+        return self
+
+    def get_full_function(self):
+        &#34;&#34;&#34; :returns: PiecewiseFunction; the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
+            x coordinate&#34;&#34;&#34;
+
+        start = self.get_min_x_coordinate() - self.bounds_size()
+        end = self.get_max_x_coordinate() - self.bounds_size()
+        bounds_size = self.bounds_size()  # This is the bounds size do not change if the original bounds size change!
+
+        before_function = self.get_bounded_function_with_bounds(start, end)
+        before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
+
+        return PiecewiseFunction([self.get_copy(), before_function])
+
+    def update_current_function(self):
+        &#34;&#34;&#34;Updates the current function after the bounded function is updated&#34;&#34;&#34;
+
+        if self.x_coordinates_can_be_less_than_min:
+            self.current_function = self.get_full_function()
+
+        else:
+            self.current_function = self.unmodified_function
+
+    def get_bounded_function_with_x_coordinates_less_than_min(self, x_coordinates_can_be_less_than_min):
+        &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the is repeating attribute set to &#39;x_coordinates_can_be_less_than_min&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+        return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)
+
+    def get_y_coordinate(self, x_coordinate):
+        &#34;&#34;&#34;:returns: float; the y_coordinate associated with that value&#34;&#34;&#34;
+
+        if not self.is_repeating and not is_within_bounds(x_coordinate, self.min_x_coordinate, self.max_x_coordinate):
+            raise ValueError(&#34;The x coordinate must be within the bounds specified because this function has strict bounds&#34;)
+
+        return self.current_function.get_y_coordinate(x_coordinate)
+
+    def get_x_coordinate(self, y_coordinate):
+        &#34;&#34;&#34; :returns: float; the x coordinate associated with that y coordinate (raises a ValueError if the function does
+            not implement the get_inverse_function() method&#34;&#34;&#34;
+
+        return self.current_function.get_x_coordinate(y_coordinate)
+
+    def get_bounds(self):
+        &#34;&#34;&#34;:returns: {min_x_coordinate, max_x_coordinate}; the bounds of the function&#34;&#34;&#34;
+
+        return [self.min_x_coordinate, self.max_x_coordinate]
+
+    def bounds_size(self):
+        &#34;&#34;&#34;:returns: float; the size of the bounds (max - min)&#34;&#34;&#34;
+
+        return self.max_x_coordinate - self.min_x_coordinate
+
+    def get_min(self):
+        &#34;&#34;&#34;:returns: float; the value of the function at the min x coordinate&#34;&#34;&#34;
+
+        return self.current_function.get_y_coordinate(self.min_x_coordinate)
+
+    def get_max(self):
+        &#34;&#34;&#34;:returns: float; the value of the function at the max x coordinate&#34;&#34;&#34;
+
+        return self.current_function.get_y_coordinate(self.max_x_coordinate)
+
+    def get_indefinite_integral(self):
+        &#34;&#34;&#34; Finds and returns the indefinite integral. Raises an AttributeError if the underlying function does not have the
+            method: &#39;get_indefinite_integral&#39;
+
+            :returns: IndefiniteIntegral; the indefinite integral of the polynomial&#34;&#34;&#34;
+
+        return self.current_function.get_indefinite_integral()
+
+    def evaluate_area(self, start, end):
+        &#34;&#34;&#34;:returns: float; the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
+
+        return self.get_indefinite_integral().evaluate(start, end)
+
+    def get_derivative(self):
+        &#34;&#34;&#34; Finds and returns the derivative. Raises an AttributeError if the underlying function do not have the
+            method: &#39;get_derivative&#39;
+
+            :returns: Derivative; the derivative of the polynomial&#34;&#34;&#34;
+
+        return self.current_function.get_derivative()
+
+    def evaluate_derivative_at_point(self, x_coordinate):
+        &#34;&#34;&#34;:returns: float; the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
+
+        return self.get_derivative().evaluate(x_coordinate)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="game_qu.math.function.Function" href="function.html#game_qu.math.function.Function">Function</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_qu.math.bounded_function.BoundedFunction.current_function"><code class="name">var <span class="ident">current_function</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.is_repeating"><code class="name">var <span class="ident">is_repeating</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.max_x_coordinate"><code class="name">var <span class="ident">max_x_coordinate</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.min_x_coordinate"><code class="name">var <span class="ident">min_x_coordinate</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.unmodified_function"><code class="name">var <span class="ident">unmodified_function</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.x_coordinates_can_be_less_than_min"><code class="name">var <span class="ident">x_coordinates_can_be_less_than_min</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_qu.math.bounded_function.BoundedFunction.bounds_size"><code class="name flex">
+<span>def <span class="ident">bounds_size</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the size of the bounds (max - min)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def bounds_size(self):
+    &#34;&#34;&#34;:returns: float; the size of the bounds (max - min)&#34;&#34;&#34;
+
+    return self.max_x_coordinate - self.min_x_coordinate</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.evaluate_area"><code class="name flex">
+<span>def <span class="ident">evaluate_area</span></span>(<span>self, start, end)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the value gotten from using the bounds for the indefinite integral</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def evaluate_area(self, start, end):
+    &#34;&#34;&#34;:returns: float; the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
+
+    return self.get_indefinite_integral().evaluate(start, end)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.evaluate_derivative_at_point"><code class="name flex">
+<span>def <span class="ident">evaluate_derivative_at_point</span></span>(<span>self, x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the value of the derivative evaluated at the 'x_coordinate'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def evaluate_derivative_at_point(self, x_coordinate):
+    &#34;&#34;&#34;:returns: float; the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
+
+    return self.get_derivative().evaluate(x_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_bounds"><code class="name flex">
+<span>def <span class="ident">get_bounded_function_with_bounds</span></span>(<span>self, min_x_coordinate, max_x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: BoundedFunction; a bounded function with the specified bounds (does not modify the current bounded function)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bounded_function_with_bounds(self, min_x_coordinate, max_x_coordinate):
+    &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified bounds (does not modify the current bounded function)&#34;&#34;&#34;
+
+    return self.get_copy().set_bounds(min_x_coordinate, max_x_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_function"><code class="name flex">
+<span>def <span class="ident">get_bounded_function_with_function</span></span>(<span>self, function)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: BoundedFunction; a bounded function with the underlying function being 'function' (does not modify the current bounded function)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bounded_function_with_function(self, function):
+    &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the underlying function being &#39;function&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+    return self.get_copy().set_function(function)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_is_repeating"><code class="name flex">
+<span>def <span class="ident">get_bounded_function_with_is_repeating</span></span>(<span>self, is_repeating)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: BoundedFunction; a bounded function with the is repeating attribute set to 'is_repeating' (does not modify the current bounded function)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bounded_function_with_is_repeating(self, is_repeating):
+    &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the is repeating attribute set to &#39;is_repeating&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+    return self.get_copy().set_is_repeating(is_repeating)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_max_x_coordinate"><code class="name flex">
+<span>def <span class="ident">get_bounded_function_with_max_x_coordinate</span></span>(<span>self, max_x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: BoundedFunction; a bounded function with the specified max_x_coordinate (does not modify the current bounded function)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bounded_function_with_max_x_coordinate(self, max_x_coordinate):
+    &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified max_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
+
+    return self.get_copy().set_max_x_coordinate(max_x_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_min_x_coordinate"><code class="name flex">
+<span>def <span class="ident">get_bounded_function_with_min_x_coordinate</span></span>(<span>self, min_x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: BoundedFunction; a bounded function with the specified min_x_coordinate (does not modify the current bounded function)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bounded_function_with_min_x_coordinate(self, min_x_coordinate):
+    &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the specified min_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
+
+    return self.get_copy().set_min_x_coordinate(min_x_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_x_coordinates_less_than_min"><code class="name flex">
+<span>def <span class="ident">get_bounded_function_with_x_coordinates_less_than_min</span></span>(<span>self, x_coordinates_can_be_less_than_min)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: BoundedFunction; a bounded function with the is repeating attribute set to 'x_coordinates_can_be_less_than_min' (does not modify the current bounded function)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bounded_function_with_x_coordinates_less_than_min(self, x_coordinates_can_be_less_than_min):
+    &#34;&#34;&#34;:returns: BoundedFunction; a bounded function with the is repeating attribute set to &#39;x_coordinates_can_be_less_than_min&#39; (does not modify the current bounded function)&#34;&#34;&#34;
+
+    return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_bounds"><code class="name flex">
+<span>def <span class="ident">get_bounds</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: {min_x_coordinate, max_x_coordinate}; the bounds of the function</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bounds(self):
+    &#34;&#34;&#34;:returns: {min_x_coordinate, max_x_coordinate}; the bounds of the function&#34;&#34;&#34;
+
+    return [self.min_x_coordinate, self.max_x_coordinate]</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_coordinates"><code class="name flex">
+<span>def <span class="ident">get_coordinates</span></span>(<span>self) ‑> tuple</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: tuple; (min_x_coordinate, max_x_coordinate)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_coordinates(self) -&gt; tuple:
+    &#34;&#34;&#34;:returns: tuple; (min_x_coordinate, max_x_coordinate)&#34;&#34;&#34;
+
+    return self.min_x_coordinate, self.max_x_coordinate</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_copy"><code class="name flex">
+<span>def <span class="ident">get_copy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: BoundedFunction; a copy of the bounded function</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_copy(self):
+    &#34;&#34;&#34;:returns: BoundedFunction; a copy of the bounded function&#34;&#34;&#34;
+
+    return BoundedFunction(self.min_x_coordinate, self.max_x_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_derivative"><code class="name flex">
+<span>def <span class="ident">get_derivative</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds and returns the derivative. Raises an AttributeError if the underlying function do not have the
+method: 'get_derivative'</p>
+<p>:returns: Derivative; the derivative of the polynomial</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_derivative(self):
+    &#34;&#34;&#34; Finds and returns the derivative. Raises an AttributeError if the underlying function do not have the
+        method: &#39;get_derivative&#39;
+
+        :returns: Derivative; the derivative of the polynomial&#34;&#34;&#34;
+
+    return self.current_function.get_derivative()</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_full_function"><code class="name flex">
+<span>def <span class="ident">get_full_function</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: PiecewiseFunction; the fully 'unbounded' function - x coordinates can now be less than the min x
+x coordinate</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_full_function(self):
+    &#34;&#34;&#34; :returns: PiecewiseFunction; the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
+        x coordinate&#34;&#34;&#34;
+
+    start = self.get_min_x_coordinate() - self.bounds_size()
+    end = self.get_max_x_coordinate() - self.bounds_size()
+    bounds_size = self.bounds_size()  # This is the bounds size do not change if the original bounds size change!
+
+    before_function = self.get_bounded_function_with_bounds(start, end)
+    before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
+
+    return PiecewiseFunction([self.get_copy(), before_function])</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_function"><code class="name flex">
+<span>def <span class="ident">get_function</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: function; the stored function</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_function(self):
+    &#34;&#34;&#34;:returns: function; the stored function&#34;&#34;&#34;
+
+    return self.current_function</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_indefinite_integral"><code class="name flex">
+<span>def <span class="ident">get_indefinite_integral</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds and returns the indefinite integral. Raises an AttributeError if the underlying function does not have the
+method: 'get_indefinite_integral'</p>
+<p>:returns: IndefiniteIntegral; the indefinite integral of the polynomial</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_indefinite_integral(self):
+    &#34;&#34;&#34; Finds and returns the indefinite integral. Raises an AttributeError if the underlying function does not have the
+        method: &#39;get_indefinite_integral&#39;
+
+        :returns: IndefiniteIntegral; the indefinite integral of the polynomial&#34;&#34;&#34;
+
+    return self.current_function.get_indefinite_integral()</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_is_repeating"><code class="name flex">
+<span>def <span class="ident">get_is_repeating</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: boolean; whether the function repeats</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_is_repeating(self):
+    &#34;&#34;&#34;:returns: boolean; whether the function repeats&#34;&#34;&#34;
+
+    return self.is_repeating</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_max"><code class="name flex">
+<span>def <span class="ident">get_max</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the value of the function at the max x coordinate</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_max(self):
+    &#34;&#34;&#34;:returns: float; the value of the function at the max x coordinate&#34;&#34;&#34;
+
+    return self.current_function.get_y_coordinate(self.max_x_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_max_x_coordinate"><code class="name flex">
+<span>def <span class="ident">get_max_x_coordinate</span></span>(<span>self) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the maximum x coordinate</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_max_x_coordinate(self) -&gt; float:
+    &#34;&#34;&#34;:returns: float; the maximum x coordinate&#34;&#34;&#34;
+
+    return self.max_x_coordinate</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_min"><code class="name flex">
+<span>def <span class="ident">get_min</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the value of the function at the min x coordinate</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_min(self):
+    &#34;&#34;&#34;:returns: float; the value of the function at the min x coordinate&#34;&#34;&#34;
+
+    return self.current_function.get_y_coordinate(self.min_x_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_min_x_coordinate"><code class="name flex">
+<span>def <span class="ident">get_min_x_coordinate</span></span>(<span>self) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the minimum x coordinate</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_min_x_coordinate(self) -&gt; float:
+    &#34;&#34;&#34;:returns: float; the minimum x coordinate&#34;&#34;&#34;
+
+    return self.min_x_coordinate</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_x_coordinate"><code class="name flex">
+<span>def <span class="ident">get_x_coordinate</span></span>(<span>self, y_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the x coordinate associated with that y coordinate (raises a ValueError if the function does
+not implement the get_inverse_function() method</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_x_coordinate(self, y_coordinate):
+    &#34;&#34;&#34; :returns: float; the x coordinate associated with that y coordinate (raises a ValueError if the function does
+        not implement the get_inverse_function() method&#34;&#34;&#34;
+
+    return self.current_function.get_x_coordinate(y_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_x_coordinates_can_be_less_than_min"><code class="name flex">
+<span>def <span class="ident">get_x_coordinates_can_be_less_than_min</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: bool; whether the x coordinates this function accepts can be less than the min x coordinate</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_x_coordinates_can_be_less_than_min(self):
+    &#34;&#34;&#34;:returns: bool; whether the x coordinates this function accepts can be less than the min x coordinate&#34;&#34;&#34;
+
+    return self.x_coordinates_can_be_less_than_min</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.get_y_coordinate"><code class="name flex">
+<span>def <span class="ident">get_y_coordinate</span></span>(<span>self, x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: float; the y_coordinate associated with that value</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_y_coordinate(self, x_coordinate):
+    &#34;&#34;&#34;:returns: float; the y_coordinate associated with that value&#34;&#34;&#34;
+
+    if not self.is_repeating and not is_within_bounds(x_coordinate, self.min_x_coordinate, self.max_x_coordinate):
+        raise ValueError(&#34;The x coordinate must be within the bounds specified because this function has strict bounds&#34;)
+
+    return self.current_function.get_y_coordinate(x_coordinate)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.set_bounds"><code class="name flex">
+<span>def <span class="ident">set_bounds</span></span>(<span>self, min_x_coordinate, max_x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets both minimum and maximum x coordinates (bounds)
+returns: BoundedFunction; 'self'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_bounds(self, min_x_coordinate, max_x_coordinate):
+    &#34;&#34;&#34;Sets both minimum and maximum x coordinates (bounds)
+        returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+    self.set_min_x_coordinate(min_x_coordinate)
+    self.set_max_x_coordinate(max_x_coordinate)
+    self.update_current_function()
+    return self</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.set_function"><code class="name flex">
+<span>def <span class="ident">set_function</span></span>(<span>self, function)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the underlying function to 'function'
+returns: BoundedFunction; 'self</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_function(self, function):
+    &#34;&#34;&#34; Sets the underlying function to &#39;function&#39;
+        returns: BoundedFunction; &#39;self&#34;&#34;&#34;
+
+    self.unmodified_function = function
+    self.update_current_function()
+    return self</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.set_is_repeating"><code class="name flex">
+<span>def <span class="ident">set_is_repeating</span></span>(<span>self, is_repeating)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the is_repeating attribute to 'is_repeating'
+returns: BoundedFunction; 'self'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_is_repeating(self, is_repeating):
+    &#34;&#34;&#34;Sets the is_repeating attribute to &#39;is_repeating&#39;
+        returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+    self.is_repeating = is_repeating
+    return self</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.set_max_x_coordinate"><code class="name flex">
+<span>def <span class="ident">set_max_x_coordinate</span></span>(<span>self, max_x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the maximum x-coordinate to 'max_x_coordinate'
+returns: BoundedFunction; 'self'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_max_x_coordinate(self, max_x_coordinate):
+    &#34;&#34;&#34;Sets the maximum x-coordinate to &#39;max_x_coordinate&#39;
+        returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+    self.max_x_coordinate = max_x_coordinate
+    return self</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.set_min_x_coordinate"><code class="name flex">
+<span>def <span class="ident">set_min_x_coordinate</span></span>(<span>self, min_x_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the minimum x-coordinate to 'min_x_coordinate'
+returns: BoundedFunction; 'self'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_min_x_coordinate(self, min_x_coordinate):
+    &#34;&#34;&#34;Sets the minimum x-coordinate to &#39;min_x_coordinate&#39;
+        returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+    self.min_x_coordinate = min_x_coordinate
+    return self</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.set_x_coordinates_can_be_less_than_min"><code class="name flex">
+<span>def <span class="ident">set_x_coordinates_can_be_less_than_min</span></span>(<span>self, x_coordinates_can_be_less_than_min)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:returns: bool; sets whether the x coordinates this function accepts can be less than the min x coordinate
+returns: BoundedFunction; 'self'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_x_coordinates_can_be_less_than_min(self, x_coordinates_can_be_less_than_min):
+    &#34;&#34;&#34;:returns: bool; sets whether the x coordinates this function accepts can be less than the min x coordinate
+        returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
+
+    value_has_changed = self.x_coordinates_can_be_less_than_min != x_coordinates_can_be_less_than_min
+    if value_has_changed and x_coordinates_can_be_less_than_min:
+        self.update_current_function()
+
+    if x_coordinates_can_be_less_than_min:
+        self.current_function = self.unmodified_function
+
+    self.x_coordinates_can_be_less_than_min = x_coordinates_can_be_less_than_min
+    return self</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.bounded_function.BoundedFunction.update_current_function"><code class="name flex">
+<span>def <span class="ident">update_current_function</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the current function after the bounded function is updated</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_current_function(self):
+    &#34;&#34;&#34;Updates the current function after the bounded function is updated&#34;&#34;&#34;
+
+    if self.x_coordinates_can_be_less_than_min:
+        self.current_function = self.get_full_function()
+
+    else:
+        self.current_function = self.unmodified_function</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="game_qu.math.function.Function" href="function.html#game_qu.math.function.Function">Function</a></b></code>:
+<ul class="hlist">
+<li><code><a title="game_qu.math.function.Function.get_inverted_function" href="function.html#game_qu.math.function.Function.get_inverted_function">get_inverted_function</a></code></li>
+<li><code><a title="game_qu.math.function.Function.get_new_function" href="function.html#game_qu.math.function.Function.get_new_function">get_new_function</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="game_qu.math" href="index.html">game_qu.math</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="game_qu.math.bounded_function.BoundedFunction" href="#game_qu.math.bounded_function.BoundedFunction">BoundedFunction</a></code></h4>
+<ul class="">
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.bounds_size" href="#game_qu.math.bounded_function.BoundedFunction.bounds_size">bounds_size</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.current_function" href="#game_qu.math.bounded_function.BoundedFunction.current_function">current_function</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.evaluate_area" href="#game_qu.math.bounded_function.BoundedFunction.evaluate_area">evaluate_area</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.evaluate_derivative_at_point" href="#game_qu.math.bounded_function.BoundedFunction.evaluate_derivative_at_point">evaluate_derivative_at_point</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_bounds" href="#game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_bounds">get_bounded_function_with_bounds</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_function" href="#game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_function">get_bounded_function_with_function</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_is_repeating" href="#game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_is_repeating">get_bounded_function_with_is_repeating</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_max_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_max_x_coordinate">get_bounded_function_with_max_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_min_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_min_x_coordinate">get_bounded_function_with_min_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_x_coordinates_less_than_min" href="#game_qu.math.bounded_function.BoundedFunction.get_bounded_function_with_x_coordinates_less_than_min">get_bounded_function_with_x_coordinates_less_than_min</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_bounds" href="#game_qu.math.bounded_function.BoundedFunction.get_bounds">get_bounds</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_coordinates" href="#game_qu.math.bounded_function.BoundedFunction.get_coordinates">get_coordinates</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_copy" href="#game_qu.math.bounded_function.BoundedFunction.get_copy">get_copy</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_derivative" href="#game_qu.math.bounded_function.BoundedFunction.get_derivative">get_derivative</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_full_function" href="#game_qu.math.bounded_function.BoundedFunction.get_full_function">get_full_function</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_function" href="#game_qu.math.bounded_function.BoundedFunction.get_function">get_function</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_indefinite_integral" href="#game_qu.math.bounded_function.BoundedFunction.get_indefinite_integral">get_indefinite_integral</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_is_repeating" href="#game_qu.math.bounded_function.BoundedFunction.get_is_repeating">get_is_repeating</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_max" href="#game_qu.math.bounded_function.BoundedFunction.get_max">get_max</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_max_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.get_max_x_coordinate">get_max_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_min" href="#game_qu.math.bounded_function.BoundedFunction.get_min">get_min</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_min_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.get_min_x_coordinate">get_min_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.get_x_coordinate">get_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_x_coordinates_can_be_less_than_min" href="#game_qu.math.bounded_function.BoundedFunction.get_x_coordinates_can_be_less_than_min">get_x_coordinates_can_be_less_than_min</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.get_y_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.get_y_coordinate">get_y_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.is_repeating" href="#game_qu.math.bounded_function.BoundedFunction.is_repeating">is_repeating</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.max_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.max_x_coordinate">max_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.min_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.min_x_coordinate">min_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.set_bounds" href="#game_qu.math.bounded_function.BoundedFunction.set_bounds">set_bounds</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.set_function" href="#game_qu.math.bounded_function.BoundedFunction.set_function">set_function</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.set_is_repeating" href="#game_qu.math.bounded_function.BoundedFunction.set_is_repeating">set_is_repeating</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.set_max_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.set_max_x_coordinate">set_max_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.set_min_x_coordinate" href="#game_qu.math.bounded_function.BoundedFunction.set_min_x_coordinate">set_min_x_coordinate</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.set_x_coordinates_can_be_less_than_min" href="#game_qu.math.bounded_function.BoundedFunction.set_x_coordinates_can_be_less_than_min">set_x_coordinates_can_be_less_than_min</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.unmodified_function" href="#game_qu.math.bounded_function.BoundedFunction.unmodified_function">unmodified_function</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.update_current_function" href="#game_qu.math.bounded_function.BoundedFunction.update_current_function">update_current_function</a></code></li>
+<li><code><a title="game_qu.math.bounded_function.BoundedFunction.x_coordinates_can_be_less_than_min" href="#game_qu.math.bounded_function.BoundedFunction.x_coordinates_can_be_less_than_min">x_coordinates_can_be_less_than_min</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
