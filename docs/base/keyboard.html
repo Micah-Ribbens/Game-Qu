@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>game_qu.base.keyboard API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>game_qu.base.keyboard</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from game_qu.base.events import Event, TimedEvent
+from game_qu.library_abstraction import keys
+from game_qu.library_abstraction import utility_functions
+from game_qu.library_abstraction import variables
+from game_qu.base.important_constants import IS_USING_CONTROLLER
+from game_qu.base.library_changer import LibraryChanger
+
+
+class Keyboard:
+    &#34;&#34;&#34; A class that has key_events and key_timed_events that are used to find key states like how long a key was held in,
+        if a key was released, etc. Generally it is recommended to use the functions from game_qu.base/utility_functions.py
+        but the key_events and key_timed_events from this class can also be used.&#34;&#34;&#34;
+
+    key_events = []
+    key_timed_events = []
+    button_timed_events = {}
+    button_events = {}
+    mouse_clicked_event = Event()
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes all the key events&#34;&#34;&#34;
+
+        for x in range(len(keys.keys)):
+            self.key_events.append(Event())
+            self.key_timed_events.append(TimedEvent(0))
+
+        # Currently this game engine does not support controllers for pyglet
+        if LibraryChanger.current_library_name == &#34;pygame&#34;:
+            self.create_button_events()
+
+    def create_button_events(self):
+        &#34;&#34;&#34;Creates all the button Events and TimedEvents&#34;&#34;&#34;
+
+        for button in keys.buttons:
+            self.button_events[button] = Event()
+            self.button_timed_events[button] = TimedEvent(0)
+
+    def get_key_timed_event(self, key):
+        &#34;&#34;&#34; Returns:
+                TimedEvent: the TimedEvent associated with that key&#34;&#34;&#34;
+
+        return_value = None
+
+        if self.button_timed_events.get(key) is None:
+            return_value = self.key_timed_events[key]
+
+        else:
+            return_value = self.get_button_timed_event(key)
+
+        return return_value
+
+    def get_key_event(self, key):
+        &#34;&#34;&#34; Returns:
+                Event: the Event associated with that key&#34;&#34;&#34;
+
+        return_value = None
+
+        if self.button_events.get(key) is None:
+            return_value = self.key_events[key]
+
+        else:
+            return_value = self.get_button_event(key)
+
+        return return_value
+
+    def get_button_event(self, button):
+        &#34;&#34;&#34; Returns:
+                Event: the Event associated with that button&#34;&#34;&#34;
+
+        return self.button_events[button]
+
+    def get_button_timed_event(self, button):
+        &#34;&#34;&#34; Returns:
+                TimedEvent: the TimedEvent associated with that button&#34;&#34;&#34;
+
+        return self.button_timed_events[button]
+
+    def run(self):
+        &#34;&#34;&#34; Runs all the events in key_events and key_timed_events, so attributes about the keys can be viewed. This function
+            SHOULD NOT be called by the user and this library automatically calls it&#34;&#34;&#34;
+
+        self.mouse_clicked_event.run(utility_functions.mouse_was_pressed())
+
+        for key in keys.keys:
+            key_was_pressed = utility_functions.key_is_pressed(key)
+
+            self.get_key_event(key).run(key_was_pressed)
+
+            should_reset = not self.get_key_event(key).happened_last_cycle() and not key_was_pressed
+
+            self.get_key_timed_event(key).run(should_reset, key_was_pressed)
+        
+        # If no controller is hooked up, then the buttons should not be run
+        # Currently this game engine does not support controllers for pyglet
+        if LibraryChanger.current_library_name == &#34;pygame&#34; and variables.joystick is not None and IS_USING_CONTROLLER:
+            self.run_buttons()
+
+    def run_buttons(self):
+        &#34;&#34;&#34;Runs all the button events, so important information can be gotten from them&#34;&#34;&#34;
+
+        for button in keys.buttons:
+
+            button_was_pressed = utility_functions.button_is_pressed(button)
+
+            self.get_button_event(button).run(button_was_pressed)
+
+            should_reset = not self.get_button_event(button).happened_last_cycle() and not button_was_pressed
+
+            self.get_button_timed_event(button).run(should_reset, button_was_pressed)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="game_qu.base.keyboard.Keyboard"><code class="flex name class">
+<span>class <span class="ident">Keyboard</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that has key_events and key_timed_events that are used to find key states like how long a key was held in,
+if a key was released, etc. Generally it is recommended to use the functions from game_qu.base/utility_functions.py
+but the key_events and key_timed_events from this class can also be used.</p>
+<p>Initializes all the key events</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Keyboard:
+    &#34;&#34;&#34; A class that has key_events and key_timed_events that are used to find key states like how long a key was held in,
+        if a key was released, etc. Generally it is recommended to use the functions from game_qu.base/utility_functions.py
+        but the key_events and key_timed_events from this class can also be used.&#34;&#34;&#34;
+
+    key_events = []
+    key_timed_events = []
+    button_timed_events = {}
+    button_events = {}
+    mouse_clicked_event = Event()
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes all the key events&#34;&#34;&#34;
+
+        for x in range(len(keys.keys)):
+            self.key_events.append(Event())
+            self.key_timed_events.append(TimedEvent(0))
+
+        # Currently this game engine does not support controllers for pyglet
+        if LibraryChanger.current_library_name == &#34;pygame&#34;:
+            self.create_button_events()
+
+    def create_button_events(self):
+        &#34;&#34;&#34;Creates all the button Events and TimedEvents&#34;&#34;&#34;
+
+        for button in keys.buttons:
+            self.button_events[button] = Event()
+            self.button_timed_events[button] = TimedEvent(0)
+
+    def get_key_timed_event(self, key):
+        &#34;&#34;&#34; Returns:
+                TimedEvent: the TimedEvent associated with that key&#34;&#34;&#34;
+
+        return_value = None
+
+        if self.button_timed_events.get(key) is None:
+            return_value = self.key_timed_events[key]
+
+        else:
+            return_value = self.get_button_timed_event(key)
+
+        return return_value
+
+    def get_key_event(self, key):
+        &#34;&#34;&#34; Returns:
+                Event: the Event associated with that key&#34;&#34;&#34;
+
+        return_value = None
+
+        if self.button_events.get(key) is None:
+            return_value = self.key_events[key]
+
+        else:
+            return_value = self.get_button_event(key)
+
+        return return_value
+
+    def get_button_event(self, button):
+        &#34;&#34;&#34; Returns:
+                Event: the Event associated with that button&#34;&#34;&#34;
+
+        return self.button_events[button]
+
+    def get_button_timed_event(self, button):
+        &#34;&#34;&#34; Returns:
+                TimedEvent: the TimedEvent associated with that button&#34;&#34;&#34;
+
+        return self.button_timed_events[button]
+
+    def run(self):
+        &#34;&#34;&#34; Runs all the events in key_events and key_timed_events, so attributes about the keys can be viewed. This function
+            SHOULD NOT be called by the user and this library automatically calls it&#34;&#34;&#34;
+
+        self.mouse_clicked_event.run(utility_functions.mouse_was_pressed())
+
+        for key in keys.keys:
+            key_was_pressed = utility_functions.key_is_pressed(key)
+
+            self.get_key_event(key).run(key_was_pressed)
+
+            should_reset = not self.get_key_event(key).happened_last_cycle() and not key_was_pressed
+
+            self.get_key_timed_event(key).run(should_reset, key_was_pressed)
+        
+        # If no controller is hooked up, then the buttons should not be run
+        # Currently this game engine does not support controllers for pyglet
+        if LibraryChanger.current_library_name == &#34;pygame&#34; and variables.joystick is not None and IS_USING_CONTROLLER:
+            self.run_buttons()
+
+    def run_buttons(self):
+        &#34;&#34;&#34;Runs all the button events, so important information can be gotten from them&#34;&#34;&#34;
+
+        for button in keys.buttons:
+
+            button_was_pressed = utility_functions.button_is_pressed(button)
+
+            self.get_button_event(button).run(button_was_pressed)
+
+            should_reset = not self.get_button_event(button).happened_last_cycle() and not button_was_pressed
+
+            self.get_button_timed_event(button).run(should_reset, button_was_pressed)</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_qu.base.keyboard.Keyboard.button_events"><code class="name">var <span class="ident">button_events</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.button_timed_events"><code class="name">var <span class="ident">button_timed_events</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.key_events"><code class="name">var <span class="ident">key_events</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.key_timed_events"><code class="name">var <span class="ident">key_timed_events</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.mouse_clicked_event"><code class="name">var <span class="ident">mouse_clicked_event</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_qu.base.keyboard.Keyboard.create_button_events"><code class="name flex">
+<span>def <span class="ident">create_button_events</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates all the button Events and TimedEvents</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_button_events(self):
+    &#34;&#34;&#34;Creates all the button Events and TimedEvents&#34;&#34;&#34;
+
+    for button in keys.buttons:
+        self.button_events[button] = Event()
+        self.button_timed_events[button] = TimedEvent(0)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.get_button_event"><code class="name flex">
+<span>def <span class="ident">get_button_event</span></span>(<span>self, button)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+Event: the Event associated with that button</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_button_event(self, button):
+    &#34;&#34;&#34; Returns:
+            Event: the Event associated with that button&#34;&#34;&#34;
+
+    return self.button_events[button]</code></pre>
+</details>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.get_button_timed_event"><code class="name flex">
+<span>def <span class="ident">get_button_timed_event</span></span>(<span>self, button)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+TimedEvent: the TimedEvent associated with that button</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_button_timed_event(self, button):
+    &#34;&#34;&#34; Returns:
+            TimedEvent: the TimedEvent associated with that button&#34;&#34;&#34;
+
+    return self.button_timed_events[button]</code></pre>
+</details>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.get_key_event"><code class="name flex">
+<span>def <span class="ident">get_key_event</span></span>(<span>self, key)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+Event: the Event associated with that key</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_key_event(self, key):
+    &#34;&#34;&#34; Returns:
+            Event: the Event associated with that key&#34;&#34;&#34;
+
+    return_value = None
+
+    if self.button_events.get(key) is None:
+        return_value = self.key_events[key]
+
+    else:
+        return_value = self.get_button_event(key)
+
+    return return_value</code></pre>
+</details>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.get_key_timed_event"><code class="name flex">
+<span>def <span class="ident">get_key_timed_event</span></span>(<span>self, key)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+TimedEvent: the TimedEvent associated with that key</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_key_timed_event(self, key):
+    &#34;&#34;&#34; Returns:
+            TimedEvent: the TimedEvent associated with that key&#34;&#34;&#34;
+
+    return_value = None
+
+    if self.button_timed_events.get(key) is None:
+        return_value = self.key_timed_events[key]
+
+    else:
+        return_value = self.get_button_timed_event(key)
+
+    return return_value</code></pre>
+</details>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the events in key_events and key_timed_events, so attributes about the keys can be viewed. This function
+SHOULD NOT be called by the user and this library automatically calls it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    &#34;&#34;&#34; Runs all the events in key_events and key_timed_events, so attributes about the keys can be viewed. This function
+        SHOULD NOT be called by the user and this library automatically calls it&#34;&#34;&#34;
+
+    self.mouse_clicked_event.run(utility_functions.mouse_was_pressed())
+
+    for key in keys.keys:
+        key_was_pressed = utility_functions.key_is_pressed(key)
+
+        self.get_key_event(key).run(key_was_pressed)
+
+        should_reset = not self.get_key_event(key).happened_last_cycle() and not key_was_pressed
+
+        self.get_key_timed_event(key).run(should_reset, key_was_pressed)
+    
+    # If no controller is hooked up, then the buttons should not be run
+    # Currently this game engine does not support controllers for pyglet
+    if LibraryChanger.current_library_name == &#34;pygame&#34; and variables.joystick is not None and IS_USING_CONTROLLER:
+        self.run_buttons()</code></pre>
+</details>
+</dd>
+<dt id="game_qu.base.keyboard.Keyboard.run_buttons"><code class="name flex">
+<span>def <span class="ident">run_buttons</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the button events, so important information can be gotten from them</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_buttons(self):
+    &#34;&#34;&#34;Runs all the button events, so important information can be gotten from them&#34;&#34;&#34;
+
+    for button in keys.buttons:
+
+        button_was_pressed = utility_functions.button_is_pressed(button)
+
+        self.get_button_event(button).run(button_was_pressed)
+
+        should_reset = not self.get_button_event(button).happened_last_cycle() and not button_was_pressed
+
+        self.get_button_timed_event(button).run(should_reset, button_was_pressed)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="game_qu.base" href="index.html">game_qu.base</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="game_qu.base.keyboard.Keyboard" href="#game_qu.base.keyboard.Keyboard">Keyboard</a></code></h4>
+<ul class="">
+<li><code><a title="game_qu.base.keyboard.Keyboard.button_events" href="#game_qu.base.keyboard.Keyboard.button_events">button_events</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.button_timed_events" href="#game_qu.base.keyboard.Keyboard.button_timed_events">button_timed_events</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.create_button_events" href="#game_qu.base.keyboard.Keyboard.create_button_events">create_button_events</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.get_button_event" href="#game_qu.base.keyboard.Keyboard.get_button_event">get_button_event</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.get_button_timed_event" href="#game_qu.base.keyboard.Keyboard.get_button_timed_event">get_button_timed_event</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.get_key_event" href="#game_qu.base.keyboard.Keyboard.get_key_event">get_key_event</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.get_key_timed_event" href="#game_qu.base.keyboard.Keyboard.get_key_timed_event">get_key_timed_event</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.key_events" href="#game_qu.base.keyboard.Keyboard.key_events">key_events</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.key_timed_events" href="#game_qu.base.keyboard.Keyboard.key_timed_events">key_timed_events</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.mouse_clicked_event" href="#game_qu.base.keyboard.Keyboard.mouse_clicked_event">mouse_clicked_event</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.run" href="#game_qu.base.keyboard.Keyboard.run">run</a></code></li>
+<li><code><a title="game_qu.base.keyboard.Keyboard.run_buttons" href="#game_qu.base.keyboard.Keyboard.run_buttons">run_buttons</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

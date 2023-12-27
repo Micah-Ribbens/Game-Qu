@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>game_qu.pygame_abstraction.utility_functions API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>game_qu.pygame_abstraction.utility_functions</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from game_qu.pygame_abstraction import variables
+from game_qu.pygame_abstraction.keys import *
+import pygame
+import time
+
+fonts = {}
+images = {}
+
+def convert_to_int(*args):
+    &#34;&#34;&#34; Returns:
+            list[int]: each arg as an int&#34;&#34;&#34;
+
+    return_value = []
+
+    for arg in args:
+        return_value.append(int(arg))
+
+    return return_value
+
+def load_image(path_to_image):
+    &#34;&#34;&#34; Loads the image from that path_to_image for quick rendering (should be called before the game starts running)
+
+         Returns:
+            list[int]: {image_length, image_height}; the length and height of the image&#34;&#34;&#34;
+
+    if images.get(path_to_image) is None:
+        images[path_to_image] = pygame.image.load(path_to_image).convert_alpha()
+
+    return images[path_to_image].get_size()
+
+def load_text(name, font_size, background_color, text_color):
+    &#34;&#34;&#34;Loads the text for quick rendering (should be called before the game starts running)&#34;&#34;&#34;
+
+    if fonts.get(font_size) is None:
+        fonts[font_size] = pygame.font.Font(&#34;freesansbold.ttf&#34;, font_size)
+
+def render_text(left_edge, top_edge, text_color, background_color, text, font_size, is_centered, name, is_rendering_background=True):
+    &#34;&#34;&#34;Renders the text onto the screen&#34;&#34;&#34;
+
+    left_edge, top_edge = convert_to_int(left_edge, top_edge)
+
+    font = fonts.get(font_size)
+    if not is_rendering_background:
+        background_color = None
+
+    rendered_text = font.render(text, True, text_color, background_color)
+    text_rectangle = rendered_text.get_rect()
+
+    if is_centered:
+        text_rectangle.center = [left_edge, top_edge]
+
+    else:
+        text_rectangle.left = left_edge
+        text_rectangle.top = top_edge
+
+    variables.window.blit(rendered_text, text_rectangle)
+
+def render_image(path_to_image, left_edge, top_edge, length, height):
+    &#34;&#34;&#34;Renders the image onto the screen&#34;&#34;&#34;
+
+    left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
+    image = images.get(path_to_image)
+    image = pygame.transform.scale(image, (length, height))
+    variables.window.blit(image, (left_edge, top_edge))
+
+def render_rectangle(left_edge, top_edge, length, height, color):
+    &#34;&#34;&#34;Renders the rectangle onto the screen&#34;&#34;&#34;
+
+    left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
+    pygame.draw.rect(variables.window, color, [left_edge, top_edge, length, height])
+
+def set_up_window(length, height, background_color, title):
+    &#34;&#34;&#34;Initializes all the pygame code, so the game be run and rendered&#34;&#34;&#34;
+
+    length, height = convert_to_int(length, height)
+    variables.window = pygame.display.set_mode((length, height))
+    pygame.display.set_caption(title)
+    variables.background_color = background_color
+
+
+def key_is_pressed(keyboard_key):
+    &#34;&#34;&#34; Returns:
+            bool: if the &#39;keyboard_key&#39; is currently pressed this game cycle&#34;&#34;&#34;
+
+    game_engine_key = keyboard_keys_to_game_engine_keys.get(keyboard_key)
+
+    controls = pygame.key.get_pressed()
+    return controls[game_engine_key]
+
+def button_is_pressed(button):
+    &#34;&#34;&#34; Returns:
+            bool: if the &#39;button&#39; is currently pressed this game cycle&#34;&#34;&#34;
+
+    game_engine_button = keyboard_keys_to_game_engine_keys.get(button)
+
+    dpad_buttons = {DPAD_UP: 0, DPAD_DOWN: 0, DPAD_LEFT: 0, DPAD_RIGHT: 0}
+    return_value = None
+
+    if dpad_buttons.get(button) is not None:
+        return_value = dpad_is_pressed(button)
+
+    else:
+        return_value = variables.joystick.get_button(game_engine_button)
+
+    return return_value
+
+def dpad_is_pressed(dpad_button):
+    &#34;&#34;&#34; Returns:
+            bool: if the &#39;dpad_button&#39; is currently pressed this game cycle&#34;&#34;&#34;
+
+    joystick_axis = 0
+    value_wanted = .8
+
+    if dpad_button == DPAD_UP or dpad_button == DPAD_DOWN:
+        joystick_axis = 1
+
+    if dpad_button == DPAD_LEFT or dpad_button == DPAD_UP:
+        value_wanted = -value_wanted
+
+    return_value = None
+
+    if value_wanted &lt; 0:
+        return_value = variables.joystick.get_axis(joystick_axis) &lt;= value_wanted
+
+    else:
+        return_value = variables.joystick.get_axis(joystick_axis) &gt;= value_wanted
+
+    return return_value
+
+
+def mouse_was_pressed():
+    &#34;&#34;&#34; Returns:
+            bool: whether the mouse is currently held down this game cycle&#34;&#34;&#34;
+
+    return pygame.mouse.get_pressed()[0]
+
+
+def call_every_cycle(function):
+    &#34;&#34;&#34;Makes pygame call the &#39;function&#39; given every game cycle (60fps)&#34;&#34;&#34;
+
+    while True:
+        start_time = time.time()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+        variables.window.fill(variables.background_color)
+
+        function(start_time, True, True)
+        pygame.display.update()
+
+def run_checking_closing():
+    &#34;&#34;&#34;Runs all the pygame code that checks to make sure the game should be closed&#34;&#34;&#34;
+
+    pass
+
+
+def is_mouse_collision(dimensions):
+    &#34;&#34;&#34; Returns:
+            bool: whether the mouse has collided with that rectangle - dimensions (left_edge, top_edge, length, height)&#34;&#34;&#34;
+
+    area = pygame.Rect(dimensions.left_edge, dimensions.top_edge, dimensions.length, dimensions.height)
+    mouse_left_edge, mouse_top_edge = pygame.mouse.get_pos()
+    return area.collidepoint(mouse_left_edge, mouse_top_edge)
+
+
+def get_time_passed(start_time):
+    &#34;&#34;&#34; Returns:
+            bool: the amount of time that has passed between the current time and start time&#34;&#34;&#34;
+
+    return time.time() - start_time
+
+
+def load_and_transform_image(image_path):
+    &#34;&#34;&#34;Loads the image at the &#39;image_path&#39; then it also loads an image that is the horizontal mirror of the original image&#34;&#34;&#34;
+
+    base_image = pygame.image.load(f&#34;{image_path}_right.png&#34;).convert_alpha()
+    transformed_image = pygame.transform.flip(base_image, True, False)
+
+    images[f&#34;{image_path}_right.png&#34;] = base_image
+    images[f&#34;{image_path}_left.png&#34;] = transformed_image
+
+
+def get_directional_path_to_image(base_image_path, direction_is_right, additional_path_after_direction):
+    &#34;&#34;&#34; Returns:
+            str: the path to the image that includes direction&#34;&#34;&#34;
+
+    direction_image_path = &#34;right&#34; if direction_is_right else &#34;left&#34;
+
+    return f&#34;{base_image_path}_{direction_image_path}{additional_path_after_direction}.png&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="game_qu.pygame_abstraction.utility_functions.button_is_pressed"><code class="name flex">
+<span>def <span class="ident">button_is_pressed</span></span>(<span>button)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+bool: if the 'button' is currently pressed this game cycle</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def button_is_pressed(button):
+    &#34;&#34;&#34; Returns:
+            bool: if the &#39;button&#39; is currently pressed this game cycle&#34;&#34;&#34;
+
+    game_engine_button = keyboard_keys_to_game_engine_keys.get(button)
+
+    dpad_buttons = {DPAD_UP: 0, DPAD_DOWN: 0, DPAD_LEFT: 0, DPAD_RIGHT: 0}
+    return_value = None
+
+    if dpad_buttons.get(button) is not None:
+        return_value = dpad_is_pressed(button)
+
+    else:
+        return_value = variables.joystick.get_button(game_engine_button)
+
+    return return_value</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.call_every_cycle"><code class="name flex">
+<span>def <span class="ident">call_every_cycle</span></span>(<span>function)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Makes pygame call the 'function' given every game cycle (60fps)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def call_every_cycle(function):
+    &#34;&#34;&#34;Makes pygame call the &#39;function&#39; given every game cycle (60fps)&#34;&#34;&#34;
+
+    while True:
+        start_time = time.time()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+        variables.window.fill(variables.background_color)
+
+        function(start_time, True, True)
+        pygame.display.update()</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.convert_to_int"><code class="name flex">
+<span>def <span class="ident">convert_to_int</span></span>(<span>*args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+list[int]: each arg as an int</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_to_int(*args):
+    &#34;&#34;&#34; Returns:
+            list[int]: each arg as an int&#34;&#34;&#34;
+
+    return_value = []
+
+    for arg in args:
+        return_value.append(int(arg))
+
+    return return_value</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.dpad_is_pressed"><code class="name flex">
+<span>def <span class="ident">dpad_is_pressed</span></span>(<span>dpad_button)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+bool: if the 'dpad_button' is currently pressed this game cycle</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dpad_is_pressed(dpad_button):
+    &#34;&#34;&#34; Returns:
+            bool: if the &#39;dpad_button&#39; is currently pressed this game cycle&#34;&#34;&#34;
+
+    joystick_axis = 0
+    value_wanted = .8
+
+    if dpad_button == DPAD_UP or dpad_button == DPAD_DOWN:
+        joystick_axis = 1
+
+    if dpad_button == DPAD_LEFT or dpad_button == DPAD_UP:
+        value_wanted = -value_wanted
+
+    return_value = None
+
+    if value_wanted &lt; 0:
+        return_value = variables.joystick.get_axis(joystick_axis) &lt;= value_wanted
+
+    else:
+        return_value = variables.joystick.get_axis(joystick_axis) &gt;= value_wanted
+
+    return return_value</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.get_directional_path_to_image"><code class="name flex">
+<span>def <span class="ident">get_directional_path_to_image</span></span>(<span>base_image_path, direction_is_right, additional_path_after_direction)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+str: the path to the image that includes direction</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_directional_path_to_image(base_image_path, direction_is_right, additional_path_after_direction):
+    &#34;&#34;&#34; Returns:
+            str: the path to the image that includes direction&#34;&#34;&#34;
+
+    direction_image_path = &#34;right&#34; if direction_is_right else &#34;left&#34;
+
+    return f&#34;{base_image_path}_{direction_image_path}{additional_path_after_direction}.png&#34;</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.get_time_passed"><code class="name flex">
+<span>def <span class="ident">get_time_passed</span></span>(<span>start_time)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+bool: the amount of time that has passed between the current time and start time</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_time_passed(start_time):
+    &#34;&#34;&#34; Returns:
+            bool: the amount of time that has passed between the current time and start time&#34;&#34;&#34;
+
+    return time.time() - start_time</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.is_mouse_collision"><code class="name flex">
+<span>def <span class="ident">is_mouse_collision</span></span>(<span>dimensions)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+bool: whether the mouse has collided with that rectangle - dimensions (left_edge, top_edge, length, height)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_mouse_collision(dimensions):
+    &#34;&#34;&#34; Returns:
+            bool: whether the mouse has collided with that rectangle - dimensions (left_edge, top_edge, length, height)&#34;&#34;&#34;
+
+    area = pygame.Rect(dimensions.left_edge, dimensions.top_edge, dimensions.length, dimensions.height)
+    mouse_left_edge, mouse_top_edge = pygame.mouse.get_pos()
+    return area.collidepoint(mouse_left_edge, mouse_top_edge)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.key_is_pressed"><code class="name flex">
+<span>def <span class="ident">key_is_pressed</span></span>(<span>keyboard_key)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+bool: if the 'keyboard_key' is currently pressed this game cycle</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def key_is_pressed(keyboard_key):
+    &#34;&#34;&#34; Returns:
+            bool: if the &#39;keyboard_key&#39; is currently pressed this game cycle&#34;&#34;&#34;
+
+    game_engine_key = keyboard_keys_to_game_engine_keys.get(keyboard_key)
+
+    controls = pygame.key.get_pressed()
+    return controls[game_engine_key]</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.load_and_transform_image"><code class="name flex">
+<span>def <span class="ident">load_and_transform_image</span></span>(<span>image_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads the image at the 'image_path' then it also loads an image that is the horizontal mirror of the original image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_and_transform_image(image_path):
+    &#34;&#34;&#34;Loads the image at the &#39;image_path&#39; then it also loads an image that is the horizontal mirror of the original image&#34;&#34;&#34;
+
+    base_image = pygame.image.load(f&#34;{image_path}_right.png&#34;).convert_alpha()
+    transformed_image = pygame.transform.flip(base_image, True, False)
+
+    images[f&#34;{image_path}_right.png&#34;] = base_image
+    images[f&#34;{image_path}_left.png&#34;] = transformed_image</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.load_image"><code class="name flex">
+<span>def <span class="ident">load_image</span></span>(<span>path_to_image)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads the image from that path_to_image for quick rendering (should be called before the game starts running)</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[int]</code></dt>
+<dd>{image_length, image_height}; the length and height of the image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_image(path_to_image):
+    &#34;&#34;&#34; Loads the image from that path_to_image for quick rendering (should be called before the game starts running)
+
+         Returns:
+            list[int]: {image_length, image_height}; the length and height of the image&#34;&#34;&#34;
+
+    if images.get(path_to_image) is None:
+        images[path_to_image] = pygame.image.load(path_to_image).convert_alpha()
+
+    return images[path_to_image].get_size()</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.load_text"><code class="name flex">
+<span>def <span class="ident">load_text</span></span>(<span>name, font_size, background_color, text_color)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads the text for quick rendering (should be called before the game starts running)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_text(name, font_size, background_color, text_color):
+    &#34;&#34;&#34;Loads the text for quick rendering (should be called before the game starts running)&#34;&#34;&#34;
+
+    if fonts.get(font_size) is None:
+        fonts[font_size] = pygame.font.Font(&#34;freesansbold.ttf&#34;, font_size)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.mouse_was_pressed"><code class="name flex">
+<span>def <span class="ident">mouse_was_pressed</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+bool: whether the mouse is currently held down this game cycle</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mouse_was_pressed():
+    &#34;&#34;&#34; Returns:
+            bool: whether the mouse is currently held down this game cycle&#34;&#34;&#34;
+
+    return pygame.mouse.get_pressed()[0]</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.render_image"><code class="name flex">
+<span>def <span class="ident">render_image</span></span>(<span>path_to_image, left_edge, top_edge, length, height)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renders the image onto the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_image(path_to_image, left_edge, top_edge, length, height):
+    &#34;&#34;&#34;Renders the image onto the screen&#34;&#34;&#34;
+
+    left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
+    image = images.get(path_to_image)
+    image = pygame.transform.scale(image, (length, height))
+    variables.window.blit(image, (left_edge, top_edge))</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.render_rectangle"><code class="name flex">
+<span>def <span class="ident">render_rectangle</span></span>(<span>left_edge, top_edge, length, height, color)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renders the rectangle onto the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_rectangle(left_edge, top_edge, length, height, color):
+    &#34;&#34;&#34;Renders the rectangle onto the screen&#34;&#34;&#34;
+
+    left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
+    pygame.draw.rect(variables.window, color, [left_edge, top_edge, length, height])</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.render_text"><code class="name flex">
+<span>def <span class="ident">render_text</span></span>(<span>left_edge, top_edge, text_color, background_color, text, font_size, is_centered, name, is_rendering_background=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renders the text onto the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_text(left_edge, top_edge, text_color, background_color, text, font_size, is_centered, name, is_rendering_background=True):
+    &#34;&#34;&#34;Renders the text onto the screen&#34;&#34;&#34;
+
+    left_edge, top_edge = convert_to_int(left_edge, top_edge)
+
+    font = fonts.get(font_size)
+    if not is_rendering_background:
+        background_color = None
+
+    rendered_text = font.render(text, True, text_color, background_color)
+    text_rectangle = rendered_text.get_rect()
+
+    if is_centered:
+        text_rectangle.center = [left_edge, top_edge]
+
+    else:
+        text_rectangle.left = left_edge
+        text_rectangle.top = top_edge
+
+    variables.window.blit(rendered_text, text_rectangle)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.run_checking_closing"><code class="name flex">
+<span>def <span class="ident">run_checking_closing</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the pygame code that checks to make sure the game should be closed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_checking_closing():
+    &#34;&#34;&#34;Runs all the pygame code that checks to make sure the game should be closed&#34;&#34;&#34;
+
+    pass</code></pre>
+</details>
+</dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.set_up_window"><code class="name flex">
+<span>def <span class="ident">set_up_window</span></span>(<span>length, height, background_color, title)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes all the pygame code, so the game be run and rendered</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_up_window(length, height, background_color, title):
+    &#34;&#34;&#34;Initializes all the pygame code, so the game be run and rendered&#34;&#34;&#34;
+
+    length, height = convert_to_int(length, height)
+    variables.window = pygame.display.set_mode((length, height))
+    pygame.display.set_caption(title)
+    variables.background_color = background_color</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="game_qu.pygame_abstraction" href="index.html">game_qu.pygame_abstraction</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.button_is_pressed" href="#game_qu.pygame_abstraction.utility_functions.button_is_pressed">button_is_pressed</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.call_every_cycle" href="#game_qu.pygame_abstraction.utility_functions.call_every_cycle">call_every_cycle</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.convert_to_int" href="#game_qu.pygame_abstraction.utility_functions.convert_to_int">convert_to_int</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.dpad_is_pressed" href="#game_qu.pygame_abstraction.utility_functions.dpad_is_pressed">dpad_is_pressed</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.get_directional_path_to_image" href="#game_qu.pygame_abstraction.utility_functions.get_directional_path_to_image">get_directional_path_to_image</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.get_time_passed" href="#game_qu.pygame_abstraction.utility_functions.get_time_passed">get_time_passed</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.is_mouse_collision" href="#game_qu.pygame_abstraction.utility_functions.is_mouse_collision">is_mouse_collision</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.key_is_pressed" href="#game_qu.pygame_abstraction.utility_functions.key_is_pressed">key_is_pressed</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.load_and_transform_image" href="#game_qu.pygame_abstraction.utility_functions.load_and_transform_image">load_and_transform_image</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.load_image" href="#game_qu.pygame_abstraction.utility_functions.load_image">load_image</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.load_text" href="#game_qu.pygame_abstraction.utility_functions.load_text">load_text</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.mouse_was_pressed" href="#game_qu.pygame_abstraction.utility_functions.mouse_was_pressed">mouse_was_pressed</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.render_image" href="#game_qu.pygame_abstraction.utility_functions.render_image">render_image</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.render_rectangle" href="#game_qu.pygame_abstraction.utility_functions.render_rectangle">render_rectangle</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.render_text" href="#game_qu.pygame_abstraction.utility_functions.render_text">render_text</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.run_checking_closing" href="#game_qu.pygame_abstraction.utility_functions.run_checking_closing">run_checking_closing</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.set_up_window" href="#game_qu.pygame_abstraction.utility_functions.set_up_window">set_up_window</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

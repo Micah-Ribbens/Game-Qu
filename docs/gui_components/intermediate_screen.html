@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>game_qu.gui_components.intermediate_screen API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>game_qu.gui_components.intermediate_screen</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from game_qu.base.colors import white
+from game_qu.base.utility_functions import get_index_of_range, get_ranges
+from game_qu.gui_components.dimensions import Dimensions
+from game_qu.base.events import TimedEvent
+from game_qu.base.important_variables import BACKGROUND_COLOR, SCREEN_LENGTH, SCREEN_HEIGHT
+from game_qu.gui_components.screen import Screen
+from game_qu.gui_components.text_box import TextBox
+
+from game_qu.base.range import Range
+from game_qu.base.velocity_calculator import VelocityCalculator
+
+
+class IntermediateScreen(Screen):
+    &#34;&#34;&#34;A screen that displays text(s) for a period of time&#34;&#34;&#34;
+
+    time_ranges = []
+    current_time = 0
+    max_time = 0
+    screens = []
+    texts = []
+    set_screen_text_function = None
+    is_being_displayed = False
+
+    def __init__(self, number_of_screens=1, screens=None, texts=[&#34;&#34;], times_displayed=[0], set_screen_text_function=None):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        if screens is None:
+            self.create_screens(number_of_screens, texts)
+
+        else:
+            self.screens = screens
+
+        self.set_time_ranges(get_ranges(times_displayed))
+
+        self.set_screen_text_function = self.set_screen_text if set_screen_text_function is None else set_screen_text_function
+
+        Dimensions.__init__(self, 0, 0, SCREEN_LENGTH, SCREEN_HEIGHT)
+
+    def create_screens(self, number_of_screens, texts):
+        &#34;&#34;&#34;Initializes all the screens (equal to the number_of_screens)&#34;&#34;&#34;
+
+        for x in range(number_of_screens):
+            screen = Screen()
+
+            text_box = TextBox(texts[x], 30, BACKGROUND_COLOR, white, True)
+            text_box.number_set_dimensions(0, 0, SCREEN_LENGTH, SCREEN_HEIGHT)
+            screen.components = [text_box]
+            self.screens.append(screen)
+
+    def set_texts(self, texts):
+        &#34;&#34;&#34;Sets the texts of all the screens in &#39;self.screens.&#39; It does this by using the method &#39;self.change_screen_method,&#39; which is set in the __init__ method&#34;&#34;&#34;
+
+        for x in range(len(texts)):
+            self.set_screen_text_function(self.screens[x], texts[x])
+    
+    def set_screen_text(self, screen, text):
+        &#34;&#34;&#34;Sets the text the screen displays (or no text if that is wanted). Calls the &#39;set_text&#39; method of the screen&#39;s first component&#34;&#34;&#34;
+
+        # By default, the screen&#39;s first component is the TextBox containing the text
+        screen.components[0].set_text(text)
+        
+    def display(self):
+        &#34;&#34;&#34;Displays all the intermediate screens and sets &#39;self.current_time&#39; to 0 resetting the screen timers&#34;&#34;&#34;
+
+        self.current_time = 0
+        self.is_being_displayed = True
+
+    def get_components(self):
+        &#34;&#34;&#34; Returns:
+                list[Component]: the components that should be displayed&#34;&#34;&#34;
+
+        index = get_index_of_range(self.current_time, ranges=self.time_ranges)
+        self.screens[index].render_background()
+        return self.screens[index].get_components()
+
+    def reset(self):
+        &#34;&#34;&#34;Resets the object back to the start&#34;&#34;&#34;
+
+        self.current_time = 0
+        self.is_being_displayed = False
+
+    def set_time_ranges(self, time_ranges):
+        &#34;&#34;&#34; Sets the time ranges that each screen is displayed (from 1 second to 3 seconds). If using range_lengths is wanted then
+            it is recommended to use the function get_ranges in base/utility_functions.py&#34;&#34;&#34;
+
+        self.time_ranges = time_ranges
+        self.max_time = 0
+
+        for time_range in time_ranges:
+            self.max_time += time_range.get_length()
+
+    def has_finished(self):
+        &#34;&#34;&#34; Returns:
+                bool: if the intermediate screens are done being displayed&#34;&#34;&#34;
+
+        return self.current_time &gt; self.max_time or not self.is_being_displayed
+
+    def run(self):
+        &#34;&#34;&#34;Runs all the code necessary to make this object work properly&#34;&#34;&#34;
+
+        if not self.has_finished():
+            self.current_time += VelocityCalculator.time
+            index = get_index_of_range(self.current_time, ranges=self.time_ranges)
+            self.screens[index].run()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen"><code class="flex name class">
+<span>class <span class="ident">IntermediateScreen</span></span>
+<span>(</span><span>number_of_screens=1, screens=None, texts=[''], times_displayed=[0], set_screen_text_function=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A screen that displays text(s) for a period of time</p>
+<p>Initializes the object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IntermediateScreen(Screen):
+    &#34;&#34;&#34;A screen that displays text(s) for a period of time&#34;&#34;&#34;
+
+    time_ranges = []
+    current_time = 0
+    max_time = 0
+    screens = []
+    texts = []
+    set_screen_text_function = None
+    is_being_displayed = False
+
+    def __init__(self, number_of_screens=1, screens=None, texts=[&#34;&#34;], times_displayed=[0], set_screen_text_function=None):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        if screens is None:
+            self.create_screens(number_of_screens, texts)
+
+        else:
+            self.screens = screens
+
+        self.set_time_ranges(get_ranges(times_displayed))
+
+        self.set_screen_text_function = self.set_screen_text if set_screen_text_function is None else set_screen_text_function
+
+        Dimensions.__init__(self, 0, 0, SCREEN_LENGTH, SCREEN_HEIGHT)
+
+    def create_screens(self, number_of_screens, texts):
+        &#34;&#34;&#34;Initializes all the screens (equal to the number_of_screens)&#34;&#34;&#34;
+
+        for x in range(number_of_screens):
+            screen = Screen()
+
+            text_box = TextBox(texts[x], 30, BACKGROUND_COLOR, white, True)
+            text_box.number_set_dimensions(0, 0, SCREEN_LENGTH, SCREEN_HEIGHT)
+            screen.components = [text_box]
+            self.screens.append(screen)
+
+    def set_texts(self, texts):
+        &#34;&#34;&#34;Sets the texts of all the screens in &#39;self.screens.&#39; It does this by using the method &#39;self.change_screen_method,&#39; which is set in the __init__ method&#34;&#34;&#34;
+
+        for x in range(len(texts)):
+            self.set_screen_text_function(self.screens[x], texts[x])
+    
+    def set_screen_text(self, screen, text):
+        &#34;&#34;&#34;Sets the text the screen displays (or no text if that is wanted). Calls the &#39;set_text&#39; method of the screen&#39;s first component&#34;&#34;&#34;
+
+        # By default, the screen&#39;s first component is the TextBox containing the text
+        screen.components[0].set_text(text)
+        
+    def display(self):
+        &#34;&#34;&#34;Displays all the intermediate screens and sets &#39;self.current_time&#39; to 0 resetting the screen timers&#34;&#34;&#34;
+
+        self.current_time = 0
+        self.is_being_displayed = True
+
+    def get_components(self):
+        &#34;&#34;&#34; Returns:
+                list[Component]: the components that should be displayed&#34;&#34;&#34;
+
+        index = get_index_of_range(self.current_time, ranges=self.time_ranges)
+        self.screens[index].render_background()
+        return self.screens[index].get_components()
+
+    def reset(self):
+        &#34;&#34;&#34;Resets the object back to the start&#34;&#34;&#34;
+
+        self.current_time = 0
+        self.is_being_displayed = False
+
+    def set_time_ranges(self, time_ranges):
+        &#34;&#34;&#34; Sets the time ranges that each screen is displayed (from 1 second to 3 seconds). If using range_lengths is wanted then
+            it is recommended to use the function get_ranges in base/utility_functions.py&#34;&#34;&#34;
+
+        self.time_ranges = time_ranges
+        self.max_time = 0
+
+        for time_range in time_ranges:
+            self.max_time += time_range.get_length()
+
+    def has_finished(self):
+        &#34;&#34;&#34; Returns:
+                bool: if the intermediate screens are done being displayed&#34;&#34;&#34;
+
+        return self.current_time &gt; self.max_time or not self.is_being_displayed
+
+    def run(self):
+        &#34;&#34;&#34;Runs all the code necessary to make this object work properly&#34;&#34;&#34;
+
+        if not self.has_finished():
+            self.current_time += VelocityCalculator.time
+            index = get_index_of_range(self.current_time, ranges=self.time_ranges)
+            self.screens[index].run()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="game_qu.gui_components.screen.Screen" href="screen.html#game_qu.gui_components.screen.Screen">Screen</a></li>
+<li><a title="game_qu.gui_components.component.Component" href="component.html#game_qu.gui_components.component.Component">Component</a></li>
+<li><a title="game_qu.gui_components.dimensions.Dimensions" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions">Dimensions</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.current_time"><code class="name">var <span class="ident">current_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.is_being_displayed"><code class="name">var <span class="ident">is_being_displayed</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.max_time"><code class="name">var <span class="ident">max_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.screens"><code class="name">var <span class="ident">screens</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.set_screen_text_function"><code class="name">var <span class="ident">set_screen_text_function</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.texts"><code class="name">var <span class="ident">texts</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.time_ranges"><code class="name">var <span class="ident">time_ranges</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.create_screens"><code class="name flex">
+<span>def <span class="ident">create_screens</span></span>(<span>self, number_of_screens, texts)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes all the screens (equal to the number_of_screens)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_screens(self, number_of_screens, texts):
+    &#34;&#34;&#34;Initializes all the screens (equal to the number_of_screens)&#34;&#34;&#34;
+
+    for x in range(number_of_screens):
+        screen = Screen()
+
+        text_box = TextBox(texts[x], 30, BACKGROUND_COLOR, white, True)
+        text_box.number_set_dimensions(0, 0, SCREEN_LENGTH, SCREEN_HEIGHT)
+        screen.components = [text_box]
+        self.screens.append(screen)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.display"><code class="name flex">
+<span>def <span class="ident">display</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays all the intermediate screens and sets 'self.current_time' to 0 resetting the screen timers</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def display(self):
+    &#34;&#34;&#34;Displays all the intermediate screens and sets &#39;self.current_time&#39; to 0 resetting the screen timers&#34;&#34;&#34;
+
+    self.current_time = 0
+    self.is_being_displayed = True</code></pre>
+</details>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.get_components"><code class="name flex">
+<span>def <span class="ident">get_components</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+list[Component]: the components that should be displayed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_components(self):
+    &#34;&#34;&#34; Returns:
+            list[Component]: the components that should be displayed&#34;&#34;&#34;
+
+    index = get_index_of_range(self.current_time, ranges=self.time_ranges)
+    self.screens[index].render_background()
+    return self.screens[index].get_components()</code></pre>
+</details>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.has_finished"><code class="name flex">
+<span>def <span class="ident">has_finished</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+bool: if the intermediate screens are done being displayed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def has_finished(self):
+    &#34;&#34;&#34; Returns:
+            bool: if the intermediate screens are done being displayed&#34;&#34;&#34;
+
+    return self.current_time &gt; self.max_time or not self.is_being_displayed</code></pre>
+</details>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets the object back to the start</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;Resets the object back to the start&#34;&#34;&#34;
+
+    self.current_time = 0
+    self.is_being_displayed = False</code></pre>
+</details>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the code necessary to make this object work properly</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    &#34;&#34;&#34;Runs all the code necessary to make this object work properly&#34;&#34;&#34;
+
+    if not self.has_finished():
+        self.current_time += VelocityCalculator.time
+        index = get_index_of_range(self.current_time, ranges=self.time_ranges)
+        self.screens[index].run()</code></pre>
+</details>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.set_screen_text"><code class="name flex">
+<span>def <span class="ident">set_screen_text</span></span>(<span>self, screen, text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the text the screen displays (or no text if that is wanted). Calls the 'set_text' method of the screen's first component</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_screen_text(self, screen, text):
+    &#34;&#34;&#34;Sets the text the screen displays (or no text if that is wanted). Calls the &#39;set_text&#39; method of the screen&#39;s first component&#34;&#34;&#34;
+
+    # By default, the screen&#39;s first component is the TextBox containing the text
+    screen.components[0].set_text(text)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.set_texts"><code class="name flex">
+<span>def <span class="ident">set_texts</span></span>(<span>self, texts)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the texts of all the screens in 'self.screens.' It does this by using the method 'self.change_screen_method,' which is set in the <strong>init</strong> method</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_texts(self, texts):
+    &#34;&#34;&#34;Sets the texts of all the screens in &#39;self.screens.&#39; It does this by using the method &#39;self.change_screen_method,&#39; which is set in the __init__ method&#34;&#34;&#34;
+
+    for x in range(len(texts)):
+        self.set_screen_text_function(self.screens[x], texts[x])</code></pre>
+</details>
+</dd>
+<dt id="game_qu.gui_components.intermediate_screen.IntermediateScreen.set_time_ranges"><code class="name flex">
+<span>def <span class="ident">set_time_ranges</span></span>(<span>self, time_ranges)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the time ranges that each screen is displayed (from 1 second to 3 seconds). If using range_lengths is wanted then
+it is recommended to use the function get_ranges in base/utility_functions.py</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_time_ranges(self, time_ranges):
+    &#34;&#34;&#34; Sets the time ranges that each screen is displayed (from 1 second to 3 seconds). If using range_lengths is wanted then
+        it is recommended to use the function get_ranges in base/utility_functions.py&#34;&#34;&#34;
+
+    self.time_ranges = time_ranges
+    self.max_time = 0
+
+    for time_range in time_ranges:
+        self.max_time += time_range.get_length()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="game_qu.gui_components.screen.Screen" href="screen.html#game_qu.gui_components.screen.Screen">Screen</a></b></code>:
+<ul class="hlist">
+<li><code><a title="game_qu.gui_components.screen.Screen.bottom_edge" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.bottom_edge">bottom_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.get_scaled_dimensions" href="component.html#game_qu.gui_components.component.Component.get_scaled_dimensions">get_scaled_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.got_clicked" href="component.html#game_qu.gui_components.component.Component.got_clicked">got_clicked</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.hide" href="screen.html#game_qu.gui_components.screen.Screen.hide">hide</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.horizontal_midpoint" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.horizontal_midpoint">horizontal_midpoint</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.mouse_enter_function" href="component.html#game_qu.gui_components.component.Component.mouse_enter_function">mouse_enter_function</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.mouse_exit_function" href="component.html#game_qu.gui_components.component.Component.mouse_exit_function">mouse_exit_function</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.number_set_dimensions" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.number_set_dimensions">number_set_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.percentage_set_dimensions" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.render" href="component.html#game_qu.gui_components.component.Component.render">render</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.render_background" href="screen.html#game_qu.gui_components.screen.Screen.render_background">render_background</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.right_edge" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_background_color" href="screen.html#game_qu.gui_components.screen.Screen.set_background_color">set_background_color</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_color" href="component.html#game_qu.gui_components.component.Component.set_color">set_color</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_is_visible" href="screen.html#game_qu.gui_components.screen.Screen.set_is_visible">set_is_visible</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_mouse_enter_function" href="component.html#game_qu.gui_components.component.Component.set_mouse_enter_function">set_mouse_enter_function</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_mouse_exit_function" href="component.html#game_qu.gui_components.component.Component.set_mouse_exit_function">set_mouse_exit_function</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_mouse_functions" href="component.html#game_qu.gui_components.component.Component.set_mouse_functions">set_mouse_functions</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_path_to_background_image" href="screen.html#game_qu.gui_components.screen.Screen.set_path_to_background_image">set_path_to_background_image</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.show" href="screen.html#game_qu.gui_components.screen.Screen.show">show</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.vertical_midpoint" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.vertical_midpoint">vertical_midpoint</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="game_qu.gui_components" href="index.html">game_qu.gui_components</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen">IntermediateScreen</a></code></h4>
+<ul class="">
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.create_screens" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.create_screens">create_screens</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.current_time" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.current_time">current_time</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.display" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.display">display</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.get_components" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.get_components">get_components</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.has_finished" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.has_finished">has_finished</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.is_being_displayed" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.is_being_displayed">is_being_displayed</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.max_time" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.max_time">max_time</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.reset" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.reset">reset</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.run" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.run">run</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.screens" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.screens">screens</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.set_screen_text" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.set_screen_text">set_screen_text</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.set_screen_text_function" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.set_screen_text_function">set_screen_text_function</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.set_texts" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.set_texts">set_texts</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.set_time_ranges" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.set_time_ranges">set_time_ranges</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.texts" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.texts">texts</a></code></li>
+<li><code><a title="game_qu.gui_components.intermediate_screen.IntermediateScreen.time_ranges" href="#game_qu.gui_components.intermediate_screen.IntermediateScreen.time_ranges">time_ranges</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
