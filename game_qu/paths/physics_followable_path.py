@@ -67,37 +67,43 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
         self.set_all_variables(self.initial_distance + self.height_of_path, self.time, self.initial_distance)
 
     def get_velocity_displacement(self):
-        """ Returns:
+        """
+             Returns:
                 float: the displacement from velocity (the last_time - start_time)"""
 
         return self.get_displacement_due_to_velocity(self.last_time, self.current_time)
 
     def get_acceleration_displacement(self):
-        """ Returns:
+        """
+             Returns:
                 float: the distance from acceleration with gravity"""
 
         return self.get_displacement_due_to_acceleration(self.last_time, self.current_time)
 
     def get_total_displacement(self):
-        """ Returns:
+        """
+             Returns:
                 float: the displacement from both velocity and acceleration"""
 
         return self.get_velocity_displacement() + self.get_acceleration_displacement()
 
     def get_acceleration_displacement_from_time(self, time):
-        """ Returns:
+        """
+             Returns:
                 float: the displacement from acceleration at that time"""
 
         return self.get_displacement_due_to_acceleration(0, time)
 
     def get_final_velocity(self):
-        """ Returns:
+        """
+             Returns:
                 float: the velocity from acceleration (assumes initial_velocity is 0)"""
 
         return self.acceleration * self.current_time
 
     def get_value_at_time(self, time):
-        """ Returns:
+        """
+             Returns:
                 object: the value of the attribute this path is modifying at 'time'"""
 
         if self.is_using_everything_this_cycle:
@@ -107,7 +113,8 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
             return self.get_displacement_due_to_velocity(0, time)
 
     def get_delta_value(self, start_time, end_time):
-        """ Returns:
+        """
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]"""
 
         if self.is_using_everything_this_cycle:

@@ -22,7 +22,8 @@ class PiecewiseFunction(Function):
         self.set_functions(functions)
 
     def get_functions(self):
-        """ Returns:
+        """
+             Returns:
                 BoundedFunction: all the functions of the piecewise function"""
 
         return self.functions
@@ -38,13 +39,15 @@ class PiecewiseFunction(Function):
         return self
 
     def get_piecewise_function_with_functions(self, functions):
-        """ Returns:
+        """
+             Returns:
                 PiecewiseFunction: a piecewise function with functions attribute being set to 'functions' (does not modify the current piecewise function)"""
 
         return self.get_copy().set_functions(functions)
 
     def get_copy(self):
-        """ Returns:
+        """
+             Returns:
                 PiecewiseFunction: a copy of the current piecewise_function"""
 
         # return deepcopy(self)
@@ -59,7 +62,8 @@ class PiecewiseFunction(Function):
 
 
     def get_x_coordinates_can_be_less_than_min(self):
-        """ Returns:
+        """
+             Returns:
                 bool: whether the x coordinates this function accepts can be less than the min x coordinate"""
 
         return self.x_coordinates_can_be_less_than_min
@@ -74,13 +78,15 @@ class PiecewiseFunction(Function):
         return self
 
     def get_bounded_function_with_x_coordinates_less_than_min(self, x_coordinates_can_be_less_than_min):
-        """ Returns:
+        """
+             Returns:
                 PiecewiseFunction: a piecewise function with the is repeating attribute set to 'x_coordinates_can_be_less_than_min' (does not modify the current piecewise function)"""
 
         return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)
 
     def get_is_repeating(self):
-        """ Returns:
+        """
+             Returns:
                 boolean: whether the piecewise function repeats"""
 
         return self.is_repeating
@@ -95,7 +101,8 @@ class PiecewiseFunction(Function):
         return self
 
     def get_piecewise_function_with_is_repeating(self, is_repeating):
-        """ Returns:
+        """
+             Returns:
                 PiecewiseFunction: a piecewise function with the is repeating attribute set to 'is_repeating' (does not modify the current piecewise function)"""
 
         return self.get_copy().set_is_repeating(is_repeating)
@@ -151,7 +158,8 @@ class PiecewiseFunction(Function):
         return self
 
     def get_piecewise_function_with_cleared_functions(self):
-        """Returns a new PiecewiseFunction with cleared functions (does not modify the current piecewise function)
+        """
+             Returns a new PiecewiseFunction with cleared functions (does not modify the current piecewise function)
 
              Returns:
                 PiecewiseFunction: new piecewise function with cleared functions"""
@@ -173,7 +181,8 @@ class PiecewiseFunction(Function):
         return self
 
     def get_piecewise_function_with_added_function(self, new_function):
-        """ Returns a new PiecewiseFunction with the added function (does not modify the current piecewise function)
+        """
+             Returns: a new PiecewiseFunction with the added function (does not modify the current piecewise function)
             
             Args:
                 new_function (Function): function to be added
@@ -199,7 +208,8 @@ class PiecewiseFunction(Function):
         return self
 
     def get_piecewise_function_with_function_removed_at_index(self, index):
-        """ Returns a new PiecewiseFunction with a function removed at the specified index (does not modify the current piecewise function)
+        """
+             Returns: a new PiecewiseFunction with a function removed at the specified index (does not modify the current piecewise function)
             Args:
                 index (int): index of the function to be removed
 
@@ -222,7 +232,8 @@ class PiecewiseFunction(Function):
         return self
 
     def get_piecewise_function_with_function_removed(self, function):
-        """ Returns a new PiecewiseFunction with the specified function removed (does not modify the current piecewise function)
+        """
+             Returns: a new PiecewiseFunction with the specified function removed (does not modify the current piecewise function)
             Args:
                 function (Function): function to be removed
 
@@ -232,13 +243,15 @@ class PiecewiseFunction(Function):
         return self.get_copy().remove_function(function)
 
     def get_y_coordinate(self, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 float: the y coordinate associated with that x coordinate"""
 
         return self.get_function(x_coordinate).get_y_coordinate(x_coordinate)
 
     def get_function(self, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 BoundedFunction: the function that controls the piecewise function at the x coordinate"""
 
         if len(self.functions) == 0:
@@ -263,7 +276,8 @@ class PiecewiseFunction(Function):
 
 
     def get_before_piecewise_function(self):
-        """ Returns:
+        """
+             Returns:
                 PiecewiseFunction: a piecewise function that 'comes before' the original"""
 
         before_piecewise_function = self.get_copy()
@@ -275,32 +289,37 @@ class PiecewiseFunction(Function):
         return before_piecewise_function
 
     def get_x_relative_position(self, start, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 float: the distance x is from start (the relative position within the interval [start, end])"""
 
         return start - x_coordinate
 
 
     def get_min_x_coordinate(self):
-        """ Returns:
+        """
+             Returns:
                 float: the min x coordinate of the piecewise function (min x coordinate of min bounded function)"""
 
         return self.min_x_coordinate
 
     def get_max_x_coordinate(self):
-        """ Returns:
+        """
+             Returns:
                 float: the max x coordinate of the piecewise function (max x coordinate of max bounded function)"""
 
         return self.max_x_coordinate
 
     def get_bounds(self):
-        """ Returns:
+        """
+             Returns:
                 list[float]: {min_x_coordinate, max_x_coordinate}; the bounds of the peicewise function"""
 
         return [self.min_x_coordinate, self.max_x_coordinate]
 
     def bounds_size(self):
-        """ Returns:
+        """
+             Returns:
                 float: the size of the bounds (max - min)"""
 
         return self.max_x_coordinate - self.min_x_coordinate
@@ -320,7 +339,8 @@ class PiecewiseFunction(Function):
         return indefinite_integral
 
     def evaluate_area(self, start, end):
-        """ Returns:
+        """
+             Returns:
                 float: the value gotten from using the bounds for the indefinite integral"""
 
         indefinite_integral = self.get_indefinite_integral()
@@ -356,7 +376,8 @@ class PiecewiseFunction(Function):
         return self.get_piecewise_function_with_functions(new_functions)
 
     def evaluate_derivative_at_point(self, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 float: the value of the derivative evaluated at the 'x_coordinate'"""
 
         return self.get_derivative().get_y_coordinate(x_coordinate)

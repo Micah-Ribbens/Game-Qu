@@ -36,7 +36,8 @@ class Keyboard:
             self.button_timed_events[button] = TimedEvent(0)
 
     def get_key_timed_event(self, key):
-        """ Returns:
+        """
+             Returns:
                 TimedEvent: the TimedEvent associated with that key"""
 
         return_value = None
@@ -50,7 +51,8 @@ class Keyboard:
         return return_value
 
     def get_key_event(self, key):
-        """ Returns:
+        """
+             Returns:
                 Event: the Event associated with that key"""
 
         return_value = None
@@ -64,13 +66,15 @@ class Keyboard:
         return return_value
 
     def get_button_event(self, button):
-        """ Returns:
+        """
+             Returns:
                 Event: the Event associated with that button"""
 
         return self.button_events[button]
 
     def get_button_timed_event(self, button):
-        """ Returns:
+        """
+             Returns:
                 TimedEvent: the TimedEvent associated with that button"""
 
         return self.button_timed_events[button]

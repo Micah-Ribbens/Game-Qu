@@ -18,13 +18,15 @@ class PolynomialTerm:
         self.set_values(coefficient, degree)
 
     def get_degree(self) -> float:
-        """ Returns:
+        """
+             Returns:
                 float: the degree of the polynomail"""
 
         return self.degree
 
     def get_coefficient(self) -> float:
-        """ Returns:
+        """
+             Returns:
                 float: the coefficient"""
 
         return self.coefficient
@@ -39,7 +41,8 @@ class PolynomialTerm:
         return self
 
     def get_polynomial_term_with_degree(self, degree):
-        """ Returns:
+        """
+             Returns:
                 PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)"""
 
         self.get_copy().set_degree(degree)
@@ -54,7 +57,8 @@ class PolynomialTerm:
         return self
 
     def get_polynomial_term_with_coefficient(self, coefficient):
-        """ Returns:
+        """
+             Returns:
                 PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)"""
 
         self.get_copy().set_coefficient(coefficient)
@@ -70,19 +74,22 @@ class PolynomialTerm:
         return self
 
     def get_polynomial_term_with_values(self, coefficient, degree):
-        """ Returns:
+        """
+             Returns:
                 PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)"""
 
         self.get_copy().set_values(coefficient, degree)
 
     def get_copy(self):
-        """ Returns:
+        """
+             Returns:
                 PolynomialTerm: a polynomial term copy"""
 
         return PolynomialTerm(self.coefficient, self.degree)
 
     def evaluate(self, x_value) -> float:
-        """ Returns:
+        """
+             Returns:
                 float: the value associated with that polynomial term"""
 
         return self.coefficient * math.pow(x_value, self.degree)
@@ -109,7 +116,8 @@ class Polynomial(Function):
         return self
 
     def get_polynomial_with_matrix(self, matrix):
-        """ Returns:
+        """
+             Returns:
                 Polynomial: a polynomial with the given matrix (does not modify this polynomial)"""
 
         return self.get_copy().set_matrix(matrix)
@@ -124,26 +132,30 @@ class Polynomial(Function):
         return self
 
     def get_terms(self):
-        """ Returns:
+        """
+             Returns:
                 list[PolynomialTerm]: the terms of the polynomial"""
 
         return self.matrix.get_backing_list()
 
     def get_polynomial_with_terms(self, terms):
-        """ Returns:
+        """
+             Returns:
                 Polynomial: the polynomial with the given terms (does not modify this polynomial)"""
 
         return self.get_copy().set_terms(terms)
 
     def get_copy(self):
-        """ Returns:
+        """
+             Returns:
                 Polynomial: a copy of this polynomial"""
 
         matrix = deepcopy(self.matrix)
         return Polynomial(matrix)
 
     def get_y_coordinate(self, x_coordinate) -> float:
-        """ Returns:
+        """
+             Returns:
                 float: y coordinate associated with that x coordinate"""
 
         y_coordinate = 0
@@ -154,25 +166,29 @@ class Polynomial(Function):
         return y_coordinate
 
     def get_indefinite_integral(self):
-        """ Returns:
+        """
+             Returns:
                 IndefiniteIntegral: the indefinite integral of the polynomial"""
 
         return IndefiniteIntegral.get_polynomial_indefinite_integral(self)
 
     def evaluate_area(self, start, end):
-        """ Returns:
+        """
+             Returns:
                 float: the value gotten from using the bounds for the indefinite integral"""
 
         return IndefiniteIntegral.evaluate_polynomial_area(self, start, end)
 
     def get_derivative(self):
-        """ Returns:
+        """
+             Returns:
                 Derivative: the derivative of the function"""
 
         return Derivative.get_polynomial_derivative(self)
 
     def evaluate_derivative_at_point(self, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 float: the value of the derivative evaluated at the 'x_coordinate'"""
 
         return Derivative.evaluate_polynomial_derivative_at_point(self, x_coordinate)

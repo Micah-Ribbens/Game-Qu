@@ -30,19 +30,22 @@ class PiecewiseFollowablePath(FollowablePath):
         self.piecewise_function.set_x_coordinates_can_be_less_than_min(True)
 
     def get_piecewise_function(self):
-        """ Returns:
+        """
+             Returns:
                 PiecewiseFunction: the piecewise function that defines the path"""
 
         return self.piecewise_function
 
     def get_value_at_time(self, time):
-        """ Returns:
+        """
+             Returns:
                 object: the value of the attribute this path is modifying at 'time'"""
 
         return self.piecewise_function.get_y_coordinate(time)
 
     def get_delta_value(self, start_time, end_time):
-        """ Returns:
+        """
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]"""
 
         return self.piecewise_function.evaluate_area(start_time, end_time)

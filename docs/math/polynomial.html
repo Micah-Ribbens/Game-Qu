@@ -46,13 +46,15 @@ class PolynomialTerm:
         self.set_values(coefficient, degree)
 
     def get_degree(self) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the degree of the polynomail&#34;&#34;&#34;
 
         return self.degree
 
     def get_coefficient(self) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the coefficient&#34;&#34;&#34;
 
         return self.coefficient
@@ -67,7 +69,8 @@ class PolynomialTerm:
         return self
 
     def get_polynomial_term_with_degree(self, degree):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)&#34;&#34;&#34;
 
         self.get_copy().set_degree(degree)
@@ -82,7 +85,8 @@ class PolynomialTerm:
         return self
 
     def get_polynomial_term_with_coefficient(self, coefficient):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)&#34;&#34;&#34;
 
         self.get_copy().set_coefficient(coefficient)
@@ -98,19 +102,22 @@ class PolynomialTerm:
         return self
 
     def get_polynomial_term_with_values(self, coefficient, degree):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)&#34;&#34;&#34;
 
         self.get_copy().set_values(coefficient, degree)
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PolynomialTerm: a polynomial term copy&#34;&#34;&#34;
 
         return PolynomialTerm(self.coefficient, self.degree)
 
     def evaluate(self, x_value) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value associated with that polynomial term&#34;&#34;&#34;
 
         return self.coefficient * math.pow(x_value, self.degree)
@@ -137,7 +144,8 @@ class Polynomial(Function):
         return self
 
     def get_polynomial_with_matrix(self, matrix):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Polynomial: a polynomial with the given matrix (does not modify this polynomial)&#34;&#34;&#34;
 
         return self.get_copy().set_matrix(matrix)
@@ -152,26 +160,30 @@ class Polynomial(Function):
         return self
 
     def get_terms(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[PolynomialTerm]: the terms of the polynomial&#34;&#34;&#34;
 
         return self.matrix.get_backing_list()
 
     def get_polynomial_with_terms(self, terms):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Polynomial: the polynomial with the given terms (does not modify this polynomial)&#34;&#34;&#34;
 
         return self.get_copy().set_terms(terms)
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Polynomial: a copy of this polynomial&#34;&#34;&#34;
 
         matrix = deepcopy(self.matrix)
         return Polynomial(matrix)
 
     def get_y_coordinate(self, x_coordinate) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: y coordinate associated with that x coordinate&#34;&#34;&#34;
 
         y_coordinate = 0
@@ -182,25 +194,29 @@ class Polynomial(Function):
         return y_coordinate
 
     def get_indefinite_integral(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 IndefiniteIntegral: the indefinite integral of the polynomial&#34;&#34;&#34;
 
         return IndefiniteIntegral.get_polynomial_indefinite_integral(self)
 
     def evaluate_area(self, start, end):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
         return IndefiniteIntegral.evaluate_polynomial_area(self, start, end)
 
     def get_derivative(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Derivative: the derivative of the function&#34;&#34;&#34;
 
         return Derivative.get_polynomial_derivative(self)
 
     def evaluate_derivative_at_point(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
 
         return Derivative.evaluate_polynomial_derivative_at_point(self, x_coordinate)</code></pre>
@@ -248,7 +264,8 @@ class Polynomial(Function):
         return self
 
     def get_polynomial_with_matrix(self, matrix):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Polynomial: a polynomial with the given matrix (does not modify this polynomial)&#34;&#34;&#34;
 
         return self.get_copy().set_matrix(matrix)
@@ -263,26 +280,30 @@ class Polynomial(Function):
         return self
 
     def get_terms(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[PolynomialTerm]: the terms of the polynomial&#34;&#34;&#34;
 
         return self.matrix.get_backing_list()
 
     def get_polynomial_with_terms(self, terms):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Polynomial: the polynomial with the given terms (does not modify this polynomial)&#34;&#34;&#34;
 
         return self.get_copy().set_terms(terms)
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Polynomial: a copy of this polynomial&#34;&#34;&#34;
 
         matrix = deepcopy(self.matrix)
         return Polynomial(matrix)
 
     def get_y_coordinate(self, x_coordinate) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: y coordinate associated with that x coordinate&#34;&#34;&#34;
 
         y_coordinate = 0
@@ -293,25 +314,29 @@ class Polynomial(Function):
         return y_coordinate
 
     def get_indefinite_integral(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 IndefiniteIntegral: the indefinite integral of the polynomial&#34;&#34;&#34;
 
         return IndefiniteIntegral.get_polynomial_indefinite_integral(self)
 
     def evaluate_area(self, start, end):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
         return IndefiniteIntegral.evaluate_polynomial_area(self, start, end)
 
     def get_derivative(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Derivative: the derivative of the function&#34;&#34;&#34;
 
         return Derivative.get_polynomial_derivative(self)
 
     def evaluate_derivative_at_point(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
 
         return Derivative.evaluate_polynomial_derivative_at_point(self, x_coordinate)</code></pre>
@@ -338,14 +363,18 @@ class Polynomial(Function):
 <span>def <span class="ident">evaluate_area</span></span>(<span>self, start, end)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the value gotten from using the bounds for the indefinite integral</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value gotten from using the bounds for the indefinite integral</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def evaluate_area(self, start, end):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
     return IndefiniteIntegral.evaluate_polynomial_area(self, start, end)</code></pre>
@@ -355,14 +384,18 @@ float: the value gotten from using the bounds for the indefinite integral</p></d
 <span>def <span class="ident">evaluate_derivative_at_point</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the value of the derivative evaluated at the 'x_coordinate'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value of the derivative evaluated at the 'x_coordinate'</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def evaluate_derivative_at_point(self, x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
 
     return Derivative.evaluate_polynomial_derivative_at_point(self, x_coordinate)</code></pre>
@@ -372,14 +405,18 @@ float: the value of the derivative evaluated at the 'x_coordinate'</p></div>
 <span>def <span class="ident">get_copy</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Polynomial: a copy of this polynomial</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.polynomial.Polynomial" href="#game_qu.math.polynomial.Polynomial">Polynomial</a></code></dt>
+<dd>a copy of this polynomial</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_copy(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Polynomial: a copy of this polynomial&#34;&#34;&#34;
 
     matrix = deepcopy(self.matrix)
@@ -390,14 +427,18 @@ Polynomial: a copy of this polynomial</p></div>
 <span>def <span class="ident">get_derivative</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Derivative: the derivative of the function</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Derivative</code></dt>
+<dd>the derivative of the function</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_derivative(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Derivative: the derivative of the function&#34;&#34;&#34;
 
     return Derivative.get_polynomial_derivative(self)</code></pre>
@@ -407,14 +448,18 @@ Derivative: the derivative of the function</p></div>
 <span>def <span class="ident">get_indefinite_integral</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-IndefiniteIntegral: the indefinite integral of the polynomial</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>IndefiniteIntegral</code></dt>
+<dd>the indefinite integral of the polynomial</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_indefinite_integral(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             IndefiniteIntegral: the indefinite integral of the polynomial&#34;&#34;&#34;
 
     return IndefiniteIntegral.get_polynomial_indefinite_integral(self)</code></pre>
@@ -424,14 +469,18 @@ IndefiniteIntegral: the indefinite integral of the polynomial</p></div>
 <span>def <span class="ident">get_polynomial_with_matrix</span></span>(<span>self, matrix)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Polynomial: a polynomial with the given matrix (does not modify this polynomial)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.polynomial.Polynomial" href="#game_qu.math.polynomial.Polynomial">Polynomial</a></code></dt>
+<dd>a polynomial with the given matrix (does not modify this polynomial)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_polynomial_with_matrix(self, matrix):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Polynomial: a polynomial with the given matrix (does not modify this polynomial)&#34;&#34;&#34;
 
     return self.get_copy().set_matrix(matrix)</code></pre>
@@ -441,14 +490,18 @@ Polynomial: a polynomial with the given matrix (does not modify this polynomial)
 <span>def <span class="ident">get_polynomial_with_terms</span></span>(<span>self, terms)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Polynomial: the polynomial with the given terms (does not modify this polynomial)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.polynomial.Polynomial" href="#game_qu.math.polynomial.Polynomial">Polynomial</a></code></dt>
+<dd>the polynomial with the given terms (does not modify this polynomial)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_polynomial_with_terms(self, terms):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Polynomial: the polynomial with the given terms (does not modify this polynomial)&#34;&#34;&#34;
 
     return self.get_copy().set_terms(terms)</code></pre>
@@ -458,14 +511,18 @@ Polynomial: the polynomial with the given terms (does not modify this polynomial
 <span>def <span class="ident">get_terms</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[PolynomialTerm]: the terms of the polynomial</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[<a title="game_qu.math.polynomial.PolynomialTerm" href="#game_qu.math.polynomial.PolynomialTerm">PolynomialTerm</a>]</code></dt>
+<dd>the terms of the polynomial</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_terms(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[PolynomialTerm]: the terms of the polynomial&#34;&#34;&#34;
 
     return self.matrix.get_backing_list()</code></pre>
@@ -475,14 +532,18 @@ list[PolynomialTerm]: the terms of the polynomial</p></div>
 <span>def <span class="ident">get_y_coordinate</span></span>(<span>self, x_coordinate) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: y coordinate associated with that x coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>y coordinate associated with that x coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_y_coordinate(self, x_coordinate) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: y coordinate associated with that x coordinate&#34;&#34;&#34;
 
     y_coordinate = 0
@@ -576,13 +637,15 @@ float: y coordinate associated with that x coordinate</p></div>
         self.set_values(coefficient, degree)
 
     def get_degree(self) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the degree of the polynomail&#34;&#34;&#34;
 
         return self.degree
 
     def get_coefficient(self) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the coefficient&#34;&#34;&#34;
 
         return self.coefficient
@@ -597,7 +660,8 @@ float: y coordinate associated with that x coordinate</p></div>
         return self
 
     def get_polynomial_term_with_degree(self, degree):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)&#34;&#34;&#34;
 
         self.get_copy().set_degree(degree)
@@ -612,7 +676,8 @@ float: y coordinate associated with that x coordinate</p></div>
         return self
 
     def get_polynomial_term_with_coefficient(self, coefficient):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)&#34;&#34;&#34;
 
         self.get_copy().set_coefficient(coefficient)
@@ -628,19 +693,22 @@ float: y coordinate associated with that x coordinate</p></div>
         return self
 
     def get_polynomial_term_with_values(self, coefficient, degree):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)&#34;&#34;&#34;
 
         self.get_copy().set_values(coefficient, degree)
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PolynomialTerm: a polynomial term copy&#34;&#34;&#34;
 
         return PolynomialTerm(self.coefficient, self.degree)
 
     def evaluate(self, x_value) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value associated with that polynomial term&#34;&#34;&#34;
 
         return self.coefficient * math.pow(x_value, self.degree)</code></pre>
@@ -662,14 +730,18 @@ float: y coordinate associated with that x coordinate</p></div>
 <span>def <span class="ident">evaluate</span></span>(<span>self, x_value) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the value associated with that polynomial term</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value associated with that polynomial term</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def evaluate(self, x_value) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the value associated with that polynomial term&#34;&#34;&#34;
 
     return self.coefficient * math.pow(x_value, self.degree)</code></pre>
@@ -679,14 +751,18 @@ float: the value associated with that polynomial term</p></div>
 <span>def <span class="ident">get_coefficient</span></span>(<span>self) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the coefficient</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the coefficient</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_coefficient(self) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the coefficient&#34;&#34;&#34;
 
     return self.coefficient</code></pre>
@@ -696,14 +772,18 @@ float: the coefficient</p></div>
 <span>def <span class="ident">get_copy</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-PolynomialTerm: a polynomial term copy</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.polynomial.PolynomialTerm" href="#game_qu.math.polynomial.PolynomialTerm">PolynomialTerm</a></code></dt>
+<dd>a polynomial term copy</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_copy(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             PolynomialTerm: a polynomial term copy&#34;&#34;&#34;
 
     return PolynomialTerm(self.coefficient, self.degree)</code></pre>
@@ -713,14 +793,18 @@ PolynomialTerm: a polynomial term copy</p></div>
 <span>def <span class="ident">get_degree</span></span>(<span>self) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the degree of the polynomail</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the degree of the polynomail</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_degree(self) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the degree of the polynomail&#34;&#34;&#34;
 
     return self.degree</code></pre>
@@ -730,14 +814,18 @@ float: the degree of the polynomail</p></div>
 <span>def <span class="ident">get_polynomial_term_with_coefficient</span></span>(<span>self, coefficient)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.polynomial.PolynomialTerm" href="#game_qu.math.polynomial.PolynomialTerm">PolynomialTerm</a></code></dt>
+<dd>the polynomial term with that coefficient (does not modify the current polynomial term)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_polynomial_term_with_coefficient(self, coefficient):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)&#34;&#34;&#34;
 
     self.get_copy().set_coefficient(coefficient)</code></pre>
@@ -747,14 +835,18 @@ PolynomialTerm: the polynomial term with that coefficient (does not modify the c
 <span>def <span class="ident">get_polynomial_term_with_degree</span></span>(<span>self, degree)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.polynomial.PolynomialTerm" href="#game_qu.math.polynomial.PolynomialTerm">PolynomialTerm</a></code></dt>
+<dd>the polynomial term with that degree (does not modify the current polynomial term)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_polynomial_term_with_degree(self, degree):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)&#34;&#34;&#34;
 
     self.get_copy().set_degree(degree)</code></pre>
@@ -764,14 +856,18 @@ PolynomialTerm: the polynomial term with that degree (does not modify the curren
 <span>def <span class="ident">get_polynomial_term_with_values</span></span>(<span>self, coefficient, degree)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.polynomial.PolynomialTerm" href="#game_qu.math.polynomial.PolynomialTerm">PolynomialTerm</a></code></dt>
+<dd>the polynomial term with those values (does not modify the current polynomial term)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_polynomial_term_with_values(self, coefficient, degree):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)&#34;&#34;&#34;
 
     self.get_copy().set_values(coefficient, degree)</code></pre>

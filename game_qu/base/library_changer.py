@@ -56,7 +56,8 @@ class LibraryChanger:
 
     @staticmethod
     def get_library_has_been_set():
-        """ Returns:
+        """
+             Returns:
                 bool: whether the library for the game engine has been set"""
 
         return LibraryChanger.library_has_been_set

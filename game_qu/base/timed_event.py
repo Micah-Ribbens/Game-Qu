@@ -75,13 +75,15 @@ class TimedEvent:
         self.variable_is_done = False
 
     def is_done(self) -> bool:
-        """ Returns:
+        """
+             Returns:
                 bool: if the event has started and the current time is greater than the time needed"""
 
         return self.variable_is_done
 
     def has_finished(self) -> bool:
-        """ Returns:
+        """
+             Returns:
                 bool: if the event has either not started or is done"""
 
         return not self.is_started or self.is_done()

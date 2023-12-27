@@ -88,31 +88,36 @@ class LineSegment(Polynomial):
         self.set_line_values(self.slope, y_intercept, minimum_x, maximum_x)
 
     def get_y_coordinate(self, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 float: the y_coordinate at the x_coordinate"""
 
         return x_coordinate * self.slope + self.y_intercept
 
     def get_x_coordinate(self, y_coordinate):
-        """ Returns:
+        """
+             Returns:
                 float: the x_coordinate at the y_coordinate"""
 
         return (y_coordinate - self.y_intercept) / self.slope
 
     def contains_x_coordinate(self, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 bool: if the LineSegment contains the x_coordinate"""
 
         return x_coordinate >= self.get_min_x_coordinate() and x_coordinate <= self.get_max_x_coordinate()
 
     def contains_y_coordinate(self, y_coordinate):
-        """ Returns:
+        """
+             Returns:
                 bool: if the LineSegment contains the y_coordinate"""
 
         return y_coordinate >= self.get_min_y_coordinate() and y_coordinate <= self.get_max_y_coordinate()
 
     def contains_point(self, point):
-        """ Returns:
+        """
+             Returns:
                 bool: if the LineSegment contains the x_coordinate, y_coordinate, and point"""
 
         contains_coordinates = self.contains_x_coordinate(point.x_coordinate) and self.contains_y_coordinate(point.y_coordinate)
@@ -121,19 +126,22 @@ class LineSegment(Polynomial):
         return contains_coordinates and correct_y_coordinate
 
     def slope_is_positive(self):
-        """ Returns:
+        """
+             Returns:
                 bool: if the slope is >= 0"""
 
         return self.slope >= 0
 
     def get_copy(self):
-        """ Returns:
+        """
+             Returns:
                 LineSegment: a copy of this LineSegment"""
 
         return LineSegment(self.start_point.get_copy(), self.end_point.get_copy())
 
     def get_inverted_function(self):
-        """ Returns:
+        """
+             Returns:
                 LineSegment: the line segment that is the inverse of this function (the y coordinates map to the x coordinate)"""
 
         start_point = Point(self.start_point.y_coordinate, self.start_point.x_coordinate)
@@ -142,7 +150,8 @@ class LineSegment(Polynomial):
         return LineSegment(start_point, end_point)
 
     def get_bounds(self):
-        """ Returns:
+        """
+             Returns:
                 list[float]: {min_x_coordinate, max_x_coordinate} of this function"""
 
         return [self.get_min_x_coordinate(), self.get_max_x_coordinate()]

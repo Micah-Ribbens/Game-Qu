@@ -58,101 +58,117 @@ load_and_transform_image = getattr(utility_functions, &#34;load_and_transform_im
 get_directional_path_to_image = getattr(utility_functions, &#34;get_directional_path_to_image&#34;)
 
 def key_is_pressed(key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether that key is currently held down (pressed)&#34;&#34;&#34;
 
     return keyboard.get_key_event(key).happened_this_cycle
 
 
 def key_is_clicked(key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the key was not held down last cycle and is this cycle (clicked)&#34;&#34;&#34;
 
     return keyboard.get_key_event(key).is_click()
 
 
 def key_has_been_released(key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the key was held down last cycle and is not this cycle (released)&#34;&#34;&#34;
     return keyboard.get_key_event(key).has_stopped()
 
 
 def get_time_of_key_being_held_in(key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the amount of time that the key has been held down&#34;&#34;&#34;
 
     return keyboard.get_key_timed_event(key).current_time
 
 def button_is_pressed(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether that button is currently held down (pressed)&#34;&#34;&#34;
 
     return keyboard.get_button_event(button).happened_this_cycle
 
 
 def button_is_clicked(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the button was not held down last cycle and is this cycle (clicked)&#34;&#34;&#34;
 
     return keyboard.get_button_event(button).is_click()
 
 
 def button_has_been_released(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the button was held down last cycle and is not this cycle (released)&#34;&#34;&#34;
 
     return keyboard.get_button_event(button).has_stopped()
 
 def get_time_of_button_being_held_in(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the amount of time that the button has been held down&#34;&#34;&#34;
 
     return keyboard.get_button_timed_event(button).current_time
 
 def button_is_pressed(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether that button is currently held down (pressed)&#34;&#34;&#34;
 
     return keyboard.get_button_event(button).happened_this_cycle
 
 def get_game_button_timed_event(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             TimedEvent: the TimedEvent that is associated with the current state (using the keyboard or controller)&#34;&#34;&#34;
 
     return keyboard.get_button_timed_event(game_button) if IS_USING_CONTROLLER else keyboard.get_key_timed_event(game_button)
 def get_game_button_event(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             Event: the Event that is associated with the current state (using the keyboard or controller)&#34;&#34;&#34;
 
     return keyboard.get_button_event(game_button) if IS_USING_CONTROLLER else keyboard.get_key_event(game_button)
 
 def game_button_is_pressed(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether that game_button is currently held down (pressed)&#34;&#34;&#34;
 
     return get_game_button_event(game_button).happened_this_cycle
 
 def game_button_is_clicked(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the game_button was not held down last cycle and is this cycle (clicked)&#34;&#34;&#34;
 
     return get_game_button_event(game_button).is_click()
 
 def game_button_has_been_released(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the game_button was held down last cycle and is not this cycle (released)&#34;&#34;&#34;
 
     return get_game_button_event(game_button).has_stopped()
 
 def get_time_of_game_button_being_held_in(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the amount of time that the game_button has been held down&#34;&#34;&#34;
 
     return get_game_button_timed_event(game_button).current_time
 
 
 def mouse_is_clicked():
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the mouse was not pressed last cycle and is this cycle (clicked)&#34;&#34;&#34;
 
     return keyboard.mouse_clicked_event.is_click()
@@ -183,7 +199,8 @@ def get_index_of_range(number, range_lengths=[], ranges=None):
 
 
 def get_ranges(range_lengths) -&gt; list[Range]:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             list[Range]: the ranges gotten from the range_lengths. A range is defined by two adjacent indexes (range_lengths[0] -&gt; range_lengths[1])&#34;&#34;&#34;
 
     return_value = []
@@ -196,7 +213,8 @@ def get_ranges(range_lengths) -&gt; list[Range]:
     return return_value
 
 def is_within_screen(game_object):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: if the game_object is within the screen (can be seen on the screen)&#34;&#34;&#34;
 
     return (game_object.right_edge &gt; 0 and game_object.left_edge &lt; SCREEN_LENGTH and
@@ -218,21 +236,24 @@ def is_random_chance(probability: Fraction):
 
 
 def is_beyond_screen_left(left_edge):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: if the left_edge is beyond the left side of the screen&#34;&#34;&#34;
 
     return left_edge &lt;= 0
 
 
 def is_beyond_screen_right(right_edge):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: if the right_edge is beyond the right side of the screen&#34;&#34;&#34;
 
     return right_edge &gt;= SCREEN_LENGTH
 
 
 def min_value(item1, item2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the smallest item&#34;&#34;&#34;
 
     if item1 is None:
@@ -245,14 +266,16 @@ def min_value(item1, item2):
 
 
 def max_value(item1, item2):
-    &#34;&#34;&#34;Returns:
+    &#34;&#34;&#34;
+             Returns:
         float: the biggest item&#34;&#34;&#34;
 
     return item1 if item1 &gt; item2 else item2
 
 
 def get_combined_number_values(numbers):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float or int: all the numbers in &#39;numbers&#39; added up together in one number&#34;&#34;&#34;
 
     return_value = 0
@@ -263,7 +286,8 @@ def get_combined_number_values(numbers):
     return return_value
 
 def get_next_index(current_index, max_index):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: the index after current_index (it cycles, so once it gets beyond the max_index it goes back to 0)&#34;&#34;&#34;
 
     next_index = current_index + 1
@@ -271,14 +295,16 @@ def get_next_index(current_index, max_index):
 
 
 def get_previous_index(current_index, max_index):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: the index before current_index (it cycles, so once it gets below 0 it goes to the max_index&#34;&#34;&#34;
 
     prev_index = current_index - 1
     return prev_index if prev_index &gt;= 0 else max_index
 
 def rounded(number, places):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the number rounded to that many decimal places&#34;&#34;&#34;
 
     rounded_number = int(number * pow(10, places))
@@ -287,7 +313,8 @@ def rounded(number, places):
     return rounded_number / pow(10, places)
 
 def get_kwarg_item(kwargs, key, default_value):
-    &#34;&#34;&#34; Returns the value associated with the key in kwargs and the default value if the key is not in kwargs
+    &#34;&#34;&#34;
+             Returns: the value associated with the key in kwargs and the default value if the key is not in kwargs
     
         Args:
             kwargs (dict): the **kwargs
@@ -301,7 +328,8 @@ def get_kwarg_item(kwargs, key, default_value):
     return kwargs.get(key) if kwargs.__contains__(key) else default_value
 
 def solve_quadratic(a, b, c):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             list[float]: [answer1, answer2] the answers to the quadratic
             and if the answer is an imaginary number it returns float(&#39;nan&#39;)&#34;&#34;&#34;
 
@@ -346,7 +374,8 @@ def modified_mod(number, modulus):
 
 
 def get_decimal_with_full_accuracy(number):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the decimal part of the number i.e. 1.2345 -&gt; 0.2345 (maintains full decimal accuracy)&#34;&#34;&#34;
 
     string_number = str(number)
@@ -378,14 +407,16 @@ def is_within_bounds(value, min_value, max_value):
     return min_value &lt;= value &lt;= max_value
 
 def get_sign(number):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: -1 if the number is negative and 1 if the number is positive&#34;&#34;&#34;
 
     return -1 if number &lt; 0 else 1
 
 
 def get_inverse_sign(number):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: 1 if the number is negative and -1 if the number is positive&#34;&#34;&#34;
 
     return -get_sign(number)</code></pre>
@@ -409,7 +440,8 @@ bool: whether the button was held down last cycle and is not this cycle (release
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def button_has_been_released(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the button was held down last cycle and is not this cycle (released)&#34;&#34;&#34;
 
     return keyboard.get_button_event(button).has_stopped()</code></pre>
@@ -426,7 +458,8 @@ bool: whether the button was not held down last cycle and is this cycle (clicked
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def button_is_clicked(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the button was not held down last cycle and is this cycle (clicked)&#34;&#34;&#34;
 
     return keyboard.get_button_event(button).is_click()</code></pre>
@@ -443,7 +476,8 @@ bool: whether that button is currently held down (pressed)</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def button_is_pressed(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether that button is currently held down (pressed)&#34;&#34;&#34;
 
     return keyboard.get_button_event(button).happened_this_cycle</code></pre>
@@ -475,7 +509,8 @@ bool: whether the game_button was held down last cycle and is not this cycle (re
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def game_button_has_been_released(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the game_button was held down last cycle and is not this cycle (released)&#34;&#34;&#34;
 
     return get_game_button_event(game_button).has_stopped()</code></pre>
@@ -492,7 +527,8 @@ bool: whether the game_button was not held down last cycle and is this cycle (cl
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def game_button_is_clicked(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the game_button was not held down last cycle and is this cycle (clicked)&#34;&#34;&#34;
 
     return get_game_button_event(game_button).is_click()</code></pre>
@@ -509,7 +545,8 @@ bool: whether that game_button is currently held down (pressed)</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def game_button_is_pressed(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether that game_button is currently held down (pressed)&#34;&#34;&#34;
 
     return get_game_button_event(game_button).happened_this_cycle</code></pre>
@@ -526,7 +563,8 @@ float or int: all the numbers in 'numbers' added up together in one number</p></
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_combined_number_values(numbers):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float or int: all the numbers in &#39;numbers&#39; added up together in one number&#34;&#34;&#34;
 
     return_value = 0
@@ -548,7 +586,8 @@ float: the decimal part of the number i.e. 1.2345 -&gt; 0.2345 (maintains full d
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_decimal_with_full_accuracy(number):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the decimal part of the number i.e. 1.2345 -&gt; 0.2345 (maintains full decimal accuracy)&#34;&#34;&#34;
 
     string_number = str(number)
@@ -571,7 +610,8 @@ Event: the Event that is associated with the current state (using the keyboard o
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_game_button_event(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             Event: the Event that is associated with the current state (using the keyboard or controller)&#34;&#34;&#34;
 
     return keyboard.get_button_event(game_button) if IS_USING_CONTROLLER else keyboard.get_key_event(game_button)</code></pre>
@@ -588,7 +628,8 @@ TimedEvent: the TimedEvent that is associated with the current state (using the 
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_game_button_timed_event(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             TimedEvent: the TimedEvent that is associated with the current state (using the keyboard or controller)&#34;&#34;&#34;
 
     return keyboard.get_button_timed_event(game_button) if IS_USING_CONTROLLER else keyboard.get_key_timed_event(game_button)</code></pre>
@@ -648,7 +689,8 @@ int: 1 if the number is negative and -1 if the number is positive</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_inverse_sign(number):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: 1 if the number is negative and -1 if the number is positive&#34;&#34;&#34;
 
     return -get_sign(number)</code></pre>
@@ -658,7 +700,7 @@ int: 1 if the number is negative and -1 if the number is positive</p></div>
 <span>def <span class="ident">get_kwarg_item</span></span>(<span>kwargs, key, default_value)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns the value associated with the key in kwargs and the default value if the key is not in kwargs</p>
+<div class="desc"><p>Returns: the value associated with the key in kwargs and the default value if the key is not in kwargs</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>kwargs</code></strong> :&ensp;<code>dict</code></dt>
@@ -675,7 +717,8 @@ object: kwargs.get(key) if kwargs contains the key otherwise it will return the 
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_kwarg_item(kwargs, key, default_value):
-    &#34;&#34;&#34; Returns the value associated with the key in kwargs and the default value if the key is not in kwargs
+    &#34;&#34;&#34;
+             Returns: the value associated with the key in kwargs and the default value if the key is not in kwargs
     
         Args:
             kwargs (dict): the **kwargs
@@ -700,7 +743,8 @@ int: the index after current_index (it cycles, so once it gets beyond the max_in
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_next_index(current_index, max_index):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: the index after current_index (it cycles, so once it gets beyond the max_index it goes back to 0)&#34;&#34;&#34;
 
     next_index = current_index + 1
@@ -718,7 +762,8 @@ int: the index before current_index (it cycles, so once it gets below 0 it goes 
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_previous_index(current_index, max_index):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: the index before current_index (it cycles, so once it gets below 0 it goes to the max_index&#34;&#34;&#34;
 
     prev_index = current_index - 1
@@ -736,7 +781,8 @@ list[Range]: the ranges gotten from the range_lengths. A range is defined by two
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_ranges(range_lengths) -&gt; list[Range]:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             list[Range]: the ranges gotten from the range_lengths. A range is defined by two adjacent indexes (range_lengths[0] -&gt; range_lengths[1])&#34;&#34;&#34;
 
     return_value = []
@@ -760,7 +806,8 @@ int: -1 if the number is negative and 1 if the number is positive</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_sign(number):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: -1 if the number is negative and 1 if the number is positive&#34;&#34;&#34;
 
     return -1 if number &lt; 0 else 1</code></pre>
@@ -777,7 +824,8 @@ float: the amount of time that the button has been held down</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_time_of_button_being_held_in(button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the amount of time that the button has been held down&#34;&#34;&#34;
 
     return keyboard.get_button_timed_event(button).current_time</code></pre>
@@ -794,7 +842,8 @@ float: the amount of time that the game_button has been held down</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_time_of_game_button_being_held_in(game_button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the amount of time that the game_button has been held down&#34;&#34;&#34;
 
     return get_game_button_timed_event(game_button).current_time</code></pre>
@@ -811,7 +860,8 @@ float: the amount of time that the key has been held down</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_time_of_key_being_held_in(key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the amount of time that the key has been held down&#34;&#34;&#34;
 
     return keyboard.get_key_timed_event(key).current_time</code></pre>
@@ -828,7 +878,8 @@ bool: if the left_edge is beyond the left side of the screen</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def is_beyond_screen_left(left_edge):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: if the left_edge is beyond the left side of the screen&#34;&#34;&#34;
 
     return left_edge &lt;= 0</code></pre>
@@ -845,7 +896,8 @@ bool: if the right_edge is beyond the right side of the screen</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def is_beyond_screen_right(right_edge):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: if the right_edge is beyond the right side of the screen&#34;&#34;&#34;
 
     return right_edge &gt;= SCREEN_LENGTH</code></pre>
@@ -930,7 +982,8 @@ bool: if the game_object is within the screen (can be seen on the screen)</p></d
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def is_within_screen(game_object):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: if the game_object is within the screen (can be seen on the screen)&#34;&#34;&#34;
 
     return (game_object.right_edge &gt; 0 and game_object.left_edge &lt; SCREEN_LENGTH and
@@ -948,7 +1001,8 @@ bool: whether the key was held down last cycle and is not this cycle (released)<
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def key_has_been_released(key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the key was held down last cycle and is not this cycle (released)&#34;&#34;&#34;
     return keyboard.get_key_event(key).has_stopped()</code></pre>
 </details>
@@ -964,7 +1018,8 @@ bool: whether the key was not held down last cycle and is this cycle (clicked)</
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def key_is_clicked(key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the key was not held down last cycle and is this cycle (clicked)&#34;&#34;&#34;
 
     return keyboard.get_key_event(key).is_click()</code></pre>
@@ -981,7 +1036,8 @@ bool: whether that key is currently held down (pressed)</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def key_is_pressed(key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether that key is currently held down (pressed)&#34;&#34;&#34;
 
     return keyboard.get_key_event(key).happened_this_cycle</code></pre>
@@ -998,7 +1054,8 @@ float: the biggest item</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def max_value(item1, item2):
-    &#34;&#34;&#34;Returns:
+    &#34;&#34;&#34;
+             Returns:
         float: the biggest item&#34;&#34;&#34;
 
     return item1 if item1 &gt; item2 else item2</code></pre>
@@ -1015,7 +1072,8 @@ float: the smallest item</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def min_value(item1, item2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the smallest item&#34;&#34;&#34;
 
     if item1 is None:
@@ -1073,7 +1131,8 @@ bool: whether the mouse was not pressed last cycle and is this cycle (clicked)</
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouse_is_clicked():
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             bool: whether the mouse was not pressed last cycle and is this cycle (clicked)&#34;&#34;&#34;
 
     return keyboard.mouse_clicked_event.is_click()</code></pre>
@@ -1090,7 +1149,8 @@ float: the number rounded to that many decimal places</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def rounded(number, places):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the number rounded to that many decimal places&#34;&#34;&#34;
 
     rounded_number = int(number * pow(10, places))
@@ -1111,7 +1171,8 @@ and if the answer is an imaginary number it returns float('nan')</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def solve_quadratic(a, b, c):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             list[float]: [answer1, answer2] the answers to the quadratic
             and if the answer is an imaginary number it returns float(&#39;nan&#39;)&#34;&#34;&#34;
 

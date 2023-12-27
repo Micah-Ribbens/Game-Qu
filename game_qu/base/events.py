@@ -39,13 +39,15 @@ class Event:
         return HistoryKeeper.get_last(self.name) and self.is_active
 
     def is_click(self):
-        """ Returns:
+        """
+             Returns:
                 bool: if the event is True this cycle and was not last cycle"""
 
         return not self.happened_last_cycle() and self.happened_this_cycle and self.is_active
 
     def has_stopped(self):
-        """ Returns:
+        """
+             Returns:
                 bool: if the event was True last cycle and is not True this cycle"""
 
         return self.happened_last_cycle() and not self.happened_this_cycle and self.is_active
@@ -69,7 +71,8 @@ class Event:
         self.set_is_active(False)
 
     def get_is_active(self):
-        """  Returns:
+        """
+             Returns:
                 boolean: whether the function is active. If it is not active, all functions that return a boolean
                 will return False and the event cannot be mutated. If it is active, all operations behave 'normally'"""
 

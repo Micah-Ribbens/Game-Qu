@@ -40,7 +40,8 @@ class Derivative:
         self.derivative = derivative
 
     def evaluate(self, x_coordinate) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the evaluating the derivative at &#39;x_coordinate&#39;&#34;&#34;&#34;
 
         return self.derivative.get_y_coordinate(x_coordinate)
@@ -52,7 +53,8 @@ class Derivative:
 
     @staticmethod
     def get_polynomial_derivative(polynomial):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the derivative of the polynomial (does not modify the passed in polynomial)&#34;&#34;&#34;
 
         new_terms = []
@@ -68,7 +70,8 @@ class Derivative:
 
     @staticmethod
     def evaluate_polynomial_derivative_at_point(polynomial, x_coordinate) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the area of the polynomial within the bounds of start and end&#34;&#34;&#34;
 
         return Derivative.get_polynomial_derivative(polynomial).get_y_coordinate(x_coordinate)</code></pre>
@@ -105,7 +108,8 @@ class Derivative:
         self.derivative = derivative
 
     def evaluate(self, x_coordinate) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the evaluating the derivative at &#39;x_coordinate&#39;&#34;&#34;&#34;
 
         return self.derivative.get_y_coordinate(x_coordinate)
@@ -117,7 +121,8 @@ class Derivative:
 
     @staticmethod
     def get_polynomial_derivative(polynomial):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the derivative of the polynomial (does not modify the passed in polynomial)&#34;&#34;&#34;
 
         new_terms = []
@@ -133,7 +138,8 @@ class Derivative:
 
     @staticmethod
     def evaluate_polynomial_derivative_at_point(polynomial, x_coordinate) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the area of the polynomial within the bounds of start and end&#34;&#34;&#34;
 
         return Derivative.get_polynomial_derivative(polynomial).get_y_coordinate(x_coordinate)</code></pre>
@@ -151,15 +157,19 @@ class Derivative:
 <span>def <span class="ident">evaluate_polynomial_derivative_at_point</span></span>(<span>polynomial, x_coordinate) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the area of the polynomial within the bounds of start and end</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the area of the polynomial within the bounds of start and end</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def evaluate_polynomial_derivative_at_point(polynomial, x_coordinate) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the area of the polynomial within the bounds of start and end&#34;&#34;&#34;
 
     return Derivative.get_polynomial_derivative(polynomial).get_y_coordinate(x_coordinate)</code></pre>
@@ -169,15 +179,19 @@ def evaluate_polynomial_derivative_at_point(polynomial, x_coordinate) -&gt; floa
 <span>def <span class="ident">get_polynomial_derivative</span></span>(<span>polynomial)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Function: the derivative of the polynomial (does not modify the passed in polynomial)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Function</code></dt>
+<dd>the derivative of the polynomial (does not modify the passed in polynomial)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def get_polynomial_derivative(polynomial):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Function: the derivative of the polynomial (does not modify the passed in polynomial)&#34;&#34;&#34;
 
     new_terms = []
@@ -199,14 +213,18 @@ def get_polynomial_derivative(polynomial):
 <span>def <span class="ident">evaluate</span></span>(<span>self, x_coordinate) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the evaluating the derivative at 'x_coordinate'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the evaluating the derivative at 'x_coordinate'</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def evaluate(self, x_coordinate) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the evaluating the derivative at &#39;x_coordinate&#39;&#34;&#34;&#34;
 
     return self.derivative.get_y_coordinate(x_coordinate)</code></pre>

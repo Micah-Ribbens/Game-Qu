@@ -80,7 +80,8 @@ class NavigationScreen(Screen):
             super().render_background()
 
     def get_components(self):
-        """ Returns:
+        """
+             Returns:
                 list[Component]: the components of the currently selected_screen"""
 
         return self.components if self.selected_screen == self else self.selected_screen.get_components()

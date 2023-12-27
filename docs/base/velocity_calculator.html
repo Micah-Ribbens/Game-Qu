@@ -35,20 +35,23 @@
 
     @staticmethod
     def get_velocity(unit_of_measurement, amount):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: (unit_of_measurement / 1000) * amount- This method breaks the unit_of_measurement into easier units to work with&#34;&#34;&#34;
 
         return (unit_of_measurement / 1000) * amount
 
     @staticmethod
     def get_dimension(unit_of_measurement, amount):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: (unit_of_measurement / 100) * amount- This method breaks the unit_of_measurement into easier units to work with&#34;&#34;&#34;
         return (unit_of_measurement / 100) * amount
 
     @staticmethod
     def get_distance(velocity):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the amount of distance that has been traveled from that velocity since the last cycle (delta time * velocity)&#34;&#34;&#34;
 
         return velocity * VelocityCalculator.delta_time
@@ -88,20 +91,23 @@
 
     @staticmethod
     def get_velocity(unit_of_measurement, amount):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: (unit_of_measurement / 1000) * amount- This method breaks the unit_of_measurement into easier units to work with&#34;&#34;&#34;
 
         return (unit_of_measurement / 1000) * amount
 
     @staticmethod
     def get_dimension(unit_of_measurement, amount):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: (unit_of_measurement / 100) * amount- This method breaks the unit_of_measurement into easier units to work with&#34;&#34;&#34;
         return (unit_of_measurement / 100) * amount
 
     @staticmethod
     def get_distance(velocity):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the amount of distance that has been traveled from that velocity since the last cycle (delta time * velocity)&#34;&#34;&#34;
 
         return velocity * VelocityCalculator.delta_time
@@ -134,15 +140,19 @@
 <span>def <span class="ident">get_dimension</span></span>(<span>unit_of_measurement, amount)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: (unit_of_measurement / 100) * amount- This method breaks the unit_of_measurement into easier units to work with</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>(unit_of_measurement / 100) * amount- This method breaks the unit_of_measurement into easier units to work with</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def get_dimension(unit_of_measurement, amount):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: (unit_of_measurement / 100) * amount- This method breaks the unit_of_measurement into easier units to work with&#34;&#34;&#34;
     return (unit_of_measurement / 100) * amount</code></pre>
 </details>
@@ -151,15 +161,19 @@ def get_dimension(unit_of_measurement, amount):
 <span>def <span class="ident">get_distance</span></span>(<span>velocity)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the amount of distance that has been traveled from that velocity since the last cycle (delta time * velocity)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the amount of distance that has been traveled from that velocity since the last cycle (delta time * velocity)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def get_distance(velocity):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the amount of distance that has been traveled from that velocity since the last cycle (delta time * velocity)&#34;&#34;&#34;
 
     return velocity * VelocityCalculator.delta_time</code></pre>
@@ -169,15 +183,19 @@ def get_distance(velocity):
 <span>def <span class="ident">get_velocity</span></span>(<span>unit_of_measurement, amount)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: (unit_of_measurement / 1000) * amount- This method breaks the unit_of_measurement into easier units to work with</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>(unit_of_measurement / 1000) * amount- This method breaks the unit_of_measurement into easier units to work with</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def get_velocity(unit_of_measurement, amount):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: (unit_of_measurement / 1000) * amount- This method breaks the unit_of_measurement into easier units to work with&#34;&#34;&#34;
 
     return (unit_of_measurement / 1000) * amount</code></pre>

@@ -34,28 +34,32 @@ class CollisionsEngine:
 
     @staticmethod
     def is_horizontal_collision(object1, object2):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+            Returns:
                 bool: whether object1 and object2 have collided horizontally (ignores vertical direction- 1D)&#34;&#34;&#34;
 
         return object1.left_edge &lt;= object2.right_edge and object1.right_edge &gt;= object2.left_edge
 
     @staticmethod
     def is_vertical_collision(object1, object2):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether object1 and object2 have collided vertically (ignores horizontal direction- 1D)&#34;&#34;&#34;
 
         return object1.top_edge &lt;= object2.bottom_edge and object1.bottom_edge &gt;= object2.top_edge
 
     @staticmethod
     def is_collision(object1, object2):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether object1 and object2 have collided vertically and horizontally&#34;&#34;&#34;
 
         return CollisionsEngine.is_horizontal_collision(object1, object2) and CollisionsEngine.is_vertical_collision(object1, object2)
 
     @staticmethod
     def is_left_collision(object1, object2, is_collision=None, last_time=None):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if object1 has collided with object2&#39;s left edge&#34;&#34;&#34;
 
         objects_are_touching = object1.right_edge == object2.left_edge and CollisionsEngine.is_vertical_collision(
@@ -66,7 +70,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_right_collision(object1, object2, is_collision=None, last_time=None):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if object1 has collided with object2&#39;s right_edge&#34;&#34;&#34;
 
         is_moving_right_collision = CollisionsEngine.is_moving_right_collision(object1, object2, is_collision,
@@ -79,7 +84,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_moving_right_collision(object1, object2, is_collision=None, last_time=None):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if object1 has collided with object2&#39;s right_edge because one of the objects has moved
                 (the object1 did not collide with object2 horizontally last cycle)&#34;&#34;&#34;
 
@@ -97,7 +103,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_moving_left_collision(object1, object2, is_collision=None, last_time=None):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if object1 has hit object2&#39;s left_edge because one of the objects has moved
                 (the object1 did not collide with object2 horizontally last cycle)&#34;&#34;&#34;
 
@@ -114,7 +121,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_bottom_collision(object1, object2, is_collision=None, time=None):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether object1 has collided with object2&#39;s bottom_edge&#34;&#34;&#34;
 
         prev_object1 = HistoryKeeper.get_last(object1.name)
@@ -134,7 +142,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_top_collision(object1, object2, is_collision=None, time=None):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether object1 has collided with object2&#39;s top_edge&#34;&#34;&#34;
 
         prev_object1 = HistoryKeeper.get_last(object1.name)
@@ -175,28 +184,32 @@ class CollisionsEngine:
 
     @staticmethod
     def is_horizontal_collision(object1, object2):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+            Returns:
                 bool: whether object1 and object2 have collided horizontally (ignores vertical direction- 1D)&#34;&#34;&#34;
 
         return object1.left_edge &lt;= object2.right_edge and object1.right_edge &gt;= object2.left_edge
 
     @staticmethod
     def is_vertical_collision(object1, object2):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether object1 and object2 have collided vertically (ignores horizontal direction- 1D)&#34;&#34;&#34;
 
         return object1.top_edge &lt;= object2.bottom_edge and object1.bottom_edge &gt;= object2.top_edge
 
     @staticmethod
     def is_collision(object1, object2):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether object1 and object2 have collided vertically and horizontally&#34;&#34;&#34;
 
         return CollisionsEngine.is_horizontal_collision(object1, object2) and CollisionsEngine.is_vertical_collision(object1, object2)
 
     @staticmethod
     def is_left_collision(object1, object2, is_collision=None, last_time=None):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if object1 has collided with object2&#39;s left edge&#34;&#34;&#34;
 
         objects_are_touching = object1.right_edge == object2.left_edge and CollisionsEngine.is_vertical_collision(
@@ -207,7 +220,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_right_collision(object1, object2, is_collision=None, last_time=None):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if object1 has collided with object2&#39;s right_edge&#34;&#34;&#34;
 
         is_moving_right_collision = CollisionsEngine.is_moving_right_collision(object1, object2, is_collision,
@@ -220,7 +234,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_moving_right_collision(object1, object2, is_collision=None, last_time=None):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if object1 has collided with object2&#39;s right_edge because one of the objects has moved
                 (the object1 did not collide with object2 horizontally last cycle)&#34;&#34;&#34;
 
@@ -238,7 +253,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_moving_left_collision(object1, object2, is_collision=None, last_time=None):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if object1 has hit object2&#39;s left_edge because one of the objects has moved
                 (the object1 did not collide with object2 horizontally last cycle)&#34;&#34;&#34;
 
@@ -255,7 +271,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_bottom_collision(object1, object2, is_collision=None, time=None):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether object1 has collided with object2&#39;s bottom_edge&#34;&#34;&#34;
 
         prev_object1 = HistoryKeeper.get_last(object1.name)
@@ -275,7 +292,8 @@ class CollisionsEngine:
 
     @staticmethod
     def is_top_collision(object1, object2, is_collision=None, time=None):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether object1 has collided with object2&#39;s top_edge&#34;&#34;&#34;
 
         prev_object1 = HistoryKeeper.get_last(object1.name)
@@ -298,15 +316,19 @@ class CollisionsEngine:
 <span>def <span class="ident">is_bottom_collision</span></span>(<span>object1, object2, is_collision=None, time=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: whether object1 has collided with object2's bottom_edge</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>whether object1 has collided with object2's bottom_edge</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_bottom_collision(object1, object2, is_collision=None, time=None):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: whether object1 has collided with object2&#39;s bottom_edge&#34;&#34;&#34;
 
     prev_object1 = HistoryKeeper.get_last(object1.name)
@@ -329,15 +351,19 @@ def is_bottom_collision(object1, object2, is_collision=None, time=None):
 <span>def <span class="ident">is_collision</span></span>(<span>object1, object2)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: whether object1 and object2 have collided vertically and horizontally</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>whether object1 and object2 have collided vertically and horizontally</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_collision(object1, object2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: whether object1 and object2 have collided vertically and horizontally&#34;&#34;&#34;
 
     return CollisionsEngine.is_horizontal_collision(object1, object2) and CollisionsEngine.is_vertical_collision(object1, object2)</code></pre>
@@ -347,15 +373,19 @@ def is_collision(object1, object2):
 <span>def <span class="ident">is_horizontal_collision</span></span>(<span>object1, object2)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: whether object1 and object2 have collided horizontally (ignores vertical direction- 1D)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>whether object1 and object2 have collided horizontally (ignores vertical direction- 1D)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_horizontal_collision(object1, object2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+        Returns:
             bool: whether object1 and object2 have collided horizontally (ignores vertical direction- 1D)&#34;&#34;&#34;
 
     return object1.left_edge &lt;= object2.right_edge and object1.right_edge &gt;= object2.left_edge</code></pre>
@@ -365,15 +395,19 @@ def is_horizontal_collision(object1, object2):
 <span>def <span class="ident">is_left_collision</span></span>(<span>object1, object2, is_collision=None, last_time=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if object1 has collided with object2's left edge</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if object1 has collided with object2's left edge</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_left_collision(object1, object2, is_collision=None, last_time=None):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if object1 has collided with object2&#39;s left edge&#34;&#34;&#34;
 
     objects_are_touching = object1.right_edge == object2.left_edge and CollisionsEngine.is_vertical_collision(
@@ -387,16 +421,20 @@ def is_left_collision(object1, object2, is_collision=None, last_time=None):
 <span>def <span class="ident">is_moving_left_collision</span></span>(<span>object1, object2, is_collision=None, last_time=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if object1 has hit object2's left_edge because one of the objects has moved
-(the object1 did not collide with object2 horizontally last cycle)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if object1 has hit object2's left_edge because one of the objects has moved</dd>
+</dl>
+<p>(the object1 did not collide with object2 horizontally last cycle)</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_moving_left_collision(object1, object2, is_collision=None, last_time=None):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if object1 has hit object2&#39;s left_edge because one of the objects has moved
             (the object1 did not collide with object2 horizontally last cycle)&#34;&#34;&#34;
 
@@ -416,16 +454,20 @@ def is_moving_left_collision(object1, object2, is_collision=None, last_time=None
 <span>def <span class="ident">is_moving_right_collision</span></span>(<span>object1, object2, is_collision=None, last_time=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if object1 has collided with object2's right_edge because one of the objects has moved
-(the object1 did not collide with object2 horizontally last cycle)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if object1 has collided with object2's right_edge because one of the objects has moved</dd>
+</dl>
+<p>(the object1 did not collide with object2 horizontally last cycle)</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_moving_right_collision(object1, object2, is_collision=None, last_time=None):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if object1 has collided with object2&#39;s right_edge because one of the objects has moved
             (the object1 did not collide with object2 horizontally last cycle)&#34;&#34;&#34;
 
@@ -446,15 +488,19 @@ def is_moving_right_collision(object1, object2, is_collision=None, last_time=Non
 <span>def <span class="ident">is_right_collision</span></span>(<span>object1, object2, is_collision=None, last_time=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if object1 has collided with object2's right_edge</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if object1 has collided with object2's right_edge</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_right_collision(object1, object2, is_collision=None, last_time=None):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if object1 has collided with object2&#39;s right_edge&#34;&#34;&#34;
 
     is_moving_right_collision = CollisionsEngine.is_moving_right_collision(object1, object2, is_collision,
@@ -470,15 +516,19 @@ def is_right_collision(object1, object2, is_collision=None, last_time=None):
 <span>def <span class="ident">is_top_collision</span></span>(<span>object1, object2, is_collision=None, time=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: whether object1 has collided with object2's top_edge</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>whether object1 has collided with object2's top_edge</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_top_collision(object1, object2, is_collision=None, time=None):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: whether object1 has collided with object2&#39;s top_edge&#34;&#34;&#34;
 
     prev_object1 = HistoryKeeper.get_last(object1.name)
@@ -500,15 +550,19 @@ def is_top_collision(object1, object2, is_collision=None, time=None):
 <span>def <span class="ident">is_vertical_collision</span></span>(<span>object1, object2)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: whether object1 and object2 have collided vertically (ignores horizontal direction- 1D)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>whether object1 and object2 have collided vertically (ignores horizontal direction- 1D)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def is_vertical_collision(object1, object2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: whether object1 and object2 have collided vertically (ignores horizontal direction- 1D)&#34;&#34;&#34;
 
     return object1.top_edge &lt;= object2.bottom_edge and object1.bottom_edge &gt;= object2.top_edge</code></pre>

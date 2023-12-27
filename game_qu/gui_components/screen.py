@@ -29,7 +29,8 @@ class Screen(Component):
             load_image(path_to_background_image)
 
     def get_components(self):
-        """ Returns:
+        """
+             Returns:
                 list[Component]: the components of the screen"""
 
         return self.components

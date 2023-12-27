@@ -31,7 +31,8 @@ class Point:
         self.x_coordinate, self.y_coordinate = x_coordinate, y_coordinate
 
     def get_copy(self):
-        """ Returns:
+        """
+             Returns:
                 Point: a copy of this point"""
 
         return Point(self.x_coordinate, self.y_coordinate)

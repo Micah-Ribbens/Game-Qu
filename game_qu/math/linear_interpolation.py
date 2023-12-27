@@ -29,7 +29,8 @@ class LinearInterpolation(Function):
         self.points.append(point)
 
     def get_y_coordinate(self, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 float: the y_coordinate at that x_coordinate. Or in other words, what the LineSegment that contains
                 the x_coordinate get_y_coordinate() method returns"""
 
@@ -43,26 +44,30 @@ class LinearInterpolation(Function):
         return y_coordinate
 
     def get_lines(self):
-        """ Returns:
+        """
+             Returns:
                 list[LineSegment]: the lines of this simple path"""
 
         return self.lines
 
     def get_first_line(self):
-        """ Returns:
+        """
+             Returns:
                 LineSegment: the last LineSegment of the Path"""
 
         return self.lines[0]
 
     def get_last_line(self):
-        """ Returns:
+        """
+             Returns:
                 LineSegment: the last LineSegment of the Path"""
 
         last_index = len(self.lines) - 1
         return self.lines[last_index]
 
     def __str__(self):
-        """ Returns:
+        """
+             Returns:
                 str: the string representation of the Path"""
 
         string = ""
@@ -72,7 +77,8 @@ class LinearInterpolation(Function):
         return string
 
     def is_moving_down(self, x_coordinate):
-        """ Returns:
+        """
+             Returns:
                 bool: if the slope is negative for the last line that contains this specific 'x_coordinate'"""
 
         return_value = None

@@ -66,7 +66,8 @@ class IntermediateScreen(Screen):
         self.is_being_displayed = True
 
     def get_components(self):
-        """ Returns:
+        """
+             Returns:
                 list[Component]: the components that should be displayed"""
 
         index = get_index_of_range(self.current_time, ranges=self.time_ranges)
@@ -90,7 +91,8 @@ class IntermediateScreen(Screen):
             self.max_time += time_range.get_length()
 
     def has_finished(self):
-        """ Returns:
+        """
+             Returns:
                 bool: if the intermediate screens are done being displayed"""
 
         return self.current_time > self.max_time or not self.is_being_displayed

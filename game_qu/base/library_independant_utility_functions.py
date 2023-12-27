@@ -2,7 +2,8 @@ from math import sqrt
 
 
 def get_string(string_list):
-    """ Returns:
+    """
+             Returns:
             str: all the items of 'string_list' combined into one string value"""
 
     return_value = ""
@@ -14,7 +15,8 @@ def get_string(string_list):
 
 
 def get_next_index(current_index, max_index):
-    """ Returns:
+    """
+             Returns:
             int: the index after current_index (it cycles, so once it gets beyond the max_index it goes back to 0)"""
 
     next_index = current_index + 1
@@ -22,7 +24,8 @@ def get_next_index(current_index, max_index):
 
 
 def get_previous_index(current_index, max_index):
-    """ Returns:
+    """
+             Returns:
             int: the index before current_index (it cycles, so once it gets below 0 it goes to the max_index"""
 
     prev_index = current_index - 1
@@ -30,7 +33,8 @@ def get_previous_index(current_index, max_index):
 
 
 def rounded(number, places):
-    """ Returns:
+    """
+             Returns:
             float: the number rounded to that many decimal places"""
 
     rounded_number = int(number * pow(10, places))
@@ -70,7 +74,8 @@ def get_kwarg_item_or_default(kwargs, key, default_value):
 
 
 def solve_quadratic(a, b, c):
-    """  Returns:
+    """
+             Returns:
             list[float]: [answer1, answer2] the answers to the quadratic
             and if the answer is an imaginary number it  Returns:
             float('nan')"""
@@ -93,7 +98,8 @@ def solve_quadratic(a, b, c):
 
 
 def min_value(item1, item2):
-    """ Returns:
+    """
+             Returns:
             float: the smallest item"""
 
     if item1 is None:
@@ -106,7 +112,8 @@ def min_value(item1, item2):
 
 
 def max_value(item1, item2):
-    """ Returns:
+    """
+             Returns:
             float: the biggest item"""
 
     if item1 is None:

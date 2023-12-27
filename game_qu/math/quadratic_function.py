@@ -38,7 +38,8 @@ class QuadraticFunction(Function):
         return self.a * pow((x - self.h), 2) + self.k
 
     def get_y_coordinate(self, x_coordinate):
-        """  Returns:
+        """
+             Returns:
                 float: the y coordinate associated with that specific x coordinate (calls 'get_number' but this function is
                 here to keep the API the same throughout the library lifespan"""
 
@@ -62,7 +63,8 @@ class QuadraticFunction(Function):
         self.a = (other_point.y_coordinate - self.k) / pow((other_point.x_coordinate - self.h), 2)
 
     def get_x_coordinate(self, y_coordinate):
-        """  Returns:
+        """
+             Returns:
                 float: the positive x coordinate associated with the y_coordinate (this is arbitrarily chosen, but
                 all x coordinates can be found using 'get_x_coordinates'"""
 
@@ -71,21 +73,24 @@ class QuadraticFunction(Function):
         return math.sqrt(under_sqrt) + self.h
 
     def get_x_coordinates(self, y_coordinate):
-        """ Returns:
+        """
+             Returns:
                 list[float]: the x coordinates associated with that y coordinate (calls 'solve_quadratic' internally)"""
 
         a, b, c = QuadraticFunction.get_a_b_and_c(self.h, self.k, self.a)
         return solve_quadratic(a, b, c)
 
     def get_inverted_function(self):
-        """ Returns:
+        """
+             Returns:
                 Function: the inverse function"""
 
         return Function.get_new_function(self.get_y_coordinate)
 
     @staticmethod
     def get_a_b_and_c(h, k, a):
-        """ Returns:
+        """
+             Returns:
                 list[float]: {a, b, c}; the values of the equation in this form: ax^2 + bx + c"""
 
         b = -2 * a * h
@@ -126,13 +131,15 @@ class QuadraticFunction(Function):
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
 
     def get_indefinite_integral(self):
-        """ Returns:
+        """
+             Returns:
                 Function: the indefinite integral"""
 
         return QuadraticFunction.get_indefinite_integral_using_vertex_form(self.h, self.k, self.a)
 
     def get_area_under_curve(self, lower_bound, upper_bound):
-        """ Returns:
+        """
+             Returns:
                 float: the area under the curve of the quadratic equation from the lower bound to the upper bound"""
 
         indefinite_integral = self.get_indefinite_integral()

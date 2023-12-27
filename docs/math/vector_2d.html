@@ -66,7 +66,8 @@ class Vector2D:
         return self
 
     def get_vector_with_x_and_y_magnitude(self, x_magnitude, y_magnitude):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific x and y magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_x_and_y_magnitude(x_magnitude, y_magnitude)
@@ -85,7 +86,8 @@ class Vector2D:
         return self
 
     def get_vector_with_magnitude_and_angle(self, angle, magnitude):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34; 
+            Returns:
                 Vector2D: the vector with that specific magnitude and angle (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_magnitude_and_angle(angle, magnitude)
@@ -99,7 +101,8 @@ class Vector2D:
         return self.set_magnitude_and_angle(angle, self.magnitude)
 
     def get_vector_with_angle(self, angle):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific angle (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_angle(angle)
@@ -113,7 +116,8 @@ class Vector2D:
         return self.set_magnitude_and_angle(self.angle, magnitude)
 
     def get_vector_with_magnitude(self, magnitude):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_magnitude(magnitude)
@@ -127,7 +131,8 @@ class Vector2D:
         return self.set_x_and_y_magnitude(x_magnitude, self.y_magnitude)
 
     def get_vector_with_x_magnitude(self, x_magnitude):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific x magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_x_magnitude(x_magnitude)
@@ -141,7 +146,8 @@ class Vector2D:
         return self.set_x_and_y_magnitude(self.x_magnitude, y_magnitude)
 
     def get_vector_with_y_magnitude(self, y_magnitude):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific y magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_y_magnitude(y_magnitude)
@@ -159,13 +165,15 @@ class Vector2D:
         return self
 
     def get_normalized(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the normalized version of this vector&#34;&#34;&#34;
 
         return self.get_copy().normalize()
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the copy of the current vector&#34;&#34;&#34;
 
         return Vector2D(self.angle, self.magnitude)
@@ -182,7 +190,8 @@ class Vector2D:
         return self
 
     def get_added_vector(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: a new vector that is the result of adding another vector to this vector (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().add(other_vector)
@@ -199,7 +208,8 @@ class Vector2D:
         return self
 
     def get_subtracted_vector(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector that results from subtracting the other vector from this vector (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().subtract(other_vector)
@@ -215,7 +225,8 @@ class Vector2D:
         return self
 
     def get_vector_multiplied_by_scalar(self, scalar):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: a new vector that is the result of multiplying this vector by a scalar (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().multiply_by_scalar(scalar)
@@ -232,7 +243,8 @@ class Vector2D:
         return self
 
     def get_hadamard_product(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: a new vector that is the result of performing a hadamard product on this vector (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().hadamard_product(other_vector)
@@ -248,7 +260,8 @@ class Vector2D:
         return self
 
     def get_rotated_vector(self, angle):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector that results from rotating the current vector counter-clockwise by &#39;angle&#39; (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().rotate_vector(angle)
@@ -263,38 +276,44 @@ class Vector2D:
         return self
 
     def get_inverted_direction_vector(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector that results from rotating the current vector clockwise by pi degrees (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().invert_vector_direction()
 
     def dot_product(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the dot product of these two vectors&#34;&#34;&#34;
 
         return (other_vector.get_x_magnitude() * self.x_magnitude +
                 other_vector.get_y_magnitude() * self.y_magnitude)
 
     def equals(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 boolean: whether the other vector equals this vector&#34;&#34;&#34;
 
         return other_vector.get_angle() == self.angle and other_vector.get_magnitude() == self.magnitude
 
     def __add__(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: The resulting vector from adding &#39;self&#39; to &#39;other_vector&#39;&#34;&#34;&#34;
 
         return self.get_added_vector(other_vector)
 
     def __sub__(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: The resulting vector from subtracting &#39;other_vector&#39; from &#39;self&#39;&#34;&#34;&#34;
 
         return self.get_subtracted_vector(other_vector)
 
     def __mul__(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: The resulting vector from adding &#39;self&#39; to &#39;other_vector&#39;&#34;&#34;&#34;
 
         return self.get_hadamard_product(other_vector)
@@ -358,7 +377,8 @@ class Vector2D:
         return self
 
     def get_vector_with_x_and_y_magnitude(self, x_magnitude, y_magnitude):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific x and y magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_x_and_y_magnitude(x_magnitude, y_magnitude)
@@ -377,7 +397,8 @@ class Vector2D:
         return self
 
     def get_vector_with_magnitude_and_angle(self, angle, magnitude):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34; 
+            Returns:
                 Vector2D: the vector with that specific magnitude and angle (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_magnitude_and_angle(angle, magnitude)
@@ -391,7 +412,8 @@ class Vector2D:
         return self.set_magnitude_and_angle(angle, self.magnitude)
 
     def get_vector_with_angle(self, angle):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific angle (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_angle(angle)
@@ -405,7 +427,8 @@ class Vector2D:
         return self.set_magnitude_and_angle(self.angle, magnitude)
 
     def get_vector_with_magnitude(self, magnitude):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_magnitude(magnitude)
@@ -419,7 +442,8 @@ class Vector2D:
         return self.set_x_and_y_magnitude(x_magnitude, self.y_magnitude)
 
     def get_vector_with_x_magnitude(self, x_magnitude):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific x magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_x_magnitude(x_magnitude)
@@ -433,7 +457,8 @@ class Vector2D:
         return self.set_x_and_y_magnitude(self.x_magnitude, y_magnitude)
 
     def get_vector_with_y_magnitude(self, y_magnitude):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector with that specific y magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
         return self.get_copy().set_y_magnitude(y_magnitude)
@@ -451,13 +476,15 @@ class Vector2D:
         return self
 
     def get_normalized(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the normalized version of this vector&#34;&#34;&#34;
 
         return self.get_copy().normalize()
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the copy of the current vector&#34;&#34;&#34;
 
         return Vector2D(self.angle, self.magnitude)
@@ -474,7 +501,8 @@ class Vector2D:
         return self
 
     def get_added_vector(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: a new vector that is the result of adding another vector to this vector (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().add(other_vector)
@@ -491,7 +519,8 @@ class Vector2D:
         return self
 
     def get_subtracted_vector(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector that results from subtracting the other vector from this vector (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().subtract(other_vector)
@@ -507,7 +536,8 @@ class Vector2D:
         return self
 
     def get_vector_multiplied_by_scalar(self, scalar):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: a new vector that is the result of multiplying this vector by a scalar (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().multiply_by_scalar(scalar)
@@ -524,7 +554,8 @@ class Vector2D:
         return self
 
     def get_hadamard_product(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: a new vector that is the result of performing a hadamard product on this vector (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().hadamard_product(other_vector)
@@ -540,7 +571,8 @@ class Vector2D:
         return self
 
     def get_rotated_vector(self, angle):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector that results from rotating the current vector counter-clockwise by &#39;angle&#39; (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().rotate_vector(angle)
@@ -555,38 +587,44 @@ class Vector2D:
         return self
 
     def get_inverted_direction_vector(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: the vector that results from rotating the current vector clockwise by pi degrees (does not modify the current vector)&#34;&#34;&#34;
 
         return self.get_copy().invert_vector_direction()
 
     def dot_product(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the dot product of these two vectors&#34;&#34;&#34;
 
         return (other_vector.get_x_magnitude() * self.x_magnitude +
                 other_vector.get_y_magnitude() * self.y_magnitude)
 
     def equals(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 boolean: whether the other vector equals this vector&#34;&#34;&#34;
 
         return other_vector.get_angle() == self.angle and other_vector.get_magnitude() == self.magnitude
 
     def __add__(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: The resulting vector from adding &#39;self&#39; to &#39;other_vector&#39;&#34;&#34;&#34;
 
         return self.get_added_vector(other_vector)
 
     def __sub__(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: The resulting vector from subtracting &#39;other_vector&#39; from &#39;self&#39;&#34;&#34;&#34;
 
         return self.get_subtracted_vector(other_vector)
 
     def __mul__(self, other_vector):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Vector2D: The resulting vector from adding &#39;self&#39; to &#39;other_vector&#39;&#34;&#34;&#34;
 
         return self.get_hadamard_product(other_vector)
@@ -645,14 +683,18 @@ class Vector2D:
 <span>def <span class="ident">dot_product</span></span>(<span>self, other_vector)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the dot product of these two vectors</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the dot product of these two vectors</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def dot_product(self, other_vector):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the dot product of these two vectors&#34;&#34;&#34;
 
     return (other_vector.get_x_magnitude() * self.x_magnitude +
@@ -663,14 +705,18 @@ float: the dot product of these two vectors</p></div>
 <span>def <span class="ident">equals</span></span>(<span>self, other_vector)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-boolean: whether the other vector equals this vector</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>whether the other vector equals this vector</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def equals(self, other_vector):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             boolean: whether the other vector equals this vector&#34;&#34;&#34;
 
     return other_vector.get_angle() == self.angle and other_vector.get_magnitude() == self.magnitude</code></pre>
@@ -680,14 +726,18 @@ boolean: whether the other vector equals this vector</p></div>
 <span>def <span class="ident">get_added_vector</span></span>(<span>self, other_vector)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: a new vector that is the result of adding another vector to this vector (does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>a new vector that is the result of adding another vector to this vector (does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_added_vector(self, other_vector):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: a new vector that is the result of adding another vector to this vector (does not modify the current vector)&#34;&#34;&#34;
 
     return self.get_copy().add(other_vector)</code></pre>
@@ -697,14 +747,18 @@ Vector2D: a new vector that is the result of adding another vector to this vecto
 <span>def <span class="ident">get_copy</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the copy of the current vector</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the copy of the current vector</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_copy(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the copy of the current vector&#34;&#34;&#34;
 
     return Vector2D(self.angle, self.magnitude)</code></pre>
@@ -714,14 +768,18 @@ Vector2D: the copy of the current vector</p></div>
 <span>def <span class="ident">get_hadamard_product</span></span>(<span>self, other_vector)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: a new vector that is the result of performing a hadamard product on this vector (does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>a new vector that is the result of performing a hadamard product on this vector (does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_hadamard_product(self, other_vector):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: a new vector that is the result of performing a hadamard product on this vector (does not modify the current vector)&#34;&#34;&#34;
 
     return self.get_copy().hadamard_product(other_vector)</code></pre>
@@ -731,14 +789,18 @@ Vector2D: a new vector that is the result of performing a hadamard product on th
 <span>def <span class="ident">get_inverted_direction_vector</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector that results from rotating the current vector clockwise by pi degrees (does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector that results from rotating the current vector clockwise by pi degrees (does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_inverted_direction_vector(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the vector that results from rotating the current vector clockwise by pi degrees (does not modify the current vector)&#34;&#34;&#34;
 
     return self.get_copy().invert_vector_direction()</code></pre>
@@ -761,14 +823,18 @@ Vector2D: the vector that results from rotating the current vector clockwise by 
 <span>def <span class="ident">get_normalized</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the normalized version of this vector</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the normalized version of this vector</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_normalized(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the normalized version of this vector&#34;&#34;&#34;
 
     return self.get_copy().normalize()</code></pre>
@@ -778,14 +844,18 @@ Vector2D: the normalized version of this vector</p></div>
 <span>def <span class="ident">get_rotated_vector</span></span>(<span>self, angle)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector that results from rotating the current vector counter-clockwise by 'angle' (does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector that results from rotating the current vector counter-clockwise by 'angle' (does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_rotated_vector(self, angle):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the vector that results from rotating the current vector counter-clockwise by &#39;angle&#39; (does not modify the current vector)&#34;&#34;&#34;
 
     return self.get_copy().rotate_vector(angle)</code></pre>
@@ -795,14 +865,18 @@ Vector2D: the vector that results from rotating the current vector counter-clock
 <span>def <span class="ident">get_subtracted_vector</span></span>(<span>self, other_vector)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector that results from subtracting the other vector from this vector (does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector that results from subtracting the other vector from this vector (does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_subtracted_vector(self, other_vector):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the vector that results from subtracting the other vector from this vector (does not modify the current vector)&#34;&#34;&#34;
 
     return self.get_copy().subtract(other_vector)</code></pre>
@@ -812,14 +886,18 @@ Vector2D: the vector that results from subtracting the other vector from this ve
 <span>def <span class="ident">get_vector_multiplied_by_scalar</span></span>(<span>self, scalar)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: a new vector that is the result of multiplying this vector by a scalar (does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>a new vector that is the result of multiplying this vector by a scalar (does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vector_multiplied_by_scalar(self, scalar):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: a new vector that is the result of multiplying this vector by a scalar (does not modify the current vector)&#34;&#34;&#34;
 
     return self.get_copy().multiply_by_scalar(scalar)</code></pre>
@@ -829,14 +907,18 @@ Vector2D: a new vector that is the result of multiplying this vector by a scalar
 <span>def <span class="ident">get_vector_with_angle</span></span>(<span>self, angle)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector with that specific angle (this does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector with that specific angle (this does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vector_with_angle(self, angle):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the vector with that specific angle (this does not modify the current vector) &#34;&#34;&#34;
 
     return self.get_copy().set_angle(angle)</code></pre>
@@ -846,14 +928,18 @@ Vector2D: the vector with that specific angle (this does not modify the current 
 <span>def <span class="ident">get_vector_with_magnitude</span></span>(<span>self, magnitude)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector with that specific magnitude (this does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector with that specific magnitude (this does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vector_with_magnitude(self, magnitude):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the vector with that specific magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
     return self.get_copy().set_magnitude(magnitude)</code></pre>
@@ -863,14 +949,18 @@ Vector2D: the vector with that specific magnitude (this does not modify the curr
 <span>def <span class="ident">get_vector_with_magnitude_and_angle</span></span>(<span>self, angle, magnitude)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector with that specific magnitude and angle (this does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector with that specific magnitude and angle (this does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vector_with_magnitude_and_angle(self, angle, magnitude):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34; 
+        Returns:
             Vector2D: the vector with that specific magnitude and angle (this does not modify the current vector) &#34;&#34;&#34;
 
     return self.get_copy().set_magnitude_and_angle(angle, magnitude)</code></pre>
@@ -880,14 +970,18 @@ Vector2D: the vector with that specific magnitude and angle (this does not modif
 <span>def <span class="ident">get_vector_with_x_and_y_magnitude</span></span>(<span>self, x_magnitude, y_magnitude)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector with that specific x and y magnitude (this does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector with that specific x and y magnitude (this does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vector_with_x_and_y_magnitude(self, x_magnitude, y_magnitude):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the vector with that specific x and y magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
     return self.get_copy().set_x_and_y_magnitude(x_magnitude, y_magnitude)</code></pre>
@@ -897,14 +991,18 @@ Vector2D: the vector with that specific x and y magnitude (this does not modify 
 <span>def <span class="ident">get_vector_with_x_magnitude</span></span>(<span>self, x_magnitude)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector with that specific x magnitude (this does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector with that specific x magnitude (this does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vector_with_x_magnitude(self, x_magnitude):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the vector with that specific x magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
     return self.get_copy().set_x_magnitude(x_magnitude)</code></pre>
@@ -914,14 +1012,18 @@ Vector2D: the vector with that specific x magnitude (this does not modify the cu
 <span>def <span class="ident">get_vector_with_y_magnitude</span></span>(<span>self, y_magnitude)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Vector2D: the vector with that specific y magnitude (this does not modify the current vector)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.vector_2d.Vector2D" href="#game_qu.math.vector_2d.Vector2D">Vector2D</a></code></dt>
+<dd>the vector with that specific y magnitude (this does not modify the current vector)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vector_with_y_magnitude(self, y_magnitude):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             Vector2D: the vector with that specific y magnitude (this does not modify the current vector) &#34;&#34;&#34;
 
     return self.get_copy().set_y_magnitude(y_magnitude)</code></pre>

@@ -65,14 +65,16 @@ class Component(Dimensions):
         self.last_frame_id_when_visible = HistoryKeeper.get_frame_id(VelocityCalculator.current_cycle_number)
 
     def got_clicked(self):
-        """ Returns:
+        """
+             Returns:
                 bool: the mouse is over the component and the mouse was clicked"""
 
         was_visible_last_cycle = self.last_frame_id_when_visible == HistoryKeeper.last_frame_id
         return mouse_is_clicked() and is_mouse_collision(self) and was_visible_last_cycle
 
     def get_scaled_dimensions(self, unscaled_length, unscaled_height):
-        """  Returns:
+        """
+             Returns:
                 list[float]: [scaled_length, scaled_height]; the length and height of the image that is scaled by the
                 smallest of the two, so there is no stretching"""
 

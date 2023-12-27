@@ -30,101 +30,117 @@ load_and_transform_image = getattr(utility_functions, "load_and_transform_image"
 get_directional_path_to_image = getattr(utility_functions, "get_directional_path_to_image")
 
 def key_is_pressed(key):
-    """ Returns:
+    """
+             Returns:
             bool: whether that key is currently held down (pressed)"""
 
     return keyboard.get_key_event(key).happened_this_cycle
 
 
 def key_is_clicked(key):
-    """ Returns:
+    """
+             Returns:
             bool: whether the key was not held down last cycle and is this cycle (clicked)"""
 
     return keyboard.get_key_event(key).is_click()
 
 
 def key_has_been_released(key):
-    """ Returns:
+    """
+             Returns:
             bool: whether the key was held down last cycle and is not this cycle (released)"""
     return keyboard.get_key_event(key).has_stopped()
 
 
 def get_time_of_key_being_held_in(key):
-    """ Returns:
+    """
+             Returns:
             float: the amount of time that the key has been held down"""
 
     return keyboard.get_key_timed_event(key).current_time
 
 def button_is_pressed(button):
-    """ Returns:
+    """
+             Returns:
             bool: whether that button is currently held down (pressed)"""
 
     return keyboard.get_button_event(button).happened_this_cycle
 
 
 def button_is_clicked(button):
-    """ Returns:
+    """
+             Returns:
             bool: whether the button was not held down last cycle and is this cycle (clicked)"""
 
     return keyboard.get_button_event(button).is_click()
 
 
 def button_has_been_released(button):
-    """ Returns:
+    """
+             Returns:
             bool: whether the button was held down last cycle and is not this cycle (released)"""
 
     return keyboard.get_button_event(button).has_stopped()
 
 def get_time_of_button_being_held_in(button):
-    """ Returns:
+    """
+             Returns:
             float: the amount of time that the button has been held down"""
 
     return keyboard.get_button_timed_event(button).current_time
 
 def button_is_pressed(button):
-    """ Returns:
+    """
+             Returns:
             bool: whether that button is currently held down (pressed)"""
 
     return keyboard.get_button_event(button).happened_this_cycle
 
 def get_game_button_timed_event(game_button):
-    """ Returns:
+    """
+             Returns:
             TimedEvent: the TimedEvent that is associated with the current state (using the keyboard or controller)"""
 
     return keyboard.get_button_timed_event(game_button) if IS_USING_CONTROLLER else keyboard.get_key_timed_event(game_button)
 def get_game_button_event(game_button):
-    """ Returns:
+    """
+             Returns:
             Event: the Event that is associated with the current state (using the keyboard or controller)"""
 
     return keyboard.get_button_event(game_button) if IS_USING_CONTROLLER else keyboard.get_key_event(game_button)
 
 def game_button_is_pressed(game_button):
-    """ Returns:
+    """
+             Returns:
             bool: whether that game_button is currently held down (pressed)"""
 
     return get_game_button_event(game_button).happened_this_cycle
 
 def game_button_is_clicked(game_button):
-    """ Returns:
+    """
+             Returns:
             bool: whether the game_button was not held down last cycle and is this cycle (clicked)"""
 
     return get_game_button_event(game_button).is_click()
 
 def game_button_has_been_released(game_button):
-    """ Returns:
+    """
+             Returns:
             bool: whether the game_button was held down last cycle and is not this cycle (released)"""
 
     return get_game_button_event(game_button).has_stopped()
 
 def get_time_of_game_button_being_held_in(game_button):
-    """ Returns:
+    """
+             Returns:
             float: the amount of time that the game_button has been held down"""
 
     return get_game_button_timed_event(game_button).current_time
 
 
 def mouse_is_clicked():
-    """ Returns:
+    """
+             Returns:
             bool: whether the mouse was not pressed last cycle and is this cycle (clicked)"""
 
     return keyboard.mouse_clicked_event.is_click()
@@ -155,7 +171,8 @@ def get_index_of_range(number, range_lengths=[], ranges=None):
 
 
 def get_ranges(range_lengths) -> list[Range]:
-    """ Returns:
+    """
+             Returns:
             list[Range]: the ranges gotten from the range_lengths. A range is defined by two adjacent indexes (range_lengths[0] -> range_lengths[1])"""
 
     return_value = []
@@ -168,7 +185,8 @@ def get_ranges(range_lengths) -> list[Range]:
     return return_value
 
 def is_within_screen(game_object):
-    """ Returns:
+    """
+             Returns:
             bool: if the game_object is within the screen (can be seen on the screen)"""
 
     return (game_object.right_edge > 0 and game_object.left_edge < SCREEN_LENGTH and
@@ -190,21 +208,24 @@ def is_random_chance(probability: Fraction):
 
 
 def is_beyond_screen_left(left_edge):
-    """ Returns:
+    """
+             Returns:
             bool: if the left_edge is beyond the left side of the screen"""
 
     return left_edge <= 0
 
 
 def is_beyond_screen_right(right_edge):
-    """ Returns:
+    """
+             Returns:
             bool: if the right_edge is beyond the right side of the screen"""
 
     return right_edge >= SCREEN_LENGTH
 
 
 def min_value(item1, item2):
-    """ Returns:
+    """
+             Returns:
             float: the smallest item"""
 
     if item1 is None:
@@ -217,14 +238,16 @@ def min_value(item1, item2):
 
 
 def max_value(item1, item2):
-    """Returns:
+    """
+             Returns:
         float: the biggest item"""
 
     return item1 if item1 > item2 else item2
 
 
 def get_combined_number_values(numbers):
-    """ Returns:
+    """
+             Returns:
             float or int: all the numbers in 'numbers' added up together in one number"""
 
     return_value = 0
@@ -235,7 +258,8 @@ def get_combined_number_values(numbers):
     return return_value
 
 def get_next_index(current_index, max_index):
-    """ Returns:
+    """
+             Returns:
             int: the index after current_index (it cycles, so once it gets beyond the max_index it goes back to 0)"""
 
     next_index = current_index + 1
@@ -243,14 +267,16 @@ def get_next_index(current_index, max_index):
 
 
 def get_previous_index(current_index, max_index):
-    """ Returns:
+    """
+             Returns:
             int: the index before current_index (it cycles, so once it gets below 0 it goes to the max_index"""
 
     prev_index = current_index - 1
     return prev_index if prev_index >= 0 else max_index
 
 def rounded(number, places):
-    """ Returns:
+    """
+             Returns:
             float: the number rounded to that many decimal places"""
 
     rounded_number = int(number * pow(10, places))
@@ -259,7 +285,8 @@ def rounded(number, places):
     return rounded_number / pow(10, places)
 
 def get_kwarg_item(kwargs, key, default_value):
-    """ Returns the value associated with the key in kwargs and the default value if the key is not in kwargs
+    """
+             Returns: the value associated with the key in kwargs and the default value if the key is not in kwargs
     
         Args:
             kwargs (dict): the **kwargs
@@ -273,7 +300,8 @@ def get_kwarg_item(kwargs, key, default_value):
     return kwargs.get(key) if kwargs.__contains__(key) else default_value
 
 def solve_quadratic(a, b, c):
-    """ Returns:
+    """
+             Returns:
             list[float]: [answer1, answer2] the answers to the quadratic
             and if the answer is an imaginary number it returns float('nan')"""
 
@@ -318,7 +346,8 @@ def modified_mod(number, modulus):
 
 
 def get_decimal_with_full_accuracy(number):
-    """ Returns:
+    """
+             Returns:
             float: the decimal part of the number i.e. 1.2345 -> 0.2345 (maintains full decimal accuracy)"""
 
     string_number = str(number)
@@ -350,14 +379,16 @@ def is_within_bounds(value, min_value, max_value):
     return min_value <= value <= max_value
 
 def get_sign(number):
-    """ Returns:
+    """
+             Returns:
             int: -1 if the number is negative and 1 if the number is positive"""
 
     return -1 if number < 0 else 1
 
 
 def get_inverse_sign(number):
-    """ Returns:
+    """
+             Returns:
             int: 1 if the number is negative and -1 if the number is positive"""
 
     return -get_sign(number)

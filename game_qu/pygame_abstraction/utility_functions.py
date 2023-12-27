@@ -7,7 +7,8 @@ fonts = {}
 images = {}
 
 def convert_to_int(*args):
-    """ Returns:
+    """
+             Returns:
             list[int]: each arg as an int"""
 
     return_value = []
@@ -87,7 +88,8 @@ def set_up_window(length, height, background_color, title):
 
 
 def key_is_pressed(keyboard_key):
-    """ Returns:
+    """
+             Returns:
             bool: if the 'keyboard_key' is currently pressed this game cycle"""
 
     game_engine_key = keyboard_keys_to_game_engine_keys.get(keyboard_key)
@@ -96,7 +98,8 @@ def key_is_pressed(keyboard_key):
     return controls[game_engine_key]
 
 def button_is_pressed(button):
-    """ Returns:
+    """
+             Returns:
             bool: if the 'button' is currently pressed this game cycle"""
 
     game_engine_button = keyboard_keys_to_game_engine_keys.get(button)
@@ -113,7 +116,8 @@ def button_is_pressed(button):
     return return_value
 
 def dpad_is_pressed(dpad_button):
-    """ Returns:
+    """
+             Returns:
             bool: if the 'dpad_button' is currently pressed this game cycle"""
 
     joystick_axis = 0
@@ -137,7 +141,8 @@ def dpad_is_pressed(dpad_button):
 
 
 def mouse_was_pressed():
-    """ Returns:
+    """
+             Returns:
             bool: whether the mouse is currently held down this game cycle"""
 
     return pygame.mouse.get_pressed()[0]
@@ -164,7 +169,8 @@ def run_checking_closing():
 
 
 def is_mouse_collision(dimensions):
-    """ Returns:
+    """
+             Returns:
             bool: whether the mouse has collided with that rectangle - dimensions (left_edge, top_edge, length, height)"""
 
     area = pygame.Rect(dimensions.left_edge, dimensions.top_edge, dimensions.length, dimensions.height)
@@ -173,7 +179,8 @@ def is_mouse_collision(dimensions):
 
 
 def get_time_passed(start_time):
-    """ Returns:
+    """
+             Returns:
             bool: the amount of time that has passed between the current time and start time"""
 
     return time.time() - start_time
@@ -190,7 +197,8 @@ def load_and_transform_image(image_path):
 
 
 def get_directional_path_to_image(base_image_path, direction_is_right, additional_path_after_direction):
-    """ Returns:
+    """
+             Returns:
             str: the path to the image that includes direction"""
 
     direction_image_path = "right" if direction_is_right else "left"

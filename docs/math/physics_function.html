@@ -158,7 +158,8 @@ class PhysicsFunction:
         return pow(int(final_velocity_squared), 1 / 2)
 
     def get_vertex(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the vertex of this physics equation&#34;&#34;&#34;
 
         return self.get_distance(self.get_time_to_vertex())
@@ -176,20 +177,23 @@ class PhysicsFunction:
         return solve_quadratic(1 / 2 * self.acceleration, self.initial_velocity, self.initial_distance - distance)
 
     def get_full_cycle_time(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the amount of time it takes the parabola to go from start_location -&gt; start_location&#34;&#34;&#34;
 
         return self.get_time_to_vertex() * 2
 
     def get_indefinite_integral_of_position_equation(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral of the position equation: x = 1/2at^2 + vt + xi&#34;&#34;&#34;
 
         a, b, c = self.get_a_b_and_c()
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
 
     def get_a_b_and_c(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c&#34;&#34;&#34;
 
         a = 1/2 * self.acceleration
@@ -199,33 +203,38 @@ class PhysicsFunction:
         return [a, b, c]
 
     def get_displacement(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
 
         indefinite_integral = self.get_indefinite_integral_of_position_equation()
         return indefinite_integral.get_y_coordinate(end_time) - indefinite_integral.get_y_coordinate(start_time)
 
     def get_indefinite_integral_of_velocity_equation(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral of the velocity equation: vt -&gt; vt^2/2&#34;&#34;&#34;
 
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(0, self.initial_velocity, 0)
 
     def get_displacement_due_to_velocity(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the displacement of the object from start_time -&gt; end_time only based upon velocity (the integral from start_time to end_time)&#34;&#34;&#34;
 
         indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
         return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
 
     def get_indefinite_integral_of_acceleration_equation(self):
-        &#34;&#34;&#34; Returns
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3&#34;&#34;&#34;
 
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(1/2 * self.acceleration, 0, 0)
 
     def get_displacement_due_to_acceleration(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the displacement of the object from start_time -&gt; end_time only based upon acceleration (the integral from start_time to end_time)&#34;&#34;&#34;
 
         indefinite_integral = self.get_indefinite_integral_of_acceleration_equation()
@@ -382,7 +391,8 @@ class PhysicsFunction:
         return pow(int(final_velocity_squared), 1 / 2)
 
     def get_vertex(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the vertex of this physics equation&#34;&#34;&#34;
 
         return self.get_distance(self.get_time_to_vertex())
@@ -400,20 +410,23 @@ class PhysicsFunction:
         return solve_quadratic(1 / 2 * self.acceleration, self.initial_velocity, self.initial_distance - distance)
 
     def get_full_cycle_time(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the amount of time it takes the parabola to go from start_location -&gt; start_location&#34;&#34;&#34;
 
         return self.get_time_to_vertex() * 2
 
     def get_indefinite_integral_of_position_equation(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral of the position equation: x = 1/2at^2 + vt + xi&#34;&#34;&#34;
 
         a, b, c = self.get_a_b_and_c()
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
 
     def get_a_b_and_c(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c&#34;&#34;&#34;
 
         a = 1/2 * self.acceleration
@@ -423,33 +436,38 @@ class PhysicsFunction:
         return [a, b, c]
 
     def get_displacement(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
 
         indefinite_integral = self.get_indefinite_integral_of_position_equation()
         return indefinite_integral.get_y_coordinate(end_time) - indefinite_integral.get_y_coordinate(start_time)
 
     def get_indefinite_integral_of_velocity_equation(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral of the velocity equation: vt -&gt; vt^2/2&#34;&#34;&#34;
 
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(0, self.initial_velocity, 0)
 
     def get_displacement_due_to_velocity(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the displacement of the object from start_time -&gt; end_time only based upon velocity (the integral from start_time to end_time)&#34;&#34;&#34;
 
         indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
         return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
 
     def get_indefinite_integral_of_acceleration_equation(self):
-        &#34;&#34;&#34; Returns
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3&#34;&#34;&#34;
 
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(1/2 * self.acceleration, 0, 0)
 
     def get_displacement_due_to_acceleration(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the displacement of the object from start_time -&gt; end_time only based upon acceleration (the integral from start_time to end_time)&#34;&#34;&#34;
 
         indefinite_integral = self.get_indefinite_integral_of_acceleration_equation()
@@ -488,14 +506,18 @@ class PhysicsFunction:
 <span>def <span class="ident">get_a_b_and_c</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[float]: {a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>{a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_a_b_and_c(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[float]: {a, b, c}; the a, b, and c values of this equation if it was in quadratic form: ax^2 + bx + c&#34;&#34;&#34;
 
     a = 1/2 * self.acceleration
@@ -509,14 +531,18 @@ list[float]: {a, b, c}; the a, b, and c values of this equation if it was in qua
 <span>def <span class="ident">get_displacement</span></span>(<span>self, start_time, end_time)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_displacement(self, start_time, end_time):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the displacement of the object from start_time -&gt; end_time (the integral from start_time to end_time)&#34;&#34;&#34;
 
     indefinite_integral = self.get_indefinite_integral_of_position_equation()
@@ -527,14 +553,18 @@ float: the displacement of the object from start_time -&gt; end_time (the integr
 <span>def <span class="ident">get_displacement_due_to_acceleration</span></span>(<span>self, start_time, end_time)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the displacement of the object from start_time -&gt; end_time only based upon acceleration (the integral from start_time to end_time)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the displacement of the object from start_time -&gt; end_time only based upon acceleration (the integral from start_time to end_time)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_displacement_due_to_acceleration(self, start_time, end_time):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the displacement of the object from start_time -&gt; end_time only based upon acceleration (the integral from start_time to end_time)&#34;&#34;&#34;
 
     indefinite_integral = self.get_indefinite_integral_of_acceleration_equation()
@@ -545,14 +575,18 @@ float: the displacement of the object from start_time -&gt; end_time only based 
 <span>def <span class="ident">get_displacement_due_to_velocity</span></span>(<span>self, start_time, end_time)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the displacement of the object from start_time -&gt; end_time only based upon velocity (the integral from start_time to end_time)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the displacement of the object from start_time -&gt; end_time only based upon velocity (the integral from start_time to end_time)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_displacement_due_to_velocity(self, start_time, end_time):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the displacement of the object from start_time -&gt; end_time only based upon velocity (the integral from start_time to end_time)&#34;&#34;&#34;
 
     indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
@@ -596,14 +630,18 @@ where a is acceleration, t is time, v is initial_velocity, and d is initial_dist
 <span>def <span class="ident">get_full_cycle_time</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the amount of time it takes the parabola to go from start_location -&gt; start_location</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the amount of time it takes the parabola to go from start_location -&gt; start_location</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_full_cycle_time(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the amount of time it takes the parabola to go from start_location -&gt; start_location&#34;&#34;&#34;
 
     return self.get_time_to_vertex() * 2</code></pre>
@@ -613,14 +651,18 @@ float: the amount of time it takes the parabola to go from start_location -&gt; 
 <span>def <span class="ident">get_indefinite_integral_of_acceleration_equation</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns
-Function: the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Function</code></dt>
+<dd>the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_indefinite_integral_of_acceleration_equation(self):
-    &#34;&#34;&#34; Returns
+    &#34;&#34;&#34;
+         Returns:
             Function: the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/6at^3&#34;&#34;&#34;
 
     return QuadraticFunction.get_indefinite_integral_using_quadratic_form(1/2 * self.acceleration, 0, 0)</code></pre>
@@ -630,14 +672,18 @@ Function: the indefinite integral of the acceleration equation: 1/2at^2 -&gt; 1/
 <span>def <span class="ident">get_indefinite_integral_of_position_equation</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Function: the indefinite integral of the position equation: x = 1/2at^2 + vt + xi</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Function</code></dt>
+<dd>the indefinite integral of the position equation: x = 1/2at^2 + vt + xi</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_indefinite_integral_of_position_equation(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Function: the indefinite integral of the position equation: x = 1/2at^2 + vt + xi&#34;&#34;&#34;
 
     a, b, c = self.get_a_b_and_c()
@@ -648,14 +694,18 @@ Function: the indefinite integral of the position equation: x = 1/2at^2 + vt + x
 <span>def <span class="ident">get_indefinite_integral_of_velocity_equation</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Function: the indefinite integral of the velocity equation: vt -&gt; vt^2/2</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Function</code></dt>
+<dd>the indefinite integral of the velocity equation: vt -&gt; vt^2/2</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_indefinite_integral_of_velocity_equation(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Function: the indefinite integral of the velocity equation: vt -&gt; vt^2/2&#34;&#34;&#34;
 
     return QuadraticFunction.get_indefinite_integral_using_quadratic_form(0, self.initial_velocity, 0)</code></pre>
@@ -792,14 +842,18 @@ to find the initial_velocity</p>
 <span>def <span class="ident">get_vertex</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the vertex of this physics equation</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the vertex of this physics equation</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vertex(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the vertex of this physics equation&#34;&#34;&#34;
 
     return self.get_distance(self.get_time_to_vertex())</code></pre>

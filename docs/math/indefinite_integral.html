@@ -41,7 +41,8 @@ class IndefiniteIntegral:
         self.indefinite_integral = indefinite_integral
 
     def evaluate(self, start, end) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
         return self.indefinite_integral.get_y_coordinate(end) - self.indefinite_integral.get_y_coordinate(start)
@@ -53,7 +54,8 @@ class IndefiniteIntegral:
 
     @staticmethod
     def get_polynomial_indefinite_integral(polynomial):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral of the polynomial (does not modify the passed in polynomial)&#34;&#34;&#34;
 
         new_terms = []
@@ -69,7 +71,8 @@ class IndefiniteIntegral:
 
     @staticmethod
     def evaluate_polynomial_area(polynomial, start, end) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the area of the polynomial within the bounds of start and end&#34;&#34;&#34;
 
         integral_function = IndefiniteIntegral.get_polynomial_indefinite_integral(polynomial)
@@ -107,7 +110,8 @@ class IndefiniteIntegral:
         self.indefinite_integral = indefinite_integral
 
     def evaluate(self, start, end) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
         return self.indefinite_integral.get_y_coordinate(end) - self.indefinite_integral.get_y_coordinate(start)
@@ -119,7 +123,8 @@ class IndefiniteIntegral:
 
     @staticmethod
     def get_polynomial_indefinite_integral(polynomial):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral of the polynomial (does not modify the passed in polynomial)&#34;&#34;&#34;
 
         new_terms = []
@@ -135,7 +140,8 @@ class IndefiniteIntegral:
 
     @staticmethod
     def evaluate_polynomial_area(polynomial, start, end) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the area of the polynomial within the bounds of start and end&#34;&#34;&#34;
 
         integral_function = IndefiniteIntegral.get_polynomial_indefinite_integral(polynomial)
@@ -154,15 +160,19 @@ class IndefiniteIntegral:
 <span>def <span class="ident">evaluate_polynomial_area</span></span>(<span>polynomial, start, end) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the area of the polynomial within the bounds of start and end</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the area of the polynomial within the bounds of start and end</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def evaluate_polynomial_area(polynomial, start, end) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the area of the polynomial within the bounds of start and end&#34;&#34;&#34;
 
     integral_function = IndefiniteIntegral.get_polynomial_indefinite_integral(polynomial)
@@ -173,15 +183,19 @@ def evaluate_polynomial_area(polynomial, start, end) -&gt; float:
 <span>def <span class="ident">get_polynomial_indefinite_integral</span></span>(<span>polynomial)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Function: the indefinite integral of the polynomial (does not modify the passed in polynomial)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Function</code></dt>
+<dd>the indefinite integral of the polynomial (does not modify the passed in polynomial)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def get_polynomial_indefinite_integral(polynomial):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Function: the indefinite integral of the polynomial (does not modify the passed in polynomial)&#34;&#34;&#34;
 
     new_terms = []
@@ -203,14 +217,18 @@ def get_polynomial_indefinite_integral(polynomial):
 <span>def <span class="ident">evaluate</span></span>(<span>self, start, end) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the value gotten from using the bounds for the indefinite integral</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value gotten from using the bounds for the indefinite integral</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def evaluate(self, start, end) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
     return self.indefinite_integral.get_y_coordinate(end) - self.indefinite_integral.get_y_coordinate(start)</code></pre>

@@ -124,7 +124,8 @@
         self.set_is_active(False)
 
     def get_is_active(self):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
             boolean; whether the function is active. If it is not active, all functions that return a boolean
             will return False and the event cannot be mutated. If it is active, all operations behave &#39;normally&#39;&#34;&#34;&#34;
 
@@ -146,31 +147,36 @@
         self.set_is_infinite(True)
 
     def get_is_infinite(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
             boolean; whether this event is infinite (if it is infinite it cannot be completed)&#34;&#34;&#34;
 
         return self.is_infinite
 
     def current_count_is_positive(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 boolean: whether the positive (count &gt; 0)&#34;&#34;&#34;
 
         return self.current_count &gt; 0 and self.is_active
 
     def current_count_is_negative(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 boolean: whether the count is negative (count &lt; 0)&#34;&#34;&#34;
 
         return self.current_count &lt; 0 and self.is_active
     
     def get_count_needed(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 int: the number of times this event must happen to be done&#34;&#34;&#34;
 
         return self.count_needed
 
     def get_current_count(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 int: the current count of this event&#34;&#34;&#34;
 
         return self.current_count</code></pre>
@@ -303,7 +309,8 @@ the event is no longer mutable.</p>
         self.set_is_active(False)
 
     def get_is_active(self):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
             boolean; whether the function is active. If it is not active, all functions that return a boolean
             will return False and the event cannot be mutated. If it is active, all operations behave &#39;normally&#39;&#34;&#34;&#34;
 
@@ -325,31 +332,36 @@ the event is no longer mutable.</p>
         self.set_is_infinite(True)
 
     def get_is_infinite(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
             boolean; whether this event is infinite (if it is infinite it cannot be completed)&#34;&#34;&#34;
 
         return self.is_infinite
 
     def current_count_is_positive(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 boolean: whether the positive (count &gt; 0)&#34;&#34;&#34;
 
         return self.current_count &gt; 0 and self.is_active
 
     def current_count_is_negative(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 boolean: whether the count is negative (count &lt; 0)&#34;&#34;&#34;
 
         return self.current_count &lt; 0 and self.is_active
     
     def get_count_needed(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 int: the number of times this event must happen to be done&#34;&#34;&#34;
 
         return self.count_needed
 
     def get_current_count(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 int: the current count of this event&#34;&#34;&#34;
 
         return self.current_count</code></pre>
@@ -396,14 +408,18 @@ event cannot be mutated. If it is active, all operations behave 'normally'</p></
 <span>def <span class="ident">current_count_is_negative</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-boolean: whether the count is negative (count &lt; 0)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>whether the count is negative (count &lt; 0)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def current_count_is_negative(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             boolean: whether the count is negative (count &lt; 0)&#34;&#34;&#34;
 
     return self.current_count &lt; 0 and self.is_active</code></pre>
@@ -413,14 +429,18 @@ boolean: whether the count is negative (count &lt; 0)</p></div>
 <span>def <span class="ident">current_count_is_positive</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-boolean: whether the positive (count &gt; 0)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>whether the positive (count &gt; 0)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def current_count_is_positive(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             boolean: whether the positive (count &gt; 0)&#34;&#34;&#34;
 
     return self.current_count &gt; 0 and self.is_active</code></pre>
@@ -479,14 +499,18 @@ event cannot be mutated. If it is active, all operations behave 'normally'</p></
 <span>def <span class="ident">get_count_needed</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-int: the number of times this event must happen to be done</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>the number of times this event must happen to be done</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_count_needed(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             int: the number of times this event must happen to be done&#34;&#34;&#34;
 
     return self.count_needed</code></pre>
@@ -496,14 +520,18 @@ int: the number of times this event must happen to be done</p></div>
 <span>def <span class="ident">get_current_count</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-int: the current count of this event</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>the current count of this event</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_current_count(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             int: the current count of this event&#34;&#34;&#34;
 
     return self.current_count</code></pre>
@@ -521,7 +549,8 @@ will return False and the event cannot be mutated. If it is active, all operatio
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_is_active(self):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
         boolean; whether the function is active. If it is not active, all functions that return a boolean
         will return False and the event cannot be mutated. If it is active, all operations behave &#39;normally&#39;&#34;&#34;&#34;
 
@@ -539,7 +568,8 @@ boolean; whether this event is infinite (if it is infinite it cannot be complete
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_is_infinite(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
         boolean; whether this event is infinite (if it is infinite it cannot be completed)&#34;&#34;&#34;
 
     return self.is_infinite</code></pre>

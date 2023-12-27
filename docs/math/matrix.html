@@ -49,13 +49,15 @@ class Matrix:
         return self
 
     def get_vector_with_backing_list(self, backing_list):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: a matrix with the provided backing list&#34;&#34;&#34;
 
         return self.get_copy().set_backing_list(backing_list)
 
     def get_backing_list(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[object]: the n x m backing list&#34;&#34;&#34;
 
         return self.backing_list
@@ -87,7 +89,8 @@ class Matrix:
         return self
 
     def get_added_matrix(self, other_matrix):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from adding the other matrix to this matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().add(other_matrix)
@@ -108,7 +111,8 @@ class Matrix:
         return self
 
     def get_subtracted_matrix(self, other_matrix):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from subtracting the other matrix from this matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().subtract(other_matrix)
@@ -126,7 +130,8 @@ class Matrix:
         return self
 
     def get_constant_subtracted_matrix(self, constant):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from subtracting a constant from all values in this matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().subtract_constant(constant)
@@ -144,7 +149,8 @@ class Matrix:
         return self
 
     def get_constant_added_matrix(self, constant):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from adding a constant to all values in this matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().add_constant(constant)
@@ -162,7 +168,8 @@ class Matrix:
         return self
 
     def get_scalar_multiplied_matrix(self, scalar):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from multiplying all values in this matrix by a scalar (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().multiply_by_scalar(scalar)
@@ -183,7 +190,8 @@ class Matrix:
         return self
 
     def get_hadamard_product_matrix(self, other_matrix):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from the Hadamard product of this matrix with another matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().hadamard_product(other_matrix)
@@ -214,7 +222,8 @@ class Matrix:
         return self.hadamard_product(other_matrix)
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the copy of the current matrix&#34;&#34;&#34;
 
         list_copy = deepcopy(self.backing_list)
@@ -261,13 +270,15 @@ class Matrix:
         return self
 
     def get_vector_with_backing_list(self, backing_list):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: a matrix with the provided backing list&#34;&#34;&#34;
 
         return self.get_copy().set_backing_list(backing_list)
 
     def get_backing_list(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[object]: the n x m backing list&#34;&#34;&#34;
 
         return self.backing_list
@@ -299,7 +310,8 @@ class Matrix:
         return self
 
     def get_added_matrix(self, other_matrix):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from adding the other matrix to this matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().add(other_matrix)
@@ -320,7 +332,8 @@ class Matrix:
         return self
 
     def get_subtracted_matrix(self, other_matrix):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from subtracting the other matrix from this matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().subtract(other_matrix)
@@ -338,7 +351,8 @@ class Matrix:
         return self
 
     def get_constant_subtracted_matrix(self, constant):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from subtracting a constant from all values in this matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().subtract_constant(constant)
@@ -356,7 +370,8 @@ class Matrix:
         return self
 
     def get_constant_added_matrix(self, constant):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from adding a constant to all values in this matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().add_constant(constant)
@@ -374,7 +389,8 @@ class Matrix:
         return self
 
     def get_scalar_multiplied_matrix(self, scalar):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from multiplying all values in this matrix by a scalar (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().multiply_by_scalar(scalar)
@@ -395,7 +411,8 @@ class Matrix:
         return self
 
     def get_hadamard_product_matrix(self, other_matrix):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the matrix that results from the Hadamard product of this matrix with another matrix (does not modify this matrix)&#34;&#34;&#34;
 
         return self.get_copy().hadamard_product(other_matrix)
@@ -426,7 +443,8 @@ class Matrix:
         return self.hadamard_product(other_matrix)
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Matrix: the copy of the current matrix&#34;&#34;&#34;
 
         list_copy = deepcopy(self.backing_list)
@@ -502,14 +520,18 @@ class Matrix:
 <span>def <span class="ident">get_added_matrix</span></span>(<span>self, other_matrix)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Matrix: the matrix that results from adding the other matrix to this matrix (does not modify this matrix)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.matrix.Matrix" href="#game_qu.math.matrix.Matrix">Matrix</a></code></dt>
+<dd>the matrix that results from adding the other matrix to this matrix (does not modify this matrix)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_added_matrix(self, other_matrix):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Matrix: the matrix that results from adding the other matrix to this matrix (does not modify this matrix)&#34;&#34;&#34;
 
     return self.get_copy().add(other_matrix)</code></pre>
@@ -519,14 +541,18 @@ Matrix: the matrix that results from adding the other matrix to this matrix (doe
 <span>def <span class="ident">get_backing_list</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[object]: the n x m backing list</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[object]</code></dt>
+<dd>the n x m backing list</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_backing_list(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[object]: the n x m backing list&#34;&#34;&#34;
 
     return self.backing_list</code></pre>
@@ -536,14 +562,18 @@ list[object]: the n x m backing list</p></div>
 <span>def <span class="ident">get_constant_added_matrix</span></span>(<span>self, constant)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Matrix: the matrix that results from adding a constant to all values in this matrix (does not modify this matrix)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.matrix.Matrix" href="#game_qu.math.matrix.Matrix">Matrix</a></code></dt>
+<dd>the matrix that results from adding a constant to all values in this matrix (does not modify this matrix)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_constant_added_matrix(self, constant):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Matrix: the matrix that results from adding a constant to all values in this matrix (does not modify this matrix)&#34;&#34;&#34;
 
     return self.get_copy().add_constant(constant)</code></pre>
@@ -553,14 +583,18 @@ Matrix: the matrix that results from adding a constant to all values in this mat
 <span>def <span class="ident">get_constant_subtracted_matrix</span></span>(<span>self, constant)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Matrix: the matrix that results from subtracting a constant from all values in this matrix (does not modify this matrix)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.matrix.Matrix" href="#game_qu.math.matrix.Matrix">Matrix</a></code></dt>
+<dd>the matrix that results from subtracting a constant from all values in this matrix (does not modify this matrix)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_constant_subtracted_matrix(self, constant):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Matrix: the matrix that results from subtracting a constant from all values in this matrix (does not modify this matrix)&#34;&#34;&#34;
 
     return self.get_copy().subtract_constant(constant)</code></pre>
@@ -570,14 +604,18 @@ Matrix: the matrix that results from subtracting a constant from all values in t
 <span>def <span class="ident">get_copy</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Matrix: the copy of the current matrix</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.matrix.Matrix" href="#game_qu.math.matrix.Matrix">Matrix</a></code></dt>
+<dd>the copy of the current matrix</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_copy(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Matrix: the copy of the current matrix&#34;&#34;&#34;
 
     list_copy = deepcopy(self.backing_list)
@@ -588,14 +626,18 @@ Matrix: the copy of the current matrix</p></div>
 <span>def <span class="ident">get_hadamard_product_matrix</span></span>(<span>self, other_matrix)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Matrix: the matrix that results from the Hadamard product of this matrix with another matrix (does not modify this matrix)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.matrix.Matrix" href="#game_qu.math.matrix.Matrix">Matrix</a></code></dt>
+<dd>the matrix that results from the Hadamard product of this matrix with another matrix (does not modify this matrix)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_hadamard_product_matrix(self, other_matrix):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Matrix: the matrix that results from the Hadamard product of this matrix with another matrix (does not modify this matrix)&#34;&#34;&#34;
 
     return self.get_copy().hadamard_product(other_matrix)</code></pre>
@@ -605,14 +647,18 @@ Matrix: the matrix that results from the Hadamard product of this matrix with an
 <span>def <span class="ident">get_scalar_multiplied_matrix</span></span>(<span>self, scalar)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Matrix: the matrix that results from multiplying all values in this matrix by a scalar (does not modify this matrix)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.matrix.Matrix" href="#game_qu.math.matrix.Matrix">Matrix</a></code></dt>
+<dd>the matrix that results from multiplying all values in this matrix by a scalar (does not modify this matrix)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_scalar_multiplied_matrix(self, scalar):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Matrix: the matrix that results from multiplying all values in this matrix by a scalar (does not modify this matrix)&#34;&#34;&#34;
 
     return self.get_copy().multiply_by_scalar(scalar)</code></pre>
@@ -622,14 +668,18 @@ Matrix: the matrix that results from multiplying all values in this matrix by a 
 <span>def <span class="ident">get_subtracted_matrix</span></span>(<span>self, other_matrix)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Matrix: the matrix that results from subtracting the other matrix from this matrix (does not modify this matrix)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.matrix.Matrix" href="#game_qu.math.matrix.Matrix">Matrix</a></code></dt>
+<dd>the matrix that results from subtracting the other matrix from this matrix (does not modify this matrix)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_subtracted_matrix(self, other_matrix):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Matrix: the matrix that results from subtracting the other matrix from this matrix (does not modify this matrix)&#34;&#34;&#34;
 
     return self.get_copy().subtract(other_matrix)</code></pre>
@@ -639,14 +689,18 @@ Matrix: the matrix that results from subtracting the other matrix from this matr
 <span>def <span class="ident">get_vector_with_backing_list</span></span>(<span>self, backing_list)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Matrix: a matrix with the provided backing list</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.matrix.Matrix" href="#game_qu.math.matrix.Matrix">Matrix</a></code></dt>
+<dd>a matrix with the provided backing list</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_vector_with_backing_list(self, backing_list):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Matrix: a matrix with the provided backing list&#34;&#34;&#34;
 
     return self.get_copy().set_backing_list(backing_list)</code></pre>

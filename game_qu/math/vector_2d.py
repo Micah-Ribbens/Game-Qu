@@ -38,7 +38,8 @@ class Vector2D:
         return self
 
     def get_vector_with_x_and_y_magnitude(self, x_magnitude, y_magnitude):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: the vector with that specific x and y magnitude (this does not modify the current vector) """
 
         return self.get_copy().set_x_and_y_magnitude(x_magnitude, y_magnitude)
@@ -57,7 +58,8 @@ class Vector2D:
         return self
 
     def get_vector_with_magnitude_and_angle(self, angle, magnitude):
-        """  Returns:
+        """ 
+            Returns:
                 Vector2D: the vector with that specific magnitude and angle (this does not modify the current vector) """
 
         return self.get_copy().set_magnitude_and_angle(angle, magnitude)
@@ -71,7 +73,8 @@ class Vector2D:
         return self.set_magnitude_and_angle(angle, self.magnitude)
 
     def get_vector_with_angle(self, angle):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: the vector with that specific angle (this does not modify the current vector) """
 
         return self.get_copy().set_angle(angle)
@@ -85,7 +88,8 @@ class Vector2D:
         return self.set_magnitude_and_angle(self.angle, magnitude)
 
     def get_vector_with_magnitude(self, magnitude):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: the vector with that specific magnitude (this does not modify the current vector) """
 
         return self.get_copy().set_magnitude(magnitude)
@@ -99,7 +103,8 @@ class Vector2D:
         return self.set_x_and_y_magnitude(x_magnitude, self.y_magnitude)
 
     def get_vector_with_x_magnitude(self, x_magnitude):
-        """  Returns:
+        """
+             Returns:
                 Vector2D: the vector with that specific x magnitude (this does not modify the current vector) """
 
         return self.get_copy().set_x_magnitude(x_magnitude)
@@ -113,7 +118,8 @@ class Vector2D:
         return self.set_x_and_y_magnitude(self.x_magnitude, y_magnitude)
 
     def get_vector_with_y_magnitude(self, y_magnitude):
-        """  Returns:
+        """
+             Returns:
                 Vector2D: the vector with that specific y magnitude (this does not modify the current vector) """
 
         return self.get_copy().set_y_magnitude(y_magnitude)
@@ -131,13 +137,15 @@ class Vector2D:
         return self
 
     def get_normalized(self):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: the normalized version of this vector"""
 
         return self.get_copy().normalize()
 
     def get_copy(self):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: the copy of the current vector"""
 
         return Vector2D(self.angle, self.magnitude)
@@ -154,7 +162,8 @@ class Vector2D:
         return self
 
     def get_added_vector(self, other_vector):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: a new vector that is the result of adding another vector to this vector (does not modify the current vector)"""
 
         return self.get_copy().add(other_vector)
@@ -171,7 +180,8 @@ class Vector2D:
         return self
 
     def get_subtracted_vector(self, other_vector):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: the vector that results from subtracting the other vector from this vector (does not modify the current vector)"""
 
         return self.get_copy().subtract(other_vector)
@@ -187,7 +197,8 @@ class Vector2D:
         return self
 
     def get_vector_multiplied_by_scalar(self, scalar):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: a new vector that is the result of multiplying this vector by a scalar (does not modify the current vector)"""
 
         return self.get_copy().multiply_by_scalar(scalar)
@@ -204,7 +215,8 @@ class Vector2D:
         return self
 
     def get_hadamard_product(self, other_vector):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: a new vector that is the result of performing a hadamard product on this vector (does not modify the current vector)"""
 
         return self.get_copy().hadamard_product(other_vector)
@@ -220,7 +232,8 @@ class Vector2D:
         return self
 
     def get_rotated_vector(self, angle):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: the vector that results from rotating the current vector counter-clockwise by 'angle' (does not modify the current vector)"""
 
         return self.get_copy().rotate_vector(angle)
@@ -235,38 +248,44 @@ class Vector2D:
         return self
 
     def get_inverted_direction_vector(self):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: the vector that results from rotating the current vector clockwise by pi degrees (does not modify the current vector)"""
 
         return self.get_copy().invert_vector_direction()
 
     def dot_product(self, other_vector):
-        """ Returns:
+        """
+             Returns:
                 float: the dot product of these two vectors"""
 
         return (other_vector.get_x_magnitude() * self.x_magnitude +
                 other_vector.get_y_magnitude() * self.y_magnitude)
 
     def equals(self, other_vector):
-        """ Returns:
+        """
+             Returns:
                 boolean: whether the other vector equals this vector"""
 
         return other_vector.get_angle() == self.angle and other_vector.get_magnitude() == self.magnitude
 
     def __add__(self, other_vector):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: The resulting vector from adding 'self' to 'other_vector'"""
 
         return self.get_added_vector(other_vector)
 
     def __sub__(self, other_vector):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: The resulting vector from subtracting 'other_vector' from 'self'"""
 
         return self.get_subtracted_vector(other_vector)
 
     def __mul__(self, other_vector):
-        """ Returns:
+        """
+             Returns:
                 Vector2D: The resulting vector from adding 'self' to 'other_vector'"""
 
         return self.get_hadamard_product(other_vector)

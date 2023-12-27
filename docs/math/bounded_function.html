@@ -46,13 +46,15 @@ class BoundedFunction(Function):
         self.set_function(function)
 
     def get_min_x_coordinate(self) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the minimum x coordinate&#34;&#34;&#34;
 
         return self.min_x_coordinate
 
     def get_max_x_coordinate(self) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the maximum x coordinate&#34;&#34;&#34;
 
         return self.max_x_coordinate
@@ -67,7 +69,8 @@ class BoundedFunction(Function):
         return self
 
     def get_bounded_function_with_min_x_coordinate(self, min_x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the specified min_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_min_x_coordinate(min_x_coordinate)
@@ -82,7 +85,8 @@ class BoundedFunction(Function):
         return self
 
     def get_bounded_function_with_max_x_coordinate(self, max_x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the specified max_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_max_x_coordinate(max_x_coordinate)
@@ -99,25 +103,29 @@ class BoundedFunction(Function):
         return self
 
     def get_bounded_function_with_bounds(self, min_x_coordinate, max_x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the specified bounds (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_bounds(min_x_coordinate, max_x_coordinate)
 
     def get_coordinates(self) -&gt; tuple:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 tuple: (min_x_coordinate, max_x_coordinate)&#34;&#34;&#34;
 
         return self.min_x_coordinate, self.max_x_coordinate
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
             BoundedFunction; a copy of the bounded function&#34;&#34;&#34;
 
         return BoundedFunction(self.min_x_coordinate, self.max_x_coordinate)
 
     def get_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 function: the stored function&#34;&#34;&#34;
 
         return self.current_function
@@ -133,13 +141,15 @@ class BoundedFunction(Function):
         return self
 
     def get_bounded_function_with_function(self, function):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the underlying function being &#39;function&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_function(function)
 
     def get_is_repeating(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 boolean: whether the function repeats&#34;&#34;&#34;
 
         return self.is_repeating
@@ -154,19 +164,22 @@ class BoundedFunction(Function):
         return self
 
     def get_bounded_function_with_is_repeating(self, is_repeating):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the is repeating attribute set to &#39;is_repeating&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_is_repeating(is_repeating)
 
     def get_x_coordinates_can_be_less_than_min(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether the x coordinates this function accepts can be less than the min x coordinate&#34;&#34;&#34;
 
         return self.x_coordinates_can_be_less_than_min
 
     def set_x_coordinates_can_be_less_than_min(self, x_coordinates_can_be_less_than_min):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: sets whether the x coordinates this function accepts can be less than the min x coordinate
                 returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
 
@@ -181,7 +194,8 @@ class BoundedFunction(Function):
         return self
 
     def get_full_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PiecewiseFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
                 x coordinate&#34;&#34;&#34;
 
@@ -204,13 +218,15 @@ class BoundedFunction(Function):
             self.current_function = self.unmodified_function
 
     def get_bounded_function_with_x_coordinates_less_than_min(self, x_coordinates_can_be_less_than_min):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the is repeating attribute set to &#39;x_coordinates_can_be_less_than_min&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)
 
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y_coordinate associated with that value&#34;&#34;&#34;
 
         if not self.is_repeating and not is_within_bounds(x_coordinate, self.min_x_coordinate, self.max_x_coordinate):
@@ -219,32 +235,37 @@ class BoundedFunction(Function):
         return self.current_function.get_y_coordinate(x_coordinate)
 
     def get_x_coordinate(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the x coordinate associated with that y coordinate (raises a ValueError if the function does
                 not implement the get_inverse_function() method&#34;&#34;&#34;
 
         return self.current_function.get_x_coordinate(y_coordinate)
 
     def get_bounds(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {min_x_coordinate, max_x_coordinate}; the bounds of the function&#34;&#34;&#34;
 
         return [self.min_x_coordinate, self.max_x_coordinate]
 
     def bounds_size(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the size of the bounds (max - min)&#34;&#34;&#34;
 
         return self.max_x_coordinate - self.min_x_coordinate
 
     def get_min(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value of the function at the min x coordinate&#34;&#34;&#34;
 
         return self.current_function.get_y_coordinate(self.min_x_coordinate)
 
     def get_max(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value of the function at the max x coordinate&#34;&#34;&#34;
 
         return self.current_function.get_y_coordinate(self.max_x_coordinate)
@@ -259,7 +280,8 @@ class BoundedFunction(Function):
         return self.current_function.get_indefinite_integral()
 
     def evaluate_area(self, start, end):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
         return self.get_indefinite_integral().evaluate(start, end)
@@ -274,7 +296,8 @@ class BoundedFunction(Function):
         return self.current_function.get_derivative()
 
     def evaluate_derivative_at_point(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
 
         return self.get_derivative().evaluate(x_coordinate)</code></pre>
@@ -316,13 +339,15 @@ Only 'get_y_coordinate' must be implemented</p>
         self.set_function(function)
 
     def get_min_x_coordinate(self) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the minimum x coordinate&#34;&#34;&#34;
 
         return self.min_x_coordinate
 
     def get_max_x_coordinate(self) -&gt; float:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the maximum x coordinate&#34;&#34;&#34;
 
         return self.max_x_coordinate
@@ -337,7 +362,8 @@ Only 'get_y_coordinate' must be implemented</p>
         return self
 
     def get_bounded_function_with_min_x_coordinate(self, min_x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the specified min_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_min_x_coordinate(min_x_coordinate)
@@ -352,7 +378,8 @@ Only 'get_y_coordinate' must be implemented</p>
         return self
 
     def get_bounded_function_with_max_x_coordinate(self, max_x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the specified max_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_max_x_coordinate(max_x_coordinate)
@@ -369,25 +396,29 @@ Only 'get_y_coordinate' must be implemented</p>
         return self
 
     def get_bounded_function_with_bounds(self, min_x_coordinate, max_x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the specified bounds (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_bounds(min_x_coordinate, max_x_coordinate)
 
     def get_coordinates(self) -&gt; tuple:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 tuple: (min_x_coordinate, max_x_coordinate)&#34;&#34;&#34;
 
         return self.min_x_coordinate, self.max_x_coordinate
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
             BoundedFunction; a copy of the bounded function&#34;&#34;&#34;
 
         return BoundedFunction(self.min_x_coordinate, self.max_x_coordinate)
 
     def get_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 function: the stored function&#34;&#34;&#34;
 
         return self.current_function
@@ -403,13 +434,15 @@ Only 'get_y_coordinate' must be implemented</p>
         return self
 
     def get_bounded_function_with_function(self, function):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the underlying function being &#39;function&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_function(function)
 
     def get_is_repeating(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 boolean: whether the function repeats&#34;&#34;&#34;
 
         return self.is_repeating
@@ -424,19 +457,22 @@ Only 'get_y_coordinate' must be implemented</p>
         return self
 
     def get_bounded_function_with_is_repeating(self, is_repeating):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the is repeating attribute set to &#39;is_repeating&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_is_repeating(is_repeating)
 
     def get_x_coordinates_can_be_less_than_min(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: whether the x coordinates this function accepts can be less than the min x coordinate&#34;&#34;&#34;
 
         return self.x_coordinates_can_be_less_than_min
 
     def set_x_coordinates_can_be_less_than_min(self, x_coordinates_can_be_less_than_min):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: sets whether the x coordinates this function accepts can be less than the min x coordinate
                 returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
 
@@ -451,7 +487,8 @@ Only 'get_y_coordinate' must be implemented</p>
         return self
 
     def get_full_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PiecewiseFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
                 x coordinate&#34;&#34;&#34;
 
@@ -474,13 +511,15 @@ Only 'get_y_coordinate' must be implemented</p>
             self.current_function = self.unmodified_function
 
     def get_bounded_function_with_x_coordinates_less_than_min(self, x_coordinates_can_be_less_than_min):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 BoundedFunction: a bounded function with the is repeating attribute set to &#39;x_coordinates_can_be_less_than_min&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)
 
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y_coordinate associated with that value&#34;&#34;&#34;
 
         if not self.is_repeating and not is_within_bounds(x_coordinate, self.min_x_coordinate, self.max_x_coordinate):
@@ -489,32 +528,37 @@ Only 'get_y_coordinate' must be implemented</p>
         return self.current_function.get_y_coordinate(x_coordinate)
 
     def get_x_coordinate(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the x coordinate associated with that y coordinate (raises a ValueError if the function does
                 not implement the get_inverse_function() method&#34;&#34;&#34;
 
         return self.current_function.get_x_coordinate(y_coordinate)
 
     def get_bounds(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {min_x_coordinate, max_x_coordinate}; the bounds of the function&#34;&#34;&#34;
 
         return [self.min_x_coordinate, self.max_x_coordinate]
 
     def bounds_size(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the size of the bounds (max - min)&#34;&#34;&#34;
 
         return self.max_x_coordinate - self.min_x_coordinate
 
     def get_min(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value of the function at the min x coordinate&#34;&#34;&#34;
 
         return self.current_function.get_y_coordinate(self.min_x_coordinate)
 
     def get_max(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value of the function at the max x coordinate&#34;&#34;&#34;
 
         return self.current_function.get_y_coordinate(self.max_x_coordinate)
@@ -529,7 +573,8 @@ Only 'get_y_coordinate' must be implemented</p>
         return self.current_function.get_indefinite_integral()
 
     def evaluate_area(self, start, end):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
         return self.get_indefinite_integral().evaluate(start, end)
@@ -544,7 +589,8 @@ Only 'get_y_coordinate' must be implemented</p>
         return self.current_function.get_derivative()
 
     def evaluate_derivative_at_point(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
 
         return self.get_derivative().evaluate(x_coordinate)</code></pre>
@@ -587,14 +633,18 @@ Only 'get_y_coordinate' must be implemented</p>
 <span>def <span class="ident">bounds_size</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the size of the bounds (max - min)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the size of the bounds (max - min)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def bounds_size(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the size of the bounds (max - min)&#34;&#34;&#34;
 
     return self.max_x_coordinate - self.min_x_coordinate</code></pre>
@@ -604,14 +654,18 @@ float: the size of the bounds (max - min)</p></div>
 <span>def <span class="ident">evaluate_area</span></span>(<span>self, start, end)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the value gotten from using the bounds for the indefinite integral</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value gotten from using the bounds for the indefinite integral</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def evaluate_area(self, start, end):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the value gotten from using the bounds for the indefinite integral&#34;&#34;&#34;
 
     return self.get_indefinite_integral().evaluate(start, end)</code></pre>
@@ -621,14 +675,18 @@ float: the value gotten from using the bounds for the indefinite integral</p></d
 <span>def <span class="ident">evaluate_derivative_at_point</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the value of the derivative evaluated at the 'x_coordinate'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value of the derivative evaluated at the 'x_coordinate'</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def evaluate_derivative_at_point(self, x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
 
     return self.get_derivative().evaluate(x_coordinate)</code></pre>
@@ -638,14 +696,18 @@ float: the value of the derivative evaluated at the 'x_coordinate'</p></div>
 <span>def <span class="ident">get_bounded_function_with_bounds</span></span>(<span>self, min_x_coordinate, max_x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-BoundedFunction: a bounded function with the specified bounds (does not modify the current bounded function)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.bounded_function.BoundedFunction" href="#game_qu.math.bounded_function.BoundedFunction">BoundedFunction</a></code></dt>
+<dd>a bounded function with the specified bounds (does not modify the current bounded function)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_bounded_function_with_bounds(self, min_x_coordinate, max_x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             BoundedFunction: a bounded function with the specified bounds (does not modify the current bounded function)&#34;&#34;&#34;
 
     return self.get_copy().set_bounds(min_x_coordinate, max_x_coordinate)</code></pre>
@@ -655,14 +717,18 @@ BoundedFunction: a bounded function with the specified bounds (does not modify t
 <span>def <span class="ident">get_bounded_function_with_function</span></span>(<span>self, function)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-BoundedFunction: a bounded function with the underlying function being 'function' (does not modify the current bounded function)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.bounded_function.BoundedFunction" href="#game_qu.math.bounded_function.BoundedFunction">BoundedFunction</a></code></dt>
+<dd>a bounded function with the underlying function being 'function' (does not modify the current bounded function)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_bounded_function_with_function(self, function):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             BoundedFunction: a bounded function with the underlying function being &#39;function&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
     return self.get_copy().set_function(function)</code></pre>
@@ -672,14 +738,18 @@ BoundedFunction: a bounded function with the underlying function being 'function
 <span>def <span class="ident">get_bounded_function_with_is_repeating</span></span>(<span>self, is_repeating)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-BoundedFunction: a bounded function with the is repeating attribute set to 'is_repeating' (does not modify the current bounded function)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.bounded_function.BoundedFunction" href="#game_qu.math.bounded_function.BoundedFunction">BoundedFunction</a></code></dt>
+<dd>a bounded function with the is repeating attribute set to 'is_repeating' (does not modify the current bounded function)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_bounded_function_with_is_repeating(self, is_repeating):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             BoundedFunction: a bounded function with the is repeating attribute set to &#39;is_repeating&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
     return self.get_copy().set_is_repeating(is_repeating)</code></pre>
@@ -689,14 +759,18 @@ BoundedFunction: a bounded function with the is repeating attribute set to 'is_r
 <span>def <span class="ident">get_bounded_function_with_max_x_coordinate</span></span>(<span>self, max_x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-BoundedFunction: a bounded function with the specified max_x_coordinate (does not modify the current bounded function)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.bounded_function.BoundedFunction" href="#game_qu.math.bounded_function.BoundedFunction">BoundedFunction</a></code></dt>
+<dd>a bounded function with the specified max_x_coordinate (does not modify the current bounded function)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_bounded_function_with_max_x_coordinate(self, max_x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             BoundedFunction: a bounded function with the specified max_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
 
     return self.get_copy().set_max_x_coordinate(max_x_coordinate)</code></pre>
@@ -706,14 +780,18 @@ BoundedFunction: a bounded function with the specified max_x_coordinate (does no
 <span>def <span class="ident">get_bounded_function_with_min_x_coordinate</span></span>(<span>self, min_x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-BoundedFunction: a bounded function with the specified min_x_coordinate (does not modify the current bounded function)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.bounded_function.BoundedFunction" href="#game_qu.math.bounded_function.BoundedFunction">BoundedFunction</a></code></dt>
+<dd>a bounded function with the specified min_x_coordinate (does not modify the current bounded function)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_bounded_function_with_min_x_coordinate(self, min_x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             BoundedFunction: a bounded function with the specified min_x_coordinate (does not modify the current bounded function)&#34;&#34;&#34;
 
     return self.get_copy().set_min_x_coordinate(min_x_coordinate)</code></pre>
@@ -723,14 +801,18 @@ BoundedFunction: a bounded function with the specified min_x_coordinate (does no
 <span>def <span class="ident">get_bounded_function_with_x_coordinates_less_than_min</span></span>(<span>self, x_coordinates_can_be_less_than_min)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-BoundedFunction: a bounded function with the is repeating attribute set to 'x_coordinates_can_be_less_than_min' (does not modify the current bounded function)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.bounded_function.BoundedFunction" href="#game_qu.math.bounded_function.BoundedFunction">BoundedFunction</a></code></dt>
+<dd>a bounded function with the is repeating attribute set to 'x_coordinates_can_be_less_than_min' (does not modify the current bounded function)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_bounded_function_with_x_coordinates_less_than_min(self, x_coordinates_can_be_less_than_min):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             BoundedFunction: a bounded function with the is repeating attribute set to &#39;x_coordinates_can_be_less_than_min&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
     return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)</code></pre>
@@ -740,14 +822,18 @@ BoundedFunction: a bounded function with the is repeating attribute set to 'x_co
 <span>def <span class="ident">get_bounds</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[float]: {min_x_coordinate, max_x_coordinate}; the bounds of the function</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>{min_x_coordinate, max_x_coordinate}; the bounds of the function</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_bounds(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[float]: {min_x_coordinate, max_x_coordinate}; the bounds of the function&#34;&#34;&#34;
 
     return [self.min_x_coordinate, self.max_x_coordinate]</code></pre>
@@ -757,14 +843,18 @@ list[float]: {min_x_coordinate, max_x_coordinate}; the bounds of the function</p
 <span>def <span class="ident">get_coordinates</span></span>(<span>self) ‑> tuple</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-tuple: (min_x_coordinate, max_x_coordinate)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>(min_x_coordinate, max_x_coordinate)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_coordinates(self) -&gt; tuple:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             tuple: (min_x_coordinate, max_x_coordinate)&#34;&#34;&#34;
 
     return self.min_x_coordinate, self.max_x_coordinate</code></pre>
@@ -781,7 +871,8 @@ BoundedFunction; a copy of the bounded function</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_copy(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
         BoundedFunction; a copy of the bounded function&#34;&#34;&#34;
 
     return BoundedFunction(self.min_x_coordinate, self.max_x_coordinate)</code></pre>
@@ -816,15 +907,19 @@ method: 'get_derivative'</p>
 <span>def <span class="ident">get_full_function</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-PiecewiseFunction: the fully 'unbounded' function - x coordinates can now be less than the min x
-x coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>PiecewiseFunction</code></dt>
+<dd>the fully 'unbounded' function - x coordinates can now be less than the min x</dd>
+</dl>
+<p>x coordinate</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_full_function(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             PiecewiseFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
             x coordinate&#34;&#34;&#34;
 
@@ -842,14 +937,18 @@ x coordinate</p></div>
 <span>def <span class="ident">get_function</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-function: the stored function</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>function</code></dt>
+<dd>the stored function</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_function(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             function: the stored function&#34;&#34;&#34;
 
     return self.current_function</code></pre>
@@ -884,14 +983,18 @@ method: 'get_indefinite_integral'</p>
 <span>def <span class="ident">get_is_repeating</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-boolean: whether the function repeats</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>boolean</code></dt>
+<dd>whether the function repeats</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_is_repeating(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             boolean: whether the function repeats&#34;&#34;&#34;
 
     return self.is_repeating</code></pre>
@@ -901,14 +1004,18 @@ boolean: whether the function repeats</p></div>
 <span>def <span class="ident">get_max</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the value of the function at the max x coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value of the function at the max x coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_max(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the value of the function at the max x coordinate&#34;&#34;&#34;
 
     return self.current_function.get_y_coordinate(self.max_x_coordinate)</code></pre>
@@ -918,14 +1025,18 @@ float: the value of the function at the max x coordinate</p></div>
 <span>def <span class="ident">get_max_x_coordinate</span></span>(<span>self) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the maximum x coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the maximum x coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_max_x_coordinate(self) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the maximum x coordinate&#34;&#34;&#34;
 
     return self.max_x_coordinate</code></pre>
@@ -935,14 +1046,18 @@ float: the maximum x coordinate</p></div>
 <span>def <span class="ident">get_min</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the value of the function at the min x coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value of the function at the min x coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_min(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the value of the function at the min x coordinate&#34;&#34;&#34;
 
     return self.current_function.get_y_coordinate(self.min_x_coordinate)</code></pre>
@@ -952,14 +1067,18 @@ float: the value of the function at the min x coordinate</p></div>
 <span>def <span class="ident">get_min_x_coordinate</span></span>(<span>self) ‑> float</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the minimum x coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the minimum x coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_min_x_coordinate(self) -&gt; float:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the minimum x coordinate&#34;&#34;&#34;
 
     return self.min_x_coordinate</code></pre>
@@ -969,15 +1088,19 @@ float: the minimum x coordinate</p></div>
 <span>def <span class="ident">get_x_coordinate</span></span>(<span>self, y_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the x coordinate associated with that y coordinate (raises a ValueError if the function does
-not implement the get_inverse_function() method</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the x coordinate associated with that y coordinate (raises a ValueError if the function does</dd>
+</dl>
+<p>not implement the get_inverse_function() method</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_x_coordinate(self, y_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the x coordinate associated with that y coordinate (raises a ValueError if the function does
             not implement the get_inverse_function() method&#34;&#34;&#34;
 
@@ -988,14 +1111,18 @@ not implement the get_inverse_function() method</p></div>
 <span>def <span class="ident">get_x_coordinates_can_be_less_than_min</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: whether the x coordinates this function accepts can be less than the min x coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>whether the x coordinates this function accepts can be less than the min x coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_x_coordinates_can_be_less_than_min(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: whether the x coordinates this function accepts can be less than the min x coordinate&#34;&#34;&#34;
 
     return self.x_coordinates_can_be_less_than_min</code></pre>
@@ -1005,14 +1132,18 @@ bool: whether the x coordinates this function accepts can be less than the min x
 <span>def <span class="ident">get_y_coordinate</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the y_coordinate associated with that value</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the y_coordinate associated with that value</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_y_coordinate(self, x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the y_coordinate associated with that value&#34;&#34;&#34;
 
     if not self.is_repeating and not is_within_bounds(x_coordinate, self.min_x_coordinate, self.max_x_coordinate):
@@ -1148,15 +1279,20 @@ float: the y_coordinate associated with that value</p></div>
 <span>def <span class="ident">set_x_coordinates_can_be_less_than_min</span></span>(<span>self, x_coordinates_can_be_less_than_min)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: sets whether the x coordinates this function accepts can be less than the min x coordinate
-returns: BoundedFunction; 'self'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>sets whether the x coordinates this function accepts can be less than the min x coordinate</dd>
+<dt><code>returns</code></dt>
+<dd>BoundedFunction; 'self'</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def set_x_coordinates_can_be_less_than_min(self, x_coordinates_can_be_less_than_min):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: sets whether the x coordinates this function accepts can be less than the min x coordinate
             returns: BoundedFunction; &#39;self&#39;&#34;&#34;&#34;
 

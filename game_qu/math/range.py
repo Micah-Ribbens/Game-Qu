@@ -11,7 +11,8 @@ class Range:
         self.end = end
 
     def is_less_than(self, other_range):
-        """ Returns:
+        """
+             Returns:
                 bool: if this range's start is less than the other range's start"""
 
         starts_are_equal = self.start == other_range.start
@@ -26,7 +27,8 @@ class Range:
         return return_value
 
     def get_length(self):
-        """ Returns:
+        """
+             Returns:
                 float: the length of the range (end - start)"""
 
         return self.end - self.start
@@ -37,7 +39,8 @@ class Range:
         return f"{self.start} -> {self.end}"
 
     def __contains__(self, number):
-        """ Returns:
+        """
+             Returns:
                 bool: if the number is within the range- greater than start and less than end"""
 
         return number >= self.start and number <= self.end

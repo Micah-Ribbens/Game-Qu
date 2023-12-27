@@ -103,13 +103,15 @@ class TimedEvent:
         self.variable_is_done = False
 
     def is_done(self) -&gt; bool:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the event has started and the current time is greater than the time needed&#34;&#34;&#34;
 
         return self.variable_is_done
 
     def has_finished(self) -&gt; bool:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the event has either not started or is done&#34;&#34;&#34;
 
         return not self.is_started or self.is_done()
@@ -229,13 +231,15 @@ class TimedEvent:
         self.variable_is_done = False
 
     def is_done(self) -&gt; bool:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the event has started and the current time is greater than the time needed&#34;&#34;&#34;
 
         return self.variable_is_done
 
     def has_finished(self) -&gt; bool:
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the event has either not started or is done&#34;&#34;&#34;
 
         return not self.is_started or self.is_done()
@@ -279,14 +283,18 @@ class TimedEvent:
 <span>def <span class="ident">has_finished</span></span>(<span>self) ‑> bool</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the event has either not started or is done</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the event has either not started or is done</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def has_finished(self) -&gt; bool:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the event has either not started or is done&#34;&#34;&#34;
 
     return not self.is_started or self.is_done()</code></pre>
@@ -296,14 +304,18 @@ bool: if the event has either not started or is done</p></div>
 <span>def <span class="ident">is_done</span></span>(<span>self) ‑> bool</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the event has started and the current time is greater than the time needed</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the event has started and the current time is greater than the time needed</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def is_done(self) -&gt; bool:
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the event has started and the current time is greater than the time needed&#34;&#34;&#34;
 
     return self.variable_is_done</code></pre>

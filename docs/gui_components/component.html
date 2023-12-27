@@ -93,14 +93,16 @@ class Component(Dimensions):
         self.last_frame_id_when_visible = HistoryKeeper.get_frame_id(VelocityCalculator.current_cycle_number)
 
     def got_clicked(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: the mouse is over the component and the mouse was clicked&#34;&#34;&#34;
 
         was_visible_last_cycle = self.last_frame_id_when_visible == HistoryKeeper.last_frame_id
         return mouse_is_clicked() and is_mouse_collision(self) and was_visible_last_cycle
 
     def get_scaled_dimensions(self, unscaled_length, unscaled_height):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: [scaled_length, scaled_height]; the length and height of the image that is scaled by the
                 smallest of the two, so there is no stretching&#34;&#34;&#34;
 
@@ -216,14 +218,16 @@ that components run and render methods will be called</p>
         self.last_frame_id_when_visible = HistoryKeeper.get_frame_id(VelocityCalculator.current_cycle_number)
 
     def got_clicked(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: the mouse is over the component and the mouse was clicked&#34;&#34;&#34;
 
         was_visible_last_cycle = self.last_frame_id_when_visible == HistoryKeeper.last_frame_id
         return mouse_is_clicked() and is_mouse_collision(self) and was_visible_last_cycle
 
     def get_scaled_dimensions(self, unscaled_length, unscaled_height):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: [scaled_length, scaled_height]; the length and height of the image that is scaled by the
                 smallest of the two, so there is no stretching&#34;&#34;&#34;
 
@@ -333,15 +337,19 @@ that components run and render methods will be called</p>
 <span>def <span class="ident">get_scaled_dimensions</span></span>(<span>self, unscaled_length, unscaled_height)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[float]: [scaled_length, scaled_height]; the length and height of the image that is scaled by the
-smallest of the two, so there is no stretching</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>[scaled_length, scaled_height]; the length and height of the image that is scaled by the</dd>
+</dl>
+<p>smallest of the two, so there is no stretching</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_scaled_dimensions(self, unscaled_length, unscaled_height):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[float]: [scaled_length, scaled_height]; the length and height of the image that is scaled by the
             smallest of the two, so there is no stretching&#34;&#34;&#34;
 
@@ -357,14 +365,18 @@ smallest of the two, so there is no stretching</p></div>
 <span>def <span class="ident">got_clicked</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: the mouse is over the component and the mouse was clicked</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>the mouse is over the component and the mouse was clicked</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def got_clicked(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: the mouse is over the component and the mouse was clicked&#34;&#34;&#34;
 
     was_visible_last_cycle = self.last_frame_id_when_visible == HistoryKeeper.last_frame_id

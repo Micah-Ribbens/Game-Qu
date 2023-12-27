@@ -121,7 +121,8 @@ def set_up_window(length, height, background_color, title):
     variables.WINDOW.push_handlers(variables.mouse_buttons)
 
 def key_is_pressed(keyboard_key):
-    """ Returns:
+    """
+             Returns:
             bool: if the keyboard key is currently pressed this game cycle"""
 
     game_engine_key = keyboard_keys_to_game_engine_keys.get(keyboard_key)
@@ -143,7 +144,8 @@ def _call_every_cycle(time, function):
 
 
 def is_mouse_collision(dimensions):
-    """ Returns:
+    """
+             Returns:
             bool: whether the mouse has collided with that rectangle - dimensions (left_edge, top_edge, length, height)"""
 
     mouse_left_edge, mouse_top_edge = variables.mouse_position
@@ -163,7 +165,8 @@ def get_time_passed(unused):
 
 
 def get_mouse_position():
-    """ Returns:
+    """
+             Returns:
             list[int]: the left_edge, top_edge of the mouse"""
 
     return variables.mouse_position
@@ -185,7 +188,8 @@ def on_key_press(symbol, modifiers):
 
 
 def mouse_was_pressed():
-    """ Returns:
+    """
+             Returns:
             bool: whether the mouse is currently held down this game cycle"""
 
     return variables.mouse_buttons[pyglet.window.mouse.LEFT]
@@ -202,7 +206,8 @@ def load_and_transform_image(image_path):
 
 
 def get_directional_path_to_image(base_image_path, direction_is_right, additional_path_after_direction):
-    """ Returns:
+    """
+             Returns:
             str: the path to the image that includes direction"""
 
     direction_image_path = "right" if direction_is_right else "left"

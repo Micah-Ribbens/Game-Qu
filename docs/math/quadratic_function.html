@@ -66,7 +66,8 @@ class QuadraticFunction(Function):
         return self.a * pow((x - self.h), 2) + self.k
 
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y coordinate associated with that specific x coordinate (calls &#39;get_number&#39; but this function is
                 here to keep the API the same throughout the library lifespan&#34;&#34;&#34;
 
@@ -90,7 +91,8 @@ class QuadraticFunction(Function):
         self.a = (other_point.y_coordinate - self.k) / pow((other_point.x_coordinate - self.h), 2)
 
     def get_x_coordinate(self, y_coordinate):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the positive x coordinate associated with the y_coordinate (this is arbitrarily chosen, but
                 all x coordinates can be found using &#39;get_x_coordinates&#39;&#34;&#34;&#34;
 
@@ -99,21 +101,24 @@ class QuadraticFunction(Function):
         return math.sqrt(under_sqrt) + self.h
 
     def get_x_coordinates(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: the x coordinates associated with that y coordinate (calls &#39;solve_quadratic&#39; internally)&#34;&#34;&#34;
 
         a, b, c = QuadraticFunction.get_a_b_and_c(self.h, self.k, self.a)
         return solve_quadratic(a, b, c)
 
     def get_inverted_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the inverse function&#34;&#34;&#34;
 
         return Function.get_new_function(self.get_y_coordinate)
 
     @staticmethod
     def get_a_b_and_c(h, k, a):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {a, b, c}; the values of the equation in this form: ax^2 + bx + c&#34;&#34;&#34;
 
         b = -2 * a * h
@@ -154,13 +159,15 @@ class QuadraticFunction(Function):
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
 
     def get_indefinite_integral(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral&#34;&#34;&#34;
 
         return QuadraticFunction.get_indefinite_integral_using_vertex_form(self.h, self.k, self.a)
 
     def get_area_under_curve(self, lower_bound, upper_bound):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the area under the curve of the quadratic equation from the lower bound to the upper bound&#34;&#34;&#34;
 
         indefinite_integral = self.get_indefinite_integral()
@@ -220,7 +227,8 @@ class QuadraticFunction(Function):
         return self.a * pow((x - self.h), 2) + self.k
 
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y coordinate associated with that specific x coordinate (calls &#39;get_number&#39; but this function is
                 here to keep the API the same throughout the library lifespan&#34;&#34;&#34;
 
@@ -244,7 +252,8 @@ class QuadraticFunction(Function):
         self.a = (other_point.y_coordinate - self.k) / pow((other_point.x_coordinate - self.h), 2)
 
     def get_x_coordinate(self, y_coordinate):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the positive x coordinate associated with the y_coordinate (this is arbitrarily chosen, but
                 all x coordinates can be found using &#39;get_x_coordinates&#39;&#34;&#34;&#34;
 
@@ -253,21 +262,24 @@ class QuadraticFunction(Function):
         return math.sqrt(under_sqrt) + self.h
 
     def get_x_coordinates(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: the x coordinates associated with that y coordinate (calls &#39;solve_quadratic&#39; internally)&#34;&#34;&#34;
 
         a, b, c = QuadraticFunction.get_a_b_and_c(self.h, self.k, self.a)
         return solve_quadratic(a, b, c)
 
     def get_inverted_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the inverse function&#34;&#34;&#34;
 
         return Function.get_new_function(self.get_y_coordinate)
 
     @staticmethod
     def get_a_b_and_c(h, k, a):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {a, b, c}; the values of the equation in this form: ax^2 + bx + c&#34;&#34;&#34;
 
         b = -2 * a * h
@@ -308,13 +320,15 @@ class QuadraticFunction(Function):
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
 
     def get_indefinite_integral(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the indefinite integral&#34;&#34;&#34;
 
         return QuadraticFunction.get_indefinite_integral_using_vertex_form(self.h, self.k, self.a)
 
     def get_area_under_curve(self, lower_bound, upper_bound):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the area under the curve of the quadratic equation from the lower bound to the upper bound&#34;&#34;&#34;
 
         indefinite_integral = self.get_indefinite_integral()
@@ -350,15 +364,19 @@ class QuadraticFunction(Function):
 <span>def <span class="ident">get_a_b_and_c</span></span>(<span>h, k, a)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[float]: {a, b, c}; the values of the equation in this form: ax^2 + bx + c</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>{a, b, c}; the values of the equation in this form: ax^2 + bx + c</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def get_a_b_and_c(h, k, a):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[float]: {a, b, c}; the values of the equation in this form: ax^2 + bx + c&#34;&#34;&#34;
 
     b = -2 * a * h
@@ -454,14 +472,18 @@ def get_indefinite_integral_using_vertex_form(h, k, a):
 <span>def <span class="ident">get_area_under_curve</span></span>(<span>self, lower_bound, upper_bound)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the area under the curve of the quadratic equation from the lower bound to the upper bound</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the area under the curve of the quadratic equation from the lower bound to the upper bound</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_area_under_curve(self, lower_bound, upper_bound):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the area under the curve of the quadratic equation from the lower bound to the upper bound&#34;&#34;&#34;
 
     indefinite_integral = self.get_indefinite_integral()
@@ -472,14 +494,18 @@ float: the area under the curve of the quadratic equation from the lower bound t
 <span>def <span class="ident">get_indefinite_integral</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Function: the indefinite integral</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Function</code></dt>
+<dd>the indefinite integral</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_indefinite_integral(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Function: the indefinite integral&#34;&#34;&#34;
 
     return QuadraticFunction.get_indefinite_integral_using_vertex_form(self.h, self.k, self.a)</code></pre>
@@ -489,14 +515,18 @@ Function: the indefinite integral</p></div>
 <span>def <span class="ident">get_inverted_function</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Function: the inverse function</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Function</code></dt>
+<dd>the inverse function</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_inverted_function(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Function: the inverse function&#34;&#34;&#34;
 
     return Function.get_new_function(self.get_y_coordinate)</code></pre>
@@ -538,15 +568,19 @@ Function: the inverse function</p></div>
 <span>def <span class="ident">get_x_coordinate</span></span>(<span>self, y_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the positive x coordinate associated with the y_coordinate (this is arbitrarily chosen, but
-all x coordinates can be found using 'get_x_coordinates'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the positive x coordinate associated with the y_coordinate (this is arbitrarily chosen, but</dd>
+</dl>
+<p>all x coordinates can be found using 'get_x_coordinates'</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_x_coordinate(self, y_coordinate):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the positive x coordinate associated with the y_coordinate (this is arbitrarily chosen, but
             all x coordinates can be found using &#39;get_x_coordinates&#39;&#34;&#34;&#34;
 
@@ -559,14 +593,18 @@ all x coordinates can be found using 'get_x_coordinates'</p></div>
 <span>def <span class="ident">get_x_coordinates</span></span>(<span>self, y_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[float]: the x coordinates associated with that y coordinate (calls 'solve_quadratic' internally)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>the x coordinates associated with that y coordinate (calls 'solve_quadratic' internally)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_x_coordinates(self, y_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[float]: the x coordinates associated with that y coordinate (calls &#39;solve_quadratic&#39; internally)&#34;&#34;&#34;
 
     a, b, c = QuadraticFunction.get_a_b_and_c(self.h, self.k, self.a)
@@ -577,15 +615,19 @@ list[float]: the x coordinates associated with that y coordinate (calls 'solve_q
 <span>def <span class="ident">get_y_coordinate</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the y coordinate associated with that specific x coordinate (calls 'get_number' but this function is
-here to keep the API the same throughout the library lifespan</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the y coordinate associated with that specific x coordinate (calls 'get_number' but this function is</dd>
+</dl>
+<p>here to keep the API the same throughout the library lifespan</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_y_coordinate(self, x_coordinate):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the y coordinate associated with that specific x coordinate (calls &#39;get_number&#39; but this function is
             here to keep the API the same throughout the library lifespan&#34;&#34;&#34;
 

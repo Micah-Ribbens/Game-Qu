@@ -35,26 +35,30 @@ class Function(ABC):
 
     @abstractmethod
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y coordinate associated with that x coordinate&#34;&#34;&#34;
 
         pass
 
     def get_x_coordinate(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the x coordinate associated with that y coordinate (only works if the function is invertible)&#34;&#34;&#34;
 
         return self.get_inverted_function().get_x_coordinate(y_coordinate)
 
     def get_inverted_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the inversion function of this current function. By default it raises a ValueError because not all functions will have an inverse&#34;&#34;&#34;
 
         raise ValueError(&#34;This function either has no inverse, or an inverse of this function was never calculated&#34;)
 
     @staticmethod
     def get_new_function(get_y_coordinate_method):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: a function with the get_y_coordinate method being the provided &#39;get_y_coordinate_method&#39;&#34;&#34;&#34;
 
         # Creating an inner class that implements &#39;Function&#39; and uses the &#39;get_y_coordinate_method&#39;
@@ -90,26 +94,30 @@ Only 'get_y_coordinate' must be implemented</p></div>
 
     @abstractmethod
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y coordinate associated with that x coordinate&#34;&#34;&#34;
 
         pass
 
     def get_x_coordinate(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the x coordinate associated with that y coordinate (only works if the function is invertible)&#34;&#34;&#34;
 
         return self.get_inverted_function().get_x_coordinate(y_coordinate)
 
     def get_inverted_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: the inversion function of this current function. By default it raises a ValueError because not all functions will have an inverse&#34;&#34;&#34;
 
         raise ValueError(&#34;This function either has no inverse, or an inverse of this function was never calculated&#34;)
 
     @staticmethod
     def get_new_function(get_y_coordinate_method):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Function: a function with the get_y_coordinate method being the provided &#39;get_y_coordinate_method&#39;&#34;&#34;&#34;
 
         # Creating an inner class that implements &#39;Function&#39; and uses the &#39;get_y_coordinate_method&#39;
@@ -137,15 +145,19 @@ Only 'get_y_coordinate' must be implemented</p></div>
 <span>def <span class="ident">get_new_function</span></span>(<span>get_y_coordinate_method)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Function: a function with the get_y_coordinate method being the provided 'get_y_coordinate_method'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.function.Function" href="#game_qu.math.function.Function">Function</a></code></dt>
+<dd>a function with the get_y_coordinate method being the provided 'get_y_coordinate_method'</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def get_new_function(get_y_coordinate_method):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Function: a function with the get_y_coordinate method being the provided &#39;get_y_coordinate_method&#39;&#34;&#34;&#34;
 
     # Creating an inner class that implements &#39;Function&#39; and uses the &#39;get_y_coordinate_method&#39;
@@ -163,14 +175,18 @@ def get_new_function(get_y_coordinate_method):
 <span>def <span class="ident">get_inverted_function</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Function: the inversion function of this current function. By default it raises a ValueError because not all functions will have an inverse</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.function.Function" href="#game_qu.math.function.Function">Function</a></code></dt>
+<dd>the inversion function of this current function. By default it raises a ValueError because not all functions will have an inverse</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_inverted_function(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Function: the inversion function of this current function. By default it raises a ValueError because not all functions will have an inverse&#34;&#34;&#34;
 
     raise ValueError(&#34;This function either has no inverse, or an inverse of this function was never calculated&#34;)</code></pre>
@@ -180,14 +196,18 @@ Function: the inversion function of this current function. By default it raises 
 <span>def <span class="ident">get_x_coordinate</span></span>(<span>self, y_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the x coordinate associated with that y coordinate (only works if the function is invertible)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the x coordinate associated with that y coordinate (only works if the function is invertible)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_x_coordinate(self, y_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the x coordinate associated with that y coordinate (only works if the function is invertible)&#34;&#34;&#34;
 
     return self.get_inverted_function().get_x_coordinate(y_coordinate)</code></pre>
@@ -197,15 +217,19 @@ float: the x coordinate associated with that y coordinate (only works if the fun
 <span>def <span class="ident">get_y_coordinate</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the y coordinate associated with that x coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the y coordinate associated with that x coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@abstractmethod
 def get_y_coordinate(self, x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the y coordinate associated with that x coordinate&#34;&#34;&#34;
 
     pass</code></pre>

@@ -58,19 +58,22 @@ class PiecewiseFollowablePath(FollowablePath):
         self.piecewise_function.set_x_coordinates_can_be_less_than_min(True)
 
     def get_piecewise_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PiecewiseFunction: the piecewise function that defines the path&#34;&#34;&#34;
 
         return self.piecewise_function
 
     def get_value_at_time(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
 
         return self.piecewise_function.get_y_coordinate(time)
 
     def get_delta_value(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
 
         return self.piecewise_function.evaluate_area(start_time, end_time)</code></pre>
@@ -135,19 +138,22 @@ class PiecewiseFollowablePath(FollowablePath):
         self.piecewise_function.set_x_coordinates_can_be_less_than_min(True)
 
     def get_piecewise_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 PiecewiseFunction: the piecewise function that defines the path&#34;&#34;&#34;
 
         return self.piecewise_function
 
     def get_value_at_time(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
 
         return self.piecewise_function.get_y_coordinate(time)
 
     def get_delta_value(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
 
         return self.piecewise_function.evaluate_area(start_time, end_time)</code></pre>
@@ -170,14 +176,18 @@ class PiecewiseFollowablePath(FollowablePath):
 <span>def <span class="ident">get_piecewise_function</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-PiecewiseFunction: the piecewise function that defines the path</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>PiecewiseFunction</code></dt>
+<dd>the piecewise function that defines the path</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_piecewise_function(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             PiecewiseFunction: the piecewise function that defines the path&#34;&#34;&#34;
 
     return self.piecewise_function</code></pre>

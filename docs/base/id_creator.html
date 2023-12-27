@@ -40,7 +40,8 @@ class IDCreator:
     current_unique_id_index = -1  # So when one is added it goes to index 0
 
     def get_unique_id_of_length(self, length):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 str: a unique id with the length &#39;length.&#39; IMPORTANT: it is recommended to call
                 &#39;self.get_unique_id&#39; because that method will be quicker.&#34;&#34;&#34;
 
@@ -48,7 +49,8 @@ class IDCreator:
         return get_string(self.all_chs[:length])
 
     def get_unique_id(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 str: a unique identifier&#34;&#34;&#34;
 
         self.current_unique_id_index += 1
@@ -92,7 +94,8 @@ id_creator = IDCreator()</code></pre>
     current_unique_id_index = -1  # So when one is added it goes to index 0
 
     def get_unique_id_of_length(self, length):
-        &#34;&#34;&#34;  Returns:
+        &#34;&#34;&#34;
+             Returns:
                 str: a unique id with the length &#39;length.&#39; IMPORTANT: it is recommended to call
                 &#39;self.get_unique_id&#39; because that method will be quicker.&#34;&#34;&#34;
 
@@ -100,7 +103,8 @@ id_creator = IDCreator()</code></pre>
         return get_string(self.all_chs[:length])
 
     def get_unique_id(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 str: a unique identifier&#34;&#34;&#34;
 
         self.current_unique_id_index += 1
@@ -131,14 +135,18 @@ id_creator = IDCreator()</code></pre>
 <span>def <span class="ident">get_unique_id</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-str: a unique identifier</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>a unique identifier</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_unique_id(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             str: a unique identifier&#34;&#34;&#34;
 
     self.current_unique_id_index += 1
@@ -157,15 +165,19 @@ str: a unique identifier</p></div>
 <span>def <span class="ident">get_unique_id_of_length</span></span>(<span>self, length)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-str: a unique id with the length 'length.' IMPORTANT: it is recommended to call
-'self.get_unique_id' because that method will be quicker.</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>a unique id with the length 'length.' IMPORTANT: it is recommended to call</dd>
+</dl>
+<p>'self.get_unique_id' because that method will be quicker.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_unique_id_of_length(self, length):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+         Returns:
             str: a unique id with the length &#39;length.&#39; IMPORTANT: it is recommended to call
             &#39;self.get_unique_id&#39; because that method will be quicker.&#34;&#34;&#34;
 

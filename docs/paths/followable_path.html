@@ -94,7 +94,8 @@ class FollowablePath(ABC):
         self.last_time = 0
 
     def is_done(self, should_reset=False):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the path is finished (and if &#39;should_reset&#39; it will reset it)&#34;&#34;&#34;
 
         return_value = self.current_time &gt;= self.max_time and self.has_max_time
@@ -105,7 +106,8 @@ class FollowablePath(ABC):
         return return_value
 
     def has_finished(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the path has either not started or is done&#34;&#34;&#34;
 
         return not self.is_started or self.is_done()
@@ -124,13 +126,15 @@ class FollowablePath(ABC):
 
     @abstractmethod
     def get_value_at_time(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
         pass
 
     @abstractmethod
     def get_delta_value(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
         pass
 
@@ -237,7 +241,8 @@ class FollowablePath(ABC):
         self.last_time = 0
 
     def is_done(self, should_reset=False):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the path is finished (and if &#39;should_reset&#39; it will reset it)&#34;&#34;&#34;
 
         return_value = self.current_time &gt;= self.max_time and self.has_max_time
@@ -248,7 +253,8 @@ class FollowablePath(ABC):
         return return_value
 
     def has_finished(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the path has either not started or is done&#34;&#34;&#34;
 
         return not self.is_started or self.is_done()
@@ -267,13 +273,15 @@ class FollowablePath(ABC):
 
     @abstractmethod
     def get_value_at_time(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
         pass
 
     @abstractmethod
     def get_delta_value(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
         pass
 
@@ -363,15 +371,19 @@ class FollowablePath(ABC):
 <span>def <span class="ident">get_delta_value</span></span>(<span>self, start_time, end_time)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-object: the delta value of the attribute within the domain [start_time, end_time]</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>object</code></dt>
+<dd>the delta value of the attribute within the domain [start_time, end_time]</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@abstractmethod
 def get_delta_value(self, start_time, end_time):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
     pass</code></pre>
 </details>
@@ -380,15 +392,19 @@ def get_delta_value(self, start_time, end_time):
 <span>def <span class="ident">get_value_at_time</span></span>(<span>self, time)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-object: the value of the attribute this path is modifying at 'time'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>object</code></dt>
+<dd>the value of the attribute this path is modifying at 'time'</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@abstractmethod
 def get_value_at_time(self, time):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
     pass</code></pre>
 </details>
@@ -397,14 +413,18 @@ def get_value_at_time(self, time):
 <span>def <span class="ident">has_finished</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the path has either not started or is done</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the path has either not started or is done</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def has_finished(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the path has either not started or is done&#34;&#34;&#34;
 
     return not self.is_started or self.is_done()</code></pre>
@@ -414,14 +434,18 @@ bool: if the path has either not started or is done</p></div>
 <span>def <span class="ident">is_done</span></span>(<span>self, should_reset=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the path is finished (and if 'should_reset' it will reset it)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the path is finished (and if 'should_reset' it will reset it)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def is_done(self, should_reset=False):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the path is finished (and if &#39;should_reset&#39; it will reset it)&#34;&#34;&#34;
 
     return_value = self.current_time &gt;= self.max_time and self.has_max_time

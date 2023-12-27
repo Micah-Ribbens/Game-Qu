@@ -64,7 +64,8 @@ class Keyboard:
             self.button_timed_events[button] = TimedEvent(0)
 
     def get_key_timed_event(self, key):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 TimedEvent: the TimedEvent associated with that key&#34;&#34;&#34;
 
         return_value = None
@@ -78,7 +79,8 @@ class Keyboard:
         return return_value
 
     def get_key_event(self, key):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Event: the Event associated with that key&#34;&#34;&#34;
 
         return_value = None
@@ -92,13 +94,15 @@ class Keyboard:
         return return_value
 
     def get_button_event(self, button):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Event: the Event associated with that button&#34;&#34;&#34;
 
         return self.button_events[button]
 
     def get_button_timed_event(self, button):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 TimedEvent: the TimedEvent associated with that button&#34;&#34;&#34;
 
         return self.button_timed_events[button]
@@ -188,7 +192,8 @@ but the key_events and key_timed_events from this class can also be used.</p>
             self.button_timed_events[button] = TimedEvent(0)
 
     def get_key_timed_event(self, key):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 TimedEvent: the TimedEvent associated with that key&#34;&#34;&#34;
 
         return_value = None
@@ -202,7 +207,8 @@ but the key_events and key_timed_events from this class can also be used.</p>
         return return_value
 
     def get_key_event(self, key):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Event: the Event associated with that key&#34;&#34;&#34;
 
         return_value = None
@@ -216,13 +222,15 @@ but the key_events and key_timed_events from this class can also be used.</p>
         return return_value
 
     def get_button_event(self, button):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 Event: the Event associated with that button&#34;&#34;&#34;
 
         return self.button_events[button]
 
     def get_button_timed_event(self, button):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 TimedEvent: the TimedEvent associated with that button&#34;&#34;&#34;
 
         return self.button_timed_events[button]
@@ -306,14 +314,18 @@ but the key_events and key_timed_events from this class can also be used.</p>
 <span>def <span class="ident">get_button_event</span></span>(<span>self, button)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Event: the Event associated with that button</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Event</code></dt>
+<dd>the Event associated with that button</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_button_event(self, button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Event: the Event associated with that button&#34;&#34;&#34;
 
     return self.button_events[button]</code></pre>
@@ -323,14 +335,18 @@ Event: the Event associated with that button</p></div>
 <span>def <span class="ident">get_button_timed_event</span></span>(<span>self, button)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-TimedEvent: the TimedEvent associated with that button</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>TimedEvent</code></dt>
+<dd>the TimedEvent associated with that button</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_button_timed_event(self, button):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             TimedEvent: the TimedEvent associated with that button&#34;&#34;&#34;
 
     return self.button_timed_events[button]</code></pre>
@@ -340,14 +356,18 @@ TimedEvent: the TimedEvent associated with that button</p></div>
 <span>def <span class="ident">get_key_event</span></span>(<span>self, key)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-Event: the Event associated with that key</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Event</code></dt>
+<dd>the Event associated with that key</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_key_event(self, key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             Event: the Event associated with that key&#34;&#34;&#34;
 
     return_value = None
@@ -365,14 +385,18 @@ Event: the Event associated with that key</p></div>
 <span>def <span class="ident">get_key_timed_event</span></span>(<span>self, key)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-TimedEvent: the TimedEvent associated with that key</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>TimedEvent</code></dt>
+<dd>the TimedEvent associated with that key</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_key_timed_event(self, key):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             TimedEvent: the TimedEvent associated with that key&#34;&#34;&#34;
 
     return_value = None

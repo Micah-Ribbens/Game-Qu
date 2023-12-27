@@ -73,7 +73,8 @@ class VelocityFollowablePath(FollowablePath):
         self.last_point = point
 
     def get_coordinates(self, should_increase_time=True):
-        """ Returns:
+        """
+             Returns:
                 list[float]: {left_edge, top_edge}; the coordinates at the current time - also updates the current time
                 by calling 'self.update_time' if 'should_increase_time'"""
 
@@ -96,7 +97,8 @@ class VelocityFollowablePath(FollowablePath):
             self.total_time %= max_time
 
     def get_coordinates_at_time(self, time):
-        """ Returns:
+        """
+             Returns:
                 list[float]: {left_edge, top_edge}; the coordinates at that time"""
 
         index = self.get_index_of_line(time)
@@ -106,7 +108,8 @@ class VelocityFollowablePath(FollowablePath):
         return [left_edge_line.get_y_coordinate(time), top_edge_line.get_y_coordinate(time)]
 
     def get_index_of_line(self, time):
-        """ Returns:
+        """
+             Returns:
                 int: the index of the line that the path is currently on"""
 
         return_value = len(self.left_edge_lines) - 1
@@ -127,14 +130,16 @@ class VelocityFollowablePath(FollowablePath):
         self.total_time = time % self.max_time
 
     def get_value_at_time(self, time):
-        """ Returns:
+        """
+             Returns:
                 object: the value of the attribute this path is modifying at 'time'"""
 
         return self.get_coordinates_at_time(time)[1]  # To get the y coordinate
 
 
     def get_delta_value(self, start_time, end_time):
-        """ Returns:
+        """
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]"""
 
         return self.get_value_at_time(end_time) - self.get_value_at_time(start_time)

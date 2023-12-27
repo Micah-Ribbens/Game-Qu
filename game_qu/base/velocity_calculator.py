@@ -7,20 +7,23 @@ class VelocityCalculator:
 
     @staticmethod
     def get_velocity(unit_of_measurement, amount):
-        """ Returns:
+        """
+             Returns:
                 float: (unit_of_measurement / 1000) * amount- This method breaks the unit_of_measurement into easier units to work with"""
 
         return (unit_of_measurement / 1000) * amount
 
     @staticmethod
     def get_dimension(unit_of_measurement, amount):
-        """ Returns:
+        """
+             Returns:
                 float: (unit_of_measurement / 100) * amount- This method breaks the unit_of_measurement into easier units to work with"""
         return (unit_of_measurement / 100) * amount
 
     @staticmethod
     def get_distance(velocity):
-        """ Returns:
+        """
+             Returns:
                 float: the amount of distance that has been traveled from that velocity since the last cycle (delta time * velocity)"""
 
         return velocity * VelocityCalculator.delta_time

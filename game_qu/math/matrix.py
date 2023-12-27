@@ -21,13 +21,15 @@ class Matrix:
         return self
 
     def get_vector_with_backing_list(self, backing_list):
-        """ Returns:
+        """
+             Returns:
                 Matrix: a matrix with the provided backing list"""
 
         return self.get_copy().set_backing_list(backing_list)
 
     def get_backing_list(self):
-        """ Returns:
+        """
+             Returns:
                 list[object]: the n x m backing list"""
 
         return self.backing_list
@@ -59,7 +61,8 @@ class Matrix:
         return self
 
     def get_added_matrix(self, other_matrix):
-        """ Returns:
+        """
+             Returns:
                 Matrix: the matrix that results from adding the other matrix to this matrix (does not modify this matrix)"""
 
         return self.get_copy().add(other_matrix)
@@ -80,7 +83,8 @@ class Matrix:
         return self
 
     def get_subtracted_matrix(self, other_matrix):
-        """ Returns:
+        """
+             Returns:
                 Matrix: the matrix that results from subtracting the other matrix from this matrix (does not modify this matrix)"""
 
         return self.get_copy().subtract(other_matrix)
@@ -98,7 +102,8 @@ class Matrix:
         return self
 
     def get_constant_subtracted_matrix(self, constant):
-        """ Returns:
+        """
+             Returns:
                 Matrix: the matrix that results from subtracting a constant from all values in this matrix (does not modify this matrix)"""
 
         return self.get_copy().subtract_constant(constant)
@@ -116,7 +121,8 @@ class Matrix:
         return self
 
     def get_constant_added_matrix(self, constant):
-        """ Returns:
+        """
+             Returns:
                 Matrix: the matrix that results from adding a constant to all values in this matrix (does not modify this matrix)"""
 
         return self.get_copy().add_constant(constant)
@@ -134,7 +140,8 @@ class Matrix:
         return self
 
     def get_scalar_multiplied_matrix(self, scalar):
-        """ Returns:
+        """
+             Returns:
                 Matrix: the matrix that results from multiplying all values in this matrix by a scalar (does not modify this matrix)"""
 
         return self.get_copy().multiply_by_scalar(scalar)
@@ -155,7 +162,8 @@ class Matrix:
         return self
 
     def get_hadamard_product_matrix(self, other_matrix):
-        """ Returns:
+        """
+             Returns:
                 Matrix: the matrix that results from the Hadamard product of this matrix with another matrix (does not modify this matrix)"""
 
         return self.get_copy().hadamard_product(other_matrix)
@@ -186,7 +194,8 @@ class Matrix:
         return self.hadamard_product(other_matrix)
 
     def get_copy(self):
-        """ Returns:
+        """
+             Returns:
                 Matrix: the copy of the current matrix"""
 
         list_copy = deepcopy(self.backing_list)

@@ -30,7 +30,8 @@
 
 
 def get_string(string_list):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             str: all the items of &#39;string_list&#39; combined into one string value&#34;&#34;&#34;
 
     return_value = &#34;&#34;
@@ -42,7 +43,8 @@ def get_string(string_list):
 
 
 def get_next_index(current_index, max_index):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: the index after current_index (it cycles, so once it gets beyond the max_index it goes back to 0)&#34;&#34;&#34;
 
     next_index = current_index + 1
@@ -50,7 +52,8 @@ def get_next_index(current_index, max_index):
 
 
 def get_previous_index(current_index, max_index):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: the index before current_index (it cycles, so once it gets below 0 it goes to the max_index&#34;&#34;&#34;
 
     prev_index = current_index - 1
@@ -58,7 +61,8 @@ def get_previous_index(current_index, max_index):
 
 
 def rounded(number, places):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the number rounded to that many decimal places&#34;&#34;&#34;
 
     rounded_number = int(number * pow(10, places))
@@ -98,7 +102,8 @@ def get_kwarg_item_or_default(kwargs, key, default_value):
 
 
 def solve_quadratic(a, b, c):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+             Returns:
             list[float]: [answer1, answer2] the answers to the quadratic
             and if the answer is an imaginary number it  Returns:
             float(&#39;nan&#39;)&#34;&#34;&#34;
@@ -121,7 +126,8 @@ def solve_quadratic(a, b, c):
 
 
 def min_value(item1, item2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the smallest item&#34;&#34;&#34;
 
     if item1 is None:
@@ -134,7 +140,8 @@ def min_value(item1, item2):
 
 
 def max_value(item1, item2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the biggest item&#34;&#34;&#34;
 
     if item1 is None:
@@ -234,7 +241,8 @@ int: the index after current_index (it cycles, so once it gets beyond the max_in
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_next_index(current_index, max_index):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: the index after current_index (it cycles, so once it gets beyond the max_index it goes back to 0)&#34;&#34;&#34;
 
     next_index = current_index + 1
@@ -252,7 +260,8 @@ int: the index before current_index (it cycles, so once it gets below 0 it goes 
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_previous_index(current_index, max_index):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             int: the index before current_index (it cycles, so once it gets below 0 it goes to the max_index&#34;&#34;&#34;
 
     prev_index = current_index - 1
@@ -270,7 +279,8 @@ str: all the items of 'string_list' combined into one string value</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_string(string_list):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             str: all the items of &#39;string_list&#39; combined into one string value&#34;&#34;&#34;
 
     return_value = &#34;&#34;
@@ -292,7 +302,8 @@ float: the biggest item</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def max_value(item1, item2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the biggest item&#34;&#34;&#34;
 
     if item1 is None:
@@ -315,7 +326,8 @@ float: the smallest item</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def min_value(item1, item2):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the smallest item&#34;&#34;&#34;
 
     if item1 is None:
@@ -338,7 +350,8 @@ float: the number rounded to that many decimal places</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def rounded(number, places):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+             Returns:
             float: the number rounded to that many decimal places&#34;&#34;&#34;
 
     rounded_number = int(number * pow(10, places))
@@ -361,7 +374,8 @@ float('nan')</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def solve_quadratic(a, b, c):
-    &#34;&#34;&#34;  Returns:
+    &#34;&#34;&#34;
+             Returns:
             list[float]: [answer1, answer2] the answers to the quadratic
             and if the answer is an imaginary number it  Returns:
             float(&#39;nan&#39;)&#34;&#34;&#34;

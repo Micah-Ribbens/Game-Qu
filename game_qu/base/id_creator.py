@@ -12,7 +12,8 @@ class IDCreator:
     current_unique_id_index = -1  # So when one is added it goes to index 0
 
     def get_unique_id_of_length(self, length):
-        """  Returns:
+        """
+             Returns:
                 str: a unique id with the length 'length.' IMPORTANT: it is recommended to call
                 'self.get_unique_id' because that method will be quicker."""
 
@@ -20,7 +21,8 @@ class IDCreator:
         return get_string(self.all_chs[:length])
 
     def get_unique_id(self):
-        """ Returns:
+        """
+             Returns:
                 str: a unique identifier"""
 
         self.current_unique_id_index += 1

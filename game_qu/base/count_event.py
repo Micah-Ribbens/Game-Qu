@@ -97,7 +97,8 @@ class CountEvent:
         self.set_is_active(False)
 
     def get_is_active(self):
-        """  Returns:
+        """
+             Returns:
             boolean; whether the function is active. If it is not active, all functions that return a boolean
             will return False and the event cannot be mutated. If it is active, all operations behave 'normally'"""
 
@@ -119,31 +120,36 @@ class CountEvent:
         self.set_is_infinite(True)
 
     def get_is_infinite(self):
-        """ Returns:
+        """
+             Returns:
             boolean; whether this event is infinite (if it is infinite it cannot be completed)"""
 
         return self.is_infinite
 
     def current_count_is_positive(self):
-        """ Returns:
+        """
+             Returns:
                 boolean: whether the positive (count > 0)"""
 
         return self.current_count > 0 and self.is_active
 
     def current_count_is_negative(self):
-        """ Returns:
+        """
+             Returns:
                 boolean: whether the count is negative (count < 0)"""
 
         return self.current_count < 0 and self.is_active
     
     def get_count_needed(self):
-        """ Returns:
+        """
+             Returns:
                 int: the number of times this event must happen to be done"""
 
         return self.count_needed
 
     def get_current_count(self):
-        """ Returns:
+        """
+             Returns:
                 int: the current count of this event"""
 
         return self.current_count

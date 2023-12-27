@@ -116,31 +116,36 @@ class LineSegment(Polynomial):
         self.set_line_values(self.slope, y_intercept, minimum_x, maximum_x)
 
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y_coordinate at the x_coordinate&#34;&#34;&#34;
 
         return x_coordinate * self.slope + self.y_intercept
 
     def get_x_coordinate(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the x_coordinate at the y_coordinate&#34;&#34;&#34;
 
         return (y_coordinate - self.y_intercept) / self.slope
 
     def contains_x_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the LineSegment contains the x_coordinate&#34;&#34;&#34;
 
         return x_coordinate &gt;= self.get_min_x_coordinate() and x_coordinate &lt;= self.get_max_x_coordinate()
 
     def contains_y_coordinate(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the LineSegment contains the y_coordinate&#34;&#34;&#34;
 
         return y_coordinate &gt;= self.get_min_y_coordinate() and y_coordinate &lt;= self.get_max_y_coordinate()
 
     def contains_point(self, point):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the LineSegment contains the x_coordinate, y_coordinate, and point&#34;&#34;&#34;
 
         contains_coordinates = self.contains_x_coordinate(point.x_coordinate) and self.contains_y_coordinate(point.y_coordinate)
@@ -149,19 +154,22 @@ class LineSegment(Polynomial):
         return contains_coordinates and correct_y_coordinate
 
     def slope_is_positive(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the slope is &gt;= 0&#34;&#34;&#34;
 
         return self.slope &gt;= 0
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 LineSegment: a copy of this LineSegment&#34;&#34;&#34;
 
         return LineSegment(self.start_point.get_copy(), self.end_point.get_copy())
 
     def get_inverted_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 LineSegment: the line segment that is the inverse of this function (the y coordinates map to the x coordinate)&#34;&#34;&#34;
 
         start_point = Point(self.start_point.y_coordinate, self.start_point.x_coordinate)
@@ -170,7 +178,8 @@ class LineSegment(Polynomial):
         return LineSegment(start_point, end_point)
 
     def get_bounds(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {min_x_coordinate, max_x_coordinate} of this function&#34;&#34;&#34;
 
         return [self.get_min_x_coordinate(), self.get_max_x_coordinate()]
@@ -308,31 +317,36 @@ finding where two lines collide alot easier. This function will call set_points(
         self.set_line_values(self.slope, y_intercept, minimum_x, maximum_x)
 
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y_coordinate at the x_coordinate&#34;&#34;&#34;
 
         return x_coordinate * self.slope + self.y_intercept
 
     def get_x_coordinate(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the x_coordinate at the y_coordinate&#34;&#34;&#34;
 
         return (y_coordinate - self.y_intercept) / self.slope
 
     def contains_x_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the LineSegment contains the x_coordinate&#34;&#34;&#34;
 
         return x_coordinate &gt;= self.get_min_x_coordinate() and x_coordinate &lt;= self.get_max_x_coordinate()
 
     def contains_y_coordinate(self, y_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the LineSegment contains the y_coordinate&#34;&#34;&#34;
 
         return y_coordinate &gt;= self.get_min_y_coordinate() and y_coordinate &lt;= self.get_max_y_coordinate()
 
     def contains_point(self, point):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the LineSegment contains the x_coordinate, y_coordinate, and point&#34;&#34;&#34;
 
         contains_coordinates = self.contains_x_coordinate(point.x_coordinate) and self.contains_y_coordinate(point.y_coordinate)
@@ -341,19 +355,22 @@ finding where two lines collide alot easier. This function will call set_points(
         return contains_coordinates and correct_y_coordinate
 
     def slope_is_positive(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the slope is &gt;= 0&#34;&#34;&#34;
 
         return self.slope &gt;= 0
 
     def get_copy(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 LineSegment: a copy of this LineSegment&#34;&#34;&#34;
 
         return LineSegment(self.start_point.get_copy(), self.end_point.get_copy())
 
     def get_inverted_function(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 LineSegment: the line segment that is the inverse of this function (the y coordinates map to the x coordinate)&#34;&#34;&#34;
 
         start_point = Point(self.start_point.y_coordinate, self.start_point.x_coordinate)
@@ -362,7 +379,8 @@ finding where two lines collide alot easier. This function will call set_points(
         return LineSegment(start_point, end_point)
 
     def get_bounds(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {min_x_coordinate, max_x_coordinate} of this function&#34;&#34;&#34;
 
         return [self.get_min_x_coordinate(), self.get_max_x_coordinate()]
@@ -416,14 +434,18 @@ finding where two lines collide alot easier. This function will call set_points(
 <span>def <span class="ident">contains_point</span></span>(<span>self, point)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the LineSegment contains the x_coordinate, y_coordinate, and point</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the LineSegment contains the x_coordinate, y_coordinate, and point</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def contains_point(self, point):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the LineSegment contains the x_coordinate, y_coordinate, and point&#34;&#34;&#34;
 
     contains_coordinates = self.contains_x_coordinate(point.x_coordinate) and self.contains_y_coordinate(point.y_coordinate)
@@ -436,14 +458,18 @@ bool: if the LineSegment contains the x_coordinate, y_coordinate, and point</p><
 <span>def <span class="ident">contains_x_coordinate</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the LineSegment contains the x_coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the LineSegment contains the x_coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def contains_x_coordinate(self, x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the LineSegment contains the x_coordinate&#34;&#34;&#34;
 
     return x_coordinate &gt;= self.get_min_x_coordinate() and x_coordinate &lt;= self.get_max_x_coordinate()</code></pre>
@@ -453,14 +479,18 @@ bool: if the LineSegment contains the x_coordinate</p></div>
 <span>def <span class="ident">contains_y_coordinate</span></span>(<span>self, y_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the LineSegment contains the y_coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the LineSegment contains the y_coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def contains_y_coordinate(self, y_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the LineSegment contains the y_coordinate&#34;&#34;&#34;
 
     return y_coordinate &gt;= self.get_min_y_coordinate() and y_coordinate &lt;= self.get_max_y_coordinate()</code></pre>
@@ -470,14 +500,18 @@ bool: if the LineSegment contains the y_coordinate</p></div>
 <span>def <span class="ident">get_bounds</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[float]: {min_x_coordinate, max_x_coordinate} of this function</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>{min_x_coordinate, max_x_coordinate} of this function</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_bounds(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[float]: {min_x_coordinate, max_x_coordinate} of this function&#34;&#34;&#34;
 
     return [self.get_min_x_coordinate(), self.get_max_x_coordinate()]</code></pre>
@@ -487,14 +521,18 @@ list[float]: {min_x_coordinate, max_x_coordinate} of this function</p></div>
 <span>def <span class="ident">get_copy</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-LineSegment: a copy of this LineSegment</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.line_segment.LineSegment" href="#game_qu.math.line_segment.LineSegment">LineSegment</a></code></dt>
+<dd>a copy of this LineSegment</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_copy(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             LineSegment: a copy of this LineSegment&#34;&#34;&#34;
 
     return LineSegment(self.start_point.get_copy(), self.end_point.get_copy())</code></pre>
@@ -504,14 +542,18 @@ LineSegment: a copy of this LineSegment</p></div>
 <span>def <span class="ident">get_inverted_function</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-LineSegment: the line segment that is the inverse of this function (the y coordinates map to the x coordinate)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="game_qu.math.line_segment.LineSegment" href="#game_qu.math.line_segment.LineSegment">LineSegment</a></code></dt>
+<dd>the line segment that is the inverse of this function (the y coordinates map to the x coordinate)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_inverted_function(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             LineSegment: the line segment that is the inverse of this function (the y coordinates map to the x coordinate)&#34;&#34;&#34;
 
     start_point = Point(self.start_point.y_coordinate, self.start_point.x_coordinate)
@@ -589,14 +631,18 @@ LineSegment: the line segment that is the inverse of this function (the y coordi
 <span>def <span class="ident">get_x_coordinate</span></span>(<span>self, y_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the x_coordinate at the y_coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the x_coordinate at the y_coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_x_coordinate(self, y_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the x_coordinate at the y_coordinate&#34;&#34;&#34;
 
     return (y_coordinate - self.y_intercept) / self.slope</code></pre>
@@ -606,14 +652,18 @@ float: the x_coordinate at the y_coordinate</p></div>
 <span>def <span class="ident">get_y_coordinate</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the y_coordinate at the x_coordinate</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the y_coordinate at the x_coordinate</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_y_coordinate(self, x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the y_coordinate at the x_coordinate&#34;&#34;&#34;
 
     return x_coordinate * self.slope + self.y_intercept</code></pre>
@@ -753,14 +803,18 @@ finding where two lines collide alot easier.</p>
 <span>def <span class="ident">slope_is_positive</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the slope is &gt;= 0</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the slope is &gt;= 0</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def slope_is_positive(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the slope is &gt;= 0&#34;&#34;&#34;
 
     return self.slope &gt;= 0</code></pre>

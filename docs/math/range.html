@@ -39,7 +39,8 @@
         self.end = end
 
     def is_less_than(self, other_range):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if this range&#39;s start is less than the other range&#39;s start&#34;&#34;&#34;
 
         starts_are_equal = self.start == other_range.start
@@ -54,7 +55,8 @@
         return return_value
 
     def get_length(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the length of the range (end - start)&#34;&#34;&#34;
 
         return self.end - self.start
@@ -65,7 +67,8 @@
         return f&#34;{self.start} -&gt; {self.end}&#34;
 
     def __contains__(self, number):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the number is within the range- greater than start and less than end&#34;&#34;&#34;
 
         return number &gt;= self.start and number &lt;= self.end</code></pre>
@@ -104,7 +107,8 @@
         self.end = end
 
     def is_less_than(self, other_range):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if this range&#39;s start is less than the other range&#39;s start&#34;&#34;&#34;
 
         starts_are_equal = self.start == other_range.start
@@ -119,7 +123,8 @@
         return return_value
 
     def get_length(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the length of the range (end - start)&#34;&#34;&#34;
 
         return self.end - self.start
@@ -130,7 +135,8 @@
         return f&#34;{self.start} -&gt; {self.end}&#34;
 
     def __contains__(self, number):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the number is within the range- greater than start and less than end&#34;&#34;&#34;
 
         return number &gt;= self.start and number &lt;= self.end</code></pre>
@@ -152,14 +158,18 @@
 <span>def <span class="ident">get_length</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the length of the range (end - start)</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the length of the range (end - start)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_length(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the length of the range (end - start)&#34;&#34;&#34;
 
     return self.end - self.start</code></pre>
@@ -169,14 +179,18 @@ float: the length of the range (end - start)</p></div>
 <span>def <span class="ident">is_less_than</span></span>(<span>self, other_range)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if this range's start is less than the other range's start</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if this range's start is less than the other range's start</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def is_less_than(self, other_range):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if this range&#39;s start is less than the other range&#39;s start&#34;&#34;&#34;
 
     starts_are_equal = self.start == other_range.start

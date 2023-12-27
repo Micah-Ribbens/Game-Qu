@@ -57,7 +57,8 @@ class LinearInterpolation(Function):
         self.points.append(point)
 
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y_coordinate at that x_coordinate. Or in other words, what the LineSegment that contains
                 the x_coordinate get_y_coordinate() method returns&#34;&#34;&#34;
 
@@ -71,26 +72,30 @@ class LinearInterpolation(Function):
         return y_coordinate
 
     def get_lines(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[LineSegment]: the lines of this simple path&#34;&#34;&#34;
 
         return self.lines
 
     def get_first_line(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 LineSegment: the last LineSegment of the Path&#34;&#34;&#34;
 
         return self.lines[0]
 
     def get_last_line(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 LineSegment: the last LineSegment of the Path&#34;&#34;&#34;
 
         last_index = len(self.lines) - 1
         return self.lines[last_index]
 
     def __str__(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 str: the string representation of the Path&#34;&#34;&#34;
 
         string = &#34;&#34;
@@ -100,7 +105,8 @@ class LinearInterpolation(Function):
         return string
 
     def is_moving_down(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the slope is negative for the last line that contains this specific &#39;x_coordinate&#39;&#34;&#34;&#34;
 
         return_value = None
@@ -161,7 +167,8 @@ x_coordinate (besides the first x_coordinate between adjacent lines) otherwise t
         self.points.append(point)
 
     def get_y_coordinate(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 float: the y_coordinate at that x_coordinate. Or in other words, what the LineSegment that contains
                 the x_coordinate get_y_coordinate() method returns&#34;&#34;&#34;
 
@@ -175,26 +182,30 @@ x_coordinate (besides the first x_coordinate between adjacent lines) otherwise t
         return y_coordinate
 
     def get_lines(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[LineSegment]: the lines of this simple path&#34;&#34;&#34;
 
         return self.lines
 
     def get_first_line(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 LineSegment: the last LineSegment of the Path&#34;&#34;&#34;
 
         return self.lines[0]
 
     def get_last_line(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 LineSegment: the last LineSegment of the Path&#34;&#34;&#34;
 
         last_index = len(self.lines) - 1
         return self.lines[last_index]
 
     def __str__(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 str: the string representation of the Path&#34;&#34;&#34;
 
         string = &#34;&#34;
@@ -204,7 +215,8 @@ x_coordinate (besides the first x_coordinate between adjacent lines) otherwise t
         return string
 
     def is_moving_down(self, x_coordinate):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 bool: if the slope is negative for the last line that contains this specific &#39;x_coordinate&#39;&#34;&#34;&#34;
 
         return_value = None
@@ -262,14 +274,18 @@ x_coordinate (besides the first x_coordinate between adjacent lines) otherwise t
 <span>def <span class="ident">get_first_line</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-LineSegment: the last LineSegment of the Path</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>LineSegment</code></dt>
+<dd>the last LineSegment of the Path</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_first_line(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             LineSegment: the last LineSegment of the Path&#34;&#34;&#34;
 
     return self.lines[0]</code></pre>
@@ -279,14 +295,18 @@ LineSegment: the last LineSegment of the Path</p></div>
 <span>def <span class="ident">get_last_line</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-LineSegment: the last LineSegment of the Path</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>LineSegment</code></dt>
+<dd>the last LineSegment of the Path</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_last_line(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             LineSegment: the last LineSegment of the Path&#34;&#34;&#34;
 
     last_index = len(self.lines) - 1
@@ -297,14 +317,18 @@ LineSegment: the last LineSegment of the Path</p></div>
 <span>def <span class="ident">get_lines</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[LineSegment]: the lines of this simple path</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[LineSegment]</code></dt>
+<dd>the lines of this simple path</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_lines(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[LineSegment]: the lines of this simple path&#34;&#34;&#34;
 
     return self.lines</code></pre>
@@ -314,15 +338,19 @@ list[LineSegment]: the lines of this simple path</p></div>
 <span>def <span class="ident">get_y_coordinate</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-float: the y_coordinate at that x_coordinate. Or in other words, what the LineSegment that contains
-the x_coordinate get_y_coordinate() method returns</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the y_coordinate at that x_coordinate. Or in other words, what the LineSegment that contains</dd>
+</dl>
+<p>the x_coordinate get_y_coordinate() method returns</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_y_coordinate(self, x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             float: the y_coordinate at that x_coordinate. Or in other words, what the LineSegment that contains
             the x_coordinate get_y_coordinate() method returns&#34;&#34;&#34;
 
@@ -340,14 +368,18 @@ the x_coordinate get_y_coordinate() method returns</p></div>
 <span>def <span class="ident">is_moving_down</span></span>(<span>self, x_coordinate)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-bool: if the slope is negative for the last line that contains this specific 'x_coordinate'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>if the slope is negative for the last line that contains this specific 'x_coordinate'</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def is_moving_down(self, x_coordinate):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             bool: if the slope is negative for the last line that contains this specific &#39;x_coordinate&#39;&#34;&#34;&#34;
 
     return_value = None

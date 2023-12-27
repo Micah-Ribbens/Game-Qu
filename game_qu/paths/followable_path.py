@@ -66,7 +66,8 @@ class FollowablePath(ABC):
         self.last_time = 0
 
     def is_done(self, should_reset=False):
-        """ Returns:
+        """
+             Returns:
                 bool: if the path is finished (and if 'should_reset' it will reset it)"""
 
         return_value = self.current_time >= self.max_time and self.has_max_time
@@ -77,7 +78,8 @@ class FollowablePath(ABC):
         return return_value
 
     def has_finished(self):
-        """ Returns:
+        """
+             Returns:
                 bool: if the path has either not started or is done"""
 
         return not self.is_started or self.is_done()
@@ -96,13 +98,15 @@ class FollowablePath(ABC):
 
     @abstractmethod
     def get_value_at_time(self, time):
-        """ Returns:
+        """
+             Returns:
                 object: the value of the attribute this path is modifying at 'time'"""
         pass
 
     @abstractmethod
     def get_delta_value(self, start_time, end_time):
-        """ Returns:
+        """
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]"""
         pass
 

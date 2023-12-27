@@ -101,7 +101,8 @@ class VelocityFollowablePath(FollowablePath):
         self.last_point = point
 
     def get_coordinates(self, should_increase_time=True):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {left_edge, top_edge}; the coordinates at the current time - also updates the current time
                 by calling &#39;self.update_time&#39; if &#39;should_increase_time&#39;&#34;&#34;&#34;
 
@@ -124,7 +125,8 @@ class VelocityFollowablePath(FollowablePath):
             self.total_time %= max_time
 
     def get_coordinates_at_time(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {left_edge, top_edge}; the coordinates at that time&#34;&#34;&#34;
 
         index = self.get_index_of_line(time)
@@ -134,7 +136,8 @@ class VelocityFollowablePath(FollowablePath):
         return [left_edge_line.get_y_coordinate(time), top_edge_line.get_y_coordinate(time)]
 
     def get_index_of_line(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 int: the index of the line that the path is currently on&#34;&#34;&#34;
 
         return_value = len(self.left_edge_lines) - 1
@@ -155,14 +158,16 @@ class VelocityFollowablePath(FollowablePath):
         self.total_time = time % self.max_time
 
     def get_value_at_time(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
 
         return self.get_coordinates_at_time(time)[1]  # To get the y coordinate
 
 
     def get_delta_value(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
 
         return self.get_value_at_time(end_time) - self.get_value_at_time(start_time)
@@ -273,7 +278,8 @@ class VelocityFollowablePath(FollowablePath):
         self.last_point = point
 
     def get_coordinates(self, should_increase_time=True):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {left_edge, top_edge}; the coordinates at the current time - also updates the current time
                 by calling &#39;self.update_time&#39; if &#39;should_increase_time&#39;&#34;&#34;&#34;
 
@@ -296,7 +302,8 @@ class VelocityFollowablePath(FollowablePath):
             self.total_time %= max_time
 
     def get_coordinates_at_time(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[float]: {left_edge, top_edge}; the coordinates at that time&#34;&#34;&#34;
 
         index = self.get_index_of_line(time)
@@ -306,7 +313,8 @@ class VelocityFollowablePath(FollowablePath):
         return [left_edge_line.get_y_coordinate(time), top_edge_line.get_y_coordinate(time)]
 
     def get_index_of_line(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 int: the index of the line that the path is currently on&#34;&#34;&#34;
 
         return_value = len(self.left_edge_lines) - 1
@@ -327,14 +335,16 @@ class VelocityFollowablePath(FollowablePath):
         self.total_time = time % self.max_time
 
     def get_value_at_time(self, time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
 
         return self.get_coordinates_at_time(time)[1]  # To get the y coordinate
 
 
     def get_delta_value(self, start_time, end_time):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
 
         return self.get_value_at_time(end_time) - self.get_value_at_time(start_time)
@@ -459,15 +469,19 @@ and then calls add_time_point() to add the point</p></div>
 <span>def <span class="ident">get_coordinates</span></span>(<span>self, should_increase_time=True)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[float]: {left_edge, top_edge}; the coordinates at the current time - also updates the current time
-by calling 'self.update_time' if 'should_increase_time'</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>{left_edge, top_edge}; the coordinates at the current time - also updates the current time</dd>
+</dl>
+<p>by calling 'self.update_time' if 'should_increase_time'</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_coordinates(self, should_increase_time=True):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[float]: {left_edge, top_edge}; the coordinates at the current time - also updates the current time
             by calling &#39;self.update_time&#39; if &#39;should_increase_time&#39;&#34;&#34;&#34;
 
@@ -481,14 +495,18 @@ by calling 'self.update_time' if 'should_increase_time'</p></div>
 <span>def <span class="ident">get_coordinates_at_time</span></span>(<span>self, time)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[float]: {left_edge, top_edge}; the coordinates at that time</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>{left_edge, top_edge}; the coordinates at that time</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_coordinates_at_time(self, time):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[float]: {left_edge, top_edge}; the coordinates at that time&#34;&#34;&#34;
 
     index = self.get_index_of_line(time)
@@ -502,14 +520,18 @@ list[float]: {left_edge, top_edge}; the coordinates at that time</p></div>
 <span>def <span class="ident">get_index_of_line</span></span>(<span>self, time)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-int: the index of the line that the path is currently on</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>the index of the line that the path is currently on</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_index_of_line(self, time):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             int: the index of the line that the path is currently on&#34;&#34;&#34;
 
     return_value = len(self.left_edge_lines) - 1

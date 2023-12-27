@@ -68,6 +68,7 @@ class TextBox(Component):
         self.is_rendering_background = is_rendering_background
 
     def get_is_rendering_background(self):
-        """Returns whether the background of the TextBox is being rendered"""
+        """
+             Returns whether the background of the TextBox is being rendered"""
 
         return self.is_rendering_background

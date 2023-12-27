@@ -76,7 +76,8 @@ class HistoryKeeper:
 
     @staticmethod
     def get_frame_id(cycle_number):
-        """  Returns:
+        """
+             Returns:
                 int: the identifier for that frame (the number of frames that the HistoryKeeper stores is equal to
                 'FRAMES_HISTORY_KEEPER_STORES' in base/important_variables"""
         
@@ -84,7 +85,8 @@ class HistoryKeeper:
 
     @staticmethod
     def get_all_of_name(name):
-        """ Returns:
+        """
+             Returns:
                 list[object]: all the objects in the HistoryKeeper that have the name 'name'"""
 
         return_value = {}

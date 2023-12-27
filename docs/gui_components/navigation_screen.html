@@ -108,7 +108,8 @@ class NavigationScreen(Screen):
             super().render_background()
 
     def get_components(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[Component]: the components of the currently selected_screen&#34;&#34;&#34;
 
         return self.components if self.selected_screen == self else self.selected_screen.get_components()
@@ -237,7 +238,8 @@ That will link to a specific screen (screen_names[0] -&gt; screens[0])</p>
             super().render_background()
 
     def get_components(self):
-        &#34;&#34;&#34; Returns:
+        &#34;&#34;&#34;
+             Returns:
                 list[Component]: the components of the currently selected_screen&#34;&#34;&#34;
 
         return self.components if self.selected_screen == self else self.selected_screen.get_components()
@@ -296,14 +298,18 @@ That will link to a specific screen (screen_names[0] -&gt; screens[0])</p>
 <span>def <span class="ident">get_components</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns:
-list[Component]: the components of the currently selected_screen</p></div>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[Component]</code></dt>
+<dd>the components of the currently selected_screen</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_components(self):
-    &#34;&#34;&#34; Returns:
+    &#34;&#34;&#34;
+         Returns:
             list[Component]: the components of the currently selected_screen&#34;&#34;&#34;
 
     return self.components if self.selected_screen == self else self.selected_screen.get_components()</code></pre>
