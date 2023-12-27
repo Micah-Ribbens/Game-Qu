@@ -91,7 +91,15 @@ class LibraryChanger:
 
     @staticmethod
     def set_important_constant(constant_name, constant_value):
-        &#34;&#34;&#34;Sets the value of the constant with the name &#39;constant_name&#39; to &#39;constant_value&#39;&#34;&#34;&#34;
+        &#34;&#34;&#34; Sets the value of the constant with the name &#39;constant_name&#39; to &#39;constant_value.&#39; Here is the list of all
+            the constants (from important_constants.py):
+
+            SCREEN_LENGTH = 1300
+            SCREEN_HEIGHT = 650
+            BACKGROUND_COLOR = (200, 200, 200)
+            NUMBER_OF_FRAMES_HISTORY_KEEPER_STORES = 4
+            IS_USING_CONTROLLER = False
+            DEFAULT_RENDERING_ENGINE = &#34;&#39;pygame&#39;&#34;&#34;&#34;
 
         setattr(important_constants, constant_name, constant_value)
 
@@ -182,7 +190,15 @@ from game_qu.base.library_changer import LibraryChanger, so none of the other co
 
     @staticmethod
     def set_important_constant(constant_name, constant_value):
-        &#34;&#34;&#34;Sets the value of the constant with the name &#39;constant_name&#39; to &#39;constant_value&#39;&#34;&#34;&#34;
+        &#34;&#34;&#34; Sets the value of the constant with the name &#39;constant_name&#39; to &#39;constant_value.&#39; Here is the list of all
+            the constants (from important_constants.py):
+
+            SCREEN_LENGTH = 1300
+            SCREEN_HEIGHT = 650
+            BACKGROUND_COLOR = (200, 200, 200)
+            NUMBER_OF_FRAMES_HISTORY_KEEPER_STORES = 4
+            IS_USING_CONTROLLER = False
+            DEFAULT_RENDERING_ENGINE = &#34;&#39;pygame&#39;&#34;&#34;&#34;
 
         setattr(important_constants, constant_name, constant_value)
 
@@ -279,14 +295,29 @@ def set_game_library(library_name):
 <span>def <span class="ident">set_important_constant</span></span>(<span>constant_name, constant_value)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Sets the value of the constant with the name 'constant_name' to 'constant_value'</p></div>
+<div class="desc"><p>Sets the value of the constant with the name 'constant_name' to 'constant_value.' Here is the list of all
+the constants (from important_constants.py):</p>
+<p>SCREEN_LENGTH = 1300
+SCREEN_HEIGHT = 650
+BACKGROUND_COLOR = (200, 200, 200)
+NUMBER_OF_FRAMES_HISTORY_KEEPER_STORES = 4
+IS_USING_CONTROLLER = False
+DEFAULT_RENDERING_ENGINE = "'pygame'</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def set_important_constant(constant_name, constant_value):
-    &#34;&#34;&#34;Sets the value of the constant with the name &#39;constant_name&#39; to &#39;constant_value&#39;&#34;&#34;&#34;
+    &#34;&#34;&#34; Sets the value of the constant with the name &#39;constant_name&#39; to &#39;constant_value.&#39; Here is the list of all
+        the constants (from important_constants.py):
+
+        SCREEN_LENGTH = 1300
+        SCREEN_HEIGHT = 650
+        BACKGROUND_COLOR = (200, 200, 200)
+        NUMBER_OF_FRAMES_HISTORY_KEEPER_STORES = 4
+        IS_USING_CONTROLLER = False
+        DEFAULT_RENDERING_ENGINE = &#34;&#39;pygame&#39;&#34;&#34;&#34;
 
     setattr(important_constants, constant_name, constant_value)</code></pre>
 </details>

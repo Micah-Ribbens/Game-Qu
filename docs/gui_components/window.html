@@ -72,12 +72,13 @@ class Window:
         try:
             self.screens.remove(screen)
             return True
+
         except ValueError:
             return False
 
     def display_screen(self, screen):
         &#34;&#34;&#34; Makes all the other screen&#39;s invisible by setting their &#39;is_visible&#39; attribute to False and makes the &#39;screen&#39;
-            visible by setting it&#39;s &#39;is_visible&#39; attribute set to True&#34;&#34;&#34;
+            visible by setting its &#39;is_visible&#39; attribute set to True&#34;&#34;&#34;
 
         for other_screen in self.screens:
             other_screen.hide()
@@ -215,12 +216,13 @@ class Window:
         try:
             self.screens.remove(screen)
             return True
+
         except ValueError:
             return False
 
     def display_screen(self, screen):
         &#34;&#34;&#34; Makes all the other screen&#39;s invisible by setting their &#39;is_visible&#39; attribute to False and makes the &#39;screen&#39;
-            visible by setting it&#39;s &#39;is_visible&#39; attribute set to True&#34;&#34;&#34;
+            visible by setting its &#39;is_visible&#39; attribute set to True&#34;&#34;&#34;
 
         for other_screen in self.screens:
             other_screen.hide()
@@ -343,14 +345,14 @@ class Window:
 </code></dt>
 <dd>
 <div class="desc"><p>Makes all the other screen's invisible by setting their 'is_visible' attribute to False and makes the 'screen'
-visible by setting it's 'is_visible' attribute set to True</p></div>
+visible by setting its 'is_visible' attribute set to True</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def display_screen(self, screen):
     &#34;&#34;&#34; Makes all the other screen&#39;s invisible by setting their &#39;is_visible&#39; attribute to False and makes the &#39;screen&#39;
-        visible by setting it&#39;s &#39;is_visible&#39; attribute set to True&#34;&#34;&#34;
+        visible by setting its &#39;is_visible&#39; attribute set to True&#34;&#34;&#34;
 
     for other_screen in self.screens:
         other_screen.hide()
@@ -381,6 +383,7 @@ visible by setting it's 'is_visible' attribute set to True</p></div>
     try:
         self.screens.remove(screen)
         return True
+
     except ValueError:
         return False</code></pre>
 </details>

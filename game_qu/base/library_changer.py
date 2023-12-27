@@ -63,7 +63,15 @@ class LibraryChanger:
 
     @staticmethod
     def set_important_constant(constant_name, constant_value):
-        """Sets the value of the constant with the name 'constant_name' to 'constant_value'"""
+        """ Sets the value of the constant with the name 'constant_name' to 'constant_value.' Here is the list of all
+            the constants (from important_constants.py):
+
+            SCREEN_LENGTH = 1300
+            SCREEN_HEIGHT = 650
+            BACKGROUND_COLOR = (200, 200, 200)
+            NUMBER_OF_FRAMES_HISTORY_KEEPER_STORES = 4
+            IS_USING_CONTROLLER = False
+            DEFAULT_RENDERING_ENGINE = "'pygame'"""
 
         setattr(important_constants, constant_name, constant_value)
 

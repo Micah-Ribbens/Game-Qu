@@ -37,6 +37,7 @@ images = {}
 drawable_images = {}
 text_boxes = {}
 rectangles = {}
+ellipses = {}
 
 
 def load_image(path_to_image):
@@ -123,6 +124,17 @@ def render_rectangle(left_edge, top_edge, length, height, color):
         rectangles[name] = pyglet.shapes.Rectangle(left_edge, top_edge, length, height, color=color)
 
     rectangles.get(name).draw()
+
+def render_ellipse(left_edge, top_edge, length, height, color):
+    &#34;&#34;&#34;Renders the ellipse onto the screen&#34;&#34;&#34;
+
+    top_edge, unused = get_dimensions_conversion(top_edge, height)
+    name = f&#34;{left_edge}{top_edge}{length}{height}{color}&#34;
+
+    if ellipses.get(name) is None:
+        ellipses[name] = pyglet.shapes.Ellipse(left_edge, top_edge, length, height, color=color)
+
+    ellipses.get(name).draw()
 
 def set_up_window(length, height, background_color, title):
     &#34;&#34;&#34;Initializes all the pyglet code, so the game be run and rendered&#34;&#34;&#34;
@@ -470,6 +482,27 @@ def on_mouse_motion(x, y, dx, dy):
     variables.mouse_position = [x, y]</code></pre>
 </details>
 </dd>
+<dt id="game_qu.pyglet_abstraction.utility_functions.render_ellipse"><code class="name flex">
+<span>def <span class="ident">render_ellipse</span></span>(<span>left_edge, top_edge, length, height, color)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renders the ellipse onto the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_ellipse(left_edge, top_edge, length, height, color):
+    &#34;&#34;&#34;Renders the ellipse onto the screen&#34;&#34;&#34;
+
+    top_edge, unused = get_dimensions_conversion(top_edge, height)
+    name = f&#34;{left_edge}{top_edge}{length}{height}{color}&#34;
+
+    if ellipses.get(name) is None:
+        ellipses[name] = pyglet.shapes.Ellipse(left_edge, top_edge, length, height, color=color)
+
+    ellipses.get(name).draw()</code></pre>
+</details>
+</dd>
 <dt id="game_qu.pyglet_abstraction.utility_functions.render_image"><code class="name flex">
 <span>def <span class="ident">render_image</span></span>(<span>path_to_image, left_edge, top_edge, length, height)</span>
 </code></dt>
@@ -609,6 +642,7 @@ def on_mouse_motion(x, y, dx, dy):
 <li><code><a title="game_qu.pyglet_abstraction.utility_functions.mouse_was_pressed" href="#game_qu.pyglet_abstraction.utility_functions.mouse_was_pressed">mouse_was_pressed</a></code></li>
 <li><code><a title="game_qu.pyglet_abstraction.utility_functions.on_key_press" href="#game_qu.pyglet_abstraction.utility_functions.on_key_press">on_key_press</a></code></li>
 <li><code><a title="game_qu.pyglet_abstraction.utility_functions.on_mouse_motion" href="#game_qu.pyglet_abstraction.utility_functions.on_mouse_motion">on_mouse_motion</a></code></li>
+<li><code><a title="game_qu.pyglet_abstraction.utility_functions.render_ellipse" href="#game_qu.pyglet_abstraction.utility_functions.render_ellipse">render_ellipse</a></code></li>
 <li><code><a title="game_qu.pyglet_abstraction.utility_functions.render_image" href="#game_qu.pyglet_abstraction.utility_functions.render_image">render_image</a></code></li>
 <li><code><a title="game_qu.pyglet_abstraction.utility_functions.render_rectangle" href="#game_qu.pyglet_abstraction.utility_functions.render_rectangle">render_rectangle</a></code></li>
 <li><code><a title="game_qu.pyglet_abstraction.utility_functions.render_text" href="#game_qu.pyglet_abstraction.utility_functions.render_text">render_text</a></code></li>

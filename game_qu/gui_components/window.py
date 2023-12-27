@@ -44,12 +44,13 @@ class Window:
         try:
             self.screens.remove(screen)
             return True
+
         except ValueError:
             return False
 
     def display_screen(self, screen):
         """ Makes all the other screen's invisible by setting their 'is_visible' attribute to False and makes the 'screen'
-            visible by setting it's 'is_visible' attribute set to True"""
+            visible by setting its 'is_visible' attribute set to True"""
 
         for other_screen in self.screens:
             other_screen.hide()

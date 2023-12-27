@@ -63,11 +63,19 @@ def render_image(path_to_image, left_edge, top_edge, length, height):
     image = pygame.transform.scale(image, (length, height))
     variables.window.blit(image, (left_edge, top_edge))
 
+
 def render_rectangle(left_edge, top_edge, length, height, color):
     """Renders the rectangle onto the screen"""
 
     left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
     pygame.draw.rect(variables.window, color, [left_edge, top_edge, length, height])
+
+
+def render_ellipse(left_edge, top_edge, length, height, color):
+    """Renders the elipse onto the screen"""
+
+    left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
+    pygame.draw.ellipse(variables.window, color, [left_edge, top_edge, length, height])
 
 def set_up_window(length, height, background_color, title):
     """Initializes all the pygame code, so the game be run and rendered"""

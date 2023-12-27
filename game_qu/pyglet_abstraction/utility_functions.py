@@ -9,6 +9,7 @@ images = {}
 drawable_images = {}
 text_boxes = {}
 rectangles = {}
+ellipses = {}
 
 
 def load_image(path_to_image):
@@ -95,6 +96,17 @@ def render_rectangle(left_edge, top_edge, length, height, color):
         rectangles[name] = pyglet.shapes.Rectangle(left_edge, top_edge, length, height, color=color)
 
     rectangles.get(name).draw()
+
+def render_ellipse(left_edge, top_edge, length, height, color):
+    """Renders the ellipse onto the screen"""
+
+    top_edge, unused = get_dimensions_conversion(top_edge, height)
+    name = f"{left_edge}{top_edge}{length}{height}{color}"
+
+    if ellipses.get(name) is None:
+        ellipses[name] = pyglet.shapes.Ellipse(left_edge, top_edge, length, height, color=color)
+
+    ellipses.get(name).draw()
 
 def set_up_window(length, height, background_color, title):
     """Initializes all the pyglet code, so the game be run and rendered"""

@@ -91,11 +91,19 @@ def render_image(path_to_image, left_edge, top_edge, length, height):
     image = pygame.transform.scale(image, (length, height))
     variables.window.blit(image, (left_edge, top_edge))
 
+
 def render_rectangle(left_edge, top_edge, length, height, color):
     &#34;&#34;&#34;Renders the rectangle onto the screen&#34;&#34;&#34;
 
     left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
     pygame.draw.rect(variables.window, color, [left_edge, top_edge, length, height])
+
+
+def render_ellipse(left_edge, top_edge, length, height, color):
+    &#34;&#34;&#34;Renders the elipse onto the screen&#34;&#34;&#34;
+
+    left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
+    pygame.draw.ellipse(variables.window, color, [left_edge, top_edge, length, height])
 
 def set_up_window(length, height, background_color, title):
     &#34;&#34;&#34;Initializes all the pygame code, so the game be run and rendered&#34;&#34;&#34;
@@ -486,6 +494,22 @@ bool: whether the mouse is currently held down this game cycle</p></div>
     return pygame.mouse.get_pressed()[0]</code></pre>
 </details>
 </dd>
+<dt id="game_qu.pygame_abstraction.utility_functions.render_ellipse"><code class="name flex">
+<span>def <span class="ident">render_ellipse</span></span>(<span>left_edge, top_edge, length, height, color)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renders the elipse onto the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_ellipse(left_edge, top_edge, length, height, color):
+    &#34;&#34;&#34;Renders the elipse onto the screen&#34;&#34;&#34;
+
+    left_edge, top_edge, length, height = convert_to_int(left_edge, top_edge, length, height)
+    pygame.draw.ellipse(variables.window, color, [left_edge, top_edge, length, height])</code></pre>
+</details>
+</dd>
 <dt id="game_qu.pygame_abstraction.utility_functions.render_image"><code class="name flex">
 <span>def <span class="ident">render_image</span></span>(<span>path_to_image, left_edge, top_edge, length, height)</span>
 </code></dt>
@@ -614,6 +638,7 @@ bool: whether the mouse is currently held down this game cycle</p></div>
 <li><code><a title="game_qu.pygame_abstraction.utility_functions.load_image" href="#game_qu.pygame_abstraction.utility_functions.load_image">load_image</a></code></li>
 <li><code><a title="game_qu.pygame_abstraction.utility_functions.load_text" href="#game_qu.pygame_abstraction.utility_functions.load_text">load_text</a></code></li>
 <li><code><a title="game_qu.pygame_abstraction.utility_functions.mouse_was_pressed" href="#game_qu.pygame_abstraction.utility_functions.mouse_was_pressed">mouse_was_pressed</a></code></li>
+<li><code><a title="game_qu.pygame_abstraction.utility_functions.render_ellipse" href="#game_qu.pygame_abstraction.utility_functions.render_ellipse">render_ellipse</a></code></li>
 <li><code><a title="game_qu.pygame_abstraction.utility_functions.render_image" href="#game_qu.pygame_abstraction.utility_functions.render_image">render_image</a></code></li>
 <li><code><a title="game_qu.pygame_abstraction.utility_functions.render_rectangle" href="#game_qu.pygame_abstraction.utility_functions.render_rectangle">render_rectangle</a></code></li>
 <li><code><a title="game_qu.pygame_abstraction.utility_functions.render_text" href="#game_qu.pygame_abstraction.utility_functions.render_text">render_text</a></code></li>

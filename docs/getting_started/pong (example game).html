@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>game_qu.getting_started.pong (example game) API documentation</title>
+<meta name="description" content="This is an example of a simple game of pong made using the game engine. Click the see &#39;Expand Source Code&#39; button below
+to see the code." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>game_qu.getting_started.pong (example game)</code></h1>
+</header>
+<section id="section-intro">
+<p>This is an example of a simple game of pong made using the game engine. Click the see 'Expand Source Code' button below
+to see the code.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;This is an example of a simple game of pong made using the game engine. Click the see &#39;Expand Source Code&#39; button below
+to see the code.&#34;&#34;&#34;
+
+from game_qu.base.library_changer import LibraryChanger
+from game_qu.base.colors import *
+
+# This must be before the other imports, so we can actually modify the constants. Otherwise, the constants will remain the
+# same as the default values.
+LibraryChanger.set_game_library(&#34;pygame&#34;)
+LibraryChanger.set_screen_dimensions(800, 600)
+LibraryChanger.set_background_color(black)
+
+# The rest of the imports
+from game_qu.gui_components.screen import Screen
+from game_qu.gui_components.component import Component
+from game_qu.gui_components.text_box import TextBox
+from game_qu.base.important_variables import *
+from game_qu.base.velocity_calculator import VelocityCalculator
+from game_qu.base.utility_functions import key_is_pressed, render_ellipse
+from game_qu.math.vector_2d import Vector2D
+from game_qu.base.engines import CollisionsEngine
+from game_qu.base.game_runner_function import run_game
+import math
+
+
+class Player(Component):
+    &#34;&#34;&#34;The paddles of the game of Pong&#34;&#34;&#34;
+
+    up_key = None
+    down_key = None
+    velocity = VelocityCalculator.get_velocity(SCREEN_HEIGHT, 2000)
+    length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 3.5)
+    height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 33)
+
+    def __init__(self, up_key, down_key, base_left_edge, color):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        super().__init__()
+        self.set_color(color)
+
+        self.up_key = up_key
+        self.down_key = down_key
+        self.left_edge = base_left_edge
+
+        self.reset()
+
+    def run(self):
+        &#34;&#34;&#34;Runs the movement of the player&#34;&#34;&#34;
+
+        if key_is_pressed(self.up_key):
+            self.top_edge -= VelocityCalculator.get_distance(self.velocity)
+
+        if key_is_pressed(self.down_key):
+            self.top_edge += VelocityCalculator.get_distance(self.velocity)
+
+        self.top_edge = max(0, self.top_edge)
+        self.top_edge = min(SCREEN_HEIGHT - self.height, self.top_edge)
+
+    def reset(self):
+        &#34;&#34;&#34;Resets all the variables to the start of the game&#34;&#34;&#34;
+
+        middle_of_screen = (SCREEN_HEIGHT - self.height) / 2
+        self.top_edge = middle_of_screen
+
+
+class Ball(Component):
+    &#34;&#34;&#34;The ball of the game pong&#34;&#34;&#34;
+
+    base_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 700)
+    velocity = base_velocity
+
+    # The velocity increases by 5% every time it hits the ball
+    velocity_multiplier = 1.05
+
+    length = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 6)
+    height = length
+    vector = None
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        super().__init__()
+        self.reset()  # Sets the variables to the start of the game
+
+    def reset(self):
+        &#34;&#34;&#34;Resets all the variables so they are the same as the start of the game&#34;&#34;&#34;
+
+        self.left_edge = SCREEN_LENGTH / 2
+        self.top_edge = SCREEN_HEIGHT / 2
+        self.velocity = self.base_velocity
+        self.vector = Vector2D(math.pi / 4, 1).normalize()  # A 45-degree angle upwards
+
+        self.set_color(white)
+
+    def run(self):
+        &#34;&#34;&#34;Moves the ball across the screen&#34;&#34;&#34;
+
+        # First move the ball
+        displacement_vector = self.vector.get_vector_multiplied_by_scalar(VelocityCalculator.delta_time * self.velocity)
+        self.left_edge += displacement_vector.get_x_magnitude()
+        self.top_edge += displacement_vector.get_y_magnitude()
+
+        # Then check if the ball has hit the top or bottom of the screen. This should be after movement, so the ball is
+        # always rendered within the screen (rendering is called after the run method)
+        if self.top_edge &lt; 0:
+            self.vector.set_y_magnitude(-self.vector.get_y_magnitude())
+            self.top_edge = 0
+
+        if self.bottom_edge &gt; SCREEN_HEIGHT:
+            self.vector.set_y_magnitude(-self.vector.get_y_magnitude())
+            self.set_bottom_edge(SCREEN_HEIGHT)
+
+    def change_horizontal_direction(self):
+        &#34;&#34;&#34;Changes the horizontal direction of the ball&#34;&#34;&#34;
+
+        self.vector.set_x_magnitude(-self.vector.get_x_magnitude())
+        self.velocity *= self.velocity_multiplier
+
+    def render(self):
+        &#34;&#34;&#34;Renders the ball onto the screen (renders a circle instead of the default rectangle)&#34;&#34;&#34;
+
+        render_ellipse(self.left_edge, self.top_edge, self.length, self.height, self.color)
+
+
+class MainScreen(Screen):
+    &#34;&#34;&#34;The main screen of the game. This is where the game is played&#34;&#34;&#34;
+
+    # The game objects
+    player1 = Player(KEY_W, KEY_S, 0, blue)
+    player2 = Player(KEY_UP, KEY_DOWN, SCREEN_LENGTH - Player.length, red)
+    ball = Ball()
+
+    # Keeping track of the score
+    player1_score = 0
+    player2_score = 0
+    score_text_box = TextBox(&#34;&#34;, 35, light_gray, black, True)
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        super().__init__(&#34;&#34;, light_gray)
+        self.update_score_text_box()
+        self.score_text_box.set_is_rendering_background(False)  # So the text does not have a background color under it
+        self.score_text_box.percentage_set_dimensions(20, 0, 60, 10)
+
+        # The order of the items in the list affects the order that their run method and render methods are called. The
+        # text box should be run and rendered first so the ball and players can be rendered on top of it.
+        self.components = [self.score_text_box, self.player1, self.player2, self.ball]
+
+    def run(self):
+        &#34;&#34;&#34;Runs all the collision logic&#34;&#34;&#34;
+
+        if CollisionsEngine.is_collision(self.ball, self.player1):
+            self.ball.change_horizontal_direction()
+            self.ball.set_color(self.player1.get_color())
+            self.ball.set_left_edge(self.player1.right_edge)
+
+        if CollisionsEngine.is_collision(self.ball, self.player2):
+            self.ball.change_horizontal_direction()
+            self.ball.set_color(self.player2.get_color())
+            self.ball.set_right_edge(self.player2.left_edge)
+
+        if self.ball.right_edge &lt; 0:
+            self.player2_score += 1
+            self.update_score_text_box()
+
+        if self.ball.left_edge &gt; SCREEN_LENGTH:
+            self.player1_score += 1
+            self.update_score_text_box()
+
+    def update_score_text_box(self):
+        &#34;&#34;&#34;Updates the score of the score that the game displays&#34;&#34;&#34;
+
+        score_text = f&#34;Player1: {self.player1_score}     Player2: {self.player2_score}&#34;
+        self.score_text_box.set_text(score_text)
+
+        self.player1.reset()
+        self.player2.reset()
+        self.ball.reset()
+
+
+if __name__ == &#34;__main__&#34;:
+    # Finally running the game
+    run_game(MainScreen())</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="game_qu.getting_started.pong (example game).Ball"><code class="flex name class">
+<span>class <span class="ident">Ball</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The ball of the game pong</p>
+<p>Initializes the object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Ball(Component):
+    &#34;&#34;&#34;The ball of the game pong&#34;&#34;&#34;
+
+    base_velocity = VelocityCalculator.get_velocity(SCREEN_LENGTH, 700)
+    velocity = base_velocity
+
+    # The velocity increases by 5% every time it hits the ball
+    velocity_multiplier = 1.05
+
+    length = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 6)
+    height = length
+    vector = None
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        super().__init__()
+        self.reset()  # Sets the variables to the start of the game
+
+    def reset(self):
+        &#34;&#34;&#34;Resets all the variables so they are the same as the start of the game&#34;&#34;&#34;
+
+        self.left_edge = SCREEN_LENGTH / 2
+        self.top_edge = SCREEN_HEIGHT / 2
+        self.velocity = self.base_velocity
+        self.vector = Vector2D(math.pi / 4, 1).normalize()  # A 45-degree angle upwards
+
+        self.set_color(white)
+
+    def run(self):
+        &#34;&#34;&#34;Moves the ball across the screen&#34;&#34;&#34;
+
+        # First move the ball
+        displacement_vector = self.vector.get_vector_multiplied_by_scalar(VelocityCalculator.delta_time * self.velocity)
+        self.left_edge += displacement_vector.get_x_magnitude()
+        self.top_edge += displacement_vector.get_y_magnitude()
+
+        # Then check if the ball has hit the top or bottom of the screen. This should be after movement, so the ball is
+        # always rendered within the screen (rendering is called after the run method)
+        if self.top_edge &lt; 0:
+            self.vector.set_y_magnitude(-self.vector.get_y_magnitude())
+            self.top_edge = 0
+
+        if self.bottom_edge &gt; SCREEN_HEIGHT:
+            self.vector.set_y_magnitude(-self.vector.get_y_magnitude())
+            self.set_bottom_edge(SCREEN_HEIGHT)
+
+    def change_horizontal_direction(self):
+        &#34;&#34;&#34;Changes the horizontal direction of the ball&#34;&#34;&#34;
+
+        self.vector.set_x_magnitude(-self.vector.get_x_magnitude())
+        self.velocity *= self.velocity_multiplier
+
+    def render(self):
+        &#34;&#34;&#34;Renders the ball onto the screen (renders a circle instead of the default rectangle)&#34;&#34;&#34;
+
+        render_ellipse(self.left_edge, self.top_edge, self.length, self.height, self.color)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="game_qu.gui_components.component.Component" href="../gui_components/component.html#game_qu.gui_components.component.Component">Component</a></li>
+<li><a title="game_qu.gui_components.dimensions.Dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions">Dimensions</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_qu.getting_started.pong (example game).Ball.base_velocity"><code class="name">var <span class="ident">base_velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Ball.height"><code class="name">var <span class="ident">height</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Ball.length"><code class="name">var <span class="ident">length</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Ball.vector"><code class="name">var <span class="ident">vector</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Ball.velocity"><code class="name">var <span class="ident">velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Ball.velocity_multiplier"><code class="name">var <span class="ident">velocity_multiplier</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_qu.getting_started.pong (example game).Ball.change_horizontal_direction"><code class="name flex">
+<span>def <span class="ident">change_horizontal_direction</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Changes the horizontal direction of the ball</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def change_horizontal_direction(self):
+    &#34;&#34;&#34;Changes the horizontal direction of the ball&#34;&#34;&#34;
+
+    self.vector.set_x_magnitude(-self.vector.get_x_magnitude())
+    self.velocity *= self.velocity_multiplier</code></pre>
+</details>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Ball.render"><code class="name flex">
+<span>def <span class="ident">render</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renders the ball onto the screen (renders a circle instead of the default rectangle)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render(self):
+    &#34;&#34;&#34;Renders the ball onto the screen (renders a circle instead of the default rectangle)&#34;&#34;&#34;
+
+    render_ellipse(self.left_edge, self.top_edge, self.length, self.height, self.color)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Ball.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets all the variables so they are the same as the start of the game</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;Resets all the variables so they are the same as the start of the game&#34;&#34;&#34;
+
+    self.left_edge = SCREEN_LENGTH / 2
+    self.top_edge = SCREEN_HEIGHT / 2
+    self.velocity = self.base_velocity
+    self.vector = Vector2D(math.pi / 4, 1).normalize()  # A 45-degree angle upwards
+
+    self.set_color(white)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Ball.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Moves the ball across the screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    &#34;&#34;&#34;Moves the ball across the screen&#34;&#34;&#34;
+
+    # First move the ball
+    displacement_vector = self.vector.get_vector_multiplied_by_scalar(VelocityCalculator.delta_time * self.velocity)
+    self.left_edge += displacement_vector.get_x_magnitude()
+    self.top_edge += displacement_vector.get_y_magnitude()
+
+    # Then check if the ball has hit the top or bottom of the screen. This should be after movement, so the ball is
+    # always rendered within the screen (rendering is called after the run method)
+    if self.top_edge &lt; 0:
+        self.vector.set_y_magnitude(-self.vector.get_y_magnitude())
+        self.top_edge = 0
+
+    if self.bottom_edge &gt; SCREEN_HEIGHT:
+        self.vector.set_y_magnitude(-self.vector.get_y_magnitude())
+        self.set_bottom_edge(SCREEN_HEIGHT)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="game_qu.gui_components.component.Component" href="../gui_components/component.html#game_qu.gui_components.component.Component">Component</a></b></code>:
+<ul class="hlist">
+<li><code><a title="game_qu.gui_components.component.Component.bottom_edge" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.bottom_edge">bottom_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.get_scaled_dimensions" href="../gui_components/component.html#game_qu.gui_components.component.Component.get_scaled_dimensions">get_scaled_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.got_clicked" href="../gui_components/component.html#game_qu.gui_components.component.Component.got_clicked">got_clicked</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.horizontal_midpoint" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.horizontal_midpoint">horizontal_midpoint</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.mouse_enter_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.mouse_enter_function">mouse_enter_function</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.mouse_exit_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.mouse_exit_function">mouse_exit_function</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.number_set_dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.number_set_dimensions">number_set_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.percentage_set_dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.right_edge" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.set_color" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_color">set_color</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.set_mouse_enter_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_enter_function">set_mouse_enter_function</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.set_mouse_exit_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_exit_function">set_mouse_exit_function</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.set_mouse_functions" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_functions">set_mouse_functions</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.vertical_midpoint" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.vertical_midpoint">vertical_midpoint</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).MainScreen"><code class="flex name class">
+<span>class <span class="ident">MainScreen</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The main screen of the game. This is where the game is played</p>
+<p>Initializes the object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MainScreen(Screen):
+    &#34;&#34;&#34;The main screen of the game. This is where the game is played&#34;&#34;&#34;
+
+    # The game objects
+    player1 = Player(KEY_W, KEY_S, 0, blue)
+    player2 = Player(KEY_UP, KEY_DOWN, SCREEN_LENGTH - Player.length, red)
+    ball = Ball()
+
+    # Keeping track of the score
+    player1_score = 0
+    player2_score = 0
+    score_text_box = TextBox(&#34;&#34;, 35, light_gray, black, True)
+
+    def __init__(self):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        super().__init__(&#34;&#34;, light_gray)
+        self.update_score_text_box()
+        self.score_text_box.set_is_rendering_background(False)  # So the text does not have a background color under it
+        self.score_text_box.percentage_set_dimensions(20, 0, 60, 10)
+
+        # The order of the items in the list affects the order that their run method and render methods are called. The
+        # text box should be run and rendered first so the ball and players can be rendered on top of it.
+        self.components = [self.score_text_box, self.player1, self.player2, self.ball]
+
+    def run(self):
+        &#34;&#34;&#34;Runs all the collision logic&#34;&#34;&#34;
+
+        if CollisionsEngine.is_collision(self.ball, self.player1):
+            self.ball.change_horizontal_direction()
+            self.ball.set_color(self.player1.get_color())
+            self.ball.set_left_edge(self.player1.right_edge)
+
+        if CollisionsEngine.is_collision(self.ball, self.player2):
+            self.ball.change_horizontal_direction()
+            self.ball.set_color(self.player2.get_color())
+            self.ball.set_right_edge(self.player2.left_edge)
+
+        if self.ball.right_edge &lt; 0:
+            self.player2_score += 1
+            self.update_score_text_box()
+
+        if self.ball.left_edge &gt; SCREEN_LENGTH:
+            self.player1_score += 1
+            self.update_score_text_box()
+
+    def update_score_text_box(self):
+        &#34;&#34;&#34;Updates the score of the score that the game displays&#34;&#34;&#34;
+
+        score_text = f&#34;Player1: {self.player1_score}     Player2: {self.player2_score}&#34;
+        self.score_text_box.set_text(score_text)
+
+        self.player1.reset()
+        self.player2.reset()
+        self.ball.reset()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="game_qu.gui_components.screen.Screen" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen">Screen</a></li>
+<li><a title="game_qu.gui_components.component.Component" href="../gui_components/component.html#game_qu.gui_components.component.Component">Component</a></li>
+<li><a title="game_qu.gui_components.dimensions.Dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions">Dimensions</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_qu.getting_started.pong (example game).MainScreen.ball"><code class="name">var <span class="ident">ball</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).MainScreen.player1"><code class="name">var <span class="ident">player1</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).MainScreen.player1_score"><code class="name">var <span class="ident">player1_score</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).MainScreen.player2"><code class="name">var <span class="ident">player2</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).MainScreen.player2_score"><code class="name">var <span class="ident">player2_score</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).MainScreen.score_text_box"><code class="name">var <span class="ident">score_text_box</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_qu.getting_started.pong (example game).MainScreen.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all the collision logic</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    &#34;&#34;&#34;Runs all the collision logic&#34;&#34;&#34;
+
+    if CollisionsEngine.is_collision(self.ball, self.player1):
+        self.ball.change_horizontal_direction()
+        self.ball.set_color(self.player1.get_color())
+        self.ball.set_left_edge(self.player1.right_edge)
+
+    if CollisionsEngine.is_collision(self.ball, self.player2):
+        self.ball.change_horizontal_direction()
+        self.ball.set_color(self.player2.get_color())
+        self.ball.set_right_edge(self.player2.left_edge)
+
+    if self.ball.right_edge &lt; 0:
+        self.player2_score += 1
+        self.update_score_text_box()
+
+    if self.ball.left_edge &gt; SCREEN_LENGTH:
+        self.player1_score += 1
+        self.update_score_text_box()</code></pre>
+</details>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).MainScreen.update_score_text_box"><code class="name flex">
+<span>def <span class="ident">update_score_text_box</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the score of the score that the game displays</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_score_text_box(self):
+    &#34;&#34;&#34;Updates the score of the score that the game displays&#34;&#34;&#34;
+
+    score_text = f&#34;Player1: {self.player1_score}     Player2: {self.player2_score}&#34;
+    self.score_text_box.set_text(score_text)
+
+    self.player1.reset()
+    self.player2.reset()
+    self.ball.reset()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="game_qu.gui_components.screen.Screen" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen">Screen</a></b></code>:
+<ul class="hlist">
+<li><code><a title="game_qu.gui_components.screen.Screen.bottom_edge" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.bottom_edge">bottom_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.get_components" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen.get_components">get_components</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.get_scaled_dimensions" href="../gui_components/component.html#game_qu.gui_components.component.Component.get_scaled_dimensions">get_scaled_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.got_clicked" href="../gui_components/component.html#game_qu.gui_components.component.Component.got_clicked">got_clicked</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.hide" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen.hide">hide</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.horizontal_midpoint" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.horizontal_midpoint">horizontal_midpoint</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.mouse_enter_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.mouse_enter_function">mouse_enter_function</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.mouse_exit_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.mouse_exit_function">mouse_exit_function</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.number_set_dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.number_set_dimensions">number_set_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.percentage_set_dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.render" href="../gui_components/component.html#game_qu.gui_components.component.Component.render">render</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.render_background" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen.render_background">render_background</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.right_edge" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_background_color" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen.set_background_color">set_background_color</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_color" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_color">set_color</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_is_visible" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen.set_is_visible">set_is_visible</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_mouse_enter_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_enter_function">set_mouse_enter_function</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_mouse_exit_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_exit_function">set_mouse_exit_function</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_mouse_functions" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_functions">set_mouse_functions</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.set_path_to_background_image" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen.set_path_to_background_image">set_path_to_background_image</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.show" href="../gui_components/screen.html#game_qu.gui_components.screen.Screen.show">show</a></code></li>
+<li><code><a title="game_qu.gui_components.screen.Screen.vertical_midpoint" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.vertical_midpoint">vertical_midpoint</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Player"><code class="flex name class">
+<span>class <span class="ident">Player</span></span>
+<span>(</span><span>up_key, down_key, base_left_edge, color)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The paddles of the game of Pong</p>
+<p>Initializes the object</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Player(Component):
+    &#34;&#34;&#34;The paddles of the game of Pong&#34;&#34;&#34;
+
+    up_key = None
+    down_key = None
+    velocity = VelocityCalculator.get_velocity(SCREEN_HEIGHT, 2000)
+    length = VelocityCalculator.get_dimension(SCREEN_LENGTH, 3.5)
+    height = VelocityCalculator.get_dimension(SCREEN_HEIGHT, 33)
+
+    def __init__(self, up_key, down_key, base_left_edge, color):
+        &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
+
+        super().__init__()
+        self.set_color(color)
+
+        self.up_key = up_key
+        self.down_key = down_key
+        self.left_edge = base_left_edge
+
+        self.reset()
+
+    def run(self):
+        &#34;&#34;&#34;Runs the movement of the player&#34;&#34;&#34;
+
+        if key_is_pressed(self.up_key):
+            self.top_edge -= VelocityCalculator.get_distance(self.velocity)
+
+        if key_is_pressed(self.down_key):
+            self.top_edge += VelocityCalculator.get_distance(self.velocity)
+
+        self.top_edge = max(0, self.top_edge)
+        self.top_edge = min(SCREEN_HEIGHT - self.height, self.top_edge)
+
+    def reset(self):
+        &#34;&#34;&#34;Resets all the variables to the start of the game&#34;&#34;&#34;
+
+        middle_of_screen = (SCREEN_HEIGHT - self.height) / 2
+        self.top_edge = middle_of_screen</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="game_qu.gui_components.component.Component" href="../gui_components/component.html#game_qu.gui_components.component.Component">Component</a></li>
+<li><a title="game_qu.gui_components.dimensions.Dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions">Dimensions</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_qu.getting_started.pong (example game).Player.down_key"><code class="name">var <span class="ident">down_key</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Player.height"><code class="name">var <span class="ident">height</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Player.length"><code class="name">var <span class="ident">length</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Player.up_key"><code class="name">var <span class="ident">up_key</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Player.velocity"><code class="name">var <span class="ident">velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_qu.getting_started.pong (example game).Player.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets all the variables to the start of the game</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;Resets all the variables to the start of the game&#34;&#34;&#34;
+
+    middle_of_screen = (SCREEN_HEIGHT - self.height) / 2
+    self.top_edge = middle_of_screen</code></pre>
+</details>
+</dd>
+<dt id="game_qu.getting_started.pong (example game).Player.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs the movement of the player</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    &#34;&#34;&#34;Runs the movement of the player&#34;&#34;&#34;
+
+    if key_is_pressed(self.up_key):
+        self.top_edge -= VelocityCalculator.get_distance(self.velocity)
+
+    if key_is_pressed(self.down_key):
+        self.top_edge += VelocityCalculator.get_distance(self.velocity)
+
+    self.top_edge = max(0, self.top_edge)
+    self.top_edge = min(SCREEN_HEIGHT - self.height, self.top_edge)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="game_qu.gui_components.component.Component" href="../gui_components/component.html#game_qu.gui_components.component.Component">Component</a></b></code>:
+<ul class="hlist">
+<li><code><a title="game_qu.gui_components.component.Component.bottom_edge" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.bottom_edge">bottom_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.get_scaled_dimensions" href="../gui_components/component.html#game_qu.gui_components.component.Component.get_scaled_dimensions">get_scaled_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.got_clicked" href="../gui_components/component.html#game_qu.gui_components.component.Component.got_clicked">got_clicked</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.horizontal_midpoint" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.horizontal_midpoint">horizontal_midpoint</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.mouse_enter_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.mouse_enter_function">mouse_enter_function</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.mouse_exit_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.mouse_exit_function">mouse_exit_function</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.number_set_dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.number_set_dimensions">number_set_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.percentage_set_dimensions" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.render" href="../gui_components/component.html#game_qu.gui_components.component.Component.render">render</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.right_edge" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.set_color" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_color">set_color</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.set_mouse_enter_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_enter_function">set_mouse_enter_function</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.set_mouse_exit_function" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_exit_function">set_mouse_exit_function</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.set_mouse_functions" href="../gui_components/component.html#game_qu.gui_components.component.Component.set_mouse_functions">set_mouse_functions</a></code></li>
+<li><code><a title="game_qu.gui_components.component.Component.vertical_midpoint" href="../gui_components/dimensions.html#game_qu.gui_components.dimensions.Dimensions.vertical_midpoint">vertical_midpoint</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="game_qu.getting_started" href="index.html">game_qu.getting_started</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="game_qu.getting_started.pong (example game).Ball" href="#game_qu.getting_started.pong (example game).Ball">Ball</a></code></h4>
+<ul class="">
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.base_velocity" href="#game_qu.getting_started.pong (example game).Ball.base_velocity">base_velocity</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.change_horizontal_direction" href="#game_qu.getting_started.pong (example game).Ball.change_horizontal_direction">change_horizontal_direction</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.height" href="#game_qu.getting_started.pong (example game).Ball.height">height</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.length" href="#game_qu.getting_started.pong (example game).Ball.length">length</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.render" href="#game_qu.getting_started.pong (example game).Ball.render">render</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.reset" href="#game_qu.getting_started.pong (example game).Ball.reset">reset</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.run" href="#game_qu.getting_started.pong (example game).Ball.run">run</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.vector" href="#game_qu.getting_started.pong (example game).Ball.vector">vector</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.velocity" href="#game_qu.getting_started.pong (example game).Ball.velocity">velocity</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Ball.velocity_multiplier" href="#game_qu.getting_started.pong (example game).Ball.velocity_multiplier">velocity_multiplier</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="game_qu.getting_started.pong (example game).MainScreen" href="#game_qu.getting_started.pong (example game).MainScreen">MainScreen</a></code></h4>
+<ul class="">
+<li><code><a title="game_qu.getting_started.pong (example game).MainScreen.ball" href="#game_qu.getting_started.pong (example game).MainScreen.ball">ball</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).MainScreen.player1" href="#game_qu.getting_started.pong (example game).MainScreen.player1">player1</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).MainScreen.player1_score" href="#game_qu.getting_started.pong (example game).MainScreen.player1_score">player1_score</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).MainScreen.player2" href="#game_qu.getting_started.pong (example game).MainScreen.player2">player2</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).MainScreen.player2_score" href="#game_qu.getting_started.pong (example game).MainScreen.player2_score">player2_score</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).MainScreen.run" href="#game_qu.getting_started.pong (example game).MainScreen.run">run</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).MainScreen.score_text_box" href="#game_qu.getting_started.pong (example game).MainScreen.score_text_box">score_text_box</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).MainScreen.update_score_text_box" href="#game_qu.getting_started.pong (example game).MainScreen.update_score_text_box">update_score_text_box</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="game_qu.getting_started.pong (example game).Player" href="#game_qu.getting_started.pong (example game).Player">Player</a></code></h4>
+<ul class="two-column">
+<li><code><a title="game_qu.getting_started.pong (example game).Player.down_key" href="#game_qu.getting_started.pong (example game).Player.down_key">down_key</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Player.height" href="#game_qu.getting_started.pong (example game).Player.height">height</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Player.length" href="#game_qu.getting_started.pong (example game).Player.length">length</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Player.reset" href="#game_qu.getting_started.pong (example game).Player.reset">reset</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Player.run" href="#game_qu.getting_started.pong (example game).Player.run">run</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Player.up_key" href="#game_qu.getting_started.pong (example game).Player.up_key">up_key</a></code></li>
+<li><code><a title="game_qu.getting_started.pong (example game).Player.velocity" href="#game_qu.getting_started.pong (example game).Player.velocity">velocity</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
