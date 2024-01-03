@@ -33,6 +33,8 @@ class HUD(Component):
             Returns:
                 None
         """
+        
+        super().__init__("")
 
         self.player_points_fields = []
         self.rows = rows

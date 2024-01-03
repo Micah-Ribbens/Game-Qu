@@ -57,6 +57,8 @@ class Component(Dimensions):
     def __init__(self, path_to_image=&#34;&#34;):
         &#34;&#34;&#34;Initializes the object and loads an image if the path_to_image is not empty&#34;&#34;&#34;
 
+        super().__init__(self.left_edge, self.top_edge, self.length, self.height)
+
         self.path_to_image = path_to_image
 
         if path_to_image != &#34;&#34;:
@@ -117,7 +119,7 @@ class Component(Dimensions):
         &#34;&#34;&#34;Sets the functions that are called when the mouse enters and exits the component&#34;&#34;&#34;
 
         self.set_mouse_enter_function(mouse_enter_function)
-        self.mouse_exit_function(mouse_exit_function)
+        self.set_mouse_exit_function(mouse_exit_function)
 
     def set_mouse_enter_function(self, mouse_enter_function):
         &#34;&#34;&#34;Sets the action that happens when a mouse enters this object&#34;&#34;&#34;
@@ -182,6 +184,8 @@ that components run and render methods will be called</p>
     def __init__(self, path_to_image=&#34;&#34;):
         &#34;&#34;&#34;Initializes the object and loads an image if the path_to_image is not empty&#34;&#34;&#34;
 
+        super().__init__(self.left_edge, self.top_edge, self.length, self.height)
+
         self.path_to_image = path_to_image
 
         if path_to_image != &#34;&#34;:
@@ -242,7 +246,7 @@ that components run and render methods will be called</p>
         &#34;&#34;&#34;Sets the functions that are called when the mouse enters and exits the component&#34;&#34;&#34;
 
         self.set_mouse_enter_function(mouse_enter_function)
-        self.mouse_exit_function(mouse_exit_function)
+        self.set_mouse_exit_function(mouse_exit_function)
 
     def set_mouse_enter_function(self, mouse_enter_function):
         &#34;&#34;&#34;Sets the action that happens when a mouse enters this object&#34;&#34;&#34;
@@ -269,8 +273,13 @@ that components run and render methods will be called</p>
 </ul>
 <h3>Subclasses</h3>
 <ul class="hlist">
-<li><a title="game_qu.getting_started.pong (example game).Ball" href="../getting_started/pong%20(example%20game).html#game_qu.getting_started.pong (example game).Ball">Ball</a></li>
-<li><a title="game_qu.getting_started.pong (example game).Player" href="../getting_started/pong%20(example%20game).html#game_qu.getting_started.pong (example game).Player">Player</a></li>
+<li><a title="Game-Qu.src.game_qu.getting_started.pong (example game).Ball" href="../../Game-Qu/src/game_qu/getting_started/pong (example game).html#Game-Qu.src.game_qu.getting_started.pong (example game).Ball">Ball</a></li>
+<li><a title="Game-Qu.src.game_qu.getting_started.pong (example game).Player" href="../../Game-Qu/src/game_qu/getting_started/pong (example game).html#Game-Qu.src.game_qu.getting_started.pong (example game).Player">Player</a></li>
+<li><a title="Game-Qu.src.game_qu.gui_components.hud.HUD" href="../../Game-Qu/src/game_qu/gui_components/hud.html#Game-Qu.src.game_qu.gui_components.hud.HUD">HUD</a></li>
+<li><a title="Game-Qu.src.game_qu.gui_components.screen.Screen" href="../../Game-Qu/src/game_qu/gui_components/screen.html#Game-Qu.src.game_qu.gui_components.screen.Screen">Screen</a></li>
+<li><a title="Game-Qu.src.game_qu.gui_components.text_box.TextBox" href="../../Game-Qu/src/game_qu/gui_components/text_box.html#Game-Qu.src.game_qu.gui_components.text_box.TextBox">TextBox</a></li>
+<li><a title="game_qu.getting_started.pong (example game).Ball" href="../getting_started/pong (example game).html#game_qu.getting_started.pong (example game).Ball">Ball</a></li>
+<li><a title="game_qu.getting_started.pong (example game).Player" href="../getting_started/pong (example game).html#game_qu.getting_started.pong (example game).Player">Player</a></li>
 <li><a title="game_qu.gui_components.hud.HUD" href="hud.html#game_qu.gui_components.hud.HUD">HUD</a></li>
 <li><a title="game_qu.gui_components.screen.Screen" href="screen.html#game_qu.gui_components.screen.Screen">Screen</a></li>
 <li><a title="game_qu.gui_components.text_box.TextBox" href="text_box.html#game_qu.gui_components.text_box.TextBox">TextBox</a></li>
@@ -520,7 +529,7 @@ then the image will be rendered instead of the default rectangle with a color of
     &#34;&#34;&#34;Sets the functions that are called when the mouse enters and exits the component&#34;&#34;&#34;
 
     self.set_mouse_enter_function(mouse_enter_function)
-    self.mouse_exit_function(mouse_exit_function)</code></pre>
+    self.set_mouse_exit_function(mouse_exit_function)</code></pre>
 </details>
 </dd>
 </dl>

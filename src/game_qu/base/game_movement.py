@@ -1,5 +1,3 @@
-import pygame.key
-
 from game_qu.base.important_variables import SCREEN_HEIGHT, SCREEN_LENGTH
 from game_qu.base.utility_functions import key_is_pressed
 from game_qu.base.velocity_calculator import VelocityCalculator

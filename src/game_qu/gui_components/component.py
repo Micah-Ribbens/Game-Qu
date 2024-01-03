@@ -29,6 +29,8 @@ class Component(Dimensions):
     def __init__(self, path_to_image=""):
         """Initializes the object and loads an image if the path_to_image is not empty"""
 
+        super().__init__(self.left_edge, self.top_edge, self.length, self.height)
+
         self.path_to_image = path_to_image
 
         if path_to_image != "":
@@ -89,7 +91,7 @@ class Component(Dimensions):
         """Sets the functions that are called when the mouse enters and exits the component"""
 
         self.set_mouse_enter_function(mouse_enter_function)
-        self.mouse_exit_function(mouse_exit_function)
+        self.set_mouse_exit_function(mouse_exit_function)
 
     def set_mouse_enter_function(self, mouse_enter_function):
         """Sets the action that happens when a mouse enters this object"""

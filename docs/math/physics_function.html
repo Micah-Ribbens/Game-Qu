@@ -222,8 +222,10 @@ class PhysicsFunction:
              Returns:
                 float: the displacement of the object from start_time -&gt; end_time only based upon velocity (the integral from start_time to end_time)&#34;&#34;&#34;
 
-        indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
-        return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
+        current_distance = self.initial_velocity * end_time
+        last_distance = self.initial_velocity * start_time
+
+        return current_distance - last_distance
 
     def get_indefinite_integral_of_acceleration_equation(self):
         &#34;&#34;&#34;
@@ -237,8 +239,10 @@ class PhysicsFunction:
              Returns:
                 float: the displacement of the object from start_time -&gt; end_time only based upon acceleration (the integral from start_time to end_time)&#34;&#34;&#34;
 
-        indefinite_integral = self.get_indefinite_integral_of_acceleration_equation()
-        return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
+        current_distance = 1 / 2 * self.acceleration * pow(end_time, 2)
+        last_distance = 1 / 2 * self.acceleration * pow(start_time, 2)
+
+        return current_distance - last_distance
 
     def __str__(self):
         return f&#34;[{self.acceleration},{self.initial_velocity},{self.initial_distance},]&#34;
@@ -455,8 +459,10 @@ class PhysicsFunction:
              Returns:
                 float: the displacement of the object from start_time -&gt; end_time only based upon velocity (the integral from start_time to end_time)&#34;&#34;&#34;
 
-        indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
-        return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
+        current_distance = self.initial_velocity * end_time
+        last_distance = self.initial_velocity * start_time
+
+        return current_distance - last_distance
 
     def get_indefinite_integral_of_acceleration_equation(self):
         &#34;&#34;&#34;
@@ -470,8 +476,10 @@ class PhysicsFunction:
              Returns:
                 float: the displacement of the object from start_time -&gt; end_time only based upon acceleration (the integral from start_time to end_time)&#34;&#34;&#34;
 
-        indefinite_integral = self.get_indefinite_integral_of_acceleration_equation()
-        return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
+        current_distance = 1 / 2 * self.acceleration * pow(end_time, 2)
+        last_distance = 1 / 2 * self.acceleration * pow(start_time, 2)
+
+        return current_distance - last_distance
 
     def __str__(self):
         return f&#34;[{self.acceleration},{self.initial_velocity},{self.initial_distance},]&#34;
@@ -482,6 +490,8 @@ class PhysicsFunction:
 </details>
 <h3>Subclasses</h3>
 <ul class="hlist">
+<li><a title="Game-Qu.src.game_qu.base.quadratic_equations.PhysicsEquation" href="../../Game-Qu/src/game_qu/base/quadratic_equations.html#Game-Qu.src.game_qu.base.quadratic_equations.PhysicsEquation">PhysicsEquation</a></li>
+<li><a title="Game-Qu.src.game_qu.paths.physics_followable_path.PhysicsFollowablePath" href="../../Game-Qu/src/game_qu/paths/physics_followable_path.html#Game-Qu.src.game_qu.paths.physics_followable_path.PhysicsFollowablePath">PhysicsFollowablePath</a></li>
 <li><a title="game_qu.base.quadratic_equations.PhysicsEquation" href="../base/quadratic_equations.html#game_qu.base.quadratic_equations.PhysicsEquation">PhysicsEquation</a></li>
 <li><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath" href="../paths/physics_followable_path.html#game_qu.paths.physics_followable_path.PhysicsFollowablePath">PhysicsFollowablePath</a></li>
 </ul>
@@ -567,8 +577,10 @@ class PhysicsFunction:
          Returns:
             float: the displacement of the object from start_time -&gt; end_time only based upon acceleration (the integral from start_time to end_time)&#34;&#34;&#34;
 
-    indefinite_integral = self.get_indefinite_integral_of_acceleration_equation()
-    return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)</code></pre>
+    current_distance = 1 / 2 * self.acceleration * pow(end_time, 2)
+    last_distance = 1 / 2 * self.acceleration * pow(start_time, 2)
+
+    return current_distance - last_distance</code></pre>
 </details>
 </dd>
 <dt id="game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_velocity"><code class="name flex">
@@ -589,8 +601,10 @@ class PhysicsFunction:
          Returns:
             float: the displacement of the object from start_time -&gt; end_time only based upon velocity (the integral from start_time to end_time)&#34;&#34;&#34;
 
-    indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
-    return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)</code></pre>
+    current_distance = self.initial_velocity * end_time
+    last_distance = self.initial_velocity * start_time
+
+    return current_distance - last_distance</code></pre>
 </details>
 </dd>
 <dt id="game_qu.math.physics_function.PhysicsFunction.get_distance"><code class="name flex">

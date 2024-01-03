@@ -41,7 +41,7 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
     is_started = False
     attribute_modifying = None
     height_of_path = 0
-    time = 0
+    time_to_vertex = 0
     max_time = 0
     last_time = 0
     has_max_time = False
@@ -49,7 +49,6 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
     last_delta_time = 0
     is_using_everything_this_cycle = False
 
-    # def __init__(self, game_object=None, attribute_modifying=&#34;&#34;, height_of_path=0, initial_distance=0, time=.5):
     def __init__(self, **kwargs):
         &#34;&#34;&#34; Initializes the object
 
@@ -65,11 +64,11 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
         &#34;&#34;&#34;
 
         FollowablePath.__init__(self, **kwargs)
-        self.time, self.height_of_path = get_kwarg_item(kwargs, &#34;time&#34;, .5), get_kwarg_item(kwargs, &#34;height_of_path&#34;, 0)
+        self.time_to_vertex, self.height_of_path = get_kwarg_item(kwargs, &#34;time&#34;, .5), get_kwarg_item(kwargs, &#34;height_of_path&#34;, 0)
         self.initial_distance = get_kwarg_item(kwargs, &#34;initial_distance&#34;, 0)
 
         # Adding the initial_distance, so it that is the height of the parabola
-        self.set_all_variables(self.height_of_path + self.initial_distance, self.time, self.initial_distance)
+        self.set_all_variables(self.height_of_path + self.initial_distance, self.time_to_vertex, self.initial_distance)
 
     def run(self, is_reset_event, is_start_event, is_using_everything=False, is_changing_coordinates=True):
         &#34;&#34;&#34; Runs the code for the game_object following the physics path
@@ -86,13 +85,19 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
         self.is_using_everything_this_cycle = is_using_everything
 
         # Calling the super method, but being explicit about which one I am looking for
-        PhysicsFollowablePath.run(self, is_reset_event, is_start_event, is_changing_coordinates)
+        FollowablePath.run(self, is_reset_event, is_start_event, is_changing_coordinates)
+
+        can_change_attribute = self.is_started and self.game_object is not None
+        should_change_attribute = can_change_attribute and is_changing_coordinates
+
+        if is_using_everything and should_change_attribute:
+            self.game_object.__dict__[self.attribute_modifying] = self.get_distance(self.current_time)
 
     def set_initial_distance(self, initial_distance):
         &#34;&#34;&#34;Sets the initial distance, so the height of the parabola is equal to the vertex&#34;&#34;&#34;
 
         self.initial_distance = initial_distance
-        self.set_all_variables(self.initial_distance + self.height_of_path, self.time, self.initial_distance)
+        self.set_all_variables(self.initial_distance + self.height_of_path, self.time_to_vertex, self.initial_distance)
 
     def get_velocity_displacement(self):
         &#34;&#34;&#34;
@@ -135,7 +140,7 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
 
         if self.is_using_everything_this_cycle:
-            self.get_distance(time)
+            return self.get_distance(time)
 
         else:
             return self.get_displacement_due_to_velocity(0, time)
@@ -146,7 +151,7 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
                 object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
 
         if self.is_using_everything_this_cycle:
-            self.get_distance(end_time)
+            return 0
 
         else:
             return self.get_displacement_due_to_velocity(start_time, end_time)</code></pre>
@@ -197,7 +202,7 @@ the FollowablePath 'interface'</p>
     is_started = False
     attribute_modifying = None
     height_of_path = 0
-    time = 0
+    time_to_vertex = 0
     max_time = 0
     last_time = 0
     has_max_time = False
@@ -205,7 +210,6 @@ the FollowablePath 'interface'</p>
     last_delta_time = 0
     is_using_everything_this_cycle = False
 
-    # def __init__(self, game_object=None, attribute_modifying=&#34;&#34;, height_of_path=0, initial_distance=0, time=.5):
     def __init__(self, **kwargs):
         &#34;&#34;&#34; Initializes the object
 
@@ -221,11 +225,11 @@ the FollowablePath 'interface'</p>
         &#34;&#34;&#34;
 
         FollowablePath.__init__(self, **kwargs)
-        self.time, self.height_of_path = get_kwarg_item(kwargs, &#34;time&#34;, .5), get_kwarg_item(kwargs, &#34;height_of_path&#34;, 0)
+        self.time_to_vertex, self.height_of_path = get_kwarg_item(kwargs, &#34;time&#34;, .5), get_kwarg_item(kwargs, &#34;height_of_path&#34;, 0)
         self.initial_distance = get_kwarg_item(kwargs, &#34;initial_distance&#34;, 0)
 
         # Adding the initial_distance, so it that is the height of the parabola
-        self.set_all_variables(self.height_of_path + self.initial_distance, self.time, self.initial_distance)
+        self.set_all_variables(self.height_of_path + self.initial_distance, self.time_to_vertex, self.initial_distance)
 
     def run(self, is_reset_event, is_start_event, is_using_everything=False, is_changing_coordinates=True):
         &#34;&#34;&#34; Runs the code for the game_object following the physics path
@@ -242,13 +246,19 @@ the FollowablePath 'interface'</p>
         self.is_using_everything_this_cycle = is_using_everything
 
         # Calling the super method, but being explicit about which one I am looking for
-        PhysicsFollowablePath.run(self, is_reset_event, is_start_event, is_changing_coordinates)
+        FollowablePath.run(self, is_reset_event, is_start_event, is_changing_coordinates)
+
+        can_change_attribute = self.is_started and self.game_object is not None
+        should_change_attribute = can_change_attribute and is_changing_coordinates
+
+        if is_using_everything and should_change_attribute:
+            self.game_object.__dict__[self.attribute_modifying] = self.get_distance(self.current_time)
 
     def set_initial_distance(self, initial_distance):
         &#34;&#34;&#34;Sets the initial distance, so the height of the parabola is equal to the vertex&#34;&#34;&#34;
 
         self.initial_distance = initial_distance
-        self.set_all_variables(self.initial_distance + self.height_of_path, self.time, self.initial_distance)
+        self.set_all_variables(self.initial_distance + self.height_of_path, self.time_to_vertex, self.initial_distance)
 
     def get_velocity_displacement(self):
         &#34;&#34;&#34;
@@ -291,7 +301,7 @@ the FollowablePath 'interface'</p>
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
 
         if self.is_using_everything_this_cycle:
-            self.get_distance(time)
+            return self.get_distance(time)
 
         else:
             return self.get_displacement_due_to_velocity(0, time)
@@ -302,7 +312,7 @@ the FollowablePath 'interface'</p>
                 object: the delta value of the attribute within the domain [start_time, end_time]&#34;&#34;&#34;
 
         if self.is_using_everything_this_cycle:
-            self.get_distance(end_time)
+            return 0
 
         else:
             return self.get_displacement_due_to_velocity(start_time, end_time)</code></pre>
@@ -315,6 +325,7 @@ the FollowablePath 'interface'</p>
 </ul>
 <h3>Subclasses</h3>
 <ul class="hlist">
+<li><a title="Game-Qu.src.game_qu.base.quadratic_equations.PhysicsPath" href="../../Game-Qu/src/game_qu/base/quadratic_equations.html#Game-Qu.src.game_qu.base.quadratic_equations.PhysicsPath">PhysicsPath</a></li>
 <li><a title="game_qu.base.quadratic_equations.PhysicsPath" href="../base/quadratic_equations.html#game_qu.base.quadratic_equations.PhysicsPath">PhysicsPath</a></li>
 </ul>
 <h3>Class variables</h3>
@@ -363,7 +374,7 @@ the FollowablePath 'interface'</p>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="game_qu.paths.physics_followable_path.PhysicsFollowablePath.time"><code class="name">var <span class="ident">time</span></code></dt>
+<dt id="game_qu.paths.physics_followable_path.PhysicsFollowablePath.time_to_vertex"><code class="name">var <span class="ident">time_to_vertex</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -510,7 +521,13 @@ the FollowablePath 'interface'</p>
     self.is_using_everything_this_cycle = is_using_everything
 
     # Calling the super method, but being explicit about which one I am looking for
-    PhysicsFollowablePath.run(self, is_reset_event, is_start_event, is_changing_coordinates)</code></pre>
+    FollowablePath.run(self, is_reset_event, is_start_event, is_changing_coordinates)
+
+    can_change_attribute = self.is_started and self.game_object is not None
+    should_change_attribute = can_change_attribute and is_changing_coordinates
+
+    if is_using_everything and should_change_attribute:
+        self.game_object.__dict__[self.attribute_modifying] = self.get_distance(self.current_time)</code></pre>
 </details>
 </dd>
 <dt id="game_qu.paths.physics_followable_path.PhysicsFollowablePath.set_initial_distance"><code class="name flex">
@@ -526,7 +543,7 @@ the FollowablePath 'interface'</p>
     &#34;&#34;&#34;Sets the initial distance, so the height of the parabola is equal to the vertex&#34;&#34;&#34;
 
     self.initial_distance = initial_distance
-    self.set_all_variables(self.initial_distance + self.height_of_path, self.time, self.initial_distance)</code></pre>
+    self.set_all_variables(self.initial_distance + self.height_of_path, self.time_to_vertex, self.initial_distance)</code></pre>
 </details>
 </dd>
 </dl>
@@ -605,7 +622,7 @@ the FollowablePath 'interface'</p>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.max_time" href="#game_qu.paths.physics_followable_path.PhysicsFollowablePath.max_time">max_time</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.run" href="#game_qu.paths.physics_followable_path.PhysicsFollowablePath.run">run</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.set_initial_distance" href="#game_qu.paths.physics_followable_path.PhysicsFollowablePath.set_initial_distance">set_initial_distance</a></code></li>
-<li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.time" href="#game_qu.paths.physics_followable_path.PhysicsFollowablePath.time">time</a></code></li>
+<li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.time_to_vertex" href="#game_qu.paths.physics_followable_path.PhysicsFollowablePath.time_to_vertex">time_to_vertex</a></code></li>
 </ul>
 </li>
 </ul>

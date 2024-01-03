@@ -1,4 +1,5 @@
-from game_qu.base.events import Event, TimedEvent
+from game_qu.base.events import Event
+from game_qu.base.timed_event import TimedEvent
 from game_qu.library_abstraction import keys
 from game_qu.library_abstraction import utility_functions
 from game_qu.library_abstraction import variables

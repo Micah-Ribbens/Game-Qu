@@ -1,5 +1,5 @@
 from game_qu.gui_components.text_box import TextBox
-from game_qu.base.events import TimedEvent
+from game_qu.base.timed_event import TimedEvent
 
 
 class Button(TextBox):

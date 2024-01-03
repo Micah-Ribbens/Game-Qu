@@ -13,7 +13,7 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
     is_started = False
     attribute_modifying = None
     height_of_path = 0
-    time = 0
+    time_to_vertex = 0
     max_time = 0
     last_time = 0
     has_max_time = False
@@ -21,7 +21,6 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
     last_delta_time = 0
     is_using_everything_this_cycle = False
 
-    # def __init__(self, game_object=None, attribute_modifying="", height_of_path=0, initial_distance=0, time=.5):
     def __init__(self, **kwargs):
         """ Initializes the object
 
@@ -37,11 +36,11 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
         """
 
         FollowablePath.__init__(self, **kwargs)
-        self.time, self.height_of_path = get_kwarg_item(kwargs, "time", .5), get_kwarg_item(kwargs, "height_of_path", 0)
+        self.time_to_vertex, self.height_of_path = get_kwarg_item(kwargs, "time", .5), get_kwarg_item(kwargs, "height_of_path", 0)
         self.initial_distance = get_kwarg_item(kwargs, "initial_distance", 0)
 
         # Adding the initial_distance, so it that is the height of the parabola
-        self.set_all_variables(self.height_of_path + self.initial_distance, self.time, self.initial_distance)
+        self.set_all_variables(self.height_of_path + self.initial_distance, self.time_to_vertex, self.initial_distance)
 
     def run(self, is_reset_event, is_start_event, is_using_everything=False, is_changing_coordinates=True):
         """ Runs the code for the game_object following the physics path
@@ -58,13 +57,19 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
         self.is_using_everything_this_cycle = is_using_everything
 
         # Calling the super method, but being explicit about which one I am looking for
-        PhysicsFollowablePath.run(self, is_reset_event, is_start_event, is_changing_coordinates)
+        FollowablePath.run(self, is_reset_event, is_start_event, is_changing_coordinates)
+
+        can_change_attribute = self.is_started and self.game_object is not None
+        should_change_attribute = can_change_attribute and is_changing_coordinates
+
+        if is_using_everything and should_change_attribute:
+            self.game_object.__dict__[self.attribute_modifying] = self.get_distance(self.current_time)
 
     def set_initial_distance(self, initial_distance):
         """Sets the initial distance, so the height of the parabola is equal to the vertex"""
 
         self.initial_distance = initial_distance
-        self.set_all_variables(self.initial_distance + self.height_of_path, self.time, self.initial_distance)
+        self.set_all_variables(self.initial_distance + self.height_of_path, self.time_to_vertex, self.initial_distance)
 
     def get_velocity_displacement(self):
         """
@@ -107,7 +112,7 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
                 object: the value of the attribute this path is modifying at 'time'"""
 
         if self.is_using_everything_this_cycle:
-            self.get_distance(time)
+            return self.get_distance(time)
 
         else:
             return self.get_displacement_due_to_velocity(0, time)
@@ -118,7 +123,7 @@ class PhysicsFollowablePath(FollowablePath, PhysicsFunction):
                 object: the delta value of the attribute within the domain [start_time, end_time]"""
 
         if self.is_using_everything_this_cycle:
-            self.get_distance(end_time)
+            return 0
 
         else:
             return self.get_displacement_due_to_velocity(start_time, end_time)

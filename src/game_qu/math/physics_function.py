@@ -194,8 +194,10 @@ class PhysicsFunction:
              Returns:
                 float: the displacement of the object from start_time -> end_time only based upon velocity (the integral from start_time to end_time)"""
 
-        indefinite_integral = self.get_indefinite_integral_of_velocity_equation()
-        return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
+        current_distance = self.initial_velocity * end_time
+        last_distance = self.initial_velocity * start_time
+
+        return current_distance - last_distance
 
     def get_indefinite_integral_of_acceleration_equation(self):
         """
@@ -209,8 +211,10 @@ class PhysicsFunction:
              Returns:
                 float: the displacement of the object from start_time -> end_time only based upon acceleration (the integral from start_time to end_time)"""
 
-        indefinite_integral = self.get_indefinite_integral_of_acceleration_equation()
-        return indefinite_integral.get(end_time) - indefinite_integral.get(start_time)
+        current_distance = 1 / 2 * self.acceleration * pow(end_time, 2)
+        last_distance = 1 / 2 * self.acceleration * pow(start_time, 2)
+
+        return current_distance - last_distance
 
     def __str__(self):
         return f"[{self.acceleration},{self.initial_velocity},{self.initial_distance},]"

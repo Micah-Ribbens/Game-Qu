@@ -22,6 +22,8 @@ class Screen(Component):
         """ Initializes the object and also loads the image which is at the path 'path_to_background_image.' No image will
             be loaded if path_to_background_image is ''"""
 
+        super().__init__("")
+
         self.path_to_background_image = path_to_background_image
         self.background_color = background_color
 

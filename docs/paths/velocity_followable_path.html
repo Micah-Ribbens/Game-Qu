@@ -39,13 +39,9 @@ class VelocityFollowablePath(FollowablePath):
     velocity = 0
     left_edge_lines = []
     top_edge_lines = []
-    last_end_time = 0
 
     times = []  # Stores the times that the get_coordinates() function was called
-    total_time = 0  # Points to the current time
     last_point = None
-    is_unending = False
-    previous_time = 0  # Points to last end time
 
     def __init__(self, start_point, other_points, velocity, **kwargs):
         &#34;&#34;&#34; Initializes the object. Here are the kwargs options:
@@ -80,22 +76,22 @@ class VelocityFollowablePath(FollowablePath):
         # can&#39;t travel faster than one of its max velocities
         time_to_travel_distance = max_value(x_time, y_time)
 
-        end_time = time_to_travel_distance + self.last_end_time
+        end_time = time_to_travel_distance + self.max_time
 
         self.add_time_point(point, end_time)
 
     def add_time_point(self, point, end_time):
         &#34;&#34;&#34;Adds the point to the path using the end_time as the x_coordinate for the x and y coordinate lines&#34;&#34;&#34;
 
-        left_edge_line = LineSegment(Point(self.last_end_time, self.last_point.x_coordinate),
+        left_edge_line = LineSegment(Point(self.max_time, self.last_point.x_coordinate),
                                      Point(end_time, point.x_coordinate))
 
-        top_edge_line = LineSegment(Point(self.last_end_time, self.last_point.y_coordinate),
+        top_edge_line = LineSegment(Point(self.max_time, self.last_point.y_coordinate),
                                     Point(end_time, point.y_coordinate))
 
         self.left_edge_lines.append(left_edge_line)
         self.top_edge_lines.append(top_edge_line)
-        self.last_end_time = end_time
+        self.max_time = end_time
 
         # The height for the path_line doesn&#39;t matter
         self.last_point = point
@@ -109,20 +105,20 @@ class VelocityFollowablePath(FollowablePath):
         if should_increase_time:
             self.update_time()
 
-        return self.get_coordinates_at_time(self.total_time)
+        return self.get_coordinates_at_time(self.current_time)
 
     def update_time(self):
         &#34;&#34;&#34;Updates the time variables for this object by the time the last game tick took&#34;&#34;&#34;
 
         # The time should only be increased if it was not called that cycle
-        if self.previous_time != VelocityCalculator.time:
-            self.total_time += VelocityCalculator.time
-            self.previous_time = VelocityCalculator.time
+        if self.last_time != VelocityCalculator.time:
+            self.current_time += VelocityCalculator.time
+            self.last_time = VelocityCalculator.time
 
-        max_time = self.last_end_time
+        max_time = self.max_time
 
-        if self.total_time &gt; max_time and self.is_unending:
-            self.total_time %= max_time
+        if self.current_time &gt; max_time and self.has_max_time:
+            self.current_time %= max_time
 
     def get_coordinates_at_time(self, time):
         &#34;&#34;&#34;
@@ -155,7 +151,7 @@ class VelocityFollowablePath(FollowablePath):
     def set_time(self, time):
         &#34;&#34;&#34;Sets the time to the provided &#39;time&#39;- if it is greater than the max time it is reduced to a smaller time&#34;&#34;&#34;
 
-        self.total_time = time % self.max_time
+        self.current_time = time % self.max_time
 
     def get_value_at_time(self, time):
         &#34;&#34;&#34;
@@ -163,7 +159,6 @@ class VelocityFollowablePath(FollowablePath):
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
 
         return self.get_coordinates_at_time(time)[1]  # To get the y coordinate
-
 
     def get_delta_value(self, start_time, end_time):
         &#34;&#34;&#34;
@@ -180,7 +175,39 @@ class VelocityFollowablePath(FollowablePath):
 
             string += f&#34;x {left_edge_line}, y {top_edge_line}\n&#34;
 
-        return string</code></pre>
+        return string
+
+    @property
+    def last_end_time(self):
+        return self.max_time
+
+    @last_end_time.setter
+    def last_end_time(self, value):
+        self.max_time = value
+
+    @property
+    def total_time(self):
+        return self.current_time
+
+    @total_time.setter
+    def total_time(self, value):
+        self.current_time = value
+
+    @property
+    def previous_time(self):
+        return self.last_time
+
+    @previous_time.setter
+    def previous_time(self, value):
+        self.last_time = value
+
+    @property
+    def is_unending(self):
+        return self.has_max_time
+
+    @is_unending.setter
+    def is_unending(self, value):
+        self.has_max_time = value</code></pre>
 </details>
 </section>
 <section>
@@ -216,13 +243,9 @@ class VelocityFollowablePath(FollowablePath):
     velocity = 0
     left_edge_lines = []
     top_edge_lines = []
-    last_end_time = 0
 
     times = []  # Stores the times that the get_coordinates() function was called
-    total_time = 0  # Points to the current time
     last_point = None
-    is_unending = False
-    previous_time = 0  # Points to last end time
 
     def __init__(self, start_point, other_points, velocity, **kwargs):
         &#34;&#34;&#34; Initializes the object. Here are the kwargs options:
@@ -257,22 +280,22 @@ class VelocityFollowablePath(FollowablePath):
         # can&#39;t travel faster than one of its max velocities
         time_to_travel_distance = max_value(x_time, y_time)
 
-        end_time = time_to_travel_distance + self.last_end_time
+        end_time = time_to_travel_distance + self.max_time
 
         self.add_time_point(point, end_time)
 
     def add_time_point(self, point, end_time):
         &#34;&#34;&#34;Adds the point to the path using the end_time as the x_coordinate for the x and y coordinate lines&#34;&#34;&#34;
 
-        left_edge_line = LineSegment(Point(self.last_end_time, self.last_point.x_coordinate),
+        left_edge_line = LineSegment(Point(self.max_time, self.last_point.x_coordinate),
                                      Point(end_time, point.x_coordinate))
 
-        top_edge_line = LineSegment(Point(self.last_end_time, self.last_point.y_coordinate),
+        top_edge_line = LineSegment(Point(self.max_time, self.last_point.y_coordinate),
                                     Point(end_time, point.y_coordinate))
 
         self.left_edge_lines.append(left_edge_line)
         self.top_edge_lines.append(top_edge_line)
-        self.last_end_time = end_time
+        self.max_time = end_time
 
         # The height for the path_line doesn&#39;t matter
         self.last_point = point
@@ -286,20 +309,20 @@ class VelocityFollowablePath(FollowablePath):
         if should_increase_time:
             self.update_time()
 
-        return self.get_coordinates_at_time(self.total_time)
+        return self.get_coordinates_at_time(self.current_time)
 
     def update_time(self):
         &#34;&#34;&#34;Updates the time variables for this object by the time the last game tick took&#34;&#34;&#34;
 
         # The time should only be increased if it was not called that cycle
-        if self.previous_time != VelocityCalculator.time:
-            self.total_time += VelocityCalculator.time
-            self.previous_time = VelocityCalculator.time
+        if self.last_time != VelocityCalculator.time:
+            self.current_time += VelocityCalculator.time
+            self.last_time = VelocityCalculator.time
 
-        max_time = self.last_end_time
+        max_time = self.max_time
 
-        if self.total_time &gt; max_time and self.is_unending:
-            self.total_time %= max_time
+        if self.current_time &gt; max_time and self.has_max_time:
+            self.current_time %= max_time
 
     def get_coordinates_at_time(self, time):
         &#34;&#34;&#34;
@@ -332,7 +355,7 @@ class VelocityFollowablePath(FollowablePath):
     def set_time(self, time):
         &#34;&#34;&#34;Sets the time to the provided &#39;time&#39;- if it is greater than the max time it is reduced to a smaller time&#34;&#34;&#34;
 
-        self.total_time = time % self.max_time
+        self.current_time = time % self.max_time
 
     def get_value_at_time(self, time):
         &#34;&#34;&#34;
@@ -340,7 +363,6 @@ class VelocityFollowablePath(FollowablePath):
                 object: the value of the attribute this path is modifying at &#39;time&#39;&#34;&#34;&#34;
 
         return self.get_coordinates_at_time(time)[1]  # To get the y coordinate
-
 
     def get_delta_value(self, start_time, end_time):
         &#34;&#34;&#34;
@@ -357,7 +379,39 @@ class VelocityFollowablePath(FollowablePath):
 
             string += f&#34;x {left_edge_line}, y {top_edge_line}\n&#34;
 
-        return string</code></pre>
+        return string
+
+    @property
+    def last_end_time(self):
+        return self.max_time
+
+    @last_end_time.setter
+    def last_end_time(self, value):
+        self.max_time = value
+
+    @property
+    def total_time(self):
+        return self.current_time
+
+    @total_time.setter
+    def total_time(self, value):
+        self.current_time = value
+
+    @property
+    def previous_time(self):
+        return self.last_time
+
+    @previous_time.setter
+    def previous_time(self, value):
+        self.last_time = value
+
+    @property
+    def is_unending(self):
+        return self.has_max_time
+
+    @is_unending.setter
+    def is_unending(self, value):
+        self.has_max_time = value</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -366,28 +420,18 @@ class VelocityFollowablePath(FollowablePath):
 </ul>
 <h3>Subclasses</h3>
 <ul class="hlist">
+<li><a title="Game-Qu.src.game_qu.base.paths.VelocityPath" href="../../Game-Qu/src/game_qu/base/paths.html#Game-Qu.src.game_qu.base.paths.VelocityPath">VelocityPath</a></li>
+<li><a title="Game-Qu.src.game_qu.paths.action_followable_path.ActionFollowablePath" href="../../Game-Qu/src/game_qu/paths/action_followable_path.html#Game-Qu.src.game_qu.paths.action_followable_path.ActionFollowablePath">ActionFollowablePath</a></li>
 <li><a title="game_qu.base.paths.VelocityPath" href="../base/paths.html#game_qu.base.paths.VelocityPath">VelocityPath</a></li>
 <li><a title="game_qu.paths.action_followable_path.ActionFollowablePath" href="action_followable_path.html#game_qu.paths.action_followable_path.ActionFollowablePath">ActionFollowablePath</a></li>
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.is_unending"><code class="name">var <span class="ident">is_unending</span></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_end_time"><code class="name">var <span class="ident">last_end_time</span></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
 <dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_point"><code class="name">var <span class="ident">last_point</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
 <dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.left_edge_lines"><code class="name">var <span class="ident">left_edge_lines</span></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.previous_time"><code class="name">var <span class="ident">previous_time</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -399,13 +443,60 @@ class VelocityFollowablePath(FollowablePath):
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.total_time"><code class="name">var <span class="ident">total_time</span></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
 <dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.velocity"><code class="name">var <span class="ident">velocity</span></code></dt>
 <dd>
 <div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.is_unending"><code class="name">var <span class="ident">is_unending</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def is_unending(self):
+    return self.has_max_time</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.last_end_time"><code class="name">var <span class="ident">last_end_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def last_end_time(self):
+    return self.max_time</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.previous_time"><code class="name">var <span class="ident">previous_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def previous_time(self):
+    return self.last_time</code></pre>
+</details>
+</dd>
+<dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.total_time"><code class="name">var <span class="ident">total_time</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def total_time(self):
+    return self.current_time</code></pre>
+</details>
 </dd>
 </dl>
 <h3>Methods</h3>
@@ -434,7 +525,7 @@ and then calls add_time_point() to add the point</p></div>
     # can&#39;t travel faster than one of its max velocities
     time_to_travel_distance = max_value(x_time, y_time)
 
-    end_time = time_to_travel_distance + self.last_end_time
+    end_time = time_to_travel_distance + self.max_time
 
     self.add_time_point(point, end_time)</code></pre>
 </details>
@@ -451,15 +542,15 @@ and then calls add_time_point() to add the point</p></div>
 <pre><code class="python">def add_time_point(self, point, end_time):
     &#34;&#34;&#34;Adds the point to the path using the end_time as the x_coordinate for the x and y coordinate lines&#34;&#34;&#34;
 
-    left_edge_line = LineSegment(Point(self.last_end_time, self.last_point.x_coordinate),
+    left_edge_line = LineSegment(Point(self.max_time, self.last_point.x_coordinate),
                                  Point(end_time, point.x_coordinate))
 
-    top_edge_line = LineSegment(Point(self.last_end_time, self.last_point.y_coordinate),
+    top_edge_line = LineSegment(Point(self.max_time, self.last_point.y_coordinate),
                                 Point(end_time, point.y_coordinate))
 
     self.left_edge_lines.append(left_edge_line)
     self.top_edge_lines.append(top_edge_line)
-    self.last_end_time = end_time
+    self.max_time = end_time
 
     # The height for the path_line doesn&#39;t matter
     self.last_point = point</code></pre>
@@ -488,7 +579,7 @@ and then calls add_time_point() to add the point</p></div>
     if should_increase_time:
         self.update_time()
 
-    return self.get_coordinates_at_time(self.total_time)</code></pre>
+    return self.get_coordinates_at_time(self.current_time)</code></pre>
 </details>
 </dd>
 <dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.get_coordinates_at_time"><code class="name flex">
@@ -559,7 +650,7 @@ and then calls add_time_point() to add the point</p></div>
 <pre><code class="python">def set_time(self, time):
     &#34;&#34;&#34;Sets the time to the provided &#39;time&#39;- if it is greater than the max time it is reduced to a smaller time&#34;&#34;&#34;
 
-    self.total_time = time % self.max_time</code></pre>
+    self.current_time = time % self.max_time</code></pre>
 </details>
 </dd>
 <dt id="game_qu.paths.velocity_followable_path.VelocityFollowablePath.update_time"><code class="name flex">
@@ -575,14 +666,14 @@ and then calls add_time_point() to add the point</p></div>
     &#34;&#34;&#34;Updates the time variables for this object by the time the last game tick took&#34;&#34;&#34;
 
     # The time should only be increased if it was not called that cycle
-    if self.previous_time != VelocityCalculator.time:
-        self.total_time += VelocityCalculator.time
-        self.previous_time = VelocityCalculator.time
+    if self.last_time != VelocityCalculator.time:
+        self.current_time += VelocityCalculator.time
+        self.last_time = VelocityCalculator.time
 
-    max_time = self.last_end_time
+    max_time = self.max_time
 
-    if self.total_time &gt; max_time and self.is_unending:
-        self.total_time %= max_time</code></pre>
+    if self.current_time &gt; max_time and self.has_max_time:
+        self.current_time %= max_time</code></pre>
 </details>
 </dd>
 </dl>

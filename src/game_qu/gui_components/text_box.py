@@ -1,7 +1,7 @@
 from game_qu.gui_components.dimensions import Dimensions
-from game_qu.base.important_variables import game_window
 from game_qu.gui_components.component import Component
 from game_qu.base.utility_functions import *
+
 
 class TextBox(Component):
     """A box that contains text. The background color, text color, text, font_size, and the text being centered can all be set"""

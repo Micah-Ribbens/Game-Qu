@@ -1,8 +1,6 @@
 from game_qu.base.history_keeper import HistoryKeeper
 from game_qu.base.id_creator import id_creator
 from game_qu.base.timed_event import TimedEvent
-from game_qu.base.count_event import CountEvent
-
 
 class Event:
     """Used to store an event from the current cycle and past cycles (event being anything that is a bool)"""
