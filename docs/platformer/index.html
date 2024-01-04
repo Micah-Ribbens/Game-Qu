@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>game_qu.library_abstraction API documentation</title>
-<meta name="description" content="This file holds the module variables that the game engine will be getting its functions and constants from (either pygame or pyglet)" />
+<title>game_qu.platformer API documentation</title>
+<meta name="description" content="This is a module with some code for platformer games. You can modify all constants to make it feel like how you want.
+This module does not use …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,22 +20,79 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>game_qu.library_abstraction</code></h1>
+<h1 class="title">Module <code>game_qu.platformer</code></h1>
 </header>
 <section id="section-intro">
-<p>This file holds the module variables that the game engine will be getting its functions and constants from (either pygame or pyglet)</p>
+<p>This is a module with some code for platformer games. You can modify all constants to make it feel like how you want.
+This module does not use calculus to calculate the physics because it simplifies the code structure and makes the overall
+code more clean and less prone to bugs. It uses a linear approximation, which is close enough for almost all scenarios.
+On most machines the game should run at 120+ frames per second, so that small approximation error will not make a difference.
+Slow running times will not affect any code in this module, but it could affect your game in more niche cases. If that calculus
+bit does not make sense, then do not worry about it. It is nearly guaranteed it will not affect your game.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;This file holds the module variables that the game engine will be getting its functions and constants from (either pygame or pyglet)&#34;&#34;&#34;
-
-keys = None
-variables = None
-utility_functions = None</code></pre>
+<pre><code class="python">&#34;&#34;&#34;This is a module with some code for platformer games. You can modify all constants to make it feel like how you want.
+This module does not use calculus to calculate the physics because it simplifies the code structure and makes the overall
+code more clean and less prone to bugs. It uses a linear approximation, which is close enough for almost all scenarios.
+On most machines the game should run at 120+ frames per second, so that small approximation error will not make a difference.
+Slow running times will not affect any code in this module, but it could affect your game in more niche cases. If that calculus
+bit does not make sense, then do not worry about it. It is nearly guaranteed it will not affect your game.&#34;&#34;&#34;</code></pre>
 </details>
 </section>
 <section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="game_qu.platformer.constants" href="constants.html">game_qu.platformer.constants</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.enemy" href="enemy.html">game_qu.platformer.enemy</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.game_object" href="game_object.html">game_qu.platformer.game_object</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.generator" href="generator.html">game_qu.platformer.generator</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.gravity_engine" href="gravity_engine.html">game_qu.platformer.gravity_engine</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.health_bar" href="health_bar.html">game_qu.platformer.health_bar</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.platform" href="platform.html">game_qu.platformer.platform</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.platformer_screen" href="platformer_screen.html">game_qu.platformer.platformer_screen</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.player" href="player.html">game_qu.platformer.player</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.powerup" href="powerup.html">game_qu.platformer.powerup</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.weapon" href="weapon.html">game_qu.platformer.weapon</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="game_qu.platformer.weapon_user" href="weapon_user.html">game_qu.platformer.weapon_user</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
 </section>
 <section>
 </section>
@@ -51,7 +109,23 @@ utility_functions = None</code></pre>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="game_qu" href="index.html">game_qu</a></code></li>
+<li><code><a title="game_qu" href="../index.html">game_qu</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="game_qu.platformer.constants" href="constants.html">game_qu.platformer.constants</a></code></li>
+<li><code><a title="game_qu.platformer.enemy" href="enemy.html">game_qu.platformer.enemy</a></code></li>
+<li><code><a title="game_qu.platformer.game_object" href="game_object.html">game_qu.platformer.game_object</a></code></li>
+<li><code><a title="game_qu.platformer.generator" href="generator.html">game_qu.platformer.generator</a></code></li>
+<li><code><a title="game_qu.platformer.gravity_engine" href="gravity_engine.html">game_qu.platformer.gravity_engine</a></code></li>
+<li><code><a title="game_qu.platformer.health_bar" href="health_bar.html">game_qu.platformer.health_bar</a></code></li>
+<li><code><a title="game_qu.platformer.platform" href="platform.html">game_qu.platformer.platform</a></code></li>
+<li><code><a title="game_qu.platformer.platformer_screen" href="platformer_screen.html">game_qu.platformer.platformer_screen</a></code></li>
+<li><code><a title="game_qu.platformer.player" href="player.html">game_qu.platformer.player</a></code></li>
+<li><code><a title="game_qu.platformer.powerup" href="powerup.html">game_qu.platformer.powerup</a></code></li>
+<li><code><a title="game_qu.platformer.weapon" href="weapon.html">game_qu.platformer.weapon</a></code></li>
+<li><code><a title="game_qu.platformer.weapon_user" href="weapon_user.html">game_qu.platformer.weapon_user</a></code></li>
 </ul>
 </li>
 </ul>

@@ -55,7 +55,6 @@ class TimedEvent:
         self.time_needed = time_needed
         self.restarts_upon_completion = restarts_upon_completion
 
-
     def run(self, should_reset=False, should_start=False) -&gt; None:
         &#34;&#34;&#34; If the TimedEvent is_started then the current_time increases by the time it took the current cycle to run.
             Then it does various things depending on the values provided (see params)
@@ -115,6 +114,14 @@ class TimedEvent:
                 bool: if the event has either not started or is done&#34;&#34;&#34;
 
         return not self.is_started or self.is_done()
+
+    def is_running(self):
+        &#34;&#34;&#34;
+            Returns:
+                bool: whether the event has started and has not finished yet
+        &#34;&#34;&#34;
+
+        return self.is_started and not self.is_done()
 
     def set_time_needed(self, time_needed):
         &#34;&#34;&#34;Sets how much time is needed for this timed event to be completed&#34;&#34;&#34;
@@ -183,7 +190,6 @@ class TimedEvent:
         self.time_needed = time_needed
         self.restarts_upon_completion = restarts_upon_completion
 
-
     def run(self, should_reset=False, should_start=False) -&gt; None:
         &#34;&#34;&#34; If the TimedEvent is_started then the current_time increases by the time it took the current cycle to run.
             Then it does various things depending on the values provided (see params)
@@ -243,6 +249,14 @@ class TimedEvent:
                 bool: if the event has either not started or is done&#34;&#34;&#34;
 
         return not self.is_started or self.is_done()
+
+    def is_running(self):
+        &#34;&#34;&#34;
+            Returns:
+                bool: whether the event has started and has not finished yet
+        &#34;&#34;&#34;
+
+        return self.is_started and not self.is_done()
 
     def set_time_needed(self, time_needed):
         &#34;&#34;&#34;Sets how much time is needed for this timed event to be completed&#34;&#34;&#34;
@@ -319,6 +333,28 @@ class TimedEvent:
             bool: if the event has started and the current time is greater than the time needed&#34;&#34;&#34;
 
     return self.variable_is_done</code></pre>
+</details>
+</dd>
+<dt id="game_qu.base.timed_event.TimedEvent.is_running"><code class="name flex">
+<span>def <span class="ident">is_running</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>whether the event has started and has not finished yet</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_running(self):
+    &#34;&#34;&#34;
+        Returns:
+            bool: whether the event has started and has not finished yet
+    &#34;&#34;&#34;
+
+    return self.is_started and not self.is_done()</code></pre>
 </details>
 </dd>
 <dt id="game_qu.base.timed_event.TimedEvent.reset"><code class="name flex">
@@ -461,6 +497,7 @@ Then it does various things depending on the values provided (see params)</p>
 <li><code><a title="game_qu.base.timed_event.TimedEvent.current_time" href="#game_qu.base.timed_event.TimedEvent.current_time">current_time</a></code></li>
 <li><code><a title="game_qu.base.timed_event.TimedEvent.has_finished" href="#game_qu.base.timed_event.TimedEvent.has_finished">has_finished</a></code></li>
 <li><code><a title="game_qu.base.timed_event.TimedEvent.is_done" href="#game_qu.base.timed_event.TimedEvent.is_done">is_done</a></code></li>
+<li><code><a title="game_qu.base.timed_event.TimedEvent.is_running" href="#game_qu.base.timed_event.TimedEvent.is_running">is_running</a></code></li>
 <li><code><a title="game_qu.base.timed_event.TimedEvent.is_started" href="#game_qu.base.timed_event.TimedEvent.is_started">is_started</a></code></li>
 <li><code><a title="game_qu.base.timed_event.TimedEvent.reset" href="#game_qu.base.timed_event.TimedEvent.reset">reset</a></code></li>
 <li><code><a title="game_qu.base.timed_event.TimedEvent.restarts_upon_completion" href="#game_qu.base.timed_event.TimedEvent.restarts_upon_completion">restarts_upon_completion</a></code></li>

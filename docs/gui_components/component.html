@@ -26,7 +26,8 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from game_qu.base.history_keeper import HistoryKeeper
+<pre><code class="python">from game_qu.base.colors import light_gray
+from game_qu.base.history_keeper import HistoryKeeper
 from game_qu.base.velocity_calculator import VelocityCalculator
 from game_qu.gui_components.dimensions import Dimensions
 from game_qu.base.utility_functions import load_image, render_image, render_rectangle, mouse_is_clicked, \
@@ -39,7 +40,7 @@ class Component(Dimensions):
     &#34;&#34;&#34; The components that are added to the game&#39;s window. If a screen&#39;s get_components() method returns a component,
         that components run and render methods will be called&#34;&#34;&#34;
 
-    color = None
+    color = light_gray
     path_to_image = None
     name = &#34;&#34;
     is_addable = True
@@ -166,7 +167,7 @@ that components run and render methods will be called</p>
     &#34;&#34;&#34; The components that are added to the game&#39;s window. If a screen&#39;s get_components() method returns a component,
         that components run and render methods will be called&#34;&#34;&#34;
 
-    color = None
+    color = light_gray
     path_to_image = None
     name = &#34;&#34;
     is_addable = True
@@ -278,11 +279,17 @@ that components run and render methods will be called</p>
 <li><a title="Game-Qu.src.game_qu.gui_components.hud.HUD" href="../../Game-Qu/src/game_qu/gui_components/hud.html#Game-Qu.src.game_qu.gui_components.hud.HUD">HUD</a></li>
 <li><a title="Game-Qu.src.game_qu.gui_components.screen.Screen" href="../../Game-Qu/src/game_qu/gui_components/screen.html#Game-Qu.src.game_qu.gui_components.screen.Screen">Screen</a></li>
 <li><a title="Game-Qu.src.game_qu.gui_components.text_box.TextBox" href="../../Game-Qu/src/game_qu/gui_components/text_box.html#Game-Qu.src.game_qu.gui_components.text_box.TextBox">TextBox</a></li>
+<li><a title="Game-Qu.src.game_qu.platformer.game_object.GameObject" href="../../Game-Qu/src/game_qu/platformer/game_object.html#Game-Qu.src.game_qu.platformer.game_object.GameObject">GameObject</a></li>
+<li><a title="Game-Qu.src.game_qu.platformer.health_bar.HealthBar" href="../../Game-Qu/src/game_qu/platformer/health_bar.html#Game-Qu.src.game_qu.platformer.health_bar.HealthBar">HealthBar</a></li>
+<li><a title="Game-Qu.src.game_qu.platformer.powerup.Powerup" href="../../Game-Qu/src/game_qu/platformer/powerup.html#Game-Qu.src.game_qu.platformer.powerup.Powerup">Powerup</a></li>
 <li><a title="game_qu.getting_started.pong (example game).Ball" href="../getting_started/pong (example game).html#game_qu.getting_started.pong (example game).Ball">Ball</a></li>
 <li><a title="game_qu.getting_started.pong (example game).Player" href="../getting_started/pong (example game).html#game_qu.getting_started.pong (example game).Player">Player</a></li>
 <li><a title="game_qu.gui_components.hud.HUD" href="hud.html#game_qu.gui_components.hud.HUD">HUD</a></li>
 <li><a title="game_qu.gui_components.screen.Screen" href="screen.html#game_qu.gui_components.screen.Screen">Screen</a></li>
 <li><a title="game_qu.gui_components.text_box.TextBox" href="text_box.html#game_qu.gui_components.text_box.TextBox">TextBox</a></li>
+<li><a title="game_qu.platformer.game_object.GameObject" href="../platformer/game_object.html#game_qu.platformer.game_object.GameObject">GameObject</a></li>
+<li><a title="game_qu.platformer.health_bar.HealthBar" href="../platformer/health_bar.html#game_qu.platformer.health_bar.HealthBar">HealthBar</a></li>
+<li><a title="game_qu.platformer.powerup.Powerup" href="../platformer/powerup.html#game_qu.platformer.powerup.Powerup">Powerup</a></li>
 </ul>
 <h3>Class variables</h3>
 <dl>
@@ -542,6 +549,7 @@ then the image will be rendered instead of the default rectangle with a color of
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.number_set_dimensions" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.number_set_dimensions">number_set_dimensions</a></code></li>
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.right_edge" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.dimensions.Dimensions.set_dimensions_within_component" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.set_dimensions_within_component">set_dimensions_within_component</a></code></li>
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.vertical_midpoint" href="dimensions.html#game_qu.gui_components.dimensions.Dimensions.vertical_midpoint">vertical_midpoint</a></code></li>
 </ul>
 </li>

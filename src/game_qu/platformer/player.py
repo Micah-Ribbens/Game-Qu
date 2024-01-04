@@ -81,6 +81,7 @@ class Player(WeaponUser):
     jump_buffer_timed_event = None
     base_left_edge = -1
     base_top_edge = -1
+    jump_key_held_in_time = -1
 
     # Booleans
     can_move_down = False
@@ -133,8 +134,19 @@ class Player(WeaponUser):
     def run_vertical_movement(self):
         """Runs all the vertical movement (mostly jumping)"""
 
-        if self.jumping_path.has_finished() and game_button_is_clicked(self.jump_key):
-            self.jump()
+        if game_button_is_clicked(self.jump_key):
+            if self.is_on_platform:
+                self.jump()
+
+            if self.coyote_timed_event.is_running():
+                self.jump()
+                self.coyote_timed_event.reset()
+
+        if game_button_has_been_released(self.jump_key):
+            self.jump_key_held_in_time = get_time_of_game_button_being_held_in(self.jump_key)
+
+            if self.has_jumped:
+                self.run_jump_type(self.jump_key_held_in_time)
 
         if self.top_edge <= 0:
             self.run_bottom_edge_collision(0)
@@ -205,6 +217,13 @@ class Player(WeaponUser):
         if not self.is_on_platform and is_on_platform:
             self.jumping_path.reset()
 
+        if self.is_on_platform and not is_on_platform and not self.has_jumped:
+            self.set_jumping_path_to_falling_path()
+
+        if self.jump_buffer_timed_event.is_running():
+            self.jump()
+            self.jump_buffer_timed_event.reset()
+
         self.last_platform_was_on = platform_is_on if is_on_platform else self.last_platform_was_on
         self.platform_is_on = platform_is_on if is_on_platform else None
         self.is_on_platform = is_on_platform
@@ -235,7 +254,11 @@ class Player(WeaponUser):
         """Makes the player jump"""
 
         self.jumping_path.start()
+        self.set_jumping_path_to_default_jump()
         self.has_jumped = True
+
+        if self.jump_key_held_in_time != -1:
+            self.run_jump_type()
 
     def decelerate_player(self, is_moving_right):
         """Makes the player decelerate by calling deceleration_path.start()"""
@@ -473,10 +496,13 @@ class Player(WeaponUser):
         self.acceleration_path.set_acceleration_with_velocity(self.running_acceleration_time, self.max_horizontal_velocity)
 
     # Jumping
-    def update_jumping_paths(self):
-        """Updates the jumping paths of the player (falling off a platform and jumping off a platform)"""
+    def update_jumping_path(self):
+        """Updates the path of the player, so they jump"""
 
         self._set_jumping_path_to_high_jump()
+
+    def update_falling_path(self):
+        """Updates the path of the player, so they fall"""
 
         # Finding the normal falling path as defined by its 2 functions (falling, terminal velocity)
         falling_function = PhysicsFunction(self.top_edge + self.high_jump_height, self.time_to_high_jump_vertex, self.top_edge)
@@ -497,7 +523,6 @@ class Player(WeaponUser):
         """Sets the jumping path of the player, so it has the jump height and time to vertex"""
 
         # Finding the jumping path as defined by its 4 functions (upwards, apex, downwards, terminal velocity)
-
         # Finding the initial variables we need for the calculations below
         jumping_function: PhysicsFunction = self.jumping_piecewise_function.get_functions()[0].get_function()
         time_spent_in_air = self.jumping_path.get_current_time()
@@ -587,13 +612,24 @@ class Player(WeaponUser):
         """ Sets the variable 'jumping_path' to a path that defines the player's jump (falling and jumping have different
             gravities to make the game feel better)"""
 
+        self.update_jumping_path()
         self.jumping_path.set_piecewise_function(self.jumping_piecewise_function)
+        self.jumping_path.restart()
 
     def set_jumping_path_to_falling_path(self):
         """ Sets the variable 'jumping_path' to a path that defines the player's fall (falling and jumping have different
             gravities to make the game feel better)"""
 
+        self.update_falling_path()
         self.jumping_path.set_piecewise_function(self.falling_piecewise_function)
+        self.jumping_path.restart()
+
+    def run_jump_type(self):
+        """Runs a different jump type (small, medium, or large) depending on how long the key was held in"""
+
+        # In this case the y coordinate is the function that should be called
+        self.time_to_jump_type.get_y_coordinate(self.jump_key_held_in_time)()
+        self.jump_key_held_in_time = -1
 
     def set_coyote_time(self, coyote_time):
         self.coyote_time = coyote_time

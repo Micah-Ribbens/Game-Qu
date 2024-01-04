@@ -93,6 +93,15 @@ class Dimensions:
         self.top_edge = vertical_number * percent_down / 100
         self.height = vertical_number * percent_height / 100
 
+    def set_dimensions_within_component(self, percent_right, percent_down, percent_length, percent_height, component):
+        &#34;&#34;&#34; Sets the dimensions of this component, so it fits within the other &#39;component.&#39; The percentages are relative
+            to the provided &#39;component.&#39; For instance, percent_length is a percentage of component.length.&#34;&#34;&#34;
+
+        self.left_edge = component.length * percent_right / 100 + component.left_edge
+        self.length = component.length * percent_length / 100
+        self.top_edge = component.height * percent_down / 100 + component.top_edge
+        self.height = component.height * percent_height / 100
+
     def set_left_edge(self, value):
         self.left_edge = value
 
@@ -196,6 +205,15 @@ right_edge, bottom_edge, horizontal_midpoint, and vertical_midpoint</p>
         self.length = horizontal_number * percent_length / 100
         self.top_edge = vertical_number * percent_down / 100
         self.height = vertical_number * percent_height / 100
+
+    def set_dimensions_within_component(self, percent_right, percent_down, percent_length, percent_height, component):
+        &#34;&#34;&#34; Sets the dimensions of this component, so it fits within the other &#39;component.&#39; The percentages are relative
+            to the provided &#39;component.&#39; For instance, percent_length is a percentage of component.length.&#34;&#34;&#34;
+
+        self.left_edge = component.length * percent_right / 100 + component.left_edge
+        self.length = component.length * percent_length / 100
+        self.top_edge = component.height * percent_down / 100 + component.top_edge
+        self.height = component.height * percent_height / 100
 
     def set_left_edge(self, value):
         self.left_edge = value
@@ -376,6 +394,26 @@ def vertical_midpoint(self):
     self.top_edge = value - self.height</code></pre>
 </details>
 </dd>
+<dt id="game_qu.gui_components.dimensions.Dimensions.set_dimensions_within_component"><code class="name flex">
+<span>def <span class="ident">set_dimensions_within_component</span></span>(<span>self, percent_right, percent_down, percent_length, percent_height, component)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the dimensions of this component, so it fits within the other 'component.' The percentages are relative
+to the provided 'component.' For instance, percent_length is a percentage of component.length.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dimensions_within_component(self, percent_right, percent_down, percent_length, percent_height, component):
+    &#34;&#34;&#34; Sets the dimensions of this component, so it fits within the other &#39;component.&#39; The percentages are relative
+        to the provided &#39;component.&#39; For instance, percent_length is a percentage of component.length.&#34;&#34;&#34;
+
+    self.left_edge = component.length * percent_right / 100 + component.left_edge
+    self.length = component.length * percent_length / 100
+    self.top_edge = component.height * percent_down / 100 + component.top_edge
+    self.height = component.height * percent_height / 100</code></pre>
+</details>
+</dd>
 <dt id="game_qu.gui_components.dimensions.Dimensions.set_height"><code class="name flex">
 <span>def <span class="ident">set_height</span></span>(<span>self, value)</span>
 </code></dt>
@@ -471,6 +509,7 @@ def vertical_midpoint(self):
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions" href="#game_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.right_edge" href="#game_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.set_bottom_edge" href="#game_qu.gui_components.dimensions.Dimensions.set_bottom_edge">set_bottom_edge</a></code></li>
+<li><code><a title="game_qu.gui_components.dimensions.Dimensions.set_dimensions_within_component" href="#game_qu.gui_components.dimensions.Dimensions.set_dimensions_within_component">set_dimensions_within_component</a></code></li>
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.set_height" href="#game_qu.gui_components.dimensions.Dimensions.set_height">set_height</a></code></li>
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.set_left_edge" href="#game_qu.gui_components.dimensions.Dimensions.set_left_edge">set_left_edge</a></code></li>
 <li><code><a title="game_qu.gui_components.dimensions.Dimensions.set_length" href="#game_qu.gui_components.dimensions.Dimensions.set_length">set_length</a></code></li>

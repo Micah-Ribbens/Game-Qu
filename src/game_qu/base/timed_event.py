@@ -27,7 +27,6 @@ class TimedEvent:
         self.time_needed = time_needed
         self.restarts_upon_completion = restarts_upon_completion
 
-
     def run(self, should_reset=False, should_start=False) -> None:
         """ If the TimedEvent is_started then the current_time increases by the time it took the current cycle to run.
             Then it does various things depending on the values provided (see params)
@@ -87,6 +86,14 @@ class TimedEvent:
                 bool: if the event has either not started or is done"""
 
         return not self.is_started or self.is_done()
+
+    def is_running(self):
+        """
+            Returns:
+                bool: whether the event has started and has not finished yet
+        """
+
+        return self.is_started and not self.is_done()
 
     def set_time_needed(self, time_needed):
         """Sets how much time is needed for this timed event to be completed"""

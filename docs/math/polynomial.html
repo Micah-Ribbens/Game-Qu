@@ -29,9 +29,11 @@
 <pre><code class="python">import math
 from copy import deepcopy
 
+from game_qu.base.utility_functions import is_integer, solve_quadratic, solve_linear_equation
 from game_qu.math.derivative import Derivative
 from game_qu.math.function import Function
 from game_qu.math.indefinite_integral import IndefiniteIntegral
+from game_qu.math.quadratic_function import QuadraticFunction
 
 
 class PolynomialTerm:
@@ -73,7 +75,7 @@ class PolynomialTerm:
              Returns:
                 PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)&#34;&#34;&#34;
 
-        self.get_copy().set_degree(degree)
+        return self.get_copy().set_degree(degree)
 
     def set_coefficient(self, coefficient):
         &#34;&#34;&#34;Sets the coefficient of the polynomial term to &#39;coefficient&#39;
@@ -89,7 +91,7 @@ class PolynomialTerm:
              Returns:
                 PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)&#34;&#34;&#34;
 
-        self.get_copy().set_coefficient(coefficient)
+        return self.get_copy().set_coefficient(coefficient)
 
     def set_values(self, coefficient, degree):
         &#34;&#34;&#34; Sets the degree and coefficient of the polynomial term
@@ -106,7 +108,7 @@ class PolynomialTerm:
              Returns:
                 PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)&#34;&#34;&#34;
 
-        self.get_copy().set_values(coefficient, degree)
+        return self.get_copy().set_values(coefficient, degree)
 
     def get_copy(self):
         &#34;&#34;&#34;
@@ -154,7 +156,7 @@ class Polynomial(Function):
         &#34;&#34;&#34; Sets the terms of the polynomial
 
             Returns:
-                Polynomial: &#39;self&#34;&#34;&#34;
+                Polynomial: &#39;self&#39;&#34;&#34;&#34;
 
         self.matrix.set_backing_list(terms)
         return self
@@ -193,6 +195,42 @@ class Polynomial(Function):
 
         return y_coordinate
 
+    def get_x_coordinates(self, y_coordinate):
+        &#34;&#34;&#34;
+            Returns:
+                list[float]: a list of x coordinates associated with that y coordinate (if the polynomial is easily solvable)
+
+            Raises:
+                ValueError: if the polynomial has degree greater than 2 or the polynomial has a non-integer coefficient
+        &#34;&#34;&#34;
+
+        polynomial_terms = self.get_terms()
+        quadratic_terms = [0, 0, 0]  # a, b, c
+
+        for term in polynomial_terms:
+            if term.get_coefficient() == 0:
+                continue
+
+            if term.get_degree() &gt; 2:
+                raise ValueError(&#34;The polynomial cannot have a degree greater than 2&#34;)
+
+            if term.get_degree() &lt; 0:
+                raise ValueError(&#34;The polynomial cannot have a negative degree&#34;)
+
+            if not is_integer(term.get_degree()):
+                raise ValueError(&#34;The polynomial cannot have a non-integer coefficient&#34;)
+
+            quadratic_terms[int(term.get_degree())] = term.get_coefficient()
+
+        # y = ax^2 + bx + c -&gt; 0 = ax^2 + bx + c - y
+        # Need to set the equation to 0 = ax^2 + bx + c - y (see above for proof)
+        quadratic_terms[2] -= y_coordinate
+
+        if quadratic_terms[0] == 0:
+            return [solve_linear_equation(quadratic_terms[1], quadratic_terms[2])]
+
+        return QuadraticFunction.solve_quadratic(*quadratic_terms)
+
     def get_indefinite_integral(self):
         &#34;&#34;&#34;
              Returns:
@@ -210,7 +248,7 @@ class Polynomial(Function):
     def get_derivative(self):
         &#34;&#34;&#34;
              Returns:
-                Derivative: the derivative of the function&#34;&#34;&#34;
+                Polynomial: the derivative of the function&#34;&#34;&#34;
 
         return Derivative.get_polynomial_derivative(self)
 
@@ -274,7 +312,7 @@ class Polynomial(Function):
         &#34;&#34;&#34; Sets the terms of the polynomial
 
             Returns:
-                Polynomial: &#39;self&#34;&#34;&#34;
+                Polynomial: &#39;self&#39;&#34;&#34;&#34;
 
         self.matrix.set_backing_list(terms)
         return self
@@ -313,6 +351,42 @@ class Polynomial(Function):
 
         return y_coordinate
 
+    def get_x_coordinates(self, y_coordinate):
+        &#34;&#34;&#34;
+            Returns:
+                list[float]: a list of x coordinates associated with that y coordinate (if the polynomial is easily solvable)
+
+            Raises:
+                ValueError: if the polynomial has degree greater than 2 or the polynomial has a non-integer coefficient
+        &#34;&#34;&#34;
+
+        polynomial_terms = self.get_terms()
+        quadratic_terms = [0, 0, 0]  # a, b, c
+
+        for term in polynomial_terms:
+            if term.get_coefficient() == 0:
+                continue
+
+            if term.get_degree() &gt; 2:
+                raise ValueError(&#34;The polynomial cannot have a degree greater than 2&#34;)
+
+            if term.get_degree() &lt; 0:
+                raise ValueError(&#34;The polynomial cannot have a negative degree&#34;)
+
+            if not is_integer(term.get_degree()):
+                raise ValueError(&#34;The polynomial cannot have a non-integer coefficient&#34;)
+
+            quadratic_terms[int(term.get_degree())] = term.get_coefficient()
+
+        # y = ax^2 + bx + c -&gt; 0 = ax^2 + bx + c - y
+        # Need to set the equation to 0 = ax^2 + bx + c - y (see above for proof)
+        quadratic_terms[2] -= y_coordinate
+
+        if quadratic_terms[0] == 0:
+            return [solve_linear_equation(quadratic_terms[1], quadratic_terms[2])]
+
+        return QuadraticFunction.solve_quadratic(*quadratic_terms)
+
     def get_indefinite_integral(self):
         &#34;&#34;&#34;
              Returns:
@@ -330,7 +404,7 @@ class Polynomial(Function):
     def get_derivative(self):
         &#34;&#34;&#34;
              Returns:
-                Derivative: the derivative of the function&#34;&#34;&#34;
+                Polynomial: the derivative of the function&#34;&#34;&#34;
 
         return Derivative.get_polynomial_derivative(self)
 
@@ -430,7 +504,7 @@ class Polynomial(Function):
 <dd>
 <div class="desc"><h2 id="returns">Returns</h2>
 <dl>
-<dt><code>Derivative</code></dt>
+<dt><code><a title="game_qu.math.polynomial.Polynomial" href="#game_qu.math.polynomial.Polynomial">Polynomial</a></code></dt>
 <dd>the derivative of the function</dd>
 </dl></div>
 <details class="source">
@@ -440,7 +514,7 @@ class Polynomial(Function):
 <pre><code class="python">def get_derivative(self):
     &#34;&#34;&#34;
          Returns:
-            Derivative: the derivative of the function&#34;&#34;&#34;
+            Polynomial: the derivative of the function&#34;&#34;&#34;
 
     return Derivative.get_polynomial_derivative(self)</code></pre>
 </details>
@@ -529,6 +603,61 @@ class Polynomial(Function):
     return self.matrix.get_backing_list()</code></pre>
 </details>
 </dd>
+<dt id="game_qu.math.polynomial.Polynomial.get_x_coordinates"><code class="name flex">
+<span>def <span class="ident">get_x_coordinates</span></span>(<span>self, y_coordinate)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>a list of x coordinates associated with that y coordinate (if the polynomial is easily solvable)</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>if the polynomial has degree greater than 2 or the polynomial has a non-integer coefficient</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_x_coordinates(self, y_coordinate):
+    &#34;&#34;&#34;
+        Returns:
+            list[float]: a list of x coordinates associated with that y coordinate (if the polynomial is easily solvable)
+
+        Raises:
+            ValueError: if the polynomial has degree greater than 2 or the polynomial has a non-integer coefficient
+    &#34;&#34;&#34;
+
+    polynomial_terms = self.get_terms()
+    quadratic_terms = [0, 0, 0]  # a, b, c
+
+    for term in polynomial_terms:
+        if term.get_coefficient() == 0:
+            continue
+
+        if term.get_degree() &gt; 2:
+            raise ValueError(&#34;The polynomial cannot have a degree greater than 2&#34;)
+
+        if term.get_degree() &lt; 0:
+            raise ValueError(&#34;The polynomial cannot have a negative degree&#34;)
+
+        if not is_integer(term.get_degree()):
+            raise ValueError(&#34;The polynomial cannot have a non-integer coefficient&#34;)
+
+        quadratic_terms[int(term.get_degree())] = term.get_coefficient()
+
+    # y = ax^2 + bx + c -&gt; 0 = ax^2 + bx + c - y
+    # Need to set the equation to 0 = ax^2 + bx + c - y (see above for proof)
+    quadratic_terms[2] -= y_coordinate
+
+    if quadratic_terms[0] == 0:
+        return [solve_linear_equation(quadratic_terms[1], quadratic_terms[2])]
+
+    return QuadraticFunction.solve_quadratic(*quadratic_terms)</code></pre>
+</details>
+</dd>
 <dt id="game_qu.math.polynomial.Polynomial.get_y_coordinate"><code class="name flex">
 <span>def <span class="ident">get_y_coordinate</span></span>(<span>self, x_coordinate) ‑> float</span>
 </code></dt>
@@ -587,7 +716,7 @@ class Polynomial(Function):
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code><a title="game_qu.math.polynomial.Polynomial" href="#game_qu.math.polynomial.Polynomial">Polynomial</a></code></dt>
-<dd>'self</dd>
+<dd>'self'</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -597,7 +726,7 @@ class Polynomial(Function):
     &#34;&#34;&#34; Sets the terms of the polynomial
 
         Returns:
-            Polynomial: &#39;self&#34;&#34;&#34;
+            Polynomial: &#39;self&#39;&#34;&#34;&#34;
 
     self.matrix.set_backing_list(terms)
     return self</code></pre>
@@ -665,7 +794,7 @@ class Polynomial(Function):
              Returns:
                 PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)&#34;&#34;&#34;
 
-        self.get_copy().set_degree(degree)
+        return self.get_copy().set_degree(degree)
 
     def set_coefficient(self, coefficient):
         &#34;&#34;&#34;Sets the coefficient of the polynomial term to &#39;coefficient&#39;
@@ -681,7 +810,7 @@ class Polynomial(Function):
              Returns:
                 PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)&#34;&#34;&#34;
 
-        self.get_copy().set_coefficient(coefficient)
+        return self.get_copy().set_coefficient(coefficient)
 
     def set_values(self, coefficient, degree):
         &#34;&#34;&#34; Sets the degree and coefficient of the polynomial term
@@ -698,7 +827,7 @@ class Polynomial(Function):
              Returns:
                 PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)&#34;&#34;&#34;
 
-        self.get_copy().set_values(coefficient, degree)
+        return self.get_copy().set_values(coefficient, degree)
 
     def get_copy(self):
         &#34;&#34;&#34;
@@ -829,7 +958,7 @@ class Polynomial(Function):
          Returns:
             PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)&#34;&#34;&#34;
 
-    self.get_copy().set_coefficient(coefficient)</code></pre>
+    return self.get_copy().set_coefficient(coefficient)</code></pre>
 </details>
 </dd>
 <dt id="game_qu.math.polynomial.PolynomialTerm.get_polynomial_term_with_degree"><code class="name flex">
@@ -850,7 +979,7 @@ class Polynomial(Function):
          Returns:
             PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)&#34;&#34;&#34;
 
-    self.get_copy().set_degree(degree)</code></pre>
+    return self.get_copy().set_degree(degree)</code></pre>
 </details>
 </dd>
 <dt id="game_qu.math.polynomial.PolynomialTerm.get_polynomial_term_with_values"><code class="name flex">
@@ -871,7 +1000,7 @@ class Polynomial(Function):
          Returns:
             PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)&#34;&#34;&#34;
 
-    self.get_copy().set_values(coefficient, degree)</code></pre>
+    return self.get_copy().set_values(coefficient, degree)</code></pre>
 </details>
 </dd>
 <dt id="game_qu.math.polynomial.PolynomialTerm.set_coefficient"><code class="name flex">
@@ -976,6 +1105,7 @@ class Polynomial(Function):
 <li><code><a title="game_qu.math.polynomial.Polynomial.get_polynomial_with_matrix" href="#game_qu.math.polynomial.Polynomial.get_polynomial_with_matrix">get_polynomial_with_matrix</a></code></li>
 <li><code><a title="game_qu.math.polynomial.Polynomial.get_polynomial_with_terms" href="#game_qu.math.polynomial.Polynomial.get_polynomial_with_terms">get_polynomial_with_terms</a></code></li>
 <li><code><a title="game_qu.math.polynomial.Polynomial.get_terms" href="#game_qu.math.polynomial.Polynomial.get_terms">get_terms</a></code></li>
+<li><code><a title="game_qu.math.polynomial.Polynomial.get_x_coordinates" href="#game_qu.math.polynomial.Polynomial.get_x_coordinates">get_x_coordinates</a></code></li>
 <li><code><a title="game_qu.math.polynomial.Polynomial.get_y_coordinate" href="#game_qu.math.polynomial.Polynomial.get_y_coordinate">get_y_coordinate</a></code></li>
 <li><code><a title="game_qu.math.polynomial.Polynomial.matrix" href="#game_qu.math.polynomial.Polynomial.matrix">matrix</a></code></li>
 <li><code><a title="game_qu.math.polynomial.Polynomial.set_matrix" href="#game_qu.math.polynomial.Polynomial.set_matrix">set_matrix</a></code></li>

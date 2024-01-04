@@ -241,6 +241,7 @@ class BoundedFunction(Function):
 
         return self.current_function.get_y_coordinate(self.max_x_coordinate)
 
+    # TODO pick up with calculus not working nonesense (get_indefinite_integral and get_derivative functions don't exist)
     def get_indefinite_integral(self):
         """ Finds and returns the indefinite integral. Raises an AttributeError if the underlying function does not have the
             method: 'get_indefinite_integral'

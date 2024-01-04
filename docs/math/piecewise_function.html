@@ -28,10 +28,9 @@
 </summary>
 <pre><code class="python">from copy import deepcopy
 
-from game_qu.math.derivative import Derivative
+from game_qu.math.bounded_function import BoundedFunction
 from game_qu.math.function import Function
 from game_qu.base.utility_functions import modified_mod, is_within_bounds, min_value
-from game_qu.math.indefinite_integral import IndefiniteIntegral
 
 
 class PiecewiseFunction(Function):
@@ -52,7 +51,7 @@ class PiecewiseFunction(Function):
     def get_functions(self):
         &#34;&#34;&#34;
              Returns:
-                BoundedFunction: all the functions of the piecewise function&#34;&#34;&#34;
+                list[BoundedFunction]: all the functions of the piecewise function&#34;&#34;&#34;
 
         return self.functions
 
@@ -408,7 +407,28 @@ class PiecewiseFunction(Function):
              Returns:
                 float: the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
 
-        return self.get_derivative().get_y_coordinate(x_coordinate)</code></pre>
+        return self.get_derivative().get_y_coordinate(x_coordinate)
+
+    @staticmethod
+    def get_bounded_functions_with_delta_times(functions, delta_times, start_time):
+        &#34;&#34;&#34;
+            Returns:
+                list[BoundedFunction]: a list of the bounded functions the first one started at &#39;start_time&#39; and the
+                rest are shifted by the delta times
+        &#34;&#34;&#34;
+
+        if len(functions) != len(delta_times):
+            raise ValueError(&#34;The length of &#39;functions&#39; must be equal to the length of &#39;delta_times&#39;&#34;)
+
+        bounded_functions = []
+        current_start_time = start_time
+        for x in range(len(delta_times)):
+            end_time = current_start_time + delta_times[x]
+            bounded_function = BoundedFunction(functions[x], current_start_time, end_time)
+            bounded_functions.append(bounded_function)
+            current_start_time = end_time
+
+        return bounded_functions</code></pre>
 </details>
 </section>
 <section>
@@ -450,7 +470,7 @@ coordinate is and if it falls within the other function</p>
     def get_functions(self):
         &#34;&#34;&#34;
              Returns:
-                BoundedFunction: all the functions of the piecewise function&#34;&#34;&#34;
+                list[BoundedFunction]: all the functions of the piecewise function&#34;&#34;&#34;
 
         return self.functions
 
@@ -806,7 +826,28 @@ coordinate is and if it falls within the other function</p>
              Returns:
                 float: the value of the derivative evaluated at the &#39;x_coordinate&#39;&#34;&#34;&#34;
 
-        return self.get_derivative().get_y_coordinate(x_coordinate)</code></pre>
+        return self.get_derivative().get_y_coordinate(x_coordinate)
+
+    @staticmethod
+    def get_bounded_functions_with_delta_times(functions, delta_times, start_time):
+        &#34;&#34;&#34;
+            Returns:
+                list[BoundedFunction]: a list of the bounded functions the first one started at &#39;start_time&#39; and the
+                rest are shifted by the delta times
+        &#34;&#34;&#34;
+
+        if len(functions) != len(delta_times):
+            raise ValueError(&#34;The length of &#39;functions&#39; must be equal to the length of &#39;delta_times&#39;&#34;)
+
+        bounded_functions = []
+        current_start_time = start_time
+        for x in range(len(delta_times)):
+            end_time = current_start_time + delta_times[x]
+            bounded_function = BoundedFunction(functions[x], current_start_time, end_time)
+            bounded_functions.append(bounded_function)
+            current_start_time = end_time
+
+        return bounded_functions</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -834,6 +875,45 @@ coordinate is and if it falls within the other function</p>
 <dt id="game_qu.math.piecewise_function.PiecewiseFunction.x_coordinates_can_be_less_than_min"><code class="name">var <span class="ident">x_coordinates_can_be_less_than_min</span></code></dt>
 <dd>
 <div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="game_qu.math.piecewise_function.PiecewiseFunction.get_bounded_functions_with_delta_times"><code class="name flex">
+<span>def <span class="ident">get_bounded_functions_with_delta_times</span></span>(<span>functions, delta_times, start_time)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[BoundedFunction]</code></dt>
+<dd>a list of the bounded functions the first one started at 'start_time' and the</dd>
+</dl>
+<p>rest are shifted by the delta times</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_bounded_functions_with_delta_times(functions, delta_times, start_time):
+    &#34;&#34;&#34;
+        Returns:
+            list[BoundedFunction]: a list of the bounded functions the first one started at &#39;start_time&#39; and the
+            rest are shifted by the delta times
+    &#34;&#34;&#34;
+
+    if len(functions) != len(delta_times):
+        raise ValueError(&#34;The length of &#39;functions&#39; must be equal to the length of &#39;delta_times&#39;&#34;)
+
+    bounded_functions = []
+    current_start_time = start_time
+    for x in range(len(delta_times)):
+        end_time = current_start_time + delta_times[x]
+        bounded_function = BoundedFunction(functions[x], current_start_time, end_time)
+        bounded_functions.append(bounded_function)
+        current_start_time = end_time
+
+    return bounded_functions</code></pre>
+</details>
 </dd>
 </dl>
 <h3>Methods</h3>
@@ -1149,7 +1229,7 @@ method: 'get_derivative'</p>
 <dd>
 <div class="desc"><h2 id="returns">Returns</h2>
 <dl>
-<dt><code>BoundedFunction</code></dt>
+<dt><code>list[BoundedFunction]</code></dt>
 <dd>all the functions of the piecewise function</dd>
 </dl></div>
 <details class="source">
@@ -1159,7 +1239,7 @@ method: 'get_derivative'</p>
 <pre><code class="python">def get_functions(self):
     &#34;&#34;&#34;
          Returns:
-            BoundedFunction: all the functions of the piecewise function&#34;&#34;&#34;
+            list[BoundedFunction]: all the functions of the piecewise function&#34;&#34;&#34;
 
     return self.functions</code></pre>
 </details>
@@ -1700,6 +1780,7 @@ PiecewiseFunction: new piecewise function with the function removed at the speci
 <li><code><a title="game_qu.math.piecewise_function.PiecewiseFunction.functions" href="#game_qu.math.piecewise_function.PiecewiseFunction.functions">functions</a></code></li>
 <li><code><a title="game_qu.math.piecewise_function.PiecewiseFunction.get_before_piecewise_function" href="#game_qu.math.piecewise_function.PiecewiseFunction.get_before_piecewise_function">get_before_piecewise_function</a></code></li>
 <li><code><a title="game_qu.math.piecewise_function.PiecewiseFunction.get_bounded_function_with_x_coordinates_less_than_min" href="#game_qu.math.piecewise_function.PiecewiseFunction.get_bounded_function_with_x_coordinates_less_than_min">get_bounded_function_with_x_coordinates_less_than_min</a></code></li>
+<li><code><a title="game_qu.math.piecewise_function.PiecewiseFunction.get_bounded_functions_with_delta_times" href="#game_qu.math.piecewise_function.PiecewiseFunction.get_bounded_functions_with_delta_times">get_bounded_functions_with_delta_times</a></code></li>
 <li><code><a title="game_qu.math.piecewise_function.PiecewiseFunction.get_bounds" href="#game_qu.math.piecewise_function.PiecewiseFunction.get_bounds">get_bounds</a></code></li>
 <li><code><a title="game_qu.math.piecewise_function.PiecewiseFunction.get_copy" href="#game_qu.math.piecewise_function.PiecewiseFunction.get_copy">get_copy</a></code></li>
 <li><code><a title="game_qu.math.piecewise_function.PiecewiseFunction.get_derivative" href="#game_qu.math.piecewise_function.PiecewiseFunction.get_derivative">get_derivative</a></code></li>

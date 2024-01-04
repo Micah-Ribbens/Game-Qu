@@ -28,7 +28,6 @@
 </summary>
 <pre><code class="python">from game_qu.base.utility_functions import is_within_bounds
 from game_qu.math.function import Function
-from game_qu.math.piecewise_function import PiecewiseFunction
 
 
 class BoundedFunction(Function):
@@ -193,21 +192,6 @@ class BoundedFunction(Function):
         self.x_coordinates_can_be_less_than_min = x_coordinates_can_be_less_than_min
         return self
 
-    def get_full_function(self):
-        &#34;&#34;&#34;
-             Returns:
-                PiecewiseFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
-                x coordinate&#34;&#34;&#34;
-
-        start = self.get_min_x_coordinate() - self.bounds_size()
-        end = self.get_max_x_coordinate() - self.bounds_size()
-        bounds_size = self.bounds_size()  # This is the bounds size do not change if the original bounds size change!
-
-        before_function = self.get_bounded_function_with_bounds(start, end)
-        before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
-
-        return PiecewiseFunction([self.get_copy(), before_function])
-
     def update_current_function(self):
         &#34;&#34;&#34;Updates the current function after the bounded function is updated&#34;&#34;&#34;
 
@@ -223,6 +207,21 @@ class BoundedFunction(Function):
                 BoundedFunction: a bounded function with the is repeating attribute set to &#39;x_coordinates_can_be_less_than_min&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)
+
+    def get_full_function(self):
+        &#34;&#34;&#34;
+             Returns:
+                BoundedFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
+                x coordinate&#34;&#34;&#34;
+
+        start = self.get_min_x_coordinate() - self.bounds_size()
+        end = self.get_max_x_coordinate() - self.bounds_size()
+        bounds_size = self.bounds_size()  # This is the bounds size do not change if the original bounds size change!
+
+        before_function = self.get_bounded_function_with_bounds(start, end)
+        before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
+
+        return Function.get_new_function(lambda x: before_function.get_y_coordinate(x) if x &lt; start else self.get_y_coordinate(x))
 
     def get_y_coordinate(self, x_coordinate):
         &#34;&#34;&#34;
@@ -270,6 +269,7 @@ class BoundedFunction(Function):
 
         return self.current_function.get_y_coordinate(self.max_x_coordinate)
 
+    # TODO pick up with calculus not working nonesense (get_indefinite_integral and get_derivative functions don&#39;t exist)
     def get_indefinite_integral(self):
         &#34;&#34;&#34; Finds and returns the indefinite integral. Raises an AttributeError if the underlying function does not have the
             method: &#39;get_indefinite_integral&#39;
@@ -486,21 +486,6 @@ Only 'get_y_coordinate' must be implemented</p>
         self.x_coordinates_can_be_less_than_min = x_coordinates_can_be_less_than_min
         return self
 
-    def get_full_function(self):
-        &#34;&#34;&#34;
-             Returns:
-                PiecewiseFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
-                x coordinate&#34;&#34;&#34;
-
-        start = self.get_min_x_coordinate() - self.bounds_size()
-        end = self.get_max_x_coordinate() - self.bounds_size()
-        bounds_size = self.bounds_size()  # This is the bounds size do not change if the original bounds size change!
-
-        before_function = self.get_bounded_function_with_bounds(start, end)
-        before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
-
-        return PiecewiseFunction([self.get_copy(), before_function])
-
     def update_current_function(self):
         &#34;&#34;&#34;Updates the current function after the bounded function is updated&#34;&#34;&#34;
 
@@ -516,6 +501,21 @@ Only 'get_y_coordinate' must be implemented</p>
                 BoundedFunction: a bounded function with the is repeating attribute set to &#39;x_coordinates_can_be_less_than_min&#39; (does not modify the current bounded function)&#34;&#34;&#34;
 
         return self.get_copy().set_x_coordinates_can_be_less_than_min(x_coordinates_can_be_less_than_min)
+
+    def get_full_function(self):
+        &#34;&#34;&#34;
+             Returns:
+                BoundedFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
+                x coordinate&#34;&#34;&#34;
+
+        start = self.get_min_x_coordinate() - self.bounds_size()
+        end = self.get_max_x_coordinate() - self.bounds_size()
+        bounds_size = self.bounds_size()  # This is the bounds size do not change if the original bounds size change!
+
+        before_function = self.get_bounded_function_with_bounds(start, end)
+        before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
+
+        return Function.get_new_function(lambda x: before_function.get_y_coordinate(x) if x &lt; start else self.get_y_coordinate(x))
 
     def get_y_coordinate(self, x_coordinate):
         &#34;&#34;&#34;
@@ -563,6 +563,7 @@ Only 'get_y_coordinate' must be implemented</p>
 
         return self.current_function.get_y_coordinate(self.max_x_coordinate)
 
+    # TODO pick up with calculus not working nonesense (get_indefinite_integral and get_derivative functions don&#39;t exist)
     def get_indefinite_integral(self):
         &#34;&#34;&#34; Finds and returns the indefinite integral. Raises an AttributeError if the underlying function does not have the
             method: &#39;get_indefinite_integral&#39;
@@ -909,7 +910,7 @@ method: 'get_derivative'</p>
 <dd>
 <div class="desc"><h2 id="returns">Returns</h2>
 <dl>
-<dt><code>PiecewiseFunction</code></dt>
+<dt><code><a title="game_qu.math.bounded_function.BoundedFunction" href="#game_qu.math.bounded_function.BoundedFunction">BoundedFunction</a></code></dt>
 <dd>the fully 'unbounded' function - x coordinates can now be less than the min x</dd>
 </dl>
 <p>x coordinate</p></div>
@@ -920,7 +921,7 @@ method: 'get_derivative'</p>
 <pre><code class="python">def get_full_function(self):
     &#34;&#34;&#34;
          Returns:
-            PiecewiseFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
+            BoundedFunction: the fully &#39;unbounded&#39; function - x coordinates can now be less than the min x
             x coordinate&#34;&#34;&#34;
 
     start = self.get_min_x_coordinate() - self.bounds_size()
@@ -930,7 +931,7 @@ method: 'get_derivative'</p>
     before_function = self.get_bounded_function_with_bounds(start, end)
     before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
 
-    return PiecewiseFunction([self.get_copy(), before_function])</code></pre>
+    return Function.get_new_function(lambda x: before_function.get_y_coordinate(x) if x &lt; start else self.get_y_coordinate(x))</code></pre>
 </details>
 </dd>
 <dt id="game_qu.math.bounded_function.BoundedFunction.get_function"><code class="name flex">

@@ -1,7 +1,7 @@
 import math
 from copy import deepcopy
 
-from game_qu.base.utility_functions import is_integer, solve_quadratic
+from game_qu.base.utility_functions import is_integer, solve_quadratic, solve_linear_equation
 from game_qu.math.derivative import Derivative
 from game_qu.math.function import Function
 from game_qu.math.indefinite_integral import IndefiniteIntegral
@@ -47,7 +47,7 @@ class PolynomialTerm:
              Returns:
                 PolynomialTerm: the polynomial term with that degree (does not modify the current polynomial term)"""
 
-        self.get_copy().set_degree(degree)
+        return self.get_copy().set_degree(degree)
 
     def set_coefficient(self, coefficient):
         """Sets the coefficient of the polynomial term to 'coefficient'
@@ -63,7 +63,7 @@ class PolynomialTerm:
              Returns:
                 PolynomialTerm: the polynomial term with that coefficient (does not modify the current polynomial term)"""
 
-        self.get_copy().set_coefficient(coefficient)
+        return self.get_copy().set_coefficient(coefficient)
 
     def set_values(self, coefficient, degree):
         """ Sets the degree and coefficient of the polynomial term
@@ -80,7 +80,7 @@ class PolynomialTerm:
              Returns:
                 PolynomialTerm: the polynomial term with those values (does not modify the current polynomial term)"""
 
-        self.get_copy().set_values(coefficient, degree)
+        return self.get_copy().set_values(coefficient, degree)
 
     def get_copy(self):
         """
@@ -128,7 +128,7 @@ class Polynomial(Function):
         """ Sets the terms of the polynomial
 
             Returns:
-                Polynomial: 'self"""
+                Polynomial: 'self'"""
 
         self.matrix.set_backing_list(terms)
         return self
@@ -180,13 +180,16 @@ class Polynomial(Function):
         quadratic_terms = [0, 0, 0]  # a, b, c
 
         for term in polynomial_terms:
+            if term.get_coefficient() == 0:
+                continue
+
             if term.get_degree() > 2:
                 raise ValueError("The polynomial cannot have a degree greater than 2")
 
             if term.get_degree() < 0:
                 raise ValueError("The polynomial cannot have a negative degree")
 
-            if not is_integer(term):
+            if not is_integer(term.get_degree()):
                 raise ValueError("The polynomial cannot have a non-integer coefficient")
 
             quadratic_terms[int(term.get_degree())] = term.get_coefficient()
@@ -194,6 +197,9 @@ class Polynomial(Function):
         # y = ax^2 + bx + c -> 0 = ax^2 + bx + c - y
         # Need to set the equation to 0 = ax^2 + bx + c - y (see above for proof)
         quadratic_terms[2] -= y_coordinate
+
+        if quadratic_terms[0] == 0:
+            return [solve_linear_equation(quadratic_terms[1], quadratic_terms[2])]
 
         return QuadraticFunction.solve_quadratic(*quadratic_terms)
 

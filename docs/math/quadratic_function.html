@@ -26,9 +26,9 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from game_qu.math.function import Function
+<pre><code class="python">from game_qu.base.library_independant_utility_functions import rounded
+from game_qu.math.function import Function
 import math
-from game_qu.base.utility_functions import solve_quadratic
 
 
 class QuadraticFunction(Function):
@@ -106,7 +106,7 @@ class QuadraticFunction(Function):
                 list[float]: the x coordinates associated with that y coordinate (calls &#39;solve_quadratic&#39; internally)&#34;&#34;&#34;
 
         a, b, c = QuadraticFunction.get_a_b_and_c(self.h, self.k, self.a)
-        return solve_quadratic(a, b, c)
+        return QuadraticFunction.solve_quadratic(a, b, c - y_coordinate)
 
     def get_inverted_function(self):
         &#34;&#34;&#34;
@@ -114,6 +114,21 @@ class QuadraticFunction(Function):
                 Function: the inverse function&#34;&#34;&#34;
 
         return Function.get_new_function(self.get_y_coordinate)
+
+    def get_indefinite_integral(self):
+        &#34;&#34;&#34;
+             Returns:
+                Function: the indefinite integral&#34;&#34;&#34;
+
+        return QuadraticFunction.get_indefinite_integral_using_vertex_form(self.h, self.k, self.a)
+
+    def get_area_under_curve(self, lower_bound, upper_bound):
+        &#34;&#34;&#34;
+             Returns:
+                float: the area under the curve of the quadratic equation from the lower bound to the upper bound&#34;&#34;&#34;
+
+        indefinite_integral = self.get_indefinite_integral()
+        return indefinite_integral.get_y_coordinate(upper_bound) - indefinite_integral.get_y_coordinate(lower_bound)
 
     @staticmethod
     def get_a_b_and_c(h, k, a):
@@ -133,7 +148,7 @@ class QuadraticFunction(Function):
                 a (float): the number in front of the x^2 term
                 b (float): the number in front of the x term
                 c (float): &#39;c&#39; in the equation
-     
+
             Returns:
                 Function: the indefinite integral
         &#34;&#34;&#34;
@@ -150,7 +165,7 @@ class QuadraticFunction(Function):
                 h (float): the first number of the vertex
                 k (float): the second number of the vertex
                 a (float): the number that goes before (x-h)^2
-     
+
             Returns:
                 Function: the indefinite integral
         &#34;&#34;&#34;
@@ -158,20 +173,28 @@ class QuadraticFunction(Function):
         a, b, c = QuadraticFunction.get_a_b_and_c(h, k, a)
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
 
-    def get_indefinite_integral(self):
+    @staticmethod
+    def solve_quadratic(a, b, c):
         &#34;&#34;&#34;
              Returns:
-                Function: the indefinite integral&#34;&#34;&#34;
+                list[float]: [answer1, answer2] the answers to the quadratic (only one answer is returned if the
+                answers are the same) and if the answer is an imaginary number it returns float(&#39;nan&#39;)&#34;&#34;&#34;
 
-        return QuadraticFunction.get_indefinite_integral_using_vertex_form(self.h, self.k, self.a)
+        number_under_square_root = pow(b, 2) - 4 * a * c
+        number_under_square_root = rounded(number_under_square_root, 4)
 
-    def get_area_under_curve(self, lower_bound, upper_bound):
-        &#34;&#34;&#34;
-             Returns:
-                float: the area under the curve of the quadratic equation from the lower bound to the upper bound&#34;&#34;&#34;
+        if number_under_square_root &lt; 0:
+            return None
 
-        indefinite_integral = self.get_indefinite_integral()
-        return indefinite_integral.get_y_coordinate(upper_bound) - indefinite_integral.get_y_coordinate(lower_bound)</code></pre>
+        square_root = math.sqrt(number_under_square_root)
+
+        answer1 = (-b + square_root) / (2 * a)
+        answer2 = (-b - square_root) / (2 * a)
+
+        answers = [answer2, answer1]
+
+        # If the answers are the same, only one of them should be returned
+        return answers if answers[0] != answers[1] else [answers[0]]</code></pre>
 </details>
 </section>
 <section>
@@ -267,7 +290,7 @@ class QuadraticFunction(Function):
                 list[float]: the x coordinates associated with that y coordinate (calls &#39;solve_quadratic&#39; internally)&#34;&#34;&#34;
 
         a, b, c = QuadraticFunction.get_a_b_and_c(self.h, self.k, self.a)
-        return solve_quadratic(a, b, c)
+        return QuadraticFunction.solve_quadratic(a, b, c - y_coordinate)
 
     def get_inverted_function(self):
         &#34;&#34;&#34;
@@ -275,6 +298,21 @@ class QuadraticFunction(Function):
                 Function: the inverse function&#34;&#34;&#34;
 
         return Function.get_new_function(self.get_y_coordinate)
+
+    def get_indefinite_integral(self):
+        &#34;&#34;&#34;
+             Returns:
+                Function: the indefinite integral&#34;&#34;&#34;
+
+        return QuadraticFunction.get_indefinite_integral_using_vertex_form(self.h, self.k, self.a)
+
+    def get_area_under_curve(self, lower_bound, upper_bound):
+        &#34;&#34;&#34;
+             Returns:
+                float: the area under the curve of the quadratic equation from the lower bound to the upper bound&#34;&#34;&#34;
+
+        indefinite_integral = self.get_indefinite_integral()
+        return indefinite_integral.get_y_coordinate(upper_bound) - indefinite_integral.get_y_coordinate(lower_bound)
 
     @staticmethod
     def get_a_b_and_c(h, k, a):
@@ -294,7 +332,7 @@ class QuadraticFunction(Function):
                 a (float): the number in front of the x^2 term
                 b (float): the number in front of the x term
                 c (float): &#39;c&#39; in the equation
-     
+
             Returns:
                 Function: the indefinite integral
         &#34;&#34;&#34;
@@ -311,7 +349,7 @@ class QuadraticFunction(Function):
                 h (float): the first number of the vertex
                 k (float): the second number of the vertex
                 a (float): the number that goes before (x-h)^2
-     
+
             Returns:
                 Function: the indefinite integral
         &#34;&#34;&#34;
@@ -319,20 +357,28 @@ class QuadraticFunction(Function):
         a, b, c = QuadraticFunction.get_a_b_and_c(h, k, a)
         return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)
 
-    def get_indefinite_integral(self):
+    @staticmethod
+    def solve_quadratic(a, b, c):
         &#34;&#34;&#34;
              Returns:
-                Function: the indefinite integral&#34;&#34;&#34;
+                list[float]: [answer1, answer2] the answers to the quadratic (only one answer is returned if the
+                answers are the same) and if the answer is an imaginary number it returns float(&#39;nan&#39;)&#34;&#34;&#34;
 
-        return QuadraticFunction.get_indefinite_integral_using_vertex_form(self.h, self.k, self.a)
+        number_under_square_root = pow(b, 2) - 4 * a * c
+        number_under_square_root = rounded(number_under_square_root, 4)
 
-    def get_area_under_curve(self, lower_bound, upper_bound):
-        &#34;&#34;&#34;
-             Returns:
-                float: the area under the curve of the quadratic equation from the lower bound to the upper bound&#34;&#34;&#34;
+        if number_under_square_root &lt; 0:
+            return None
 
-        indefinite_integral = self.get_indefinite_integral()
-        return indefinite_integral.get_y_coordinate(upper_bound) - indefinite_integral.get_y_coordinate(lower_bound)</code></pre>
+        square_root = math.sqrt(number_under_square_root)
+
+        answer1 = (-b + square_root) / (2 * a)
+        answer2 = (-b - square_root) / (2 * a)
+
+        answers = [answer2, answer1]
+
+        # If the answers are the same, only one of them should be returned
+        return answers if answers[0] != answers[1] else [answers[0]]</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -416,7 +462,7 @@ def get_indefinite_integral_using_quadratic_form(a, b, c):
             a (float): the number in front of the x^2 term
             b (float): the number in front of the x term
             c (float): &#39;c&#39; in the equation
- 
+
         Returns:
             Function: the indefinite integral
     &#34;&#34;&#34;
@@ -457,13 +503,51 @@ def get_indefinite_integral_using_vertex_form(h, k, a):
             h (float): the first number of the vertex
             k (float): the second number of the vertex
             a (float): the number that goes before (x-h)^2
- 
+
         Returns:
             Function: the indefinite integral
     &#34;&#34;&#34;
 
     a, b, c = QuadraticFunction.get_a_b_and_c(h, k, a)
     return QuadraticFunction.get_indefinite_integral_using_quadratic_form(a, b, c)</code></pre>
+</details>
+</dd>
+<dt id="game_qu.math.quadratic_function.QuadraticFunction.solve_quadratic"><code class="name flex">
+<span>def <span class="ident">solve_quadratic</span></span>(<span>a, b, c)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>[answer1, answer2] the answers to the quadratic (only one answer is returned if the</dd>
+</dl>
+<p>answers are the same) and if the answer is an imaginary number it returns float('nan')</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def solve_quadratic(a, b, c):
+    &#34;&#34;&#34;
+         Returns:
+            list[float]: [answer1, answer2] the answers to the quadratic (only one answer is returned if the
+            answers are the same) and if the answer is an imaginary number it returns float(&#39;nan&#39;)&#34;&#34;&#34;
+
+    number_under_square_root = pow(b, 2) - 4 * a * c
+    number_under_square_root = rounded(number_under_square_root, 4)
+
+    if number_under_square_root &lt; 0:
+        return None
+
+    square_root = math.sqrt(number_under_square_root)
+
+    answer1 = (-b + square_root) / (2 * a)
+    answer2 = (-b - square_root) / (2 * a)
+
+    answers = [answer2, answer1]
+
+    # If the answers are the same, only one of them should be returned
+    return answers if answers[0] != answers[1] else [answers[0]]</code></pre>
 </details>
 </dd>
 </dl>
@@ -609,7 +693,7 @@ def get_indefinite_integral_using_vertex_form(h, k, a):
             list[float]: the x coordinates associated with that y coordinate (calls &#39;solve_quadratic&#39; internally)&#34;&#34;&#34;
 
     a, b, c = QuadraticFunction.get_a_b_and_c(self.h, self.k, self.a)
-    return solve_quadratic(a, b, c)</code></pre>
+    return QuadraticFunction.solve_quadratic(a, b, c - y_coordinate)</code></pre>
 </details>
 </dd>
 <dt id="game_qu.math.quadratic_function.QuadraticFunction.get_y_coordinate"><code class="name flex">
@@ -752,6 +836,7 @@ def get_indefinite_integral_using_vertex_form(h, k, a):
 <li><code><a title="game_qu.math.quadratic_function.QuadraticFunction.k" href="#game_qu.math.quadratic_function.QuadraticFunction.k">k</a></code></li>
 <li><code><a title="game_qu.math.quadratic_function.QuadraticFunction.points_set_variables" href="#game_qu.math.quadratic_function.QuadraticFunction.points_set_variables">points_set_variables</a></code></li>
 <li><code><a title="game_qu.math.quadratic_function.QuadraticFunction.set_variables" href="#game_qu.math.quadratic_function.QuadraticFunction.set_variables">set_variables</a></code></li>
+<li><code><a title="game_qu.math.quadratic_function.QuadraticFunction.solve_quadratic" href="#game_qu.math.quadratic_function.QuadraticFunction.solve_quadratic">solve_quadratic</a></code></li>
 </ul>
 </li>
 </ul>

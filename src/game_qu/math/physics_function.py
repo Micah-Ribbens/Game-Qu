@@ -234,6 +234,30 @@ class PhysicsFunction:
         matrix = Matrix([PolynomialTerm(a, 2), PolynomialTerm(b, 1), PolynomialTerm(c, 0)])
         return Polynomial(matrix)
 
+    def get_indefinite_integral(self):
+        """
+            Returns:
+                Function: the indefinite integral of the position equation
+        """
+
+        return self.get_indefinite_integral_of_position_equation()
+
+    def get_derivative(self):
+        """
+            Returns:
+                Function: the derivative of the position equation
+        """
+
+        return self.get_derivative_of_position_equation()
+
+    def get_derivative_of_position_equation(self):
+        """
+            Returns:
+                Function: the derivative of the position equation
+        """
+
+        return self.get_polynomial().get_derivative()
+
     def set_initial_velocity(self, initial_velocity):
         self.initial_velocity = initial_velocity
 

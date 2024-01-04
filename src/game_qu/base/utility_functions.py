@@ -389,3 +389,12 @@ def get_inverse_sign(number):
 
     return -get_sign(number)
 
+
+def solve_linear_equation(a, b):
+    """ Solves the linear equation ax + b = 0
+
+         Returns:
+            float: the answer to the linear equation"""
+
+    return -b / a
+

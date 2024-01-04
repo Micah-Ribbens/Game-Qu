@@ -60,9 +60,11 @@ class PhysicsPath(PhysicsFollowablePath):
 <dl>
 <dt id="game_qu.base.quadratic_equations.PhysicsEquation"><code class="flex name class">
 <span>class <span class="ident">PhysicsEquation</span></span>
+<span>(</span><span>vertex=0, time=1, initial_distance=0)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>The same class as PhysicsFunction, but this is kept to keep the API the same between library versions</p></div>
+<div class="desc"><p>The same class as PhysicsFunction, but this is kept to keep the API the same between library versions</p>
+<p>Initializes the object</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -81,14 +83,18 @@ class PhysicsPath(PhysicsFollowablePath):
 <li><code><b><a title="game_qu.math.physics_function.PhysicsFunction" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction">PhysicsFunction</a></b></code>:
 <ul class="hlist">
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_a_b_and_c" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_a_b_and_c">get_a_b_and_c</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_derivative" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_derivative">get_derivative</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_derivative_of_position_equation" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_derivative_of_position_equation">get_derivative_of_position_equation</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_displacement" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_displacement">get_displacement</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_acceleration" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_acceleration">get_displacement_due_to_acceleration</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_velocity" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_velocity">get_displacement_due_to_velocity</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_distance" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_distance">get_distance</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_full_cycle_time" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_full_cycle_time">get_full_cycle_time</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral">get_indefinite_integral</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_acceleration_equation" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_acceleration_equation">get_indefinite_integral_of_acceleration_equation</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_position_equation" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_position_equation">get_indefinite_integral_of_position_equation</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_velocity_equation" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_velocity_equation">get_indefinite_integral_of_velocity_equation</a></code></li>
+<li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_polynomial" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_polynomial">get_polynomial</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_time_to_vertex" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_time_to_vertex">get_time_to_vertex</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_times_to_point" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_times_to_point">get_times_to_point</a></code></li>
 <li><code><a title="game_qu.math.physics_function.PhysicsFunction.get_velocity_using_displacement" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_velocity_using_displacement">get_velocity_using_displacement</a></code></li>
@@ -149,15 +155,19 @@ class PhysicsPath(PhysicsFollowablePath):
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_acceleration_displacement" href="../paths/physics_followable_path.html#game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_acceleration_displacement">get_acceleration_displacement</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_acceleration_displacement_from_time" href="../paths/physics_followable_path.html#game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_acceleration_displacement_from_time">get_acceleration_displacement_from_time</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_delta_value" href="../paths/followable_path.html#game_qu.paths.followable_path.FollowablePath.get_delta_value">get_delta_value</a></code></li>
+<li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_derivative" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_derivative">get_derivative</a></code></li>
+<li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_derivative_of_position_equation" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_derivative_of_position_equation">get_derivative_of_position_equation</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_displacement" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_displacement">get_displacement</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_displacement_due_to_acceleration" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_acceleration">get_displacement_due_to_acceleration</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_displacement_due_to_velocity" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_displacement_due_to_velocity">get_displacement_due_to_velocity</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_distance" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_distance">get_distance</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_final_velocity" href="../paths/physics_followable_path.html#game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_final_velocity">get_final_velocity</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_full_cycle_time" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_full_cycle_time">get_full_cycle_time</a></code></li>
+<li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_indefinite_integral" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral">get_indefinite_integral</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_indefinite_integral_of_acceleration_equation" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_acceleration_equation">get_indefinite_integral_of_acceleration_equation</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_indefinite_integral_of_position_equation" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_position_equation">get_indefinite_integral_of_position_equation</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_indefinite_integral_of_velocity_equation" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_indefinite_integral_of_velocity_equation">get_indefinite_integral_of_velocity_equation</a></code></li>
+<li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_polynomial" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_polynomial">get_polynomial</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_time_to_vertex" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_time_to_vertex">get_time_to_vertex</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_times_to_point" href="../math/physics_function.html#game_qu.math.physics_function.PhysicsFunction.get_times_to_point">get_times_to_point</a></code></li>
 <li><code><a title="game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_total_displacement" href="../paths/physics_followable_path.html#game_qu.paths.physics_followable_path.PhysicsFollowablePath.get_total_displacement">get_total_displacement</a></code></li>
@@ -219,6 +229,7 @@ class PhysicsPath(PhysicsFollowablePath):
 <li><code><a title="game_qu.math.quadratic_function.QuadraticFunction.get_y_coordinate" href="../math/quadratic_function.html#game_qu.math.quadratic_function.QuadraticFunction.get_y_coordinate">get_y_coordinate</a></code></li>
 <li><code><a title="game_qu.math.quadratic_function.QuadraticFunction.points_set_variables" href="../math/quadratic_function.html#game_qu.math.quadratic_function.QuadraticFunction.points_set_variables">points_set_variables</a></code></li>
 <li><code><a title="game_qu.math.quadratic_function.QuadraticFunction.set_variables" href="../math/quadratic_function.html#game_qu.math.quadratic_function.QuadraticFunction.set_variables">set_variables</a></code></li>
+<li><code><a title="game_qu.math.quadratic_function.QuadraticFunction.solve_quadratic" href="../math/quadratic_function.html#game_qu.math.quadratic_function.QuadraticFunction.solve_quadratic">solve_quadratic</a></code></li>
 </ul>
 </li>
 </ul>
