@@ -8,7 +8,7 @@ if not LibraryChanger.get_library_has_been_set():
 
 from game_qu.base.keyboard import Keyboard
 from game_qu.gui_components.window import Window
-from game_qu.library_abstraction import keys
+from game_qu.base.library_abstraction import keys
 
 keyboard = Keyboard()
 game_window = Window(SCREEN_LENGTH, SCREEN_HEIGHT, BACKGROUND_COLOR, "Game Basics")

@@ -1,3 +1,4 @@
+from game_qu.base.colors import light_gray
 from game_qu.base.history_keeper import HistoryKeeper
 from game_qu.base.velocity_calculator import VelocityCalculator
 from game_qu.gui_components.dimensions import Dimensions
@@ -11,7 +12,7 @@ class Component(Dimensions):
     """ The components that are added to the game's window. If a screen's get_components() method returns a component,
         that components run and render methods will be called"""
 
-    color = None
+    color = light_gray
     path_to_image = None
     name = ""
     is_addable = True

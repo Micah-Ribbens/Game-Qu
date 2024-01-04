@@ -1,5 +1,5 @@
 from game_qu.base.count_event import CountEvent
-from game_qu.library_abstraction import utility_functions
+from game_qu.base.library_abstraction import utility_functions
 
 
 class Window:

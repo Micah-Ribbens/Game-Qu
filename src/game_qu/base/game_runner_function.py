@@ -3,7 +3,7 @@ import time
 from game_qu.base.important_variables import *
 from game_qu.base.history_keeper import HistoryKeeper
 from game_qu.base.velocity_calculator import VelocityCalculator
-from game_qu.library_abstraction import utility_functions
+from game_qu.base.library_abstraction import utility_functions
 
 def run_game(main_screen):
     """ Runs all the game code. This will add 'main_screen' to the 'game_window,' so the 'main_screen' components and run

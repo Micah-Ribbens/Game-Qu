@@ -12,7 +12,7 @@ class GameObject(Component):
         """Initializes the object"""
 
         super().__init__(path_to_image)
-        self.name = id_creator.get_name()
+        self.name = id_creator.get_unique_id()
 
     def update_for_side_scrolling(self, amount):
         """Updates the inanimate object, so it side scrolls"""

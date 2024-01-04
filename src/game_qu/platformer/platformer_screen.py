@@ -53,10 +53,10 @@ class PlatformerScreen(Screen):
         """Initializes the object"""
 
         super().__init__("")
+        self.hud = HUD(1, [], self.hud_length, self.hud_height, 1, None, high_score_is_needed=True)
 
         self.setup_platforms()
         self.setup_players()
-        self.hud = HUD(1, [], self.hud_length, self.hud_height, 1, None, high_score_is_needed=True)
 
     def setup_players(self):
         """Creates all the player's and all the necessary stuff associated with them (GravityEngine, HealthGrid, Generator, HUD)"""
@@ -268,7 +268,7 @@ class PlatformerScreen(Screen):
         game_components = []
 
         for game_object in self.game_objects:
-            game_components += game_object.get_components()
+            game_components += game_object.get_all_components()
 
         game_components += self.player_health_bars + self.platforms + [self.hud]
         return game_components if self.intermediate_screen.has_finished() else self.intermediate_screen.get_components()

@@ -1,7 +1,4 @@
 from game_qu.gui_components.component import Component
-from game_qu.base.velocity_calculator import VelocityCalculator
-from game_qu.base.important_variables import *
-from game_dependencies.platformer.platformer_constants import POWERUP_LENGTH, POWERUP_HEIGHT, POWERUP_OBJECT_TYPE
 
 
 class Powerup(Component):

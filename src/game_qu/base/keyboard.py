@@ -1,8 +1,8 @@
 from game_qu.base.events import Event
 from game_qu.base.timed_event import TimedEvent
-from game_qu.library_abstraction import keys
-from game_qu.library_abstraction import utility_functions
-from game_qu.library_abstraction import variables
+from game_qu.base.library_abstraction import keys
+from game_qu.base.library_abstraction import utility_functions
+from game_qu.base.library_abstraction import variables
 from game_qu.base.important_constants import IS_USING_CONTROLLER
 from game_qu.base.library_changer import LibraryChanger
 

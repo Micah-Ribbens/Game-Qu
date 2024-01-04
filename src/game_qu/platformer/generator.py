@@ -5,7 +5,7 @@ from game_qu.base.paths import Path
 from game_qu.base.velocity_calculator import VelocityCalculator
 from game_qu.math.point import Point
 from game_qu.platformer.player import Player
-from games.platformer.inanimate_objects.platform import Platform
+from game_qu.platformer.platform import Platform
 
 
 class Generator:
@@ -101,7 +101,7 @@ class Generator:
         # 2 * player's length because one of them comes from the player not being affected by gravity until its
         # left_edge > the last platform's right edge and other one because they can land on the new platform when
         # the right_edge is > the new platform's left_edge
-        return vertical_time * self.player.horizontal_velocity * accuracy + self.player.length * 2
+        return vertical_time * self.player.max_horizontal_velocity * accuracy + self.player.length * 2
 
     # Just for tests
     def get_hardest_platform(self, last_platform, difficulty):

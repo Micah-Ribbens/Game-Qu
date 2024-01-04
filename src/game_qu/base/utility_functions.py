@@ -10,7 +10,7 @@ from game_qu.base.fraction import Fraction
 from game_qu.base.important_variables import keyboard, SCREEN_LENGTH, SCREEN_HEIGHT, IS_USING_CONTROLLER
 import random
 
-from game_qu.library_abstraction import utility_functions
+from game_qu.base.library_abstraction import utility_functions
 from game_qu.base.range import Range
 
 # Retrieving the functions from the game library code

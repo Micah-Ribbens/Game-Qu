@@ -30,9 +30,12 @@ class WeaponUser(GameObject):
     def __init__(self, base_path_to_image):
         """Initializes the object"""
 
-        load_and_transform_image(base_path_to_image)
-        super().__init__(f"{base_path_to_image}_left.png")
-        self.base_path_to_image = base_path_to_image
+        if self.base_path_to_image != "":
+            load_and_transform_image(base_path_to_image)
+            super().__init__(f"{base_path_to_image}_left.png")
+
+        else:
+            super().__init__("")
 
         self.collidable_components = [self]
         self.components = []
@@ -136,7 +139,9 @@ class WeaponUser(GameObject):
     def render(self):
         """Renders the object onto the screen"""
 
-        self.path_to_image = get_directional_path_to_image(self.base_path_to_image, self.is_facing_right, "")
+        if self.base_path_to_image != "":
+            self.path_to_image = get_directional_path_to_image(self.base_path_to_image, self.is_facing_right, "")
+
         super().render()
 
     def get_components(self):

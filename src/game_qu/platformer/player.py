@@ -68,7 +68,6 @@ class Player(WeaponUser):
     acceleration_path = None
     current_velocity = 0
     initial_upwards_velocity = 0
-    gravity_engine = None
     invincibility_event = None
     platform_is_on = None
     last_platform_was_on = None
@@ -127,7 +126,6 @@ class Player(WeaponUser):
     def run(self):
         """Runs all the code that is necessary for the player to work properly"""
 
-        self.weapon.run()
         self.invincibility_event.run(self.invincibility_event.current_time > self.invincibility_event.time_needed, False)
         self.run_horizontal_movement()
         self.run_vertical_movement()
@@ -374,12 +372,10 @@ class Player(WeaponUser):
 
         if player_is_on_platform:
             self.set_top_edge(self.top_collision_data[1].top_edge - self.height)
-            self.gravity_engine.game_object_to_physics_path[self].reset()
 
         self.set_is_on_platform(player_is_on_platform, self.top_collision_data[1])
 
         if self.bottom_collision_data[0]:
-            self.gravity_engine.game_object_to_physics_path[self].reset()
             self.run_bottom_edge_collision(self.bottom_collision_data[1].bottom_edge)
 
     def set_left_edge(self, left_edge):
@@ -412,7 +408,7 @@ class Player(WeaponUser):
                 double: the max top edge that the next platform could be at that leaves the player 'margin_of_error'
         """
 
-        topmost_top_edge = last_platform.top_edge - (self.jump_height * accuracy) + self.height
+        topmost_top_edge = last_platform.top_edge - (self.high_jump_height * accuracy) + self.height
 
         # The absolute max of a platform is the player's height because the player has to get its bottom_edge on the platform
         # Which would mean the player's top edge would be 0 also
@@ -562,6 +558,15 @@ class Player(WeaponUser):
             delta_times.append(float("inf"))
 
         return PiecewiseFunction.get_bounded_functions_with_delta_times(functions, delta_times, 0)
+
+    def get_max_time_to_top_edge(self, start_top_edge, new_top_edge):
+        """
+            Returns:
+                 double: the max amount of time for the player's bottom_edge to reach the new y coordinate"""
+
+        # TODO actually solve this
+        return 1.2
+
 
     def get_terminal_velocity_delta_time(self, function: Polynomial, terminal_velocity):
         """

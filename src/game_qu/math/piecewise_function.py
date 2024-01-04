@@ -1,10 +1,8 @@
 from copy import deepcopy
 
 from game_qu.math.bounded_function import BoundedFunction
-from game_qu.math.derivative import Derivative
 from game_qu.math.function import Function
 from game_qu.base.utility_functions import modified_mod, is_within_bounds, min_value
-from game_qu.math.indefinite_integral import IndefiniteIntegral
 
 
 class PiecewiseFunction(Function):
