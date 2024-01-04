@@ -1,5 +1,6 @@
 from copy import deepcopy
 
+from game_qu.math.bounded_function import BoundedFunction
 from game_qu.math.derivative import Derivative
 from game_qu.math.function import Function
 from game_qu.base.utility_functions import modified_mod, is_within_bounds, min_value
@@ -24,7 +25,7 @@ class PiecewiseFunction(Function):
     def get_functions(self):
         """
              Returns:
-                BoundedFunction: all the functions of the piecewise function"""
+                list[BoundedFunction]: all the functions of the piecewise function"""
 
         return self.functions
 
@@ -381,3 +382,24 @@ class PiecewiseFunction(Function):
                 float: the value of the derivative evaluated at the 'x_coordinate'"""
 
         return self.get_derivative().get_y_coordinate(x_coordinate)
+
+    @staticmethod
+    def get_bounded_functions_with_delta_times(functions, delta_times, start_time):
+        """
+            Returns:
+                list[BoundedFunction]: a list of the bounded functions the first one started at 'start_time' and the
+                rest are shifted by the delta times
+        """
+
+        if len(functions) != len(delta_times):
+            raise ValueError("The length of 'functions' must be equal to the length of 'delta_times'")
+
+        bounded_functions = []
+        current_start_time = start_time
+        for x in range(len(delta_times)):
+            end_time = current_start_time + delta_times[x]
+            bounded_function = BoundedFunction(functions[x], current_start_time, end_time)
+            bounded_functions.append(bounded_function)
+            current_start_time = end_time
+
+        return bounded_functions

@@ -1,9 +1,11 @@
 import math
 from copy import deepcopy
 
+from game_qu.base.utility_functions import is_integer, solve_quadratic
 from game_qu.math.derivative import Derivative
 from game_qu.math.function import Function
 from game_qu.math.indefinite_integral import IndefiniteIntegral
+from game_qu.math.quadratic_function import QuadraticFunction
 
 
 class PolynomialTerm:
@@ -165,6 +167,36 @@ class Polynomial(Function):
 
         return y_coordinate
 
+    def get_x_coordinates(self, y_coordinate):
+        """
+            Returns:
+                list[float]: a list of x coordinates associated with that y coordinate (if the polynomial is easily solvable)
+
+            Raises:
+                ValueError: if the polynomial has degree greater than 2 or the polynomial has a non-integer coefficient
+        """
+
+        polynomial_terms = self.get_terms()
+        quadratic_terms = [0, 0, 0]  # a, b, c
+
+        for term in polynomial_terms:
+            if term.get_degree() > 2:
+                raise ValueError("The polynomial cannot have a degree greater than 2")
+
+            if term.get_degree() < 0:
+                raise ValueError("The polynomial cannot have a negative degree")
+
+            if not is_integer(term):
+                raise ValueError("The polynomial cannot have a non-integer coefficient")
+
+            quadratic_terms[int(term.get_degree())] = term.get_coefficient()
+
+        # y = ax^2 + bx + c -> 0 = ax^2 + bx + c - y
+        # Need to set the equation to 0 = ax^2 + bx + c - y (see above for proof)
+        quadratic_terms[2] -= y_coordinate
+
+        return QuadraticFunction.solve_quadratic(*quadratic_terms)
+
     def get_indefinite_integral(self):
         """
              Returns:
@@ -182,7 +214,7 @@ class Polynomial(Function):
     def get_derivative(self):
         """
              Returns:
-                Derivative: the derivative of the function"""
+                Polynomial: the derivative of the function"""
 
         return Derivative.get_polynomial_derivative(self)
 

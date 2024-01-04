@@ -2,6 +2,8 @@ import math
 
 from game_qu.base.utility_functions import get_kwarg_item, solve_quadratic
 from game_qu.math.indefinite_integral import IndefiniteIntegral
+from game_qu.math.matrix import Matrix
+from game_qu.math.polynomial import Polynomial, PolynomialTerm
 from game_qu.math.quadratic_function import QuadraticFunction
 
 
@@ -11,6 +13,11 @@ class PhysicsFunction:
     acceleration = 0
     initial_velocity = 0
     initial_distance = 0
+
+    def __init__(self, vertex=0, time=1, initial_distance=0):
+        """Initializes the object"""
+
+        self.set_all_variables(vertex, time, initial_distance)
 
     def get_time_to_vertex(self):
         """ Gets the time it takes to reach the vertex knowing that the final initial_velocity is 0, so the time is -initial_velocity / acceleration
@@ -30,7 +37,7 @@ class PhysicsFunction:
                 displacement (float): the distance (up being positive and down being negative) that it should travel
      
             Returns:
-                None
+                PhysicsFunction: 'self'
         """
 
         self.acceleration = (2 * displacement) / pow(time, 2)
@@ -43,12 +50,11 @@ class PhysicsFunction:
                 displacement (float): the distance (up being positive and down being negative) that it should travel
      
             Returns:
-                None
+                PhysicsFunction: 'self'
         """
 
         # Solved for vi knowing vf = 0 in vf^2 = vi^2 + 2ad
         self.initial_velocity = math.sqrt(2 * self.acceleration * displacement)
-
 
     def set_acceleration_with_velocity(self, time, velocity_change):
         """Sets the acceleration knowing that vf = vi + at"""
@@ -64,7 +70,7 @@ class PhysicsFunction:
                 initial_distance (float): the initial distance
      
             Returns:
-                None
+                PhysicsFunction: 'self'
         """
 
         self.initial_distance = initial_distance
@@ -72,22 +78,24 @@ class PhysicsFunction:
         # Gotten using math
         self.initial_velocity = (-2 * initial_distance + 2 * vertex) / time
         self.acceleration = 2 * (initial_distance - vertex) / pow(time, 2)
+        return self
 
     def set_variables(self, **kwargs):
         """ Sets the variables to the number provided
 
-            possible parameters:
+            Args:
                 acceleration (float): the acceleration (can be positive or negative) | a in 1/2 * ax^2 + bx + c
                 initial_velocity (float): the initial_velocity (can be positive or negative) | b in 1/2 * ax^2 + bx + c
                 initial_distance (float): the starting point (can be positive or negative) | c in 1/2 * ax^2 + bx + c
 
             Returns:
-                None
+                PhysicsFunction: 'self'
         """
 
         self.acceleration = get_kwarg_item(kwargs, "acceleration", self.acceleration)
         self.initial_velocity = get_kwarg_item(kwargs, "initial_velocity", self.initial_velocity)
         self.initial_distance = get_kwarg_item(kwargs, "initial_distance", self.initial_distance)
+        return self
 
     def get_distance(self, time):
         """ Finds the number by plugging x into the equation 1/2 * at^2 + vt + d
@@ -215,6 +223,34 @@ class PhysicsFunction:
         last_distance = 1 / 2 * self.acceleration * pow(start_time, 2)
 
         return current_distance - last_distance
+
+    def get_polynomial(self):
+        """
+            Returns:
+                Polynomial: the polynomial form of this function
+        """
+
+        a, b, c = self.get_a_b_and_c()
+        matrix = Matrix([PolynomialTerm(a, 2), PolynomialTerm(b, 1), PolynomialTerm(c, 0)])
+        return Polynomial(matrix)
+
+    def set_initial_velocity(self, initial_velocity):
+        self.initial_velocity = initial_velocity
+
+    def set_acceleration(self, acceleration):
+        self.acceleration = acceleration
+
+    def set_initial_distance(self, initial_distance):
+        self.initial_distance = initial_distance
+
+    def get_initial_velocity(self):
+        return self.initial_velocity
+
+    def get_acceleration(self):
+        return self.acceleration
+
+    def get_initial_distance(self):
+        return self.initial_distance
 
     def __str__(self):
         return f"[{self.acceleration},{self.initial_velocity},{self.initial_distance},]"

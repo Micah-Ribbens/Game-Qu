@@ -27,6 +27,7 @@ class Function(ABC):
 
         raise ValueError("This function either has no inverse, or an inverse of this function was never calculated")
 
+
     @staticmethod
     def get_new_function(get_y_coordinate_method):
         """

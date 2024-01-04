@@ -1,6 +1,6 @@
 from game_qu.base.utility_functions import is_within_bounds
 from game_qu.math.function import Function
-from game_qu.math.piecewise_function import PiecewiseFunction
+from game_qu.math.utility_functions import get_full_function
 
 
 class BoundedFunction(Function):
@@ -165,26 +165,11 @@ class BoundedFunction(Function):
         self.x_coordinates_can_be_less_than_min = x_coordinates_can_be_less_than_min
         return self
 
-    def get_full_function(self):
-        """
-             Returns:
-                PiecewiseFunction: the fully 'unbounded' function - x coordinates can now be less than the min x
-                x coordinate"""
-
-        start = self.get_min_x_coordinate() - self.bounds_size()
-        end = self.get_max_x_coordinate() - self.bounds_size()
-        bounds_size = self.bounds_size()  # This is the bounds size do not change if the original bounds size change!
-
-        before_function = self.get_bounded_function_with_bounds(start, end)
-        before_function.get_y_coordinate = lambda x: before_function.get_y_coordinate(x - bounds_size)
-
-        return PiecewiseFunction([self.get_copy(), before_function])
-
     def update_current_function(self):
         """Updates the current function after the bounded function is updated"""
 
         if self.x_coordinates_can_be_less_than_min:
-            self.current_function = self.get_full_function()
+            self.current_function = get_full_function()
 
         else:
             self.current_function = self.unmodified_function

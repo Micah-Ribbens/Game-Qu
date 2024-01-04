@@ -65,6 +65,15 @@ class Dimensions:
         self.top_edge = vertical_number * percent_down / 100
         self.height = vertical_number * percent_height / 100
 
+    def set_dimensions_within_component(self, percent_right, percent_down, percent_length, percent_height, component):
+        """ Sets the dimensions of this component, so it fits within the other 'component.' The percentages are relative
+            to the provided 'component.' For instance, percent_length is a percentage of component.length."""
+
+        self.left_edge = component.length * percent_right / 100 + component.left_edge
+        self.length = component.length * percent_length / 100
+        self.top_edge = component.height * percent_down / 100 + component.top_edge
+        self.height = component.height * percent_height / 100
+
     def set_left_edge(self, value):
         self.left_edge = value
 

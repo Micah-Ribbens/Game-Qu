@@ -1,7 +1,7 @@
 import math
 
-from math import sqrt
 from game_qu.base.library_changer import LibraryChanger
+from game_qu.math.quadratic_function import QuadraticFunction
 
 if not LibraryChanger.get_library_has_been_set():
     LibraryChanger.set_game_library("pygame")
@@ -299,27 +299,14 @@ def get_kwarg_item(kwargs, key, default_value):
 
     return kwargs.get(key) if kwargs.__contains__(key) else default_value
 
+
 def solve_quadratic(a, b, c):
     """
-             Returns:
+         Returns:
             list[float]: [answer1, answer2] the answers to the quadratic
             and if the answer is an imaginary number it returns float('nan')"""
 
-    number_under_square_root = pow(b, 2) - 4 * a * c
-    number_under_square_root = rounded(number_under_square_root, 4)
-
-    if number_under_square_root < 0:
-        return None
-
-    square_root = sqrt(number_under_square_root)
-
-    answer1 = (-b + square_root) / (2 * a)
-    answer2 = (-b - square_root) / (2 * a)
-
-    answers = [answer2, answer1]
-
-    # If the answers are the same I should only return one of them
-    return answers if answers[0] != answers[1] else [answers[0]]
+    return QuadraticFunction.solve_quadratic(a, b, c)
 
 
 def modified_mod(number, modulus):
@@ -343,6 +330,14 @@ def modified_mod(number, modulus):
         value += number_decimal
 
     return value * constant_factor  # An int should be gotten back
+
+
+def is_integer(number):
+    """
+        Returns:
+            bool: whether the number is an integer"""
+
+    return number == int(number)
 
 
 def get_decimal_with_full_accuracy(number):
@@ -377,6 +372,7 @@ def is_within_bounds(value, min_value, max_value):
             bool: whether the value is within the specified bounds"""
 
     return min_value <= value <= max_value
+
 
 def get_sign(number):
     """

@@ -27,7 +27,7 @@ class Derivative:
     def get_polynomial_derivative(polynomial):
         """
              Returns:
-                Function: the derivative of the polynomial (does not modify the passed in polynomial)"""
+                Polynomial: the derivative of the polynomial (does not modify the passed in polynomial)"""
 
         new_terms = []
         for term in polynomial.get_terms():
