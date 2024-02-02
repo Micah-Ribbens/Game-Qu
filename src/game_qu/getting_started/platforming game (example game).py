@@ -8,7 +8,7 @@ from game_qu.base.colors import *
 
 LibraryChanger.set_game_library("pygame")
 LibraryChanger.set_screen_dimensions(1000, 600)
-LibraryChanger.set_background_color(black)
+LibraryChanger.set_background_color(light_gray)
 
 # The rest of the imports
 from game_qu.base.important_variables import *

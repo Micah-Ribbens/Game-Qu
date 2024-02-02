@@ -157,6 +157,13 @@ def is_mouse_collision(dimensions):
 
     return is_horizontal_collision and is_vertical_collision
 
+def get_mouse_position():
+    """
+         Returns:
+            list[int]: the left_edge, top_edge of the mouse"""
+
+    return variables.mouse_position
+
 
 def get_time_passed(unused):
     """This function is never used, but other game engines like pygame need this function, so it must exist"""
