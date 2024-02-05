@@ -23,7 +23,7 @@ render() methods are called and then each run and render() method of each compon
 - 'components' - the list of components that are on the screen
 - get_components() method - returns the list of components that are on the screen (by default, it returns the 'components' attribute)
 - run() method - this method is called every game cycle and it is where the game logic is put. The method is called before render()
-- render()/render_background() - renders the screen (usually the background)
+- render()ender_background() - renders the screen (usually the background)
 - 'path_to_image' - the path to the image that will be rendered onto the screen for the component.
 - 'color' - the color of background. This only matters if 'path_to_image' is set to ''. Otherwise, the image will be rendered onto the screen.
 

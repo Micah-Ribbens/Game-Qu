@@ -249,7 +249,7 @@ class BoundedFunction(Function):
             Returns:
                 IndefiniteIntegral: the indefinite integral of the polynomial"""
 
-        return self.current_function.get_indefinite_integral()
+        return BoundedFunction(self.current_function.get_indefinite_integral(), self.min_x_coordinate, self.max_x_coordinate)
 
     def evaluate_area(self, start, end):
         """
@@ -265,7 +265,7 @@ class BoundedFunction(Function):
             Returns:
                 Derivative: the derivative of the polynomial"""
 
-        return self.current_function.get_derivative()
+        return BoundedFunction(self.current_function.get_derivative(), self.min_x_coordinate, self.max_x_coordinate)
 
     def evaluate_derivative_at_point(self, x_coordinate):
         """

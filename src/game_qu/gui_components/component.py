@@ -17,6 +17,8 @@ class Component(Dimensions):
     name = ""
     is_addable = True
     is_runnable = True  # Sometimes the screen has to run the player, so some components shouldn't be run
+    is_visible = True
+    should_run_when_not_visible = True
     last_frame_id_when_visible = 0
     image_length = 1
     image_height = 1
@@ -26,6 +28,7 @@ class Component(Dimensions):
     mouse_exit_function = do_nothing
     mouse_enter_event = None
     mouse_exit_event = None
+    command = do_nothing
 
     def __init__(self, path_to_image=""):
         """Initializes the object and loads an image if the path_to_image is not empty"""
@@ -49,11 +52,14 @@ class Component(Dimensions):
 
         # 'is_click()' in this circumstance means whether the mouse has either first exited this component or first
         # entered this component
+        if self.mouse_exit_event.is_click():
+            self.mouse_exit_function()
+
         if self.mouse_enter_event.is_click():
             self.mouse_enter_function()
 
-        if self.mouse_exit_event.is_click():
-            self.mouse_exit_function()
+        if self.got_clicked():
+            self.command()
 
     def render(self):
         """ Renders the component onto the screen- it will either render the image if 'self.path_to_image' is not empty
@@ -112,3 +118,21 @@ class Component(Dimensions):
 
     def get_color(self):
         return self.color
+
+    def set_is_visible(self, is_visible):
+        self.is_visible = is_visible
+
+    def get_is_visible(self):
+        return self.is_visible
+
+    def set_is_runnable(self, is_runnable):
+        self.is_runnable = is_runnable
+
+    def get_is_runnable(self):
+        return self.is_runnable
+
+    def set_command(self, command):
+        """Sets what function should be run when the component is clicked"""
+
+        self.command = command
+
