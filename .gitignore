@@ -7,3 +7,4 @@ TODO.md
 .DS_Store
 dist
 *.bak
+change_line_endings.py
