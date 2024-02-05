@@ -84,11 +84,10 @@ class Window:
                 screen.render()
 
             for component in screen.get_components():
-                can_run_normally = component.is_visible and component.get_is_visible()
-                if can_run_normally or component.should_run_when_not_visible:
+                if component.get_is_visible() or component.should_run_when_not_visible:
                     component.run()
 
-                if should_render and component.is_visible:
+                if should_render and component.get_is_visible():
                     component.render()
 
     def stop_rendering(self):

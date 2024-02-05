@@ -2,6 +2,8 @@ import math
 import functools
 
 from game_qu.base.library_changer import LibraryChanger
+from game_qu.tile_map.tile import Tile
+
 LibraryChanger.set_screen_dimensions(1000, 600)
 
 from game_qu.base.game_runner_function import run_game
@@ -74,8 +76,6 @@ class TileMapScreen(Screen):
         for tile in self.tiles:
             tile.run()
 
-        self.last_tile = self.tile
-        self.last_tile_was_previously_visible = self.temp_last_tile_was_previously_visible
 
     def update_grid_lines(self):
         for i in range(self.rows - 1):
@@ -98,7 +98,7 @@ class TileMapScreen(Screen):
             new_tiles = []
 
             for j in range(self.columns):
-                tile = Component("")
+                tile = Tile("")
                 tile.set_color(blue)
                 tile.set_is_visible(False)
                 tile.set_is_runnable(False)
@@ -110,9 +110,9 @@ class TileMapScreen(Screen):
 
                 tile.number_set_dimensions(left_edge, top_edge, length, height)
 
-                tile.set_mouse_enter_function(self.run_mouse_enter_tile)
-                tile.set_mouse_exit_function(self.run_mouse_exit_tile)
-                tile.set_command(self.run_tile_clicked)
+                tile.set_mouse_enter_function(lambda x=tile: self.run_mouse_enter_tile(x))
+                tile.set_mouse_exit_function(lambda x=tile: self.run_mouse_exit_tile(x))
+                tile.set_command(lambda x=tile: self.run_tile_clicked(x))
 
                 new_tiles.append(tile)
 
@@ -126,30 +126,24 @@ class TileMapScreen(Screen):
 
         return row, column
 
-    def run_mouse_enter_tile(self):
+    def run_mouse_enter_tile(self, tile):
         """Runs what should happen when the mouse enters the tile"""
 
-        self.tile.set_is_visible(self.is_painting)
-        self.last_tile_was_clicked = False
-        self.temp_last_tile_was_previously_visible = self.tile.get_is_visible()
+        if not self.is_painting:
+            tile.set_is_temporarily_invisible(True)
 
-    def run_mouse_exit_tile(self):
+        tile.set_is_visible(self.is_painting)
+
+    def run_mouse_exit_tile(self, tile):
         """Runs what should happen when the mouse exits the tile"""
 
-        if not self.last_tile_was_clicked and self.last_tile is not None:
-            if self.last_tile_was_previously_visible and not self.is_painting:
-                self.last_tile.set_is_visible(True)
+        tile.set_is_temporarily_invisible(False)
+        tile.set_is_visible(tile.get_is_active())
 
-            if not self.last_tile_was_previously_visible and self.is_painting:
-                self.last_tile.set_is_visible(False)
-
-        self.last_tile_was_clicked = False
-
-    def run_tile_clicked(self):
+    def run_tile_clicked(self, tile):
         """Runs what should happen when the tile is clicked"""
 
-        self.last_tile.set_is_visible(self.is_painting)
-        self.last_tile_was_clicked = True
+        tile.set_is_active(self.is_painting)
 
     def get_components(self):
         return self.bottom_tool_bar + self.grid_lines + self.top_tool_bar + self.tiles
@@ -185,8 +179,6 @@ class TileMapScreen(Screen):
     def tile(self):
         row, column = self.get_grid_row_and_column(*get_mouse_position())
         return self.tiles[row * self.columns + column]
-
-
 
 
 run_game(TileMapScreen())
