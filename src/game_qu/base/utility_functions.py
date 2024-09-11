@@ -28,6 +28,7 @@ is_mouse_collision = getattr(utility_functions, "is_mouse_collision")
 get_time_passed = getattr(utility_functions, "get_time_passed")
 load_and_transform_image = getattr(utility_functions, "load_and_transform_image")
 get_directional_path_to_image = getattr(utility_functions, "get_directional_path_to_image")
+get_mouse_position = getattr(utility_functions, "get_mouse_position")
 
 def key_is_pressed(key):
     """
@@ -315,6 +316,15 @@ def modified_mod(number, modulus):
 
          Returns:
             float: the number % modulus that conforms to the rules specified above"""
+
+    if number == float("inf") and modulus == float("inf"):
+        raise ValueError("Cannot get the modulus of infinity and infinity")
+
+    if number == float("inf"):
+        return float("inf")
+
+    if modulus == float("inf"):
+        return 0
 
     number_is_negative = number < 0
     value = math.fabs(number) % modulus

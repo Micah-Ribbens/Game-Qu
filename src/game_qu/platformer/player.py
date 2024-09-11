@@ -9,10 +9,11 @@ from game_qu.base.velocity_calculator import VelocityCalculator
 from game_qu.math.bounded_function import BoundedFunction
 from game_qu.math.function import Function
 from game_qu.math.linear_interpolation import LinearInterpolation
+from game_qu.math.matrix import Matrix
 from game_qu.math.physics_function import PhysicsFunction
 from game_qu.math.piecewise_function import PiecewiseFunction
 from game_qu.math.point import Point
-from game_qu.math.polynomial import Polynomial
+from game_qu.math.polynomial import Polynomial, PolynomialTerm
 from game_qu.paths.piecewise_followable_path import PiecewiseFollowablePath
 from game_qu.platformer.weapon_user import WeaponUser
 from game_qu.base.utility_functions import *
@@ -76,12 +77,13 @@ class Player(WeaponUser):
     has_jumped = False
     jumping_piecewise_function = None
     falling_piecewise_function = None
-    time_to_jump_type = None
+    time_to_jump_type_index = None
     coyote_timed_event = None
     jump_buffer_timed_event = None
     base_left_edge = -1
     base_top_edge = -1
     jump_key_held_in_time = -1
+    jump_types = None
 
     # Booleans
     can_move_down = False
@@ -112,6 +114,7 @@ class Player(WeaponUser):
         self.all_paths_and_events = [self.jumping_path, self.deceleration_path, self.acceleration_path]
         self.jumping_functions = [self._set_jumping_path_to_small_jump, self._set_jumping_path_to_medium_jump,
                                   self._set_jumping_path_to_high_jump]
+        self.update_jump_types()
 
     def create_paths(self):
         """Creates all the paths for the player: jumping_path, decelerating_path, etc."""
@@ -146,7 +149,7 @@ class Player(WeaponUser):
             self.jump_key_held_in_time = get_time_of_game_button_being_held_in(self.jump_key)
 
             if self.has_jumped:
-                self.run_jump_type(self.jump_key_held_in_time)
+                self.run_jump_type()
 
         if self.top_edge <= 0:
             self.run_bottom_edge_collision(0)
@@ -234,7 +237,6 @@ class Player(WeaponUser):
         self.left_edge = self.base_left_edge
         self.top_edge = self.base_top_edge
 
-        self.weapon.reset()
         self.run_respawning()  # Resetting from the game ending and respawning has a lot in similarity
 
     def run_respawning(self):
@@ -455,8 +457,16 @@ class Player(WeaponUser):
                 float: the velocity of the player at this moment in time
         """
 
+        return self.get_vertical_velocity_at_time(self.jumping_path.get_current_time())
+
+    def get_vertical_velocity_at_time(self, time):
+        """
+            Returns:
+                float: the velocity of the player at that moment in time
+        """
+
         derivative = self.jumping_path.get_piecewise_function().get_derivative()
-        return derivative.get_y_coordinate(self.jumping_path.get_current_time())
+        return derivative.get_y_coordinate(time)
 
     def get_vertical_acceleration(self):
         """
@@ -499,7 +509,9 @@ class Player(WeaponUser):
     def update_jumping_path(self):
         """Updates the path of the player, so they jump"""
 
-        self._set_jumping_path_to_high_jump()
+        initial_velocity = PhysicsFunction(self.top_edge - self.high_jump_height, self.time_to_high_jump_vertex, self.top_edge).get_initial_velocity()
+        self.set_jumping_path_with_kinematics(self.top_edge - self.high_jump_height, self.time_to_high_jump_vertex,
+                                              initial_velocity, self.time_from_high_jump_vertex_to_ground)
 
     def update_falling_path(self):
         """Updates the path of the player, so they fall"""
@@ -513,11 +525,14 @@ class Player(WeaponUser):
         """Updates the variables of the player, so the jump heights work"""
 
         # The x coordinate is the time the jump key is held in and the y coordinate is the index of the function
-        self.time_to_jump_type = LinearInterpolation(Point(0, 0),
-                                                     [Point(self.small_jump_time_held_in, 0),
+        self.time_to_jump_type_index = LinearInterpolation(Point(0, 0),
+                                                           [Point(self.small_jump_time_held_in, 0),
                                                       Point(self.medium_jump_time_held_in, 1),
                                                       Point(self.high_jump_time_held_in, 2),
                                                       Point(float("inf"), 2)])
+
+        self.jump_types = [self._set_jumping_path_to_small_jump, self._set_jumping_path_to_medium_jump,
+                           self._set_jumping_path_to_high_jump]
 
     def set_jumping_path_with_apex(self, time_to_jump_vertex, jump_height, time_from_vertex_to_ground):
         """Sets the jumping path of the player, so it has the jump height and time to vertex"""
@@ -535,16 +550,21 @@ class Player(WeaponUser):
         vertex = self.top_edge - jump_height_left
         initial_velocity = self.get_vertical_velocity()
 
+        self.set_jumping_path_with_kinematics(vertex, apex_time_left, initial_velocity, time_from_vertex_to_ground)
+
+    def set_jumping_path_with_kinematics(self, vertex, time_to_vertex, initial_velocity, time_from_vertex_to_ground):
+        """Sets the jumping path based on the passed in variables"""
+
         # Using variables found above to get the functions
         upwards_function = PhysicsFunction()
         upwards_function.set_variables(initial_velocity=initial_velocity, initial_distance=self.top_edge)
-        upwards_function.set_acceleration_with_velocity(apex_time_left, -initial_velocity)
+        upwards_function.set_acceleration_with_velocity(time_to_vertex, -initial_velocity)
 
-        apex_function = Function.get_new_function(lambda x: vertex)  # So the player stays at the vertex
+        apex_function = Polynomial(Matrix([])).set_terms([PolynomialTerm(vertex, 0)])  # So the player stays at the vertex
         downwards_function = PhysicsFunction(self.top_edge, time_from_vertex_to_ground, vertex)
 
-        functions = [vertex, upwards_function, apex_function, downwards_function]
-        delta_times = [time_to_jump_vertex, self.apex_jump_time, time_from_vertex_to_ground]
+        functions = [upwards_function, apex_function, downwards_function]
+        delta_times = [time_to_vertex, self.apex_jump_time, time_from_vertex_to_ground]
 
         bounded_functions = self.get_jumping_path_bounded_functions(functions, delta_times)
         self.jumping_piecewise_function.set_functions(bounded_functions)
@@ -573,7 +593,7 @@ class Player(WeaponUser):
         """
 
         # So the player's velocity is clamped at terminal velocity
-        terminal_velocity_function = Function.get_new_function(lambda x: self.terminal_velocity)
+        terminal_velocity_function = Polynomial(Matrix([])).set_terms([PolynomialTerm(self.terminal_velocity, 1)])
         last_function = functions[len(functions) - 1]
         terminal_velocity_delta_time = self.get_terminal_velocity_delta_time(last_function.get_polynomial(),
                                                                              self.terminal_velocity)
@@ -627,8 +647,9 @@ class Player(WeaponUser):
     def run_jump_type(self):
         """Runs a different jump type (small, medium, or large) depending on how long the key was held in"""
 
-        # In this case the y coordinate is the function that should be called
-        self.time_to_jump_type.get_y_coordinate(self.jump_key_held_in_time)()
+        index = self.time_to_jump_type_index.get_y_coordinate(self.jump_key_held_in_time)
+        self.jump_types[int(index)]()
+
         self.jump_key_held_in_time = -1
 
     def set_coyote_time(self, coyote_time):

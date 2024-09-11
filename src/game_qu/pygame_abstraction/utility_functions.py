@@ -178,6 +178,14 @@ def is_mouse_collision(dimensions):
     return area.collidepoint(mouse_left_edge, mouse_top_edge)
 
 
+def get_mouse_position():
+    """
+        Returns:
+            tuple[int]: {left_edge, top_edge}; the position of the mouse"""
+
+    return pygame.mouse.get_pos()
+
+
 def get_time_passed(start_time):
     """
              Returns:
